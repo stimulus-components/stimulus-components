@@ -32,6 +32,6 @@ application.register("toggle", Toggle)
 
 ## Configuration
 
-| Attribute | Default | Description |
-| --------- | ------- | ----------- |
-| `data-hidden-class` | `hidden` | CSS class to toggle |
+| Attribute | Default | Description | Optional |
+| --------- | ------- | ----------- | -------- |
+| `data-hidden-class` | `hidden` | CSS class to toggle | ✅ |
