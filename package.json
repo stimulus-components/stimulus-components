@@ -25,7 +25,7 @@
   "scripts": {
     "format": "prettier-standard  '**/*.{js,css,html}' --format",
     "lint": "prettier-standard  '**/*.{js,css,html}' --lint",
-    "test": "BABEL_ENV=test jest",
+    "test": "BABEL_ENV=test jest --passWithNoTests",
     "dev": "snowpack dev",
     "build": "pika build",
     "prepublishOnly": "yarn build"
