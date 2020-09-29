@@ -1,0 +1,54 @@
+{
+  "name": "stimulus-components",
+  "version": "1.0.0",
+  "description": "Collection of stimulus controllers",
+  "repository": "git@github.com:guillaumebriday/stimulus-components.git",
+  "author": "Guillaume Briday <guillaumebriday@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "esnext": "dist-src/index.js",
+  "main": "dist-node/index.js",
+  "module": "dist-web/index.js",
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-standard-pkg"
+      ],
+      [
+        "@pika/plugin-build-web"
+      ],
+      [
+        "@pika/plugin-build-node"
+      ]
+    ]
+  },
+  "scripts": {
+    "format": "prettier-standard  '**/*.{js,css,html}' --format",
+    "lint": "prettier-standard  '**/*.{js,css,html}' --lint",
+    "test": "BABEL_ENV=test jest",
+    "dev": "snowpack dev",
+    "build": "pika build",
+    "prepublishOnly": "yarn build"
+  },
+  "dependencies": {
+    "stimulus": "1.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "7.11.6",
+    "@babel/plugin-syntax-class-properties": "7.10.4",
+    "@babel/preset-env": "7.11.5",
+    "@pika/pack": "0.5.0",
+    "@pika/plugin-build-node": "0.9.2",
+    "@pika/plugin-build-web": "0.9.2",
+    "@pika/plugin-standard-pkg": "0.9.2",
+    "@snowpack/plugin-babel": "2.1.1",
+    "@types/jest": "26.0.14",
+    "babel-jest": "26.3.0",
+    "jest": "26.4.2",
+    "jest-dev-server": "4.4.0",
+    "jest-puppeteer": "4.4.0",
+    "prettier-standard": "16.4.1",
+    "puppeteer": "5.3.1",
+    "snowpack": "2.12.1"
+  }
+}
