@@ -9,6 +9,13 @@
     />
     <title>Stimulus Components</title>
     <script type="module" src="/src/index.js" defer></script>
+    <script type="module" defer>
+      import { Application } from "stimulus"
+      import { Toggle } from "/src/index.js"
+
+      const application = Application.start()
+      application.register("toggle", Toggle)
+    </script>
 
     <style>
       ul {
@@ -84,7 +91,7 @@
 
       <h2 class="text-center text-2xl font-bold my-4">Essential links</h2>
 
-      <ul class="text-center">
+      <ul class="text-center mb-8">
         <li>
           <a
             href="https://github.com/guillaumebriday/stimulus-components"
@@ -105,6 +112,18 @@
           </a>
         </li>
       </ul>
+
+      <section data-controller="toggle">
+        <h2 class="text-2xl font-bold mb-4">
+          <a href="">Toggle Controller</a>
+        </h2>
+
+        <button data-action="click->toggle#toggle" type="button" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+          Toggle me!
+        </button>
+
+        <p data-target="toggle.item" class="hidden mt-4">Hey 👋</p>
+      </section>
     </div>
   </body>
 </html>
