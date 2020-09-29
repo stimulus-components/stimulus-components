@@ -4,3 +4,7 @@ jest
 jest.config.js
 index.html
 snowpack.config.json
+netlify.toml
+.node-version
+.eslintrc.js
+src
