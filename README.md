@@ -16,14 +16,6 @@ This library is a set of multiple [Stimulus controllers](https://stimulusjs.org/
 
 This library supports [tree-shaking](https://webpack.js.org/guides/tree-shaking/) so you can import **only the controllers you need**.
 
-You can import it directly in your browser thanks to the the new ES6 syntax with [UNPKG](https://unpkg.com/).
-
-```js
-<script defer type="module" src="https://unpkg.com/stimulus-components"></script>
-```
-
-You can also install it with npm or yarn for your modules bundler like [Webpack](https://webpack.js.org/) or [Rollup](https://webpack.js.org/):
-
 ```bash
 $ yarn add stimulus-components
 ```
