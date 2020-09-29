@@ -9,13 +9,16 @@
     />
     <title>Stimulus Components</title>
     <script type="module" src="./src/index.js" defer></script>
-    <script src="https://unpkg.com/stimulus/dist/stimulus.umd.js" defer></script>
+    <script
+      src="https://unpkg.com/stimulus/dist/stimulus.umd.js"
+      defer
+    ></script>
 
     <script type="module" defer>
-      import { Toggle } from "./src/index.js"
+      import { Toggle } from './src/index.js'
 
       const application = Stimulus.Application.start()
-      application.register("toggle", Toggle)
+      application.register('toggle', Toggle)
     </script>
 
     <style>
@@ -86,7 +89,9 @@
         </a>
 
         <a href="https://stimulus-components.netlify.com/">
-          <img src="https://api.netlify.com/api/v1/badges/056dda4a-4444-4c24-a854-c4b1944d35ca/deploy-status" />
+          <img
+            src="https://api.netlify.com/api/v1/badges/056dda4a-4444-4c24-a854-c4b1944d35ca/deploy-status"
+          />
         </a>
       </p>
 
@@ -119,7 +124,11 @@
           <a href="">Toggle Controller</a>
         </h2>
 
-        <button data-action="click->toggle#toggle" type="button" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+        <button
+          data-action="click->toggle#toggle"
+          type="button"
+          class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+        >
           Toggle me!
         </button>
 

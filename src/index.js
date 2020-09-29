@@ -1,5 +1,3 @@
 import Toggle from './toggle'
 
-export {
-  Toggle
-}
+export { Toggle }
