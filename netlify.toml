@@ -1,6 +1,3 @@
-[[headers]]
-  # Define which paths this specific [[headers]] block will cover.
-  for = "/src/**/*"
-
-  [headers.values]
-    Content-Type = "text/javascript"
+[build]
+  publish="build"
+  command="yarn prod"

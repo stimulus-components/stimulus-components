@@ -27,6 +27,7 @@
     "lint": "prettier-standard  '**/*.{js,css,html}' --lint",
     "test": "BABEL_ENV=test jest --passWithNoTests",
     "dev": "snowpack dev",
+    "prod": "snowpack build",
     "build": "pika build",
     "prepublishOnly": "yarn build"
   },
