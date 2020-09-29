@@ -6,7 +6,7 @@
 [![](https://github.com/guillaumebriday/stimulus-components/workflows/Lint/badge.svg)](https://github.com/guillaumebriday/stimulus-components)
 [![](https://github.com/guillaumebriday/stimulus-components/workflows/Test/badge.svg)](https://github.com/guillaumebriday/stimulus-components)
 [![](https://img.shields.io/github/license/guillaumebriday/stimulus-components.svg)](https://github.com/guillaumebriday/stimulus-components)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/f48191db-a459-4ab4-849f-10ea970915af/deploy-status)](https://stimulus-components.netlify.com)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/056dda4a-4444-4c24-a854-c4b1944d35ca/deploy-status)](https://stimulus-components.netlify.com)
 
 ## Getting started
 
