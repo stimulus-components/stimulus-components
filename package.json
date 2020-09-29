@@ -29,7 +29,8 @@
     "dev": "snowpack dev",
     "prod": "snowpack build",
     "build": "pika build",
-    "prepublishOnly": "yarn build"
+    "pika:publish": "pika publish",
+    "version": "yarn build"
   },
   "dependencies": {
     "stimulus": "1.1.1"
