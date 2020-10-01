@@ -57,6 +57,13 @@ $ yarn lint
 $ yarn format
 ```
 
+## Roadmap
+
+- [x] Toggle
+- [ ] Nested Form
+- [ ] Checkbox Check All
+- [ ] Remote Form
+
 ## Contributing
 
 Do not hesitate to contribute to the project by adapting or adding features ! Bug reports or pull requests are welcome.
