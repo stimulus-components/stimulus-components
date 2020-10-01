@@ -9,10 +9,11 @@
     <script src="https://unpkg.com/stimulus/dist/stimulus.umd.js" defer></script>
 
     <script type="module" defer>
-      import { Toggle } from './src/index.js'
+      import { Toggle, NestedForm } from './src/index.js'
 
       const application = Stimulus.Application.start()
       application.register('toggle', Toggle)
+      application.register('nested-form', NestedForm)
     </script>
 
     <style>
@@ -111,7 +112,61 @@
           Toggle me!
         </button>
 
-        <p id="toggle-target" data-target="toggle.item" class="hidden mt-4">Hey 👋</p>
+        <p id="toggle-target" data-target="toggle.item" class="hidden mt-4">
+          Hey 👋
+        </p>
+      </section>
+
+      <section data-controller="nested-form" class="mt-16">
+        <h2 class="text-2xl font-bold mb-4">
+          <a href="https://github.com/guillaumebriday/stimulus-components/tree/master/src/nested-form">Nested Form</a>
+        </h2>
+
+        <form>
+          <template data-target="nested-form.template">
+            <div class="mt-4">
+              <label for="NEW_RECORD" class="block text-sm font-medium leading-5 text-gray-700">New todo</label>
+              <div class="mt-1 relative rounded-md shadow-sm">
+                <input
+                  id="NEW_RECORD"
+                  name="user[todos][NEW_RECORD][description]"
+                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  placeholder="Your todo"
+                />
+              </div>
+            </div>
+          </template>
+
+          <div class="mt-4">
+            <label for="todo-1" class="block text-sm font-medium leading-5 text-gray-700">Your todo</label>
+            <div class="mt-1 relative rounded-md shadow-sm">
+              <input
+                id="todo-1"
+                name="user[todos][0][description]"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                value="Pet the cat"
+              />
+            </div>
+          </div>
+
+          <div id="nested-form-target" data-target="nested-form.target"></div>
+
+          <button
+            id="nested-form-button"
+            type="button"
+            data-action="click->nested-form#add"
+            class="mt-4 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+          >
+            Add todo
+          </button>
+
+          <button
+            type="submit"
+            class="mt-4 bg-green-600 hover:bg-green-400 text-white font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+          >
+            Save todos
+          </button>
+        </form>
       </section>
     </div>
   </body>
