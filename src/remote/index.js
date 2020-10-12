@@ -4,7 +4,7 @@ export default class extends Controller {
   replace (event) {
     event.preventDefault()
 
-    const [,, xhr] = e.detail
+    const [, , xhr] = event.detail
     this.element.innerHTML = xhr.response
   }
 }
