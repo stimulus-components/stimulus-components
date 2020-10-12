@@ -5,6 +5,7 @@
   "repository": "git@github.com:guillaumebriday/stimulus-components.git",
   "author": "Guillaume Briday <guillaumebriday@gmail.com>",
   "license": "MIT",
+  "homepage": "https://github.com/guillaumebriday/stimulus-components",
   "private": false,
   "esnext": "dist-src/index.js",
   "main": "dist-node/index.js",
