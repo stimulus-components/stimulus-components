@@ -9,10 +9,10 @@
     <script src="https://unpkg.com/stimulus/dist/stimulus.umd.js" defer></script>
 
     <script type="module" defer>
-      import { Toggle, NestedForm, CheckboxSelectAll, Remote } from './src/index.js'
+      import { Reveal, NestedForm, CheckboxSelectAll, Remote } from './src/index.js'
 
       const application = Stimulus.Application.start()
-      application.register('toggle', Toggle)
+      application.register('reveal', Reveal)
       application.register('nested-form', NestedForm)
       application.register('checkbox-select-all', CheckboxSelectAll)
       application.register('remote', Remote)
@@ -100,23 +100,55 @@
         </li>
       </ul>
 
-      <section data-controller="toggle">
+      <section>
         <h2 class="text-2xl font-bold mb-4">
-          <a href="https://github.com/guillaumebriday/stimulus-components/tree/master/src/toggle">Toggle Controller</a>
+          <a href="https://github.com/guillaumebriday/stimulus-components/tree/master/src/reveal">Reveal Controller</a>
         </h2>
 
-        <button
-          id="toggle-button"
-          data-action="click->toggle#toggle"
-          type="button"
-          class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
-        >
-          Toggle me!
-        </button>
+        <div data-controller="reveal">
+          <button
+            id="toggle-button"
+            data-action="click->reveal#toggle"
+            type="button"
+            class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+          >
+            Toggle me!
+          </button>
 
-        <p id="toggle-target" data-target="toggle.item" class="hidden mt-4">
-          Hey 👋
-        </p>
+          <p id="toggle-target" data-target="reveal.item" class="hidden mt-4">
+            Hey 👋
+          </p>
+        </div>
+
+        <div data-controller="reveal" class="mt-4">
+          <button
+            id="toggle-button"
+            data-action="click->reveal#hide"
+            type="button"
+            class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+          >
+            Hide me!
+          </button>
+
+          <p id="toggle-target" data-target="reveal.item" class="mt-4">
+            Hey 🙈
+          </p>
+        </div>
+
+        <div data-controller="reveal" class="mt-4">
+          <button
+            id="toggle-button"
+            data-action="click->reveal#show"
+            type="button"
+            class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+          >
+            Show me!
+          </button>
+
+          <p id="toggle-target" data-target="reveal.item" class="hidden mt-4">
+            Hi 🐵
+          </p>
+        </div>
       </section>
 
       <section data-controller="nested-form" class="mt-16">

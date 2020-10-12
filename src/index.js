@@ -1,6 +1,6 @@
-import Toggle from './toggle'
+import Reveal from './reveal'
 import NestedForm from './nested-form'
 import CheckboxSelectAll from './checkbox-select-all'
 import Remote from './remote'
 
-export { Toggle, NestedForm, CheckboxSelectAll, Remote }
+export { Reveal, NestedForm, CheckboxSelectAll, Remote }

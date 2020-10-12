@@ -23,10 +23,10 @@ $ yarn add stimulus-components
 And use it in your JS file:
 ```js
 import { Application } from "stimulus"
-import { Toggle } from "stimulus-components"
+import { Reveal } from "stimulus-components"
 
 const application = Application.start()
-application.register("toggle", Toggle)
+application.register("reveal", Reveal)
 ```
 
 ## Basic Usage

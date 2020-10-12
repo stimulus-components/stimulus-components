@@ -12,4 +12,16 @@ export default class extends Controller {
       item.classList.toggle(this.hiddenClass)
     })
   }
+
+  show () {
+    this.itemTargets.forEach(item => {
+      item.classList.remove(this.hiddenClass)
+    })
+  }
+
+  hide () {
+    this.itemTargets.forEach(item => {
+      item.classList.add(this.hiddenClass)
+    })
+  }
 }
