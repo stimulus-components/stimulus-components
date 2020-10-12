@@ -1,6 +1,6 @@
 {
   "name": "stimulus-components",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Collection of stimulus controllers",
   "repository": "git@github.com:guillaumebriday/stimulus-components.git",
   "author": "Guillaume Briday <guillaumebriday@gmail.com>",
