@@ -61,7 +61,7 @@ $ yarn format
 
 - [x] Toggle
 - [x] Nested Form
-- [ ] Checkbox Check All
+- [x] Checkbox Select All
 - [ ] Remote Form
 
 ## Contributing
