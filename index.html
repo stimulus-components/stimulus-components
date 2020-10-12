@@ -9,12 +9,13 @@
     <script src="https://unpkg.com/stimulus/dist/stimulus.umd.js" defer></script>
 
     <script type="module" defer>
-      import { Toggle, NestedForm, CheckboxSelectAll } from './src/index.js'
+      import { Toggle, NestedForm, CheckboxSelectAll, Remote } from './src/index.js'
 
       const application = Stimulus.Application.start()
       application.register('toggle', Toggle)
       application.register('nested-form', NestedForm)
       application.register('checkbox-select-all', CheckboxSelectAll)
+      application.register('remote', Remote)
     </script>
 
     <style>
@@ -210,6 +211,14 @@
             </tbody>
           </table>
         </form>
+      </section>
+
+      <section data-controller="remote" class="mt-16">
+        <h2 class="text-2xl font-bold mb-4">
+          <a href="https://github.com/guillaumebriday/stimulus-components/tree/master/src/remote"
+            >Remote</a
+          >
+        </h2>
       </section>
     </div>
   </body>
