@@ -41,8 +41,8 @@ end
 ```
 
 In your view:
-```html
-<%= form_with model: @user, data: { controller: 'remote', action: 'ajax:error->remote#replace', target: 'remote.form' } do |f| %>
+```ruby
+<%= form_with model: @user, data: { controller: 'remote', action: 'ajax:error->remote#replace' } do |f| %>
   <% if f.object.errors.any? %>
     <% f.object.errors.full_messages.each do |error| %>
       <p><%= error %></p>
