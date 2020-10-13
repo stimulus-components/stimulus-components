@@ -9,13 +9,14 @@
     <script src="https://unpkg.com/stimulus/dist/stimulus.umd.js" defer></script>
 
     <script type="module" defer>
-      import { Reveal, NestedForm, CheckboxSelectAll, Remote } from './src/index.js'
+      import { Reveal, NestedForm, CheckboxSelectAll, Remote, ContentLoader } from './src/index.js'
 
       const application = Stimulus.Application.start()
       application.register('reveal', Reveal)
       application.register('nested-form', NestedForm)
       application.register('checkbox-select-all', CheckboxSelectAll)
       application.register('remote', Remote)
+      application.register('content-loader', ContentLoader)
     </script>
 
     <style>
@@ -30,7 +31,7 @@
       }
 
       a {
-        color: #667EEA;
+        color: #667eea;
         display: inline-block;
       }
 
@@ -251,6 +252,16 @@
         <h2 class="text-2xl font-bold mb-4">
           <a href="https://github.com/guillaumebriday/stimulus-components/tree/master/src/remote">Remote Controller</a>
         </h2>
+      </section>
+
+      <section class="mt-16">
+        <h2 class="text-2xl font-bold mb-4">
+          <a href="https://github.com/guillaumebriday/stimulus-components/tree/master/src/content-loader"
+            >Content loader Controller</a
+          >
+        </h2>
+
+        <div data-controller="content-loader" data-content-loader-url="/message.html"></div>
       </section>
     </div>
   </body>
