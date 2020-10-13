@@ -57,7 +57,7 @@ In your view:
 ```html
 <%= form_with model: @user, data: { controller: 'checkbox-select-all' } do |f| %>
   <label>
-    <input type="checkbox" data-action="change->checkbox-select-all#toggleAll" />
+    <input type="checkbox" data-action="change->checkbox-select-all#toggle" />
     <span>Select All / Deselect All</span>
   </label>
 

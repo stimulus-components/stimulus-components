@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Change
+
+- **Breaking**: Rename `toggleAll` method to `toggle` in [checkbox-select-all controller](https://github.com/guillaumebriday/stimulus-components/tree/master/src/checkbox-select-all)
+
+```diff
+- <input type="checkbox" data-action="change->checkbox-select-all#toggleAll" />
++ <input type="checkbox" data-action="change->checkbox-select-all#toggle" />
+```
+
 ## [2.0.0] - 2020-10-12
 
 ### Added
