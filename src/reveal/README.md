@@ -21,7 +21,7 @@ application.register("reveal", Reveal)
 
 ### Toggle
 ```html
-<div data-controller="reveal" data-hidden-class="hidden">
+<div data-controller="reveal" data-reveal-hidden-class="hidden">
   <button data-action="click->reveal#toggle" type="button" class="btn">
     Toggle me!
   </button>
@@ -57,4 +57,4 @@ application.register("reveal", Reveal)
 
 | Attribute | Default | Description | Optional |
 | --------- | ------- | ----------- | -------- |
-| `data-hidden-class` | `hidden` | CSS class to toggle | ✅ |
+| `data-reveal-hidden-class` | `hidden` | CSS class to toggle | ✅ |

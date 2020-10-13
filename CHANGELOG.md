@@ -8,6 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Change
 
+- **Breaking**: Using data-maps in [reveal controller](https://github.com/guillaumebriday/stimulus-components/tree/master/src/reveal) instead of plain data attribute for hidden class.
+
+```diff
+- <div data-controller="reveal" data-hidden-class="hidden">
++ <div data-controller="reveal" data-reveal-hidden-class="hidden">
+```
+
 - **Breaking**: Rename `toggleAll` method to `toggle` in [checkbox-select-all controller](https://github.com/guillaumebriday/stimulus-components/tree/master/src/checkbox-select-all)
 
 ```diff

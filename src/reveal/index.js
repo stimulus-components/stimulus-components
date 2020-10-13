@@ -4,7 +4,7 @@ export default class extends Controller {
   static targets = ['item']
 
   connect () {
-    this.hiddenClass = this.element.dataset.hiddenClass || 'hidden'
+    this.hiddenClass = this.data.get('hiddenClass') || 'hidden'
   }
 
   toggle () {
