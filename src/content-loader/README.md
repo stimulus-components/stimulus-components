@@ -1,6 +1,6 @@
 # Content Loader Controller
 
-This controller let you asynchronously load HTML from an url.
+This controller allows you to asynchronously load HTML from an url.
 
 ## Installation
 
