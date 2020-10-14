@@ -9,7 +9,7 @@
     <script src="https://unpkg.com/stimulus/dist/stimulus.umd.js" defer></script>
 
     <script type="module" defer>
-      import { Reveal, NestedForm, CheckboxSelectAll, Remote, ContentLoader } from './src/index.js'
+      import { Reveal, NestedForm, CheckboxSelectAll, Remote, ContentLoader, TextareaAutogrow } from './src/index.js'
 
       const application = Stimulus.Application.start()
       application.register('reveal', Reveal)
@@ -17,6 +17,7 @@
       application.register('checkbox-select-all', CheckboxSelectAll)
       application.register('remote', Remote)
       application.register('content-loader', ContentLoader)
+      application.register('textarea-autogrow', TextareaAutogrow)
     </script>
 
     <style>
@@ -47,7 +48,7 @@
     </style>
   </head>
   <body>
-    <div class="w-full max-w-6xl mx-auto mt-24 p-4">
+    <div class="w-full max-w-6xl mx-auto my-24 p-4">
       <h1 class="text-center mb-8 text-5xl font-bold">Stimulus components</h1>
 
       <p class="text-center mb-4">
@@ -262,6 +263,25 @@
         </h2>
 
         <div data-controller="content-loader" data-content-loader-url="/message.html"></div>
+      </section>
+
+      <section class="mt-16">
+        <h2 class="text-2xl font-bold mb-4">
+          <a href="https://github.com/guillaumebriday/stimulus-components/tree/master/src/textarea-autogrow"
+            >Textarea Autogrow Controller</a
+          >
+        </h2>
+
+        <textarea
+          data-controller="textarea-autogrow"
+          class="w-full shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        >
+Trysail American Main grog quarterdeck swing the lead overhaul gangway Privateer pink gabion. Arr Buccaneer barque yawl gunwalls six pounders chase guns transom smartly fore. Hang the jib barkadeer poop deck yawl reef fluke lass grapple clipper black jack.
+
+Wherry capstan league spyglass Sea Legs deadlights Corsair landlubber or just lubber parrel sutler. Swing the lead reef crimp sloop red ensign poop deck cog fore killick warp. Trysail Sink me case shot rigging Shiver me timbers barkadeer Privateer poop deck handsomely mizzen.
+
+Chain Shot doubloon snow driver list blow the man down sutler handsomely smartly Admiral of the Black. Aft scuppers furl prow long clothes loaded to the gunwalls square-rigged lugsail spyglass squiffy. Broadside spanker bounty killick fluke quarterdeck swing the lead execution dock squiffy boatswain.
+        </textarea>
       </section>
     </div>
   </body>
