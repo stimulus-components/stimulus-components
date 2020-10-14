@@ -35,6 +35,25 @@ See [Demo](https://stimulus-components.netlify.app/).
 
 Documentation is available as README in [controllers folders](https://github.com/guillaumebriday/stimulus-components/tree/master/src).
 
+## Extending Components
+
+You can use inheritance to extend the functionality of any Stimulus components.
+
+```js
+import { Reveal } from "stimulus-components"
+
+export default class extends Reveal {
+  connect() {
+    super.connect()
+    console.log("Do what you cant here.")
+  }
+}
+```
+
+These controllers will automatically have access to targets defined in the parent class.
+
+If you override the connect, disconnect or any other methods from the parent, you'll want to call `super.method()` to make sure the parent functionality is executed.
+
 ## Development
 
 ### Project setup
