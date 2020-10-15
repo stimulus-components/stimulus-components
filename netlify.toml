@@ -1,3 +1,0 @@
-[build]
-  publish="build"
-  command="yarn prod"

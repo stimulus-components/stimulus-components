@@ -1,7 +1,0 @@
-{
-  "plugins": [
-    [
-      "@snowpack/plugin-babel"
-    ]
-  ]
-}
