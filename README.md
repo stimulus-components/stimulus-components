@@ -36,6 +36,10 @@ A Stimulus controller to create new fields on the fly to populate your Rails rel
 
 A Stimulus controller for autogrowing textarea.
 
+### [stimulus-remote-rails](https://github.com/stimulus-components/stimulus-remote-rails)
+
+A Stimulus controller to handle Rails UJS events.
+
 ## Contributing
 
 Do not hesitate to contribute to the controllers by adapting or adding features ! Bug reports or pull requests are welcome.
