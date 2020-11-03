@@ -40,6 +40,10 @@ A Stimulus controller for autogrowing textarea.
 
 A Stimulus controller to handle Rails UJS events.
 
+### [stimulus-character-counter](https://github.com/stimulus-components/stimulus-character-counter)
+
+A Stimulus controller that counts the number of characters in any input fields.
+
 ## Contributing
 
 Do not hesitate to contribute to the controllers by adapting or adding features ! Bug reports or pull requests are welcome.
