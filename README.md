@@ -44,6 +44,10 @@ A Stimulus controller to handle Rails UJS events.
 
 A Stimulus controller that counts the number of characters in any input fields.
 
+### [stimulus-animated-number](https://github.com/stimulus-components/stimulus-animated-number)
+
+A Stimulus controller that animates a numerical value by counting to it.
+
 ## Contributing
 
 Do not hesitate to contribute to the controllers by adapting or adding features ! Bug reports or pull requests are welcome.
