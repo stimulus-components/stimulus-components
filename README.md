@@ -48,6 +48,10 @@ A Stimulus controller that counts the number of characters in any input fields.
 
 A Stimulus controller that animates a numerical value by counting to it.
 
+### [stimulus-stimulus-lightbox](https://github.com/stimulus-components/stimulus-stimulus-lightbox)
+
+A Stimulus controller to add a lightbox on images. 
+
 ## Contributing
 
 Do not hesitate to contribute to the controllers by adapting or adding features ! Bug reports or pull requests are welcome.
