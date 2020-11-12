@@ -114,7 +114,15 @@ A Stimulus controller to add a progress bar when scrolling.
 [![](https://img.shields.io/npm/v/stimulus-gtm.svg)](https://www.npmjs.com/package/stimulus-gtm)
 [![](https://img.shields.io/github/license/stimulus-components/stimulus-gtm.svg)](https://github.com/stimulus-components/stimulus-gtm)
 
-A Stimulus controller to send GTM events. 
+A Stimulus controller to send GTM events.
+
+### [stimulus-carousel](https://github.com/stimulus-components/stimulus-carousel)
+
+[![](https://img.shields.io/npm/dt/stimulus-carousel.svg)](https://www.npmjs.com/package/stimulus-carousel)
+[![](https://img.shields.io/npm/v/stimulus-carousel.svg)](https://www.npmjs.com/package/stimulus-carousel)
+[![](https://img.shields.io/github/license/stimulus-components/stimulus-carousel.svg)](https://github.com/stimulus-components/stimulus-carousel)
+
+A Stimulus controller to deal with carousel.
 
 ## Contributing
 
