@@ -100,6 +100,14 @@ A Stimulus controller that animates a numerical value by counting to it.
 
 A Stimulus controller to add a lightbox on images.
 
+### [stimulus-scroll-progress](https://github.com/stimulus-components/stimulus-scroll-progress)
+
+[![](https://img.shields.io/npm/dt/stimulus-scroll-progress.svg)](https://www.npmjs.com/package/stimulus-scroll-progress)
+[![](https://img.shields.io/npm/v/stimulus-scroll-progress.svg)](https://www.npmjs.com/package/stimulus-scroll-progress)
+[![](https://img.shields.io/github/license/stimulus-components/stimulus-scroll-progress.svg)](https://github.com/stimulus-components/stimulus-scroll-progress)
+
+A Stimulus controller to add a progress bar when scrolling.
+
 ## Contributing
 
 Do not hesitate to contribute to the controllers by adapting or adding features ! Bug reports or pull requests are welcome.
