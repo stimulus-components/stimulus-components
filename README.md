@@ -1,5 +1,7 @@
 # Stimulus components
 
+![](https://raw.githubusercontent.com/stimulus-components/stimulus-components/master/screenshot.png)
+
 👉 [Introducing Stimulus components](https://guillaumebriday.fr/introducing-stimulus-components).
 
 ## Available controllers
@@ -122,7 +124,7 @@ A Stimulus controller to deal with carousel.
 [![](https://img.shields.io/npm/v/stimulus-rails-autosave.svg)](https://www.npmjs.com/package/stimulus-rails-autosave)
 [![](https://img.shields.io/github/license/stimulus-components/stimulus-rails-autosave.svg)](https://github.com/stimulus-components/stimulus-rails-autosave)
 
-A Stimulus controller to autosubmit Rails forms. 
+A Stimulus controller to autosubmit Rails forms.
 
 ## Contributing
 
