@@ -126,6 +126,14 @@ A Stimulus controller to deal with carousel.
 
 A Stimulus controller to autosubmit Rails forms.
 
+### [stimulus-scroll-to](https://github.com/stimulus-components/stimulus-scroll-to)
+
+[![](https://img.shields.io/npm/dt/stimulus-scroll-to.svg)](https://www.npmjs.com/package/stimulus-scroll-to)
+[![](https://img.shields.io/npm/v/stimulus-scroll-to.svg)](https://www.npmjs.com/package/stimulus-scroll-to)
+[![](https://img.shields.io/github/license/stimulus-components/stimulus-scroll-to.svg)](https://github.com/stimulus-components/stimulus-scroll-to)
+
+A Stimulus controller to scroll to elements.
+
 ## Contributing
 
 Do not hesitate to contribute to the controllers by adapting or adding features ! Bug reports or pull requests are welcome.
