@@ -134,6 +134,14 @@ A Stimulus controller to autosubmit Rails forms.
 
 A Stimulus controller to scroll to elements.
 
+### [stimulus-chartjs](https://github.com/stimulus-components/stimulus-chartjs)
+
+[![](https://img.shields.io/npm/dt/stimulus-chartjs.svg)](https://www.npmjs.com/package/stimulus-chartjs)
+[![](https://img.shields.io/npm/v/stimulus-chartjs.svg)](https://www.npmjs.com/package/stimulus-chartjs)
+[![](https://img.shields.io/github/license/stimulus-components/stimulus-chartjs.svg)](https://github.com/stimulus-components/stimulus-chartjs)
+
+A Stimulus controller to deal with chart.js.
+
 ## Contributing
 
 Do not hesitate to contribute to the controllers by adapting or adding features ! Bug reports or pull requests are welcome.
