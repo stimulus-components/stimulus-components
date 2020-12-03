@@ -1,0 +1,18 @@
+---
+layout: default
+---
+
+{% capture badges %}{% include badge.md %}{% endcapture %}
+
+{{ badges | markdownify }}
+
+<p>This component is available on <a href="https://github.com/stimulus-components/stimulus-{{ page.package }}">GitHub</a>.</p>
+
+<h1>{{ page.title }}</h1>
+
+{{ content }}
+
+{% capture footer %}{% include component_footer.md %}{% endcapture %}
+
+{{ footer | markdownify }}
+
