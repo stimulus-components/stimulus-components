@@ -122,6 +122,24 @@ export default class extends Sortable {
 
     // The sortable.js instance.
     this.sortable
+
+    // Your options
+    this.options
+
+    // Your default options
+    this.defaultOptions
+  }
+
+  // You can override the `end` method here.
+  end () {
+    super.end()
+  }
+
+  // You can set default options in this getter for all sortable elements.
+  get defaultOptions () {
+    return {
+      animation: 500
+    }
   }
 }
 ```
