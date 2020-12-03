@@ -16,6 +16,15 @@ $ yarn lint
 $ yarn format
 ```
 
+{% if page.tests %}
+### Tests
+
+[Jest](https://jestjs.io/) and [Puppeteer](https://github.com/puppeteer/puppeteer) are responsible to test this component:
+```bash
+$ yarn test
+```
+{% endif %}
+
 ## 🍻 Support
 
 You can support my work on [Patreon](https://www.patreon.com/guillaumebriday). 🙏
