@@ -1,6 +1,6 @@
 ---
 layout: component
-title: Stimulus sortable
+title: Sortable
 parent: Available controllers
 package: sortable
 netlify_id: a8341029-7f19-443d-88aa-02c6325b389e

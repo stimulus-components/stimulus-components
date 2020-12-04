@@ -1,6 +1,6 @@
 ---
 layout: component
-title: Stimulus Reveal Controller
+title: Reveal Controller
 parent: Available controllers
 package: reveal-controller
 netlify_id: 83f0dddb-31fa-4025-a04f-dd26f153d646
