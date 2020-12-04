@@ -27,13 +27,13 @@ $ yarn test
 
 ## 🍻 Support
 
-You can support my work on [Patreon](https://www.patreon.com/guillaumebriday). 🙏
+You can support my work on [Patreon](https://www.patreon.com/guillaumebriday){:target="_blank"}. 🙏
 
 ## 👷‍♂️ Contributing
 
 Do not hesitate to contribute to the project by adapting or adding features ! Bug reports or pull requests are welcome.
 
-Don't forget to drop a 🌟 on [GitHub](https://github.com/stimulus-components/stimulus-{{ page.package }}) to support the project.
+Don't forget to drop a 🌟 on [GitHub](https://github.com/stimulus-components/stimulus-{{ page.package }}){:target="_blank"} to support the project.
 
 ## 🚀 Releasing
 
@@ -43,4 +43,4 @@ $ yarn pika:publish
 
 ## 📝 License
 
-This project is released under the [MIT](https://opensource.org/licenses/MIT) license.
+This project is released under the [MIT](https://opensource.org/licenses/MIT){:target="_blank"} license.
