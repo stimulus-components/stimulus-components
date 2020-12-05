@@ -58,7 +58,7 @@ Basic usage:
 
 With options:
 ```html
-<div data-controller="lightbox" data-lightbox-options="{'index': 2}">
+<div data-controller="lightbox" data-lightbox-options-value='{"index": 2}'>
   <a href="img/img1.jpg">
     <img src="img/img1.jpg" alt="" />
   </a>
@@ -77,7 +77,7 @@ With options:
 
 | Attribute | Default | Description | Optional |
 | --------- | ------- | ----------- | -------- |
-| `data-lightbox-options` | `{}` | Options for lightgallery.js as JSON string. | ✅ |
+| `data-lightbox-options-value` | `{}` | Options for lightgallery.js as JSON string. | ✅ |
 
 ## 🎛 Extending Controller
 
@@ -93,8 +93,8 @@ export default class extends Lightbox {
     // Default options for every lightboxes.
     this.defaultOptions
 
-    // Options from data attribute.
-    this.options
+    // The lightGallery instance.
+    this.lightGallery
   }
 
   // You can set default options in this getter.
