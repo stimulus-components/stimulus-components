@@ -33,7 +33,7 @@ application.register("chart", Chart)
 ```html
 <canvas
   data-controller="chart"
-  data-chart-data="{'type': 'line', 'data': { 'labels': ['January', 'February', 'March', 'April', 'May', 'June', 'July'], 'datasets': [{ 'label': 'My First dataset', 'backgroundColor': 'transparent', 'borderColor': '#3B82F6', 'data': [37, 83, 78, 54, 12, 5, 99] }] } }"
+  data-chart-data-value='{"type": "line", "data": { "labels": ["January", "February", "March", "April", "May", "June", "July"], "datasets": [{ "label": "My First dataset", "backgroundColor": "transparent", "borderColor": "#3B82F6", "data": [37, 83, 78, 54, 12, 5, 99] }] } }'
 ></canvas>
 ```
 
@@ -41,9 +41,9 @@ If you extend this controller, it could be handy to with it with a `target`:
 ```html
 <div
   data-controller="chart"
-  data-chart-data="{'type': 'line', 'data': { 'labels': ['January', 'February', 'March', 'April', 'May', 'June', 'July'], 'datasets': [{ 'label': 'My First dataset', 'backgroundColor': 'transparent', 'borderColor': '#3B82F6', 'data': [37, 83, 78, 54, 12, 5, 99] }] } }"
+  data-chart-data-value='{"type": "line", "data": { "labels": ["January", "February", "March", "April", "May", "June", "July"], "datasets": [{ "label": "My First dataset", "backgroundColor": "transparent", "borderColor": "#3B82F6", "data": [37, 83, 78, 54, 12, 5, 99] }] } }'
 >
-  <canvas data-target="chart.canvas"></canvas>
+  <canvas data-chart-target="canvas"></canvas>
 
   <!-- You need to define this action -->
   <button data-action="chart#update">Update me!</button>
@@ -88,8 +88,8 @@ In your view:
 ```html
 <canvas
   data-controller="chart"
-  data-chart-data="<%= @chart_data.to_json %>"
-  data-chart-options="<%= @chart_options.to_json %>"
+  data-chart-data-value="<%= @chart_data.to_json %>"
+  data-chart-options-value="<%= @chart_options.to_json %>"
 ></canvas>
 ```
 
@@ -97,8 +97,8 @@ In your view:
 
 | Attribute | Default | Description | Optional |
 | --------- | ------- | ----------- | -------- |
-| `data-chart-data` | `{}` | The data for Chart.js | ❌ |
-| `data-chart-options` | `{}` | The options for Chart.js | ✅ |
+| `data-chart-data-value` | `{}` | The data for Chart.js | ❌ |
+| `data-chart-options-value` | `{}` | The options for Chart.js | ✅ |
 
 ## 🎛 Extending Controller
 
