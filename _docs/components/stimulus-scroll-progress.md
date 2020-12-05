@@ -44,7 +44,7 @@ To improve performance, the `scroll` event is [throttled](https://lodash.com/doc
 
 | Attribute | Default | Description | Optional |
 | --------- | ------- | ----------- | -------- |
-| `data-scroll-progress-throttle-delay` | `15` | Delay in milliseconds to update the scroll position. (`0` to disable). | ✅ |
+| `data-scroll-progress-throttle-delay-value` | `15` | Delay in milliseconds to update the scroll position. (`0` to disable). | ✅ |
 
 ## 🎛 Extending Controller
 
