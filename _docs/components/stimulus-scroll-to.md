@@ -38,8 +38,8 @@ With options:
 <a
   href="#awesome-stuff-here"
   data-controller="scroll-to"
-  data-scroll-to-offset="150"
-  data-scroll-to-behavior="auto"
+  data-scroll-to-offset-value="150"
+  data-scroll-to-behavior-value="auto"
 >Scroll to #awesome-stuff-here</a>
 
 <h2 id="awesome-stuff-here">Awesome stuff here</h2>
@@ -49,8 +49,8 @@ With options:
 
 | Attribute | Default | Description | Optional |
 | --------- | ------- | ----------- | -------- |
-| `data-scroll-to-offset` | `10` | Offset in pixels from top of the element. | ✅ |
-| `data-scroll-to-behavior` | `smooth` | The scroll behavior. `auto` or `smooth`. | ✅ |
+| `data-scroll-to-offset-value` | `10` | Offset in pixels from top of the element. | ✅ |
+| `data-scroll-to-behavior-value` | `smooth` | The scroll behavior. `auto` or `smooth`. | ✅ |
 
 ## 🎛 Extending Controller
 
