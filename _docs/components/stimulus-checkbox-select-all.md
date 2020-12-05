@@ -43,28 +43,28 @@ application.register("checkbox-select-all", CheckboxSelectAll)
   <tbody>
     <td class="block">
       <label>
-        <input type="checkbox" data-target="checkbox-select-all.checkboxAll" />
+        <input type="checkbox" data-checkbox-select-all-target="checkboxAll" />
         <span>Select All / Deselect All</span>
       </label>
     </td>
 
     <td class="block">
       <label>
-        <input type="checkbox" data-target="checkbox-select-all.checkbox" value="1" />
+        <input type="checkbox" data-checkbox-select-all-target="checkbox" value="1" />
         <span>Team 1</span>
       </label>
     </td>
 
     <td class="block">
       <label>
-        <input type="checkbox" data-target="checkbox-select-all.checkbox" checked="checked" value="2" />
+        <input type="checkbox" data-checkbox-select-all-target="checkbox" checked="checked" value="2" />
         <span>Team 2</span>
       </label>
     </td>
 
     <td class="block">
       <label>
-        <input type="checkbox" data-target="checkbox-select-all.checkbox" value="3" />
+        <input type="checkbox" data-checkbox-select-all-target="checkbox" value="3" />
         <span>Team 3</span>
       </label>
     </td>
@@ -112,13 +112,13 @@ In your view:
 ```html
 <%= form_with model: @user, data: { controller: 'checkbox-select-all' } do |f| %>
   <label>
-    <input type="checkbox" data-target="checkbox-select-all.checkboxAll" />
+    <input type="checkbox" data-checkbox-select-all-target="checkboxAll" />
     <span>Select All / Deselect All</span>
   </label>
 
   <%= f.collection_check_boxes :team_ids, Team.all, :id, :name do |b| %>
     <%= b.label do %>
-      <%= b.check_box data: { target: 'checkbox-select-all.checkbox' } %>
+      <%= b.check_box data: { target_checkbox_select_all: 'checkbox' } %>
       <%= b.text %>
     <% end %>
   <% end %>
