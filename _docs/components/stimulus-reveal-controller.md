@@ -36,8 +36,8 @@ application.register("reveal", Reveal)
     Toggle me!
   </button>
 
-  <p data-target="reveal.item" class="hidden mt-4">Hey 👋</p>
-  <p data-target="reveal.item" class="hidden mt-4">You can have multiple items</p>
+  <p data-reveal-target="item" class="hidden mt-4">Hey 👋</p>
+  <p data-reveal-target="item" class="hidden mt-4">You can have multiple items</p>
 </div>
 ```
 
@@ -48,7 +48,7 @@ application.register("reveal", Reveal)
     Show me!
   </button>
 
-  <p data-target="reveal.item" class="hidden mt-4">Hey 👋</p>
+  <p data-reveal-target="item" class="hidden mt-4">Hey 👋</p>
 </div>
 ```
 
@@ -59,7 +59,7 @@ application.register("reveal", Reveal)
     Hide me!
   </button>
 
-  <p data-target="reveal.item" class="mt-4">Hey 👋</p>
+  <p data-reveal-target="item" class="mt-4">Hey 👋</p>
 </div>
 ```
 
