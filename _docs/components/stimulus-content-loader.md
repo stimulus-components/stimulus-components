@@ -56,7 +56,7 @@ In your view:
 ```html
 <div
   data-controller="content-loader"
-  data-content-loader-url="<%= comments_path %>"
+  data-content-loader-url-value="<%= comments_path %>"
 >
   <i class="fas fa-spinner fa-spin"></i> Loading comments...
 
@@ -65,42 +65,42 @@ In your view:
 
 <div
   data-controller="content-loader"
-  data-content-loader-url="<%= comments_path %>"
-  data-content-loader-refresh-interval="5000"
+  data-content-loader-url-value="<%= comments_path %>"
+  data-content-loader-refresh-interval-value="5000"
 >
   This content will be reloaded every 5 seconds.
 </div>
 
 <div
   data-controller="content-loader"
-  data-content-loader-url="/message.html"
+  data-content-loader-url-value="/message.html"
 >
   This content will be replaced by the content of the `/message.html` page in your public folder.
 </div>
 
 <div
   data-controller="content-loader"
-  data-content-loader-url="/message.html"
-  data-content-loader-lazy-loading=""
+  data-content-loader-url-value="/message.html"
+  data-content-loader-lazy-loading-value=""
 >
   This content will be replaced only when the element become visible thanks to Intersection Observers.
 </div>
 
 <div
   data-controller="content-loader"
-  data-content-loader-url="/message.html"
-  data-content-loader-lazy-loading=""
-  data-content-loader-lazy-loading-root-margin="30px"
-  data-content-loader-lazy-loading-threshold="0.4"
+  data-content-loader-url-value="/message.html"
+  data-content-loader-lazy-loading-value=""
+  data-content-loader-lazy-loading-root-margin-value="30px"
+  data-content-loader-lazy-loading-threshold-value="0.4"
 >
   You can customize the Intersection Observer options.
 </div>
 
 <div
   data-controller="content-loader"
-  data-content-loader-url="/message.html"
-  data-content-loader-lazy-loading=""
-  data-content-loader-refresh-interval="5000"
+  data-content-loader-url-value="/message.html"
+  data-content-loader-lazy-loading-value=""
+  data-content-loader-refresh-interval-value="5000"
 >
   You can combine lazy loading and refresh interval. The timer will start only after the first fetch.
 </div>
@@ -110,11 +110,11 @@ In your view:
 
 | Attribute | Default | Description | Optional |
 | --------- | ------- | ----------- | -------- |
-| `data-content-loader-url` | `undefined` | URL to fetch the content. | ❌ |
-| `data-content-loader-refresh-interval` | `undefined` | Interval in milliseconds to reload content. | ✅ |
-| `data-content-loader-lazy-loading` | `undefined` | Fetch content when element is visible. | ✅ |
-| `data-content-loader-lazy-loading-root-margin` | `0px` | rootMargin option for Intersection Observer. | ✅ |
-| `data-content-loader-lazy-loading-threshold` | `0` | threshold option for Intersection Observer. | ✅ |
+| `data-content-loader-url-value` | `undefined` | URL to fetch the content. | ❌ |
+| `data-content-loader-refresh-interval-value` | `undefined` | Interval in milliseconds to reload content. | ✅ |
+| `data-content-loader-lazy-loading-value` | `undefined` | Fetch content when element is visible. | ✅ |
+| `data-content-loader-lazy-loading-root-margin-value` | `0px` | rootMargin option for Intersection Observer. | ✅ |
+| `data-content-loader-lazy-loading-threshold-value` | `0` | threshold option for Intersection Observer. | ✅ |
 
 
 ## 🎛 Extending Controller
