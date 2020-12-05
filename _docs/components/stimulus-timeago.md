@@ -33,7 +33,7 @@ In your view:
 ```html
 <p>
   Stimulus 1.0.0 was released
-  <time data-controller="timeago" data-timeago-datetime="2018-01-30T09:00"></time>.
+  <time data-controller="timeago" data-timeago-datetime-value="2018-01-30T09:00"></time>.
 </p>
 ```
 
@@ -41,14 +41,14 @@ In your view:
 
 | Attribute | Default | Description | Optional |
 | --------- | ------- | ----------- | -------- |
-| `data-timeago-datetime` | `undefined` | String that can be parsed by `Date.parse()`. | ❌ |
-| `data-timeago-refresh-interval` | `undefined` | Interval in milliseconds to reload the distance. | ✅ |
-| `data-timeago-include-seconds` | `false` | Distances less than a minute are more detailed | ✅ |
-| `data-timeago-add-suffix` | `false` | Result specifies if now is earlier or later than the passed date | ✅ |
+| `data-timeago-datetime-value` | `undefined` | String that can be parsed by `Date.parse()`. | ❌ |
+| `data-timeago-refresh-interval-value` | `undefined` | Interval in milliseconds to reload the distance. | ✅ |
+| `data-timeago-include-seconds-value` | `false` | Distances less than a minute are more detailed | ✅ |
+| `data-timeago-add-suffix-value` | `false` | Result specifies if now is earlier or later than the passed date | ✅ |
 
 `includeSeconds` and `addSuffix` are the options of the [date-fns/formatDistanceToNow](https://date-fns.org/v2.2.1/docs/formatDistanceToNow) method.
 
-If the datetime string passed via `data-timeago-datetime` is not parseable by `Date.parse()` it will display the given value instead.
+If the datetime string passed via `data-timeago-datetime-value` is not parseable by `Date.parse()` it will display the given value instead.
 
 ## 🎛 Extending Controller
 
