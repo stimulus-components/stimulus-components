@@ -57,7 +57,7 @@ With options:
 <div
   data-controller="carousel"
   class="swiper-container"
-  data-carousel-options="{'direction': 'vertical'}"
+  data-carousel-options-value='{"direction": "vertical"}'
 >
   <div class="swiper-wrapper">
     <div class="swiper-slide">Slide 1</div>
@@ -71,7 +71,7 @@ With options:
 
 | Attribute | Default | Description | Optional |
 | --------- | ------- | ----------- | -------- |
-| `data-carousel-options` | `{}` | Options for lightgallery.js as JSON string. | ✅ |
+| `data-carousel-options-value` | `{}` | Options for lightgallery.js as JSON string. | ✅ |
 
 ## 🎛 Extending Controller
 
@@ -89,9 +89,6 @@ export default class extends Carousel {
 
     // Default options for every carousels.
     this.defaultOptions
-
-    // Options from data attribute.
-    this.options
   }
 
   // You can set default options in this getter.
