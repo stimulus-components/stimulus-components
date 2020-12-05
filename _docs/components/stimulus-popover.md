@@ -52,7 +52,7 @@ With server rendered content on the fly:
 ```html
 <div
   data-controller="popover"
-  data-popover-url="<%= card_path %>"
+  data-popover-url-value="<%= card_path %>"
 >
   You can load popover with AJAX. For instance, this is my
   <a
@@ -66,7 +66,7 @@ With server rendered content on the fly:
 
 In the card partial `app/views/users/_card.html.erb`:
 ```html
-<div data-target="popover.card">
+<div data-popover-target="card">
   <p>This content is loaded with AJAX.</p>
 </div>
 ```
@@ -83,8 +83,8 @@ In the card partial `app/views/users/_card.html.erb`:
     Github
   </a>
 
-  <template data-target="popover.content">
-    <div data-target="popover.card">
+  <template data-popover-target="content">
+    <div data-popover-target="card">
       <p>This content is in a hidden template.</p>
     </div>
   </template>
@@ -95,7 +95,7 @@ In the card partial `app/views/users/_card.html.erb`:
 
 | Attribute | Default | Description | Optional |
 | --------- | ------- | ----------- | -------- |
-| `data-popover-url` | `undefined` | URL to fetch the content. | ✅ |
+| `data-popover-url-value` | `undefined` | URL to fetch the content. | ✅ |
 
 **Important note**: It's up to **you** to provide the popover style!
 
