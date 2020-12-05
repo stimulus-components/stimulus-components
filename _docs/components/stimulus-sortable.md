@@ -56,7 +56,7 @@ In your views:
 ```html
 <ul
   data-controller="sortable"
-  data-sortable-animation="150"
+  data-sortable-animation-value="150"
 >
   <li>Pet the cat</li>
   <li>Get the groceries</li>
@@ -67,7 +67,7 @@ In your views:
 ```html
 <ul
   data-controller="sortable"
-  data-sortable-handle=".handle"
+  data-sortable-handle-value=".handle"
 >
   <li>
     <svg class="handle"></svg>
@@ -88,7 +88,7 @@ If you're using [Rails UJS](https://github.com/rails/rails/tree/master/actionvie
 ```html
 <ul
   data-controller="sortable"
-  data-sortable-resource-name="todo"
+  data-sortable-resource-name-value="todo"
 >
   <%= @todos.each do |todo| %>
     <!-- <li data-sortable-update-url="/todos/1">Pet the cat</li> -->
@@ -99,15 +99,15 @@ If you're using [Rails UJS](https://github.com/rails/rails/tree/master/actionvie
 
 By default, `position` will be used as param in a PATCH request.
 
-If you use `data-sortable-resource-name`, the name will be used. For instance, `todo[position]`.
+If you use `data-sortable-resource-name-value`, the name will be used. For instance, `todo[position]`.
 
 ## Configuration
 
 | Attribute | Default | Description | Optional |
 | --------- | ------- | ----------- | -------- |
-| `data-sortable-resource-name` | `undefined` | Name of the resource to use as AJAX param. | ✅ |
-| `data-sortable-animation` | `150` | Animation speed moving items when sorting in milliseconds. `0` to disable. | ✅ |
-| `data-sortable-handle` | `undefined` | Drag handle selector within list items. | ✅ |
+| `data-sortable-resource-name-value` | `undefined` | Name of the resource to use as AJAX param. | ✅ |
+| `data-sortable-animation-value` | `150` | Animation speed moving items when sorting in milliseconds. `0` to disable. | ✅ |
+| `data-sortable-handle-value` | `undefined` | Drag handle selector within list items. | ✅ |
 
 ## 🎛 Extending Controller
 
