@@ -37,12 +37,10 @@ const application = Application.start()
 application.register("autosave", Autosave)
 ```
 
-{% include demo.md %}
-
 ## Usage
 
 ```html
-<%= form_with model: @todo, data: { controller: 'autosave', autosave_delay: '1000' } do |f| %>
+<%= form_with model: @todo, data: { controller: 'autosave', autosave_delay_value: '1000' } do |f| %>
   <div class="field">
     <%= f.label :description %>
 
@@ -63,7 +61,7 @@ application.register("autosave", Autosave)
 
 | Attribute | Default | Description | Optional |
 | --------- | ------- | ----------- | -------- |
-| `data-autosave-delay` | `0` | Delay before actually submit the form. (0 to disable) | ✅ |
+| `data-autosave-delay-value` | `0` | Delay before actually submit the form. (0 to disable) | ✅ |
 
 ## 🎛 Extending Controller
 
