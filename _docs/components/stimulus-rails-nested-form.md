@@ -69,8 +69,8 @@ To DRY up the code, we extract the fields in a partial called `todo_form` to use
 
 In your view:
 ```html
-<%= form_with model: @user, data: { controller: 'nested-form', nested_form_wrapper_selector: '.nested-form-wrapper' } do |f| %>
-  <template data-target="nested-form.template">
+<%= form_with model: @user, data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' } do |f| %>
+  <template data-nested-form-target="template">
     <%= f.fields_for :todos, Todo.new, child_index: 'NEW_RECORD' do |todo_fields| %>
       <%= render "todo_form", f: todo_fields %>
     <% end %>
@@ -81,7 +81,7 @@ In your view:
   <% end %>
 
   <!-- Inserted elements will be injected before that target. -->
-  <div data-target="nested-form.target"></div>
+  <div data-nested-form-target="target"></div>
 
   <button type="button" data-action="nested-form#add">
     Add todo
@@ -111,7 +111,7 @@ As explained in the [documentation](https://apidock.com/rails/ActionView/Helpers
 
 | Attribute | Default | Description | Optional |
 | --------- | ------- | ----------- | -------- |
-| `data-nested-form-wrapper-selector` | `.nested-form-wrapper` | Selector to find the wrapper. | ✅ |
+| `data-nested-form-wrapper-selector-value` | `.nested-form-wrapper` | Selector to find the wrapper. | ✅ |
 
 The remove feature is completely optional.
 
