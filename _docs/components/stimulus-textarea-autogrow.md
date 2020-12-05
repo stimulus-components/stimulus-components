@@ -35,7 +35,7 @@ Very long text here.
 
 <textarea
   data-controller="textarea-autogrow"
-  data-textarea-autogrow-resize-debounce-delay="500"
+  data-textarea-autogrow-resize-debounce-delay-value="500"
 >
 Very long text here.
 </textarea>
@@ -47,7 +47,7 @@ The height is calculated on window resize to match the content height.
 
 | Attribute | Default | Description | Optional |
 | --------- | ------- | ----------- | -------- |
-| `data-textarea-autogrow-resize-debounce-delay` | `100` | Delay before autogrow on resize in milliseconds (0 to disable). | ✅ |
+| `data-textarea-autogrow-resize-debounce-delay-value` | `100` | Delay before autogrow on resize in milliseconds (0 to disable). | ✅ |
 
 ## 🎛 Extending Controller
 
