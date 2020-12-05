@@ -30,10 +30,10 @@ application.register("character-counter", CharacterCounter)
 In your view:
 ```html
 <div data-controller="character-counter">
-  <textarea data-target="character-counter.input"></textarea>
+  <textarea data-character-counter-target="input"></textarea>
 
   <p>
-    There are <strong data-target="character-counter.counter"></strong> characters in this textarea.
+    There are <strong data-character-counter-target="counter"></strong> characters in this textarea.
   </p>
 </div>
 ```
