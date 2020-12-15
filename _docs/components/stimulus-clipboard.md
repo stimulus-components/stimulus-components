@@ -31,7 +31,7 @@ In your view:
 ```html
 <div
   data-controller="clipboard"
-  data-clipboard-success-text="Copied!"
+  data-clipboard-success-content="Copied!"
 >
   <input
     type="text"
@@ -53,8 +53,8 @@ In your view:
 
 | Attribute | Default | Description | Optional |
 | --------- | ------- | ----------- | -------- |
-| `data-clipboard-success-text` | `undefined` | Text to display on button. | ✅ |
-| `data-clipboard-success-delay-value` | `2000` | Delay before displaying the original button text again. | ✅ |
+| `data-clipboard-success-content` | `undefined` | Text to display on button. | ✅ |
+| `data-clipboard-success-duration-value` | `2000` | Duration in ms to display the success content on button. | ✅ |
 
 `data-clipboard-target="button"` attribute is `optional` if you don't want to change the text of the button.
 
