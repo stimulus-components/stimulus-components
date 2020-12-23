@@ -27,13 +27,12 @@ application.register("chart", Chart)
 
 ## Usage
 
-
 ### Basic usage
 
 ```html
 <canvas
   data-controller="chart"
-  data-chart-data-value='{"type": "line", "data": { "labels": ["January", "February", "March", "April", "May", "June", "July"], "datasets": [{ "label": "My First dataset", "backgroundColor": "transparent", "borderColor": "#3B82F6", "data": [37, 83, 78, 54, 12, 5, 99] }] } }'
+  data-chart-data-value='{ "labels": ["January", "February", "March", "April", "May", "June", "July"], "datasets": [{ "label": "My First dataset", "backgroundColor": "transparent", "borderColor": "#3B82F6", "data": [37, 83, 78, 54, 12, 5, 99] }] }'
 ></canvas>
 ```
 
@@ -41,7 +40,7 @@ If you extend this controller, it could be handy to with it with a `target`:
 ```html
 <div
   data-controller="chart"
-  data-chart-data-value='{"type": "line", "data": { "labels": ["January", "February", "March", "April", "May", "June", "July"], "datasets": [{ "label": "My First dataset", "backgroundColor": "transparent", "borderColor": "#3B82F6", "data": [37, 83, 78, 54, 12, 5, 99] }] } }'
+  data-chart-data-value='{ "labels": ["January", "February", "March", "April", "May", "June", "July"], "datasets": [{ "label": "My First dataset", "backgroundColor": "transparent", "borderColor": "#3B82F6", "data": [37, 83, 78, 54, 12, 5, 99] }] }'
 >
   <canvas data-chart-target="canvas"></canvas>
 
@@ -59,16 +58,13 @@ In you controller:
 class ChartsController < ApplicationController
   def index
     @chart_data = {
-      type: 'line',
-      data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        datasets: [{
-          label: 'My First dataset',
-          backgroundColor: 'transparent',
-          borderColor: '#3B82F6',
-          data: [37, 83, 78, 54, 12, 5, 99]
-        }]
-      }
+      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      datasets: [{
+        label: 'My First dataset',
+        backgroundColor: 'transparent',
+        borderColor: '#3B82F6',
+        data: [37, 83, 78, 54, 12, 5, 99]
+      }]
     }
 
     @chart_options = {
@@ -98,6 +94,7 @@ In your view:
 | Attribute | Default | Description | Optional |
 | --------- | ------- | ----------- | -------- |
 | `data-chart-data-value` | `{}` | The data for Chart.js | ❌ |
+| `data-chart-type-value` | `line` | Type of the chart | ✅ |
 | `data-chart-options-value` | `{}` | The options for Chart.js | ✅ |
 
 ## 🎛 Extending Controller
