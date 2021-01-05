@@ -74,6 +74,7 @@ In your view:
 <div
   data-controller="content-loader"
   data-content-loader-url-value="/message.html"
+  data-content-loader-load-scripts-value="true"
 >
   This content will be replaced by the content of the `/message.html` page in your public folder.
 </div>
@@ -115,15 +116,16 @@ In your view:
 | `data-content-loader-lazy-loading-value` | `undefined` | Fetch content when element is visible. | ✅ |
 | `data-content-loader-lazy-loading-root-margin-value` | `0px` | rootMargin option for Intersection Observer. | ✅ |
 | `data-content-loader-lazy-loading-threshold-value` | `0` | threshold option for Intersection Observer. | ✅ |
+| `data-content-loader-load-scripts-value` | `false` | Load inline scripts from the content. | ✅ |
 
 
 ## 🎛 Extending Controller
 
 {% capture content %}
 ```js
-import Reveal from "stimulus-reveal-controller"
+import ContentLoader from "stimulus-content-loader"
 
-export default class extends Reveal {
+export default class extends ContentLoader {
   connect() {
     super.connect()
     console.log("Do what you want here.")
