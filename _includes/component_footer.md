@@ -27,7 +27,7 @@ $ yarn test
 
 ## 🍻 Support
 
-You can support my work on [Patreon](https://www.patreon.com/guillaumebriday){:target="_blank"}. 🙏
+You can support my work on [GitHub Sponsors](https://github.com/sponsors/guillaumebriday){:target="_blank"}. 🙏
 
 ## 👷‍♂️ Contributing
 

@@ -19,7 +19,7 @@ I wrote a blog post to introduce this library.
 
 ## 🍻 Support
 
-You can support my work on [Patreon](https://www.patreon.com/guillaumebriday). 🙏
+You can support my work on [GitHub Sponsors](https://github.com/sponsors/guillaumebriday). 🙏
 
 ## 👷‍♂️ Contributing
 
