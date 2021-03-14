@@ -53,9 +53,9 @@ With custom options:
 
 | Attribute | Default | Description | Optional |
 | --------- | ------- | ----------- | -------- |
-| `data-scroll-reveal-class-value` | `in` | This class is added on the element when it becomes visible. | ✅ |
+| `data-scroll-reveal-class-value` | `'in'` | This class is added on the element when it becomes visible. | ✅ |
 | `data-scroll-reveal-threshold-value` | `0.1` | The threshold option for the IntersectionObserver. | ✅ |
-| `data-scroll-reveal-root-margin-value` | `0px` | The rootMargin option for the IntersectionObserver. | ✅ |
+| `data-scroll-reveal-root-margin-value` | `'0px'` | The rootMargin option for the IntersectionObserver. | ✅ |
 
 
 It's up to you to create the CSS transition animation.
@@ -106,7 +106,7 @@ export default class extends ScrollReveal {
   get defaultOptions () {
     return {
       class: 'active',
-      threshold: '0.5',
+      threshold: 0.5,
       rootMargin: '100px'
     }
   }
