@@ -20,7 +20,7 @@ import { Application } from "stimulus"
 import ScrollReveal from "stimulus-scroll-reveal"
 
 const application = Application.start()
-application.register("stimulus-scroll-reveal", ScrollReveal)
+application.register("scroll-reveal", ScrollReveal)
 ```
 
 {% include demo.md %}
