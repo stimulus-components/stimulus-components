@@ -21,6 +21,8 @@
 title: Stimulus Components
 email: guillaumebriday@gmail.com
 
+google_site_verification: pjOvHisUTrVMauIEW1JgGjx2KvdikHwWfTu4VfKetJE
+
 description: Configurable and customizable components for common JavaScript behavior with Stimulus JS.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
@@ -51,7 +53,6 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
-
 
 # Just the docs config
 aux_links:
