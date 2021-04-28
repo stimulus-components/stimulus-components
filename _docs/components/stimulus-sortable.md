@@ -97,7 +97,7 @@ If you're using [Rails UJS](https://github.com/rails/rails/tree/master/actionvie
 </ul>
 ```
 
-By default, `position` will be used as param in a PATCH request.
+By default, `position` will be used as param in a PATCH request. You can change it with the `data-sortable-param-name-value` attribute.
 
 If you use `data-sortable-resource-name-value`, the name will be used. For instance, `todo[position]`.
 
@@ -106,6 +106,7 @@ If you use `data-sortable-resource-name-value`, the name will be used. For insta
 | Attribute | Default | Description | Optional |
 | --------- | ------- | ----------- | -------- |
 | `data-sortable-resource-name-value` | `undefined` | Name of the resource to use as AJAX param. | ✅ |
+| `data-sortable-param-name-value` | `position` | Name of the attribute to use as AJAX param. | ✅ |
 | `data-sortable-animation-value` | `150` | Animation speed moving items when sorting in milliseconds. `0` to disable. | ✅ |
 | `data-sortable-handle-value` | `undefined` | Drag handle selector within list items. | ✅ |
 
