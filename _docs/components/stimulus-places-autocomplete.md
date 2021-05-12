@@ -20,7 +20,7 @@ import { Application } from "stimulus"
 import PlacesAutocomplete from "stimulus-places-autocomplete"
 
 const application = Application.start()
-application.register("places-autocomplete", PlacesAutocomplete)
+application.register("places", PlacesAutocomplete)
 ```
 
 ### Google Maps Callback
@@ -48,24 +48,24 @@ window.initAutocomplete = function () {
 
 ```html
 <div
-  data-controller="places-autocomplete"
-  data-action="google-maps-callback@window->places-autocomplete#initAutocomplete"
+  data-controller="places"
+  data-action="google-maps-callback@window->places#initAutocomplete"
 >
 
   <input
     type="text"
-    data-action="keydown->places-autocomplete#preventSubmit"
-    data-places-autocomplete-target="address"
+    data-action="keydown->places#preventSubmit"
+    data-places-target="address"
     placeholder="Search a location"
   />
 
-  <input type="hidden" data-places-autocomplete-target="city" />
-  <input type="hidden" data-places-autocomplete-target="streetNumber" />
-  <input type="hidden" data-places-autocomplete-target="route" />
-  <input type="hidden" data-places-autocomplete-target="county" />
-  <input type="hidden" data-places-autocomplete-target="state" />
-  <input type="hidden" data-places-autocomplete-target="postalCode" />
-  <input type="hidden" data-places-autocomplete-target="country" />
+  <input type="hidden" data-places-target="city" />
+  <input type="hidden" data-places-target="streetNumber" />
+  <input type="hidden" data-places-target="route" />
+  <input type="hidden" data-places-target="county" />
+  <input type="hidden" data-places-target="state" />
+  <input type="hidden" data-places-target="postalCode" />
+  <input type="hidden" data-places-target="country" />
 </div>
 ```
 
