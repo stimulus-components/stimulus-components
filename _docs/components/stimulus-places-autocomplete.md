@@ -52,7 +52,12 @@ window.initAutocomplete = function () {
   data-action="google-maps-callback@window->places-autocomplete#initAutocomplete"
 >
 
-  <input type="text" data-places-autocomplete-target="address" placeholder="Search a location" />
+  <input
+    type="text"
+    data-action="keydown->places-autocomplete#preventSubmit"
+    data-places-autocomplete-target="address"
+    placeholder="Search a location"
+  />
 
   <input type="hidden" data-places-autocomplete-target="city" />
   <input type="hidden" data-places-autocomplete-target="streetNumber" />
