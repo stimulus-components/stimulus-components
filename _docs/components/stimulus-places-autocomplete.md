@@ -66,6 +66,9 @@ window.initAutocomplete = function () {
   <input type="hidden" data-places-target="state" />
   <input type="hidden" data-places-target="postalCode" />
   <input type="hidden" data-places-target="country" />
+
+  <input type="hidden" data-places-target="longitude" />
+  <input type="hidden" data-places-target="latitude" />
 </div>
 ```
 
