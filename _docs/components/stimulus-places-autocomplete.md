@@ -44,12 +44,15 @@ window.initAutocomplete = function () {
 }
 ```
 
+👉 Tip: You don't need this callback if you add the `<div>` asynchronously in your DOM.
+
 ## Usage
 
 ```html
 <div
   data-controller="places"
   data-action="google-maps-callback@window->places#initAutocomplete"
+  data-places-country-value='["fr"]'
 >
 
   <input
