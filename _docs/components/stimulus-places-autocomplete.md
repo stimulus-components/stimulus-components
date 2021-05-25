@@ -77,6 +77,10 @@ window.initAutocomplete = function () {
 
 ## Configuration
 
+| Attribute | Default | Description | Optional |
+| --------- | ------- | ----------- | -------- |
+| `data-places-country-value` | `[]` | Array of countries the autocomplete is restricted to. Must be parseable by `JSON.parse`. | ✅ |
+
 If a target does not exist, it will be ignored.
 
 ## 🎛 Extending Controller
@@ -107,7 +111,7 @@ export default class extends PlacesAutocomplete {
   // You can set the Autocomplete options in this getter.
   get autocompleteOptions () {
     return {
-      fields: ['address_components']
+      fields: ['address_components', 'geometry']
     }
   }
 }
