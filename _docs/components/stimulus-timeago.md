@@ -50,6 +50,29 @@ In your view:
 
 If the datetime string passed via `data-timeago-datetime-value` is not parseable by `Date.parse()` it will display the given value instead.
 
+## Bonus
+
+If you're using Rails, you can define this helper:
+```ruby
+def timeago(date, format: :long)
+  return if date.blank?
+
+  content = I18n.l(date, format: format)
+
+  tag.time(content,
+            title: content,
+            data: {
+              controller: 'timeago',
+              timeago_datetime_value: date.iso8601
+            })
+end
+```
+
+And use it in your html:
+```erb
+<p>Created <%= timeago(@project.created_at) %></p>
+```
+
 ## 🎛 Extending Controller
 
 {% capture content %}
