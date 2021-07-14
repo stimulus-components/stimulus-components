@@ -12,8 +12,7 @@ $ yarn dev
 Prettier and ESLint are responsible to lint and format this component:
 
 ```bash
-$ yarn lint
-$ yarn format
+$ yarn lint && yarn format
 ```
 
 {% if page.tests %}
@@ -38,7 +37,7 @@ Don't forget to drop a 🌟 on [GitHub](https://github.com/stimulus-components/s
 ## 🚀 Releasing
 
 ```bash
-$ yarn pika:publish
+$ yarn np
 ```
 
 ## 📝 License
