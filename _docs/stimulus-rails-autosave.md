@@ -1,7 +1,6 @@
 ---
 layout: component
 title: Rails Autosave
-parent: Available controllers
 package: rails-autosave
 ---
 

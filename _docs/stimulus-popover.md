@@ -1,7 +1,6 @@
 ---
 layout: component
 title: Popover
-parent: Available controllers
 package: popover
 netlify_id: cbec1815-8e5b-4f45-8cb2-44d24e8c9cf5
 ---

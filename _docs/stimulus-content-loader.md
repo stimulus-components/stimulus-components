@@ -1,7 +1,6 @@
 ---
 layout: component
 title: Content Loader
-parent: Available controllers
 package: content-loader
 netlify_id: bc6c7113-e3e7-4d1f-9508-4b631eea2e70
 ---

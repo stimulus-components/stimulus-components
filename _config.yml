@@ -54,6 +54,9 @@ plugins:
 #   - vendor/gems/
 #   - vendor/ruby/
 
+include:
+  - _redirects
+
 # Just the docs config
 aux_links:
   "GitHub":

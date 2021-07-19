@@ -1,7 +1,6 @@
 ---
 layout: component
 title: Remote Rails
-parent: Available controllers
 package: remote-rails
 netlify_id: ac728feb-ab47-48c9-b178-bbc7ca0ddc53
 ---

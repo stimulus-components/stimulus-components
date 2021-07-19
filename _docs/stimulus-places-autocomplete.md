@@ -1,7 +1,6 @@
 ---
 layout: component
 title: Places Autocomplete
-parent: Available controllers
 package: places-autocomplete
 netlify_id: 5454560c-391d-41f8-92e1-8a3ee026dbe1
 ---

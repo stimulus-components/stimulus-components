@@ -1,7 +1,6 @@
 ---
 layout: component
 title: Lightbox
-parent: Available controllers
 package: lightbox
 netlify_id: a6137aa0-bbbc-401d-81cc-4677a91fe581
 ---

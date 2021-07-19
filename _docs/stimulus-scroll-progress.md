@@ -1,7 +1,6 @@
 ---
 layout: component
 title: Scroll Progress
-parent: Available controllers
 package: scroll-progress
 netlify_id: 8a6c0c4d-2ff0-4da3-ba96-3a14cbad811a
 ---

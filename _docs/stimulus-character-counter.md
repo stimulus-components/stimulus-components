@@ -1,7 +1,6 @@
 ---
 layout: component
 title: Character Counter
-parent: Available controllers
 package: character-counter
 netlify_id: 7ef669f5-d255-4a59-8461-5b2360d1674b
 ---

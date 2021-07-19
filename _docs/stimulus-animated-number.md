@@ -1,7 +1,6 @@
 ---
 layout: component
 title: Animated Number
-parent: Available controllers
 package: animated-number
 netlify_id: bc3d072f-f5ce-4bda-b8a7-a7f362f626db
 ---

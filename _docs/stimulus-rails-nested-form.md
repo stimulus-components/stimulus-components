@@ -1,7 +1,6 @@
 ---
 layout: component
 title: Rails Nested Form
-parent: Available controllers
 package: rails-nested-form
 netlify_id: c21b3ca7-40fa-4de3-aad5-56dbc343ace6
 tests: true

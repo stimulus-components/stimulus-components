@@ -1,7 +1,6 @@
 ---
 layout: component
 title: Textarea Autogrow
-parent: Available controllers
 package: textarea-autogrow
 netlify_id: 073b5fee-358d-4dbf-b807-52034690f8ef
 ---

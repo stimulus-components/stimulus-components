@@ -1,7 +1,6 @@
 ---
 layout: component
 title: ScrollTo
-parent: Available controllers
 package: scroll-to
 netlify_id: 26d5363d-d699-4558-abb4-2267919dbe59
 ---

@@ -1,7 +1,6 @@
 ---
 layout: component
 title: Read More
-parent: Available controllers
 package: read-more
 netlify_id: e0c5cf44-d938-4675-870d-fd50b58fca72
 ---

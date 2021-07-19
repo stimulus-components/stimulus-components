@@ -1,7 +1,6 @@
 ---
 layout: component
 title: Carousel
-parent: Available controllers
 package: carousel
 netlify_id: ea47f6e3-99fb-46f3-a567-4ec122ab92ed
 ---

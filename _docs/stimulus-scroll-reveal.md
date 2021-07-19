@@ -1,7 +1,6 @@
 ---
 layout: component
 title: Scroll Reveal
-parent: Available controllers
 package: scroll-reveal
 netlify_id: 95f25f38-cc08-41e5-8cb7-ee19eba62499
 ---

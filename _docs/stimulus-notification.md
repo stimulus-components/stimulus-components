@@ -1,7 +1,6 @@
 ---
 layout: component
 title: Notification
-parent: Available controllers
 package: notification
 netlify_id: 59cfd74d-6f17-4a80-b55c-535c901ad4e9
 ---

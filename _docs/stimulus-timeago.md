@@ -1,7 +1,6 @@
 ---
 layout: component
 title: Timeago
-parent: Available controllers
 package: timeago
 netlify_id: d62d950e-aae7-464d-8333-1078a16ec481
 ---

@@ -1,7 +1,6 @@
 ---
 layout: component
 title: Prefetch
-parent: Available controllers
 package: prefetch
 netlify_id: d3b878bb-b10c-47d2-a21b-e0a510120a4c
 ---
