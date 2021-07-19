@@ -5,7 +5,7 @@ title: Home
 
 # Stimulus components
 
-Configurable and customizable components for common JavaScript behavior with [Stimulus JS](https://stimulusjs.org/).
+Configurable and customizable components for common JavaScript behavior with [Stimulus JS](https://stimulus.hotwired.dev/).
 {: .fs-4 .grey-dk-000 }
 
 ![](screenshot.png)

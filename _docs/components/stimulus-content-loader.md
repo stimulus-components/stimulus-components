@@ -139,4 +139,4 @@ export default class extends ContentLoader {
 
 ## Credits
 
-This controller is inspired by the [official Stimulus example](https://stimulusjs.org/handbook/working-with-external-resources).
+This controller is inspired by the [official Stimulus example](https://stimulus.hotwired.dev/handbook/working-with-external-resources).
