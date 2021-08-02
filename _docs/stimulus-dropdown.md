@@ -43,9 +43,9 @@ In your view:
     data-transition-leave-from="opacity-100 scale-100"
     data-transition-leave-to="opacity-0 scale-95"
   >
-    <a href="#">Account settings</a>
-    <a href="#">Support</a>
-    <a href="#">License</a>
+    <a href="#" data-action="dropdown#toggle">Account settings</a>
+    <a href="#" data-action="dropdown#toggle">Support</a>
+    <a href="#" data-action="dropdown#toggle">License</a>
   </div>
 </div>
 ```
