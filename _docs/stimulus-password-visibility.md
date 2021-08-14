@@ -32,8 +32,8 @@ In your view:
   <input type="password" data-password-visibility-target="input" />
 
   <button type="button" data-action="password-visibility#toggle">
-    <span data-password-visibility-target="hiddenIcon">Eye</span>
-    <span data-password-visibility-target="visibleIcon" class="hidden">Eye Slash</span>
+    <span data-password-visibility-target="icon">Eye</span>
+    <span data-password-visibility-target="icon" class="hidden">Eye Slash</span>
   </button>
 </div>
 ```
