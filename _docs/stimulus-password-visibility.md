@@ -16,7 +16,7 @@ $ yarn add stimulus-password-visibility
 And use it in your JS file:
 ```js
 import { Application } from "stimulus"
-import PasswordVisibility from "stimulus-timeago"
+import PasswordVisibility from "stimulus-password-visibility"
 
 const application = Application.start()
 application.register("password-visibility", PasswordVisibility)
@@ -48,7 +48,7 @@ In your view:
 
 {% capture content %}
 ```js
-import PasswordVisibility from "stimulus-timeago"
+import PasswordVisibility from "stimulus-password-visibility"
 
 export default class extends PasswordVisibility {
   connect() {
