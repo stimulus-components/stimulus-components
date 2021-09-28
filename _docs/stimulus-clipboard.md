@@ -15,7 +15,7 @@ $ yarn add stimulus-clipboard
 
 And use it in your JS file:
 ```js
-import { Application } from "stimulus"
+import { Application } from "@hotwired/stimulus"
 import Clipboard from "stimulus-clipboard"
 
 const application = Application.start()
