@@ -29,7 +29,7 @@ $ yarn add stimulus-rails-autosave
 
 And use it in your JS file:
 ```js
-import { Application } from "stimulus"
+import { Application } from "@hotwired/stimulus"
 import Autosave from "stimulus-rails-autosave"
 
 const application = Application.start()
