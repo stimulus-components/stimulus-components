@@ -70,7 +70,7 @@ With options:
 
 | Attribute | Default | Description | Optional |
 | --------- | ------- | ----------- | -------- |
-| `data-carousel-options-value` | `{}` | Options for lightgallery.js as JSON string. | ✅ |
+| `data-carousel-options-value` | `{}` | Options for swiper.js as JSON string. | ✅ |
 
 ## 🎛 Extending Controller
 
