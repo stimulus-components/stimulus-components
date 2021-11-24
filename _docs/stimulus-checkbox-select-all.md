@@ -117,7 +117,7 @@ In your view:
 
   <%= f.collection_check_boxes :team_ids, Team.all, :id, :name do |b| %>
     <%= b.label do %>
-      <%= b.check_box data: { target_checkbox_select_all: 'checkbox' } %>
+      <%= b.check_box data: { checkbox_select_all_target: 'checkbox' } %>
       <%= b.text %>
     <% end %>
   <% end %>
