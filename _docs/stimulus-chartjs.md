@@ -15,6 +15,8 @@ $ yarn add stimulus-chartjs
 
 And use it in your JS file:
 ```js
+// Probably in app/javascript/controllers/index.js
+
 import { Application } from "stimulus"
 import Chart from "stimulus-chartjs"
 

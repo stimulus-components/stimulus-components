@@ -15,6 +15,8 @@ $ yarn add stimulus-clipboard
 
 And use it in your JS file:
 ```js
+// Probably in app/javascript/controllers/index.js
+
 import { Application } from "@hotwired/stimulus"
 import Clipboard from "stimulus-clipboard"
 

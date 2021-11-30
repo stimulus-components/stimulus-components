@@ -15,6 +15,8 @@ $ yarn add stimulus-scroll-to
 
 And use it in your JS file:
 ```js
+// Probably in app/javascript/controllers/index.js
+
 import { Application } from "stimulus"
 import ScrollTo from "stimulus-scroll-to"
 

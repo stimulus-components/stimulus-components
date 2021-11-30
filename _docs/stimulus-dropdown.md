@@ -15,6 +15,8 @@ $ yarn add stimulus-dropdown
 
 And use it in your JS file:
 ```js
+// Probably in app/javascript/controllers/index.js
+
 import { Application } from "stimulus"
 import Dropdown from "stimulus-dropdown"
 

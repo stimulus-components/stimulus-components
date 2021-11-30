@@ -18,6 +18,8 @@ $ yarn add stimulus-rails-nested-form
 
 And use it in your JS file:
 ```js
+// Probably in app/javascript/controllers/index.js
+
 import { Application } from "@hotwired/stimulus"
 import NestedForm from "stimulus-rails-nested-form"
 

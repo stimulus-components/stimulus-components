@@ -16,6 +16,8 @@ $ yarn add stimulus-reveal-controller
 
 And use it in your JS file:
 ```js
+// Probably in app/javascript/controllers/index.js
+
 import { Application } from "stimulus"
 import Reveal from "stimulus-reveal-controller"
 

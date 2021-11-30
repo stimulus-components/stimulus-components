@@ -23,6 +23,8 @@ $ yarn add stimulus-content-loader
 
 And use it in your JS file:
 ```js
+// Probably in app/javascript/controllers/index.js
+
 import { Application } from "stimulus"
 import ContentLoader from "stimulus-content-loader"
 
