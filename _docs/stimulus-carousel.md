@@ -30,14 +30,11 @@ application.register("carousel", Carousel)
 
 ## Before starting
 
-You must import the `Swiper` CSS in your `js` or in your `sass`:
+You must import the `Swiper` CSS in your `js` file:
 
 ```js
 // In your application.js (for example)
-import 'swiper/swiper-bundle.min.css'
-
-// Or in your sass
-@import "~swiper/swiper-bundle"
+import 'swiper/css/bundle'
 ```
 
 ## Usage
