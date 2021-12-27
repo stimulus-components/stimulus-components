@@ -7,7 +7,7 @@ netlify_id: a6137aa0-bbbc-401d-81cc-4677a91fe581
 
 A Stimulus controller to add a lightbox on images.
 
-This controller is using [lightgallery.js](https://sachinchoolur.github.io/lightgallery.js/) behind the scene.
+This controller is using [lightgalleryjs](https://www.lightgalleryjs.com/) behind the scene.
 
 ## Installation
 
@@ -30,14 +30,13 @@ application.register("lightbox", Lightbox)
 
 ## Usage
 
-
 Before starting, your must import the `lightgallery.css` in your `js` or in your `sass`:
 ```js
 // In your application.js (for example)
-import "lightgallery.js/dist/css/lightgallery.min.css"
+import 'lightgallery/css/lightgallery.css'
 
 // Or in your sass
-@import "~lightgallery.js/src/sass/lightgallery"
+@import '~lightgallery/scss/lightgallery'
 ```
 
 Basic usage:
@@ -93,9 +92,6 @@ export default class extends Lightbox {
 
     // Default options for every lightboxes.
     this.defaultOptions
-
-    // The lightGallery instance.
-    this.lightGallery
   }
 
   // You can set default options in this getter.
