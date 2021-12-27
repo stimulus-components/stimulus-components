@@ -18,7 +18,7 @@ And use it in your JS file:
 ```js
 // Probably in app/javascript/controllers/index.js
 
-import { Application } from "stimulus"
+import { Application } from "@hotwired/stimulus"
 import Reveal from "stimulus-reveal-controller"
 
 const application = Application.start()

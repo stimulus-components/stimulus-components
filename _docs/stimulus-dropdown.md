@@ -17,7 +17,7 @@ And use it in your JS file:
 ```js
 // Probably in app/javascript/controllers/index.js
 
-import { Application } from "stimulus"
+import { Application } from "@hotwired/stimulus"
 import Dropdown from "stimulus-dropdown"
 
 const application = Application.start()

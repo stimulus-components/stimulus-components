@@ -19,7 +19,7 @@ And use it in your JS file:
 ```js
 // Probably in app/javascript/controllers/index.js
 
-import { Application } from "stimulus"
+import { Application } from "@hotwired/stimulus"
 import Carousel from "stimulus-carousel"
 
 const application = Application.start()
