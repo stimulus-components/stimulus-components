@@ -16,10 +16,7 @@ I wrote a blog post to introduce this library.
 
 👉 [Introducing Stimulus components](https://guillaumebriday.fr/introducing-stimulus-components)
 
-
-## 🍻 Support
-
-You can support my work on [GitHub Sponsors](https://github.com/sponsors/guillaumebriday). 🙏
+{% include sponsors.md %}
 
 ## 👷 Contributing
 

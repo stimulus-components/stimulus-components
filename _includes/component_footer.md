@@ -24,9 +24,7 @@ $ yarn test
 ```
 {% endif %}
 
-## 🍻 Support
-
-You can support my work on [GitHub Sponsors](https://github.com/sponsors/guillaumebriday){:target="_blank"}. 🙏
+{% include sponsors.md %}
 
 ## 👷 Contributing
 
