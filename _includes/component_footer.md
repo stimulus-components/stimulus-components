@@ -28,17 +28,11 @@ $ yarn test
 
 You can support my work on [GitHub Sponsors](https://github.com/sponsors/guillaumebriday){:target="_blank"}. 🙏
 
-## 👷‍♂️ Contributing
+## 👷 Contributing
 
 Do not hesitate to contribute to the project by adapting or adding features ! Bug reports or pull requests are welcome.
 
 Don't forget to drop a 🌟 on [GitHub](https://github.com/stimulus-components/stimulus-{{ page.package }}){:target="_blank"} to support the project.
-
-## 🚀 Releasing
-
-```bash
-$ yarn np
-```
 
 ## 📝 License
 

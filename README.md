@@ -8,13 +8,11 @@
 
 See [Stimulus Components Website](https://stimulus-components.netlify.app/).
 
-## 👷‍♂️ Contributing
+## 👷 Contributing
 
 Do not hesitate to contribute to the controllers by adapting or adding features ! Bug reports or pull requests are welcome.
 
-If you thing a new controller belongs here, open an issue in this repo to talk about it.
-
-See the board, if you want to know what we are working and where you could help : [Board](https://github.com/orgs/stimulus-components/projects/1).
+Don't forget to drop a 🌟 on [GitHub](https://github.com/stimulus-components/stimulus-components) to support the project.
 
 ## 📝 License
 

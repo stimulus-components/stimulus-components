@@ -21,7 +21,7 @@ I wrote a blog post to introduce this library.
 
 You can support my work on [GitHub Sponsors](https://github.com/sponsors/guillaumebriday). 🙏
 
-## 👷‍♂️ Contributing
+## 👷 Contributing
 
 Do not hesitate to contribute to the controllers by adapting or adding features ! Bug reports or pull requests are welcome.
 
