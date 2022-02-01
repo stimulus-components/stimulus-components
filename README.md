@@ -6,7 +6,7 @@
 
 ## 📚 Documentation
 
-See [Stimulus Components Website](https://stimulus-components.netlify.app/).
+See [Stimulus Components Website](https://stimulus-components.com/).
 
 ## 👷 Contributing
 
