@@ -1,1 +1,3 @@
+https://stimulus-components.netlify.app/* https://www.stimulus-components.com/:splat 301!
+
 /docs/components/* /docs/:splat 301
