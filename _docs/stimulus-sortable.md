@@ -108,6 +108,7 @@ If you use `data-sortable-resource-name-value`, the name will be used. For insta
 | --------- | ------- | ----------- | -------- |
 | `data-sortable-resource-name-value` | `undefined` | Name of the resource to use as AJAX param. | ✅ |
 | `data-sortable-param-name-value` | `position` | Name of the attribute to use as AJAX param. | ✅ |
+| `data-sortable-response-kind-value` | `html` | The response kind you want for `@rails/request.js`. | ✅ |
 | `data-sortable-animation-value` | `150` | Animation speed moving items when sorting in milliseconds. `0` to disable. | ✅ |
 | `data-sortable-handle-value` | `undefined` | Drag handle selector within list items. | ✅ |
 
