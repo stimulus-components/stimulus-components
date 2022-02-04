@@ -22,6 +22,7 @@ title: Stimulus Components
 email: guillaumebriday@gmail.com
 
 google_site_verification: pjOvHisUTrVMauIEW1JgGjx2KvdikHwWfTu4VfKetJE
+ga_tracking: UA-54003772-15
 
 description: Configurable and customizable components for common JavaScript behavior with Stimulus JS.
 baseurl: "" # the subpath of your site, e.g. /blog
