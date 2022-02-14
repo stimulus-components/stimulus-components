@@ -54,7 +54,7 @@ With options:
 ```html
 <div
   data-controller="carousel"
-  class="swiper-container"
+  class="swiper"
   data-carousel-options-value='{"direction": "vertical"}'
 >
   <div class="swiper-wrapper">
