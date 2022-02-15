@@ -3,6 +3,7 @@ layout: component
 title: Carousel
 package: carousel
 netlify_id: ea47f6e3-99fb-46f3-a567-4ec122ab92ed
+parent: Components list
 ---
 
 A Stimulus controller to deal with carousel.

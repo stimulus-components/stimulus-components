@@ -3,6 +3,7 @@ layout: component
 title: ScrollTo
 package: scroll-to
 netlify_id: 26d5363d-d699-4558-abb4-2267919dbe59
+parent: Components list
 ---
 
 A Stimulus controller to scroll to elements.

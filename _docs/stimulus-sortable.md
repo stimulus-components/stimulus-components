@@ -3,6 +3,7 @@ layout: component
 title: Sortable
 package: sortable
 netlify_id: a8341029-7f19-443d-88aa-02c6325b389e
+parent: Components list
 ---
 
 A Stimulus controller to reorder lists with drag-and-drop.

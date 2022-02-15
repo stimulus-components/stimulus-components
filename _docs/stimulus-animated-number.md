@@ -3,6 +3,7 @@ layout: component
 title: Animated Number
 package: animated-number
 netlify_id: bc3d072f-f5ce-4bda-b8a7-a7f362f626db
+parent: Components list
 ---
 
 A Stimulus controller that animates a numerical value by counting to it.

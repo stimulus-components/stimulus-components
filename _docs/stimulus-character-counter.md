@@ -3,6 +3,7 @@ layout: component
 title: Character Counter
 package: character-counter
 netlify_id: 7ef669f5-d255-4a59-8461-5b2360d1674b
+parent: Components list
 ---
 
 A Stimulus controller that counts the number of characters in any input fields.

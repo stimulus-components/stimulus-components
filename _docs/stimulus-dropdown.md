@@ -3,6 +3,7 @@ layout: component
 title: Dropdown
 package: dropdown
 netlify_id: e6e1b1d2-f834-44c5-a12a-c848f6d4cd5e
+parent: Components list
 ---
 
 A Stimulus controller to create a dropdown.

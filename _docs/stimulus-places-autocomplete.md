@@ -3,6 +3,7 @@ layout: component
 title: Places Autocomplete
 package: places-autocomplete
 netlify_id: 5454560c-391d-41f8-92e1-8a3ee026dbe1
+parent: Components list
 ---
 
 A Stimulus controller for Google Places Autocomplete.

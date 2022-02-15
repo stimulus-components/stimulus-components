@@ -4,6 +4,7 @@ title: Checkbox Select All
 package: checkbox-select-all
 netlify_id: 073b5fee-358d-4dbf-b807-52034690f8ef
 tests: true
+parent: Components list
 ---
 
 A Stimulus controller for managing checkbox lists.

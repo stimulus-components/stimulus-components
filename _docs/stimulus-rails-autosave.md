@@ -2,6 +2,7 @@
 layout: component
 title: Rails Autosave
 package: rails-autosave
+parent: Components list
 ---
 
 A Stimulus controller to autosubmit Rails forms.

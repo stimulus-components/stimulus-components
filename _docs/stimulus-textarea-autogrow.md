@@ -3,6 +3,7 @@ layout: component
 title: Textarea Autogrow
 package: textarea-autogrow
 netlify_id: 073b5fee-358d-4dbf-b807-52034690f8ef
+parent: Components list
 ---
 
 A Stimulus controller for autogrowing textarea.

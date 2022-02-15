@@ -3,6 +3,7 @@ layout: component
 title: Notification
 package: notification
 netlify_id: 59cfd74d-6f17-4a80-b55c-535c901ad4e9
+parent: Components list
 ---
 
 A Stimulus controller for showing notifications.

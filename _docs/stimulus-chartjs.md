@@ -3,6 +3,7 @@ layout: component
 title: Chartjs
 package: chartjs
 netlify_id: f75f37fa-c1c7-42c3-8266-27d11c67c2b1
+parent: Components list
 ---
 
 A Stimulus controller to deal with chart.js.

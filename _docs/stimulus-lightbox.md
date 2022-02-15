@@ -3,6 +3,7 @@ layout: component
 title: Lightbox
 package: lightbox
 netlify_id: a6137aa0-bbbc-401d-81cc-4677a91fe581
+parent: Components list
 ---
 
 A Stimulus controller to add a lightbox on images.

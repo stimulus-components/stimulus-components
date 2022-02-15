@@ -4,6 +4,7 @@ title: Rails Nested Form
 package: rails-nested-form
 netlify_id: c21b3ca7-40fa-4de3-aad5-56dbc343ace6
 tests: true
+parent: Components list
 ---
 
 A Stimulus controller to create new fields on the fly to populate your Rails relationship with `accepts_nested_attributes_for`.

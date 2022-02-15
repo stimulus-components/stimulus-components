@@ -3,6 +3,7 @@ layout: component
 title: Scroll Reveal
 package: scroll-reveal
 netlify_id: 95f25f38-cc08-41e5-8cb7-ee19eba62499
+parent: Components list
 ---
 
 A Stimulus controller that animates an element when it becomes visible.

@@ -3,6 +3,7 @@ layout: component
 title: Remote Rails
 package: remote-rails
 netlify_id: ac728feb-ab47-48c9-b178-bbc7ca0ddc53
+parent: Components list
 ---
 
 A Stimulus controller to handle [Rails UJS events](https://guides.rubyonrails.org/working_with_javascript_in_rails.html#rails-ujs-event-handlers).

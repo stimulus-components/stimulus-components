@@ -3,6 +3,7 @@ layout: component
 title: Scroll Progress
 package: scroll-progress
 netlify_id: 8a6c0c4d-2ff0-4da3-ba96-3a14cbad811a
+parent: Components list
 ---
 
 A Stimulus controller to add a progress bar when scrolling.
