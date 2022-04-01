@@ -1,3 +1,9 @@
+###
+# Place your Prettier ignore content here
+
+###
+# .gitignore content is duplicated here due to https://github.com/prettier/prettier/issues/8506
+
 # Created by .ignore support plugin (hsz.mobi)
 ### Node template
 # Logs
