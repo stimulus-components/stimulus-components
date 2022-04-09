@@ -2,7 +2,7 @@
   <nav class="bg-white shadow">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between h-16">
-        <div class="flex">
+        <div class="flex w-full">
           <div class="-ml-2 mr-2 flex items-center md:hidden">
             <button
               type="button"
@@ -48,7 +48,7 @@
             </NuxtLink>
           </div>
 
-          <div class="hidden md:ml-6 md:flex md:space-x-8">
+          <div class="hidden md:flex ml-6 gap-8">
             <NuxtLink
               v-for="link in links"
               :key="link.url"
@@ -59,6 +59,8 @@
               {{ link.title }}
             </NuxtLink>
           </div>
+
+          <AlgoliaSearchBox />
         </div>
       </div>
     </div>
