@@ -54,7 +54,7 @@ If you extend this controller, it could be handy to with it with a `target`:
 
 ### With backend framework (optional)
 
-In you controller:
+In your controller:
 
 ```ruby
 class ChartsController < ApplicationController
