@@ -72,7 +72,7 @@
       <h1>Sponsors</h1>
 
       <p>
-        Stimulus Component is an <a href="https://opensource.org/licenses/MIT" target="_blank">MIT</a> licensed open
+        Stimulus Components is an <a href="https://opensource.org/licenses/MIT" target="_blank">MIT</a> licensed open
         source project and completely free to use. However, the amount of effort needed to maintain and develop new
         features for the project is not sustainable without proper financial backing. You can support Stimulus
         Components development on
