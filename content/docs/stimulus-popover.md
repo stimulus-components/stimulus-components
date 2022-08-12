@@ -55,7 +55,7 @@ With server rendered content on the fly:
 ```erb
 <div data-controller="popover" data-popover-url-value="<%= card_path %>">
   You can load popover with AJAX. For instance, this is my
-  <a href="/profile" data-action="mouseover->popover#show mouseout->popover#hide"> profile card </a>
+  <a href="/profile" data-action="mouseenter->popover#show mouseleave->popover#hide">profile card</a>
 </div>
 ```
 
@@ -95,10 +95,9 @@ In the card partial `app/views/users/_card.html.erb`:
 <DocsExtendingController>
 
 ```js
-import Timeago from 'stimulus-timeago'
-import { fr } from 'date-fns/locale'
+import Popover from 'stimulus-popover'
 
-export default class extends Timeago {
+export default class extends Popover {
   connect() {
     super.connect()
     console.log('Do what you want here.')
