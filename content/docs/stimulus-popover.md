@@ -16,7 +16,7 @@ And use it in your JS file:
 ```js
 // Probably in app/javascript/controllers/index.js
 
-import { Application } from 'stimulus'
+import { Application } from '@hotwired/stimulus'
 import Popover from 'stimulus-popover'
 
 const application = Application.start()
@@ -72,7 +72,7 @@ In the card partial `app/views/users/_card.html.erb`:
 ```html
 <div data-controller="popover">
   This is my Github card available on
-  <a href="/profile" data-action="mouseover->popover#show mouseout->popover#hide"> Github </a>
+  <a href="/profile" data-action="mouseenter->popover#show mouseleave->popover#hide"> Github </a>
 
   <template data-popover-target="content">
     <div data-popover-target="card">
