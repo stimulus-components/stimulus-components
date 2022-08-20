@@ -79,10 +79,10 @@ For instance:
 
 ## 🛠 Configuration
 
-| Attribute                        | Default   | Description                                                   | Optional |
-| -------------------------------- | --------- | ------------------------------------------------------------- | -------- |
-| `data-notification-delay-value`  | `3000`    | Delay in milliseconds before closing the notification.        | ✅       |
-| `data-notification-hidden-value` | `false`   | Hide the notification by default to open it programmatically. | ✅       |
+| Attribute                        | Default | Description                                                   | Optional |
+| -------------------------------- | ------- | ------------------------------------------------------------- | -------- |
+| `data-notification-delay-value`  | `3000`  | Delay in milliseconds before closing the notification.        | ✅       |
+| `data-notification-hidden-value` | `false` | Hide the notification by default to open it programmatically. | ✅       |
 
 ## 🎛 Extending Controller
 
