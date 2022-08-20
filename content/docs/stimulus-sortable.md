@@ -130,8 +130,8 @@ export default class extends Sortable {
   }
 
   // You can override the `end` method here.
-  end() {
-    super.end()
+  end({ item, newIndex }) {
+    super.end({ item, newIndex })
   }
 
   // You can set default options in this getter for all sortable elements.
