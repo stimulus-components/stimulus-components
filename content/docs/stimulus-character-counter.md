@@ -40,6 +40,25 @@ In your view:
 </div>
 ```
 
+You can use it in countdown mode, add the correct value and a `maxlength` attribute on the `input`/`textarea` field:
+
+```html
+<div data-controller="character-counter" data-character-counter-countdown-value="true">
+  <textarea data-character-counter-target="input" maxlength="280"></textarea>
+
+  <p>
+    There are
+    <strong data-character-counter-target="counter"></strong> characters remaining.
+  </p>
+</div>
+```
+
+## 🛠 Configuration
+
+| Attribute                                | Default     | Description                  | Optional |
+| ---------------------------------------- | ----------- | ---------------------------- | -------- |
+| `data-character-counter-countdown-value` | `undefined` | Activate the countdown mode. | ✅       |
+
 ## 🎛 Extending Controller
 
 <DocsExtendingController>
