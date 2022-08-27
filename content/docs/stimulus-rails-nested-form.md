@@ -129,4 +129,4 @@ export default class extends NestedForm {
 }
 ```
 
-</DocsExtendingController>y
+</DocsExtendingController>
