@@ -31,7 +31,7 @@ In your view:
 
 ```html
 <div data-controller="password-visibility">
-  <input type="password" data-password-visibility-target="input" />
+  <input type="password" data-password-visibility-target="input" spellcheck="false" />
 
   <button type="button" data-action="password-visibility#toggle">
     <span data-password-visibility-target="icon">Eye</span>
