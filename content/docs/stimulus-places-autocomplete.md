@@ -1,0 +1,125 @@
+---
+title: Places Autocomplete
+description: A Stimulus controller for Google Places Autocomplete.
+package: places-autocomplete
+netlify_id: 5454560c-391d-41f8-92e1-8a3ee026dbe1
+---
+
+## Installation
+
+```bash
+$ yarn add stimulus-places-autocomplete
+```
+
+And use it in your JS file:
+
+```js
+// Probably in app/javascript/controllers/index.js
+
+import { Application } from 'stimulus'
+import PlacesAutocomplete from 'stimulus-places-autocomplete'
+
+const application = Application.start()
+application.register('places', PlacesAutocomplete)
+```
+
+### Google Maps Callback
+
+Load the Google Maps Api JavaScript in your `<head>`:
+
+```html
+<head>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key={your_key_here}&libraries=places&callback=initAutocomplete"
+    async=""
+    defer=""
+  ></script>
+</head>
+```
+
+Define a callback to trigger the `PlacesAutocomplete` controller in your views:
+
+```js
+window.initAutocomplete = function () {
+  const event = new Event('google-maps-callback', {
+    bubbles: true,
+    cancelable: true,
+  })
+  window.dispatchEvent(event)
+}
+```
+
+👉 Tip: You don't need this callback if you add the `<div>` asynchronously in your DOM.
+
+## Usage
+
+```html
+<div
+  data-controller="places"
+  data-action="google-maps-callback@window->places#initAutocomplete"
+  data-places-country-value='["fr"]'
+>
+  <input
+    type="text"
+    data-action="keydown->places#preventSubmit"
+    data-places-target="address"
+    placeholder="Search a location"
+  />
+
+  <input type="hidden" data-places-target="city" />
+  <input type="hidden" data-places-target="streetNumber" />
+  <input type="hidden" data-places-target="route" />
+  <input type="hidden" data-places-target="county" />
+  <input type="hidden" data-places-target="state" />
+  <input type="hidden" data-places-target="postalCode" />
+  <input type="hidden" data-places-target="country" />
+
+  <input type="hidden" data-places-target="longitude" />
+  <input type="hidden" data-places-target="latitude" />
+</div>
+```
+
+## Configuration
+
+| Attribute                   | Default | Description                                                                              | Optional |
+| --------------------------- | ------- | ---------------------------------------------------------------------------------------- | -------- |
+| `data-places-country-value` | `[]`    | Array of countries the autocomplete is restricted to. Must be parseable by `JSON.parse`. | ✅       |
+
+If a target does not exist, it will be ignored.
+
+## 🎛 Extending Controller
+
+<DocsExtendingController>
+
+```js
+import PlacesAutocomplete from 'stimulus-places-autocomplete'
+
+export default class extends PlacesAutocomplete {
+  connect() {
+    super.connect()
+    console.log('Do what you want here.')
+
+    // The google.maps.places.Autocomplete instance.
+    this.autocomplete
+  }
+
+  // You can override the `initAutocomplete` method here.
+  initAutocomplete() {
+    super.initAutocomplete()
+  }
+
+  // You can override the `placeChanged` method here.
+  placeChanged() {
+    super.placeChanged()
+  }
+
+  // You can set the Autocomplete options in this getter.
+  get autocompleteOptions() {
+    return {
+      fields: ['address_components', 'geometry'],
+    }
+  }
+}
+```
+
+</DocsExtendingController>
