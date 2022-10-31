@@ -52,7 +52,7 @@ export default {
     await fetch(this.downloadsEndpoint)
       .then((response) => response.json())
       .then((data) => {
-        const count = Object.values(data).reduce((acc, { downloads }) => acc + downloads, 0)
+        const count = Object.values(data).reduce((acc, item) => acc + (item?.downloads || 0), 0)
 
         if (count) {
           this.stats.push({
