@@ -30,11 +30,11 @@ application.register('reveal', Reveal)
 ### Toggle
 
 ```html
-<div data-controller="reveal" data-reveal-hidden-class="invisible">
+<div data-controller="reveal" data-reveal-hidden-class="d-none">
   <button data-action="click->reveal#toggle" type="button" class="btn">Toggle me!</button>
 
-  <p data-reveal-target="item" class="invisible mt-4">Hey 👋</p>
-  <p data-reveal-target="item" class="invisible mt-4">You can have multiple items</p>
+  <p data-reveal-target="item" class="d-none mt-4">Hey 👋</p>
+  <p data-reveal-target="item" class="d-none mt-4">You can have multiple items</p>
 </div>
 ```
 
