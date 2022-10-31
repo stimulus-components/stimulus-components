@@ -82,7 +82,7 @@ In your views:
 
 ### With AJAX call
 
-If you're using [Rails UJS](https://github.com/rails/rails/tree/master/actionview/app/assets/javascripts) in your application, you can add an url as data-attribute on every items to perform an AJAX call to update the new position.
+If you're using [@rails/request.js](https://github.com/rails/request.js) in your application, you can add an url as data-attribute on every items to perform an AJAX call to update the new position automatically on drop.
 
 ```erb
 <ul data-controller="sortable" data-sortable-resource-name-value="todo">
@@ -129,9 +129,9 @@ export default class extends Sortable {
     this.defaultOptions
   }
 
-  // You can override the `end` method here.
-  end({ item, newIndex }) {
-    super.end({ item, newIndex })
+  // You can override the `onUpdate` method here.
+  onUpdate(event) {
+    super.onUpdate(event)
   }
 
   // You can set default options in this getter for all sortable elements.
