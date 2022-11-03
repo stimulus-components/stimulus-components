@@ -93,6 +93,9 @@ export default class extends Lightbox {
     super.connect()
     console.log('Do what you want here.')
 
+    // Get the lightgallery instance
+    this.lightGallery
+
     // Default options for every lightboxes.
     this.defaultOptions
   }
