@@ -38,7 +38,7 @@ application.register('checkbox-select-all', CheckboxSelectAll)
 ### Without Rails
 
 ```html
-<table>
+<table data-controller="checkbox-select-all">
   <tbody>
     <td class="block">
       <label>
