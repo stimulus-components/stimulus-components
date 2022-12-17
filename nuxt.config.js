@@ -52,7 +52,7 @@ export default {
     liveEdit: false,
     markdown: {
       prism: {
-        theme: 'prism-themes/themes/prism-one-light.css',
+        theme: 'prism-themes/themes/prism-one-dark.css',
       },
     },
   },
