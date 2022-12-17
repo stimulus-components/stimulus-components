@@ -2,7 +2,6 @@
 title: Lightbox
 description: A Stimulus controller to add a lightbox on images.
 package: lightbox
-netlify_id: a6137aa0-bbbc-401d-81cc-4677a91fe581
 ---
 
 This controller is using [lightgalleryjs](https://www.lightgalleryjs.com/) behind the scene.

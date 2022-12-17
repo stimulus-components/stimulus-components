@@ -2,7 +2,6 @@
 title: Rails Nested Form
 description: A Stimulus controller to create new fields on the fly to populate your Rails relationship with accepts_nested_attributes_for.
 package: rails-nested-form
-netlify_id: c21b3ca7-40fa-4de3-aad5-56dbc343ace6
 ---
 
 [Nested attributes](https://apidock.com/rails/ActiveRecord/NestedAttributes/ClassMethods) allow you to save attributes on associated records through the parent.

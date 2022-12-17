@@ -2,7 +2,6 @@
 title: Timeago
 description: A Stimulus controller that returns the distance between the given date and now in words.
 package: timeago
-netlify_id: d62d950e-aae7-464d-8333-1078a16ec481
 ---
 
 This controller is using [date-fns/formatDistanceToNow](https://date-fns.org/v2.2.1/docs/formatDistanceToNow) behind the scene.

@@ -2,7 +2,6 @@
 title: Read More
 description: A Stimulus controller to show more or less text.
 package: read-more
-netlify_id: e0c5cf44-d938-4675-870d-fd50b58fca72
 ---
 
 ## Installation

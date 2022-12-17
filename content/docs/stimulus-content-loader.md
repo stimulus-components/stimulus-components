@@ -2,7 +2,6 @@
 title: Content Loader
 description: A Stimulus controller to asynchronously load HTML from an url.
 package: content-loader
-netlify_id: bc6c7113-e3e7-4d1f-9508-4b631eea2e70
 ---
 
 ## Video Tutorial

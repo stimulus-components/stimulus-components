@@ -2,7 +2,6 @@
 title: Carousel
 description: A Stimulus controller to deal with carousel.
 package: carousel
-netlify_id: ea47f6e3-99fb-46f3-a567-4ec122ab92ed
 ---
 
 This controller is using [Swiper](https://swiperjs.com/) behind the scene.

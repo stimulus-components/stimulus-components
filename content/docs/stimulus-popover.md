@@ -2,7 +2,6 @@
 title: Popover
 description: A Stimulus controller to deal with HTML popover.
 package: popover
-netlify_id: cbec1815-8e5b-4f45-8cb2-44d24e8c9cf5
 ---
 
 ## Installation

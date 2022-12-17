@@ -2,7 +2,6 @@
 title: Chartjs
 description: A Stimulus controller to deal with chart.js.
 package: chartjs
-netlify_id: f75f37fa-c1c7-42c3-8266-27d11c67c2b1
 ---
 
 ## Installation

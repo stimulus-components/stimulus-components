@@ -2,7 +2,6 @@
 title: Scroll To
 description: A Stimulus controller to scroll to elements.
 package: scroll-to
-netlify_id: 95f25f38-cc08-41e5-8cb7-ee19eba62499
 ---
 
 ## Installation

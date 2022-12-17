@@ -2,7 +2,6 @@
 title: Character Counter
 description: A Stimulus controller that counts the number of characters in any input fields.
 package: character-counter
-netlify_id: 7ef669f5-d255-4a59-8461-5b2360d1674b
 ---
 
 ## Installation

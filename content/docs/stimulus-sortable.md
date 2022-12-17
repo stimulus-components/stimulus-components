@@ -2,7 +2,6 @@
 title: Sortable
 description: A Stimulus controller to reorder lists with drag-and-drop.
 package: sortable
-netlify_id: a8341029-7f19-443d-88aa-02c6325b389e
 ---
 
 This controller is using [SortableJS](https://github.com/SortableJS/sortablejs) behind the scene.

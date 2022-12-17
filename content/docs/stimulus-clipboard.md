@@ -2,7 +2,6 @@
 title: Clipboard
 description: A Stimulus controller to copy text to clipboard.
 package: clipboard
-netlify_id: 80f85acb-2a15-4326-9bd1-92a461e53c22
 ---
 
 ## Installation

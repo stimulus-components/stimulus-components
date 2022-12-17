@@ -1,6 +1,6 @@
 <template>
   <div>
-    <DocsBadges v-if="component" :package-name="component.package" :netlify-id="component.netlify_id" />
+    <DocsBadges v-if="component" :package-name="component.package" />
 
     <p>
       This component is available on

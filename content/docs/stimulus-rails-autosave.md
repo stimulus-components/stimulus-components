@@ -2,7 +2,6 @@
 title: Rails Autosave
 description: A Stimulus controller to autosubmit Rails forms.
 package: rails-autosave
-netlify_id: d3b878bb-b10c-47d2-a21b-e0a510120a4c
 ---
 
 ## Before starting

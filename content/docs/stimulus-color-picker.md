@@ -2,7 +2,6 @@
 title: Color Picker
 description: A Stimulus controller to create color picker.
 package: color-picker
-netlify_id: 69899499-bbb0-4bc8-96a3-d6960f5c479a
 ---
 
 This controller is using [@simonwep/pickr](https://github.com/Simonwep/pickr) behind the scene.

@@ -5,12 +5,6 @@
         <img loading="lazy" :src="badge.img" alt="" />
       </a>
     </li>
-
-    <li v-if="netlifyId">
-      <a :href="`https://stimulus-${packageName}.netlify.com`" target="_blank">
-        <img loading="lazy" :src="`https://api.netlify.com/api/v1/badges/${netlifyId}/deploy-status`" alt="" />
-      </a>
-    </li>
   </ul>
 </template>
 
@@ -22,10 +16,6 @@ export default {
     packageName: {
       type: String,
       required: true,
-    },
-    netlifyId: {
-      type: String,
-      default: null,
     },
   },
 

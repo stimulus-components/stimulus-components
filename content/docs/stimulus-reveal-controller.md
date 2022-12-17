@@ -2,7 +2,6 @@
 title: Reveal Controller
 description: A Stimulus controller to toggle a class on one or multiple items to show or hide them.
 package: reveal-controller
-netlify_id: 83f0dddb-31fa-4025-a04f-dd26f153d646
 ---
 
 ## Installation

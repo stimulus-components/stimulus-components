@@ -2,7 +2,6 @@
 title: Password Visibility
 description: A Stimulus controller to change a password input visibility.
 package: password-visibility
-netlify_id: cb3eca87-30b7-4645-8ca1-399eec80c8d1
 ---
 
 ## Installation

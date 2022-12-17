@@ -2,7 +2,6 @@
 title: Remote Rails
 description: A Stimulus controller to handle Rails UJS events.
 package: remote-rails
-netlify_id: ac728feb-ab47-48c9-b178-bbc7ca0ddc53
 ---
 
 ## Installation

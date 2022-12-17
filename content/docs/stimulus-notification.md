@@ -2,7 +2,6 @@
 title: Notification
 description: A Stimulus controller for showing notifications.
 package: notification
-netlify_id: 59cfd74d-6f17-4a80-b55c-535c901ad4e9
 ---
 
 ## Installation
