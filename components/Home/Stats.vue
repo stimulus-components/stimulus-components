@@ -21,7 +21,11 @@
                 class="flex flex-col border-b border-gray-100 p-6 text-center sm:border-0 sm:border-r"
               >
                 <dt class="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">{{ stat.title }}</dt>
-                <dd class="order-1 text-4xl font-extrabold text-orange-500">{{ stat.count }}</dd>
+                <dd
+                  class="order-1 text-4xl font-extrabold bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent"
+                >
+                  {{ stat.count }}
+                </dd>
               </div>
             </dl>
           </div>
