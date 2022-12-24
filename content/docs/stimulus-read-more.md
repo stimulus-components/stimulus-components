@@ -26,18 +26,37 @@ application.register('read-more', ReadMore)
 
 ## Usage
 
+This controller is based on the [Line-clamp](https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-line-clamp) CSS property.
+
+It will update the CSS variable `--read-more-line-clamp` on the element with the value `'unset'` to show all the content.
+
+In your CSS:
+
+```css
+.my-content {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--read-more-line-clamp, 2);
+}
+```
+
+In this case, `--read-more-line-clamp` is `undefined` and `2` is the number of lines displayed by default.
+
 In your view:
 
 ```html
-<div data-controller="read-more" data-read-more-more-text-value="Read more" data-read-more-less-text-value="Read less">
-  <p data-read-more-target="content">Lorem ipsum dolor sit am&hellip;</p>
-
-  <button data-action="read-more#toggle">Read more</button>
-
-  <template data-read-more-target="full">
+<div
+  data-controller="read-more"
+  data-read-more-more-text-value="Read more"
+  data-read-more-less-text-value="Read less"
+>
+  <p class="my-content" data-read-more-target="content">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
     aliqua. Ut enim ad minim veniam.
-  </template>
+  </p>
+
+  <button data-action="read-more#toggle">Read more</button>
 </div>
 ```
 
