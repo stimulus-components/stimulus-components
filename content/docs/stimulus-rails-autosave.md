@@ -4,22 +4,6 @@ description: A Stimulus controller to autosubmit Rails forms.
 package: rails-autosave
 ---
 
-## Before starting
-
-You must have [@rails/ujs](https://github.com/rails/rails/tree/master/actionview/app/assets/javascripts) up and running **before** using this controller.
-
-```bash
-$ yarn add @rails/ujs
-```
-
-Somewhere in your JS file:
-
-```js
-import Rails from '@rails/ujs'
-
-Rails.start()
-```
-
 ## Installation
 
 ```bash
