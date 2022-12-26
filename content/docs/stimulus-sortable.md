@@ -9,7 +9,7 @@ This controller is using [SortableJS](https://github.com/SortableJS/sortablejs) 
 ## Installation
 
 ```bash
-$ yarn add stimulus-sortable
+$ yarn add stimulus-sortable sortablejs
 ```
 
 And use it in your JS file:
