@@ -42,7 +42,7 @@ In your routes:
 
 ```ruby
 Rails.application.routes.draw do
-ressources
+resources
   get :card, to: 'users#card'
 end
 ```
