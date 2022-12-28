@@ -48,7 +48,6 @@ In your routes:
 
 ```ruby
 Rails.application.routes.draw do
-ressources
   get :comments, to: 'posts#comments'
 end
 ```
