@@ -46,11 +46,7 @@ In this case, `--read-more-line-clamp` is `undefined` and `2` is the number of l
 In your view:
 
 ```html
-<div
-  data-controller="read-more"
-  data-read-more-more-text-value="Read more"
-  data-read-more-less-text-value="Read less"
->
+<div data-controller="read-more" data-read-more-more-text-value="Read more" data-read-more-less-text-value="Read less">
   <p class="my-content" data-read-more-target="content">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
     aliqua. Ut enim ad minim veniam.
