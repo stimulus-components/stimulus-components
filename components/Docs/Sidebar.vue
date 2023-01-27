@@ -1,10 +1,26 @@
 <template>
   <nav>
+    <h2 class="font-semibold mb-2 px-2 py-1">Getting Started</h2>
+
+    <ul class="space-y-1 text-gray-700 whitespace-nowrap mb-8">
+      <li>
+        <NuxtLink
+          to="/docs"
+          class="rounded px-2 py-1 hover:text-orange-500 flex"
+          exact-active-class="text-orange-400 bg-orange-50"
+        >
+          Introduction
+        </NuxtLink>
+      </li>
+    </ul>
+
+    <h2 class="font-semibold mb-2 px-2 py-1">Components</h2>
+
     <ul class="space-y-1 text-gray-700 whitespace-nowrap">
-      <li v-for="component in components" :key="component.path" class="">
+      <li v-for="component in components" :key="component.path">
         <NuxtLink
           :to="component.path"
-          class="px-2 rounded font-medium py-1 hover:text-orange-500 flex items-center justify-between"
+          class="rounded px-2 py-1 hover:text-orange-500 flex"
           active-class="text-orange-400 bg-orange-50"
         >
           {{ component.title }}
