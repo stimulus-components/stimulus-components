@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Docs</h1>
+    <h1>Introduction</h1>
 
     <p>
       You will find in this section the documentation for every single controller of the
@@ -17,7 +17,7 @@ export default {
 
   head() {
     return {
-      title: 'Docs',
+      title: 'Introduction',
       meta: [
         {
           hid: 'description',
