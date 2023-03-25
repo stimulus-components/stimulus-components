@@ -40,7 +40,7 @@ With custom options:
 ```html
 <div
   data-controller="scroll-reveal"
-  data-scroll-reveal-class-value="active"
+  data-scroll-reveal-class-value="active fade"
   data-scroll-reveal-threshold-value="0.9"
   data-scroll-reveal-root-margin-value="10px"
 >
@@ -51,11 +51,11 @@ With custom options:
 
 ## 🛠 Configuration
 
-| Attribute                              | Default | Description                                                 | Optional |
-| -------------------------------------- | ------- | ----------------------------------------------------------- | -------- |
-| `data-scroll-reveal-class-value`       | `'in'`  | This class is added on the element when it becomes visible. | ✅       |
-| `data-scroll-reveal-threshold-value`   | `0.1`   | The threshold option for the IntersectionObserver.          | ✅       |
-| `data-scroll-reveal-root-margin-value` | `'0px'` | The rootMargin option for the IntersectionObserver.         | ✅       |
+| Attribute                              | Default | Description                                                     | Optional |
+| -------------------------------------- | ------- | --------------------------------------------------------------- | -------- |
+| `data-scroll-reveal-class-value`       | `'in'`  | These classes are added on the element when it becomes visible. | ✅       |
+| `data-scroll-reveal-threshold-value`   | `0.1`   | The threshold option for the IntersectionObserver.              | ✅       |
+| `data-scroll-reveal-root-margin-value` | `'0px'` | The rootMargin option for the IntersectionObserver.             | ✅       |
 
 It's up to you to create the CSS transition animation.
 This controller basically simply adds a class to an element when it becomes visible.
