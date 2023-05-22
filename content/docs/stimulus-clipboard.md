@@ -29,7 +29,7 @@ application.register('clipboard', Clipboard)
 In your view:
 
 ```html
-<div data-controller="clipboard" data-clipboard-success-content="Copied!">
+<div data-controller="clipboard" data-clipboard-success-content-value="Copied!">
   <input type="text" value="Click the button to copy me!" data-clipboard-target="source" />
 
   <button type="button" data-action="clipboard#copy" data-clipboard-target="button">Copy to clipboard</button>
@@ -38,10 +38,10 @@ In your view:
 
 ## 🛠 Configuration
 
-| Attribute                               | Default     | Description                                              | Optional |
-| --------------------------------------- | ----------- | -------------------------------------------------------- | -------- |
-| `data-clipboard-success-content`        | `undefined` | Text to display on button.                               | ✅       |
-| `data-clipboard-success-duration-value` | `2000`      | Duration in ms to display the success content on button. | ✅       |
+| Attribute                               | Default      | Description                                              | Optional |
+|-----------------------------------------|--------------| -------------------------------------------------------- | -------- |
+| `data-clipboard-success-content-value`  | Empty string | Text to display on button.                               | ✅       |
+| `data-clipboard-success-duration-value` | `2000`       | Duration in ms to display the success content on button. | ✅       |
 
 `data-clipboard-target="button"` attribute is `optional` if you don't want to change the text of the button.
 
