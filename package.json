@@ -13,30 +13,30 @@
     "lintfix": "prettier --write --list-different . && yarn lint:js --fix"
   },
   "dependencies": {
-    "@docsearch/js": "^3.2.1",
+    "@docsearch/js": "^3.4.0",
     "@nuxt/content": "^1.15.1",
     "@nuxtjs/google-analytics": "^2.4.0",
     "@nuxtjs/robots": "^2.5.0",
     "@nuxtjs/tailwindcss": "^5.3.3",
-    "@tailwindcss/typography": "^0.5.7",
-    "core-js": "^3.25.3",
+    "@tailwindcss/typography": "^0.5.9",
+    "core-js": "^3.30.2",
     "nuxt": "^2.15.8",
     "prism-themes": "^1.9.0",
     "vue": "^2.6.14",
-    "vue-server-renderer": "^2.6.14",
+    "vue-server-renderer": "^2.7.14",
     "vue-template-compiler": "^2.6.14",
     "webpack": "^4.46.0"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.19.1",
+    "@babel/eslint-parser": "^7.21.8",
     "@nuxtjs/eslint-config": "^11.0.0",
     "@nuxtjs/eslint-module": "^3.1.0",
-    "eslint": "^8.24.0",
-    "eslint-config-prettier": "^8.5.0",
+    "eslint": "^8.41.0",
+    "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-nuxt": "^4.0.0",
-    "eslint-plugin-vue": "^9.5.1",
-    "postcss": "^8.4.17",
+    "eslint-plugin-vue": "^9.14.1",
+    "postcss": "^8.4.24",
     "postcss-html": "^1.5.0",
-    "prettier": "^2.7.1"
+    "prettier": "^2.8.8"
   }
 }

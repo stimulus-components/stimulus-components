@@ -39,9 +39,9 @@ In your view:
 ## 🛠 Configuration
 
 | Attribute                               | Default | Description                                              | Optional |
-|-----------------------------------------|---------|----------------------------------------------------------|----------|
-| `data-clipboard-success-content-value`  | ''      | Text to display on button.                               | ✅        |
-| `data-clipboard-success-duration-value` | `2000`  | Duration in ms to display the success content on button. | ✅        |
+| --------------------------------------- | ------- | -------------------------------------------------------- | -------- |
+| `data-clipboard-success-content-value`  | ''      | Text to display on button.                               | ✅       |
+| `data-clipboard-success-duration-value` | `2000`  | Duration in ms to display the success content on button. | ✅       |
 
 `data-clipboard-target="button"` attribute is `optional` if you don't want to change the text of the button.
 
