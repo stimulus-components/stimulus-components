@@ -105,7 +105,7 @@
 
       <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8 items-center">
         <div v-for="sponsor in sponsors" :key="sponsor.name">
-          <a :href="sponsor.url" target="_blank">
+          <a :href="sponsor.url" target="_blank" rel="noopener noreferrer">
             <img :src="require(`~/assets/sponsors/${sponsor.src}`)" :alt="sponsor.name" class="h-16" loading="lazy" />
           </a>
         </div>
@@ -138,6 +138,16 @@ export default {
           name: 'Per Angusta',
           src: 'per-angusta.svg',
           url: 'https://www.per-angusta.com/en/',
+        },
+        {
+          name: 'Maybe',
+          src: 'maybe.svg',
+          url: 'https://maybe.co/',
+        },
+        {
+          name: 'Avo',
+          src: 'avo.svg',
+          url: 'https://avohq.io/',
         },
       ],
     }
