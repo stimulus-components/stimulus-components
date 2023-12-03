@@ -25,7 +25,7 @@ application.register('autosave', Autosave)
 ## Usage
 
 ```erb
-<%= form_with model: @todo, data: { controller: 'autosave', autosave_delay_value: '1000' } do |f| %>
+<%= form_with model: @todo, data: { controller: 'autosave' } do |f| %>
   <div class="field">
     <%= f.label :description %>
 
@@ -44,9 +44,9 @@ application.register('autosave', Autosave)
 
 ## 🛠 Configuration
 
-| Attribute                   | Default | Description                                           | Optional |
-| --------------------------- | ------- | ----------------------------------------------------- | -------- |
-| `data-autosave-delay-value` | `0`     | Delay before actually submit the form. (0 to disable) | ✅       |
+| Attribute                   | Default | Description                                                   | Optional |
+|-----------------------------|---------|---------------------------------------------------------------|----------|
+| `data-autosave-delay-value` | `150`   | Delay (in ms) before actually submit the form. (0 to disable) | ✅        |
 
 ## 🎛 Extending Controller
 
@@ -56,6 +56,13 @@ application.register('autosave', Autosave)
 import Autosave from 'stimulus-rails-autosave'
 
 export default class extends Autosave {
+  static values = {
+    delay: {
+      type: Number,
+      default: 1000 // You can change the default delay here.
+    }
+  }
+
   connect() {
     super.connect()
     console.log('Do what you want here.')
