@@ -45,8 +45,8 @@ application.register('autosave', Autosave)
 ## 🛠 Configuration
 
 | Attribute                   | Default | Description                                                   | Optional |
-|-----------------------------|---------|---------------------------------------------------------------|----------|
-| `data-autosave-delay-value` | `150`   | Delay (in ms) before actually submit the form. (0 to disable) | ✅        |
+| --------------------------- | ------- | ------------------------------------------------------------- | -------- |
+| `data-autosave-delay-value` | `150`   | Delay (in ms) before actually submit the form. (0 to disable) | ✅       |
 
 ## 🎛 Extending Controller
 
@@ -59,8 +59,8 @@ export default class extends Autosave {
   static values = {
     delay: {
       type: Number,
-      default: 1000 // You can change the default delay here.
-    }
+      default: 1000, // You can change the default delay here.
+    },
   }
 
   connect() {
