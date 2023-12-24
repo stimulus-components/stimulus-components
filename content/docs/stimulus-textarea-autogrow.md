@@ -22,7 +22,7 @@ const application = Application.start()
 application.register('textarea-autogrow', TextareaAutogrow)
 ```
 
-<DocsDemoLink package-name="textarea-autogrow"></DocsDemoLink>
+:demo-link{package-name="textarea-autogrow"}
 
 ## Usage
 
@@ -48,7 +48,7 @@ The height is calculated on window resize to match the content height.
 
 ## 🎛 Extending Controller
 
-<DocsExtendingController>
+::extending-controller
 
 ```js
 import TextareaAutogrow from 'stimulus-textarea-autogrow'
@@ -61,4 +61,4 @@ export default class extends TextareaAutogrow {
 }
 ```
 
-</DocsExtendingController>
+::

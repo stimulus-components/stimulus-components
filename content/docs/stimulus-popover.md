@@ -22,7 +22,7 @@ const application = Application.start()
 application.register('popover', Popover)
 ```
 
-<DocsDemoLink package-name="popover"></DocsDemoLink>
+:demo-link{package-name="popover"}
 
 ## Usage
 
@@ -90,7 +90,7 @@ In the card partial `app/views/users/_card.html.erb`:
 
 ## 🎛 Extending Controller
 
-<DocsExtendingController>
+::extending-controller
 
 ```js
 import Popover from 'stimulus-popover'
@@ -103,4 +103,4 @@ export default class extends Popover {
 }
 ```
 
-</DocsExtendingController>
+::

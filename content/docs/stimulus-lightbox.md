@@ -24,7 +24,7 @@ const application = Application.start()
 application.register('lightbox', Lightbox)
 ```
 
-<DocsDemoLink package-name="lightbox"></DocsDemoLink>
+:demo-link{package-name="lightbox"}
 
 ## Usage
 
@@ -82,7 +82,7 @@ With options:
 
 ## 🎛 Extending Controller
 
-<DocsExtendingController>
+::extending-controller
 
 ```js
 import Lightbox from 'stimulus-lightbox'
@@ -108,4 +108,4 @@ export default class extends Lightbox {
 }
 ```
 
-</DocsExtendingController>
+::

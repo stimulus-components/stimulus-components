@@ -41,17 +41,9 @@
   </footer>
 </template>
 
-<script>
-export default {
-  name: 'Footer',
-
-  data() {
-    return {
-      links: [
-        { title: 'Docs', url: '/docs' },
-        { title: 'Sponsors', url: '/sponsors' },
-      ],
-    }
-  },
-}
+<script setup>
+const links = [
+  { title: 'Docs', url: '/docs' },
+  { title: 'Sponsors', url: '/sponsors' },
+]
 </script>

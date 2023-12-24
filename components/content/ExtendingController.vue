@@ -2,7 +2,7 @@
   <div>
     <p>You can use inheritance to extend the functionality of any Stimulus component:</p>
 
-    <slot></slot>
+    <ContentSlot />
 
     <p>This controller will automatically have access to targets defined in the parent class.</p>
 
@@ -12,9 +12,3 @@
     </p>
   </div>
 </template>
-
-<script>
-export default {
-  name: 'DocsExtendingController',
-}
-</script>

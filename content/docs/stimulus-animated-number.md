@@ -22,7 +22,7 @@ const application = Application.start()
 application.register('animated-number', AnimatedNumber)
 ```
 
-<DocsDemoLink package-name="animated-number"></DocsDemoLink>
+:demo-link{package-name="animated-number"}
 
 ## Usage
 
@@ -74,7 +74,7 @@ In your view:
 
 ## 🎛 Extending Controller
 
-<DocsExtendingController>
+::extending-controller
 
 ```js
 import AnimatedNumber from 'stimulus-animated-number'
@@ -87,4 +87,4 @@ export default class extends AnimatedNumber {
 }
 ```
 
-</DocsExtendingController>
+::

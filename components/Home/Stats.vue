@@ -35,54 +35,39 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'HomeStats',
+<script setup>
+import { ref, computed } from 'vue'
+import { useFetch, useAsyncData } from 'nuxt/app'
 
-  data() {
-    return {
-      packages: [],
-      stats: [
-        { title: 'Packages', count: '25+' },
-        { title: 'Contributors', count: '15+' },
-      ],
-    }
-  },
+const stats = ref([
+  { title: 'Packages', count: '25+' },
+  { title: 'Contributors', count: '15+' },
+])
 
-  async fetch() {
-    this.packages = await this.$content('docs').only(['package']).fetch()
-    this.packages = this.packages.map((p) => `stimulus-${p.package}`)
+const prettyNumber = (number) => {
+  return new Intl.NumberFormat('en-US', { maximumSignificantDigits: 4 }).format(number)
+}
 
-    await fetch(this.downloadsEndpoint)
-      .then((response) => response.json())
-      .then((data) => {
-        const count = Object.values(data).reduce((acc, item) => acc + (item?.downloads || 0), 0)
+const downloadsEndpoint = computed(() => {
+  const lastYear = new Date()
+  lastYear.setFullYear(lastYear.getFullYear() - 1)
 
-        if (count) {
-          this.stats.push({
-            title: 'Downloads last year',
-            count: `${this.prettyNumber(count)}+`,
-          })
-        }
-      })
-  },
+  const from = lastYear.toISOString().substring(0, 10)
+  const until = new Date().toISOString().substring(0, 10)
 
-  computed: {
-    downloadsEndpoint() {
-      const lastYear = new Date()
-      lastYear.setFullYear(lastYear.getFullYear() - 1)
+  return `https://api.npmjs.org/downloads/point/${from}:${until}/${packages.value.join(',')}`
+})
 
-      const from = lastYear.toISOString().substring(0, 10)
-      const until = new Date().toISOString().substring(0, 10)
+const { data: packages } = await useAsyncData('packages', () => queryContent('docs').only(['package']).find())
+packages.value = packages.value.map((p) => `stimulus-${p.package}`)
 
-      return `https://api.npmjs.org/downloads/point/${from}:${until}/${this.packages.join(',')}`
-    },
-  },
+const { data } = await useFetch(downloadsEndpoint.value)
+const count = Object.values(data.value).reduce((acc, item) => acc + (item?.downloads || 0), 0)
 
-  methods: {
-    prettyNumber(number) {
-      return new Intl.NumberFormat('en-US', { maximumSignificantDigits: 4 }).format(number)
-    },
-  },
+if (count) {
+  stats.value.push({
+    title: 'Downloads last year',
+    count: `${prettyNumber(count)}+`,
+  })
 }
 </script>

@@ -12,15 +12,13 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'DocsDemoLink',
+<script setup>
+import { defineProps } from 'vue'
 
-  props: {
-    packageName: {
-      type: String,
-      required: true,
-    },
+defineProps({
+  packageName: {
+    type: String,
+    required: true,
   },
-}
+})
 </script>

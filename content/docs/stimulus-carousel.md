@@ -24,7 +24,7 @@ const application = Application.start()
 application.register('carousel', Carousel)
 ```
 
-<DocsDemoLink package-name="carousel"></DocsDemoLink>
+:demo-link{package-name="carousel"}
 
 ## Before starting
 
@@ -69,7 +69,7 @@ With options:
 
 ## 🎛 Extending Controller
 
-<DocsExtendingController>
+::extending-controller
 
 ```js
 import Carousel from 'stimulus-carousel'
@@ -95,4 +95,4 @@ export default class extends Carousel {
 }
 ```
 
-</DocsExtendingController>
+::

@@ -53,14 +53,14 @@
               v-for="link in links"
               :key="link.url"
               :to="link.url"
-              class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
-              active-class="border-orange-500 text-gray-900"
+              class="text-gray-500 hover:text-gray-700 inline-flex items-center px-1 pt-1 text-sm font-medium"
+              active-class="border-b-2 border-orange-500 text-gray-900"
             >
               {{ link.title }}
             </NuxtLink>
           </div>
 
-          <AlgoliaSearchBox />
+          <AlgoliaDocSearch class="my-auto ml-auto" />
         </div>
       </div>
     </div>
@@ -71,33 +71,26 @@
           v-for="link in links"
           :key="link.url"
           :to="link.url"
-          class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium sm:pl-5 sm:pr-6"
-          active-class="bg-orange-50 border-orange-500 text-orange-700"
-          >{{ link.title }}</NuxtLink
+          class="text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 text-base font-medium sm:pl-5 sm:pr-6"
+          active-class="bg-orange-50 border-l-4 border-orange-500 text-orange-700"
         >
+          {{ link.title }}
+        </NuxtLink>
       </div>
     </div>
   </nav>
 </template>
 
-<script>
-export default {
-  name: 'Nav',
+<script setup>
+import { ref } from 'vue'
 
-  data() {
-    return {
-      opened: false,
-      links: [
-        { title: 'Docs', url: '/docs' },
-        { title: 'Sponsors', url: '/sponsors' },
-      ],
-    }
-  },
+const opened = ref(false)
+const links = [
+  { title: 'Docs', url: '/docs/' },
+  { title: 'Sponsors', url: '/sponsors/' },
+]
 
-  methods: {
-    toggleOpened() {
-      this.opened = !this.opened
-    },
-  },
+const toggleOpened = () => {
+  opened.value = !opened.value
 }
 </script>

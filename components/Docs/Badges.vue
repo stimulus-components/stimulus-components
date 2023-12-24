@@ -8,42 +8,36 @@
   </ul>
 </template>
 
-<script>
-export default {
-  name: 'DocsBadges',
+<script setup>
+import { defineProps } from 'vue'
 
-  props: {
-    packageName: {
-      type: String,
-      required: true,
-    },
+const props = defineProps({
+  packageName: {
+    type: String,
+    required: true,
   },
+})
 
-  data() {
-    return {
-      badges: [
-        {
-          url: `https://www.npmjs.com/package/stimulus-${this.packageName}`,
-          img: `https://img.shields.io/npm/dt/stimulus-${this.packageName}.svg`,
-        },
-        {
-          url: `https://www.npmjs.com/package/stimulus-${this.packageName}`,
-          img: `https://img.shields.io/bundlephobia/minzip/stimulus-${this.packageName}.svg`,
-        },
-        {
-          url: `https://www.npmjs.com/package/stimulus-${this.packageName}`,
-          img: `https://img.shields.io/npm/v/stimulus-${this.packageName}.svg`,
-        },
-        {
-          url: `https://www.npmjs.com/package/stimulus-${this.packageName}`,
-          img: `https://github.com/stimulus-components/stimulus-${this.packageName}/workflows/Lint/badge.svg`,
-        },
-        {
-          url: `https://github.com/stimulus-components/stimulus-${this.packageName}`,
-          img: `https://img.shields.io/github/license/stimulus-components/stimulus-${this.packageName}.svg`,
-        },
-      ],
-    }
+const badges = [
+  {
+    url: `https://www.npmjs.com/package/stimulus-${props.packageName}`,
+    img: `https://img.shields.io/npm/dt/stimulus-${props.packageName}.svg`,
   },
-}
+  {
+    url: `https://www.npmjs.com/package/stimulus-${props.packageName}`,
+    img: `https://img.shields.io/bundlephobia/minzip/stimulus-${props.packageName}.svg`,
+  },
+  {
+    url: `https://www.npmjs.com/package/stimulus-${props.packageName}`,
+    img: `https://img.shields.io/npm/v/stimulus-${props.packageName}.svg`,
+  },
+  {
+    url: `https://www.npmjs.com/package/stimulus-${props.packageName}`,
+    img: `https://github.com/stimulus-components/stimulus-${props.packageName}/workflows/Lint/badge.svg`,
+  },
+  {
+    url: `https://github.com/stimulus-components/stimulus-${props.packageName}`,
+    img: `https://img.shields.io/github/license/stimulus-components/stimulus-${props.packageName}.svg`,
+  },
+]
 </script>

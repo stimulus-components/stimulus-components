@@ -22,7 +22,7 @@ const application = Application.start()
 application.register('chart', Chart)
 ```
 
-<DocsDemoLink package-name="chartjs"></DocsDemoLink>
+:demo-link{package-name="chartjs"}
 
 ## Usage
 
@@ -101,7 +101,7 @@ In your view:
 
 ## 🎛 Extending Controller
 
-<DocsExtendingController>
+::extending-controller
 
 ```js
 import Chart from 'stimulus-chartjs'
@@ -142,4 +142,4 @@ export default class extends Chart {
 }
 ```
 
-</DocsExtendingController>
+::

@@ -24,7 +24,7 @@ const application = Application.start()
 application.register('nested-form', NestedForm)
 ```
 
-<DocsDemoLink package-name="rails-nested-form"></DocsDemoLink>
+:demo-link{package-name="rails-nested-form"}
 
 ## Usage
 
@@ -115,7 +115,7 @@ The remove feature is completely optional.
 
 ## 🎛 Extending Controller
 
-<DocsExtendingController>
+::extending-controller
 
 ```js
 import NestedForm from 'stimulus-rails-nested-form'
@@ -128,4 +128,4 @@ export default class extends NestedForm {
 }
 ```
 
-</DocsExtendingController>
+::

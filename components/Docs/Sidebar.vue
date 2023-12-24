@@ -19,9 +19,9 @@
     <ul class="space-y-1 text-gray-700 whitespace-nowrap">
       <li v-for="component in components" :key="component.path">
         <NuxtLink
-          :to="component.path"
+          :to="component._path"
           class="rounded px-2 py-1 hover:text-orange-500 flex"
-          active-class="text-orange-400 bg-orange-50"
+          exact-active-class="text-orange-400 bg-orange-50"
         >
           {{ component.title }}
         </NuxtLink>
@@ -30,22 +30,11 @@
   </nav>
 </template>
 
-<script>
-export default {
-  name: 'DocsSidebar',
+<script setup>
+const links = [
+  { title: 'Introduction', path: '/docs' },
+  { title: 'Installation', path: '/docs/installation' },
+]
 
-  data() {
-    return {
-      links: [
-        { title: 'Introduction', path: '/docs' },
-        { title: 'Installation', path: '/docs/installation' },
-      ],
-      components: [],
-    }
-  },
-
-  async fetch() {
-    this.components = await this.$content('docs').sortBy('title').fetch()
-  },
-}
+const { data: components } = await useAsyncData('components', () => queryContent('docs').sort({ title: 1 }).find())
 </script>

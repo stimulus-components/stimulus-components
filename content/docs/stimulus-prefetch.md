@@ -22,7 +22,7 @@ const application = Application.start()
 application.register('prefetch', Prefetch)
 ```
 
-<DocsDemoLink package-name="prefetch"></DocsDemoLink>
+:demo-link{package-name="prefetch"}
 
 ## Usage
 
@@ -34,7 +34,7 @@ application.register('prefetch', Prefetch)
 
 ## 🎛 Extending Controller
 
-<DocsExtendingController>
+::extending-controller
 
 ```js
 import Prefetch from 'stimulus-prefetch'
@@ -47,4 +47,4 @@ export default class extends Prefetch {
 }
 ```
 
-</DocsExtendingController>
+::

@@ -22,7 +22,7 @@ const application = Application.start()
 application.register('remote', Remote)
 ```
 
-<DocsDemoLink package-name="remote-rails"></DocsDemoLink>
+:demo-link{package-name="remote-rails"}
 
 ## Usage
 
@@ -85,7 +85,7 @@ You can use it with all [remote elements available in Rails UJS](https://guides.
 
 ## 🎛 Extending Controller
 
-<DocsExtendingController>
+::extending-controller
 
 ```js
 import Remote from 'stimulus-remote-rails'
@@ -98,4 +98,4 @@ export default class extends Remote {
 }
 ```
 
-</DocsExtendingController>
+::

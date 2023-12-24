@@ -24,7 +24,7 @@ const application = Application.start()
 application.register('sortable', Sortable)
 ```
 
-<DocsDemoLink package-name="sortable"></DocsDemoLink>
+:demo-link{package-name="sortable"}
 
 ## Usage
 
@@ -108,7 +108,7 @@ If you use `data-sortable-resource-name-value`, the name will be used. For insta
 
 ## 🎛 Extending Controller
 
-<DocsExtendingController>
+::extending-controller
 
 ```js
 import Sortable from 'stimulus-sortable'
@@ -142,4 +142,4 @@ export default class extends Sortable {
 }
 ```
 
-</DocsExtendingController>
+::

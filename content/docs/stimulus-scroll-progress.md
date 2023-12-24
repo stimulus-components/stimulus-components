@@ -22,7 +22,7 @@ const application = Application.start()
 application.register('scroll-progress', ScrollProgress)
 ```
 
-<DocsDemoLink package-name="scroll-progress"></DocsDemoLink>
+:demo-link{package-name="scroll-progress"}
 
 ## Usage
 
@@ -48,7 +48,7 @@ To improve performance, the `scroll` event is [throttled](https://lodash.com/doc
 
 ## 🎛 Extending Controller
 
-<DocsExtendingController>
+::extending-controller
 
 ```js
 import ScrollProgress from 'stimulus-scroll-progress'
@@ -61,4 +61,4 @@ export default class extends ScrollProgress {
 }
 ```
 
-</DocsExtendingController>
+::

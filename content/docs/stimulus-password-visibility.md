@@ -22,7 +22,7 @@ const application = Application.start()
 application.register('password-visibility', PasswordVisibility)
 ```
 
-<DocsDemoLink package-name="password-visibility"></DocsDemoLink>
+:demo-link{package-name="password-visibility"}
 
 ## Usage
 
@@ -47,7 +47,7 @@ In your view:
 
 ## 🎛 Extending Controller
 
-<DocsExtendingController>
+::extending-controller
 
 ```js
 import PasswordVisibility from 'stimulus-password-visibility'
@@ -67,4 +67,4 @@ export default class extends PasswordVisibility {
 }
 ```
 
-</DocsExtendingController>
+::

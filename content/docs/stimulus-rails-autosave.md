@@ -50,7 +50,7 @@ application.register('autosave', Autosave)
 
 ## 🎛 Extending Controller
 
-<DocsExtendingController>
+::extending-controller
 
 ```js
 import Autosave from 'stimulus-rails-autosave'
@@ -70,4 +70,4 @@ export default class extends Autosave {
 }
 ```
 
-</DocsExtendingController>
+::

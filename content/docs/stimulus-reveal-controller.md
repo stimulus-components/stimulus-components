@@ -22,7 +22,7 @@ const application = Application.start()
 application.register('reveal', Reveal)
 ```
 
-<DocsDemoLink package-name="reveal-controller"></DocsDemoLink>
+:demo-link{package-name="reveal-controller"}
 
 ## Usage
 
@@ -65,7 +65,7 @@ application.register('reveal', Reveal)
 
 ## 🎛 Extending Controller
 
-<DocsExtendingController>
+::extending-controller
 
 ```js
 import Reveal from 'stimulus-reveal-controller'
@@ -78,4 +78,4 @@ export default class extends Reveal {
 }
 ```
 
-</DocsExtendingController>
+::

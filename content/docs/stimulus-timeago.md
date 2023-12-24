@@ -24,7 +24,7 @@ const application = Application.start()
 application.register('timeago', Timeago)
 ```
 
-<DocsDemoLink package-name="timeago"></DocsDemoLink>
+:demo-link{package-name="timeago"}
 
 ## Usage
 
@@ -77,7 +77,7 @@ And use it in your html:
 
 ## 🎛 Extending Controller
 
-<DocsExtendingController>
+::extending-controller
 
 ```js
 import Timeago from 'stimulus-timeago'
@@ -97,4 +97,4 @@ export default class extends Timeago {
 }
 ```
 
-</DocsExtendingController>
+::

@@ -10,7 +10,7 @@ package: checkbox-select-all
 
 👉 Take a look: [Bulk Operations in Rails](https://gorails.com/episodes/bulk-operations-in-rails)
 
-<Youtube id="koTokt6xwG8"></Youtube>
+:Youtube{id="koTokt6xwG8"}
 
 ## Installation
 
@@ -30,7 +30,7 @@ const application = Application.start()
 application.register('checkbox-select-all', CheckboxSelectAll)
 ```
 
-<DocsDemoLink package-name="checkbox-select-all"></DocsDemoLink>
+:demo-link{package-name="checkbox-select-all"}
 
 ## Usage
 
@@ -128,7 +128,7 @@ In your view:
 
 ## 🎛 Extending Controller
 
-<DocsExtendingController>
+::extending-controller
 
 ```js
 import CheckboxSelectAll from 'stimulus-checkbox-select-all'
@@ -147,4 +147,4 @@ export default class extends CheckboxSelectAll {
 }
 ```
 
-</DocsExtendingController>
+::

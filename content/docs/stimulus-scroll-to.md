@@ -22,7 +22,7 @@ const application = Application.start()
 application.register('scroll-to', ScrollTo)
 ```
 
-<DocsDemoLink package-name="scroll-to"></DocsDemoLink>
+:demo-link{package-name="scroll-to"}
 
 ## Usage
 
@@ -55,7 +55,7 @@ With options:
 
 ## 🎛 Extending Controller
 
-<DocsExtendingController>
+::extending-controller
 
 ```js
 import ScrollTo from 'stimulus-scroll-to'
@@ -76,7 +76,7 @@ export default class extends ScrollTo {
 }
 ```
 
-</DocsExtendingController>
+::
 
 ## Compatibility
 

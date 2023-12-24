@@ -30,7 +30,7 @@ const application = Application.start()
 application.register('content-loader', ContentLoader)
 ```
 
-<DocsDemoLink package-name="content-loader"></DocsDemoLink>
+:demo-link{package-name="content-loader"}
 
 ## Usage
 
@@ -117,7 +117,7 @@ In your view:
 
 ## 🎛 Extending Controller
 
-<DocsExtendingController>
+::extending-controller
 
 ```js
 import ContentLoader from 'stimulus-content-loader'
@@ -130,7 +130,7 @@ export default class extends ContentLoader {
 }
 ```
 
-</DocsExtendingController>
+::
 
 ## Credits
 

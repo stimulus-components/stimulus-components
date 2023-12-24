@@ -22,7 +22,7 @@ const application = Application.start()
 application.register('character-counter', CharacterCounter)
 ```
 
-<DocsDemoLink package-name="character-counter"></DocsDemoLink>
+:demo-link{package-name="character-counter"}
 
 ## Usage
 
@@ -60,7 +60,7 @@ You can use it in countdown mode, add the correct value and a `maxlength` attrib
 
 ## 🎛 Extending Controller
 
-<DocsExtendingController>
+::extending-controller
 
 ```js
 import CharacterCounter from 'stimulus-character-counter'
@@ -75,4 +75,4 @@ export default class extends CharacterCounter {
 }
 ```
 
-</DocsExtendingController>
+::
