@@ -83,7 +83,7 @@
       <p>
         Sponsorships can be done via
         <a href="https://github.com/sponsors/stimulus-components" target="_blank">GitHub Sponsors</a>. Invoices can be
-        obtained via GitHub’s payment system. Both monthly-recurring sponsorships and one-time donations are accepted.
+        obtained via GitHub's payment system. Both monthly-recurring sponsorships and one-time donations are accepted.
       </p>
 
       <h2>Why becoming a sponsor</h2>
@@ -106,7 +106,7 @@
       <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8 items-center">
         <div v-for="sponsor in sponsors" :key="sponsor.name">
           <a :href="sponsor.url" target="_blank" rel="noopener noreferrer">
-            <img :src="require(`~/assets/sponsors/${sponsor.src}`)" :alt="sponsor.name" class="h-16" loading="lazy" />
+            <img :src="`sponsors/${sponsor.src}`" :alt="sponsor.name" class="h-16" loading="lazy" />
           </a>
         </div>
 
@@ -127,43 +127,32 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Sponsors',
-
-  data() {
-    return {
-      sponsors: [
-        {
-          name: 'Per Angusta',
-          src: 'per-angusta.svg',
-          url: 'https://www.per-angusta.com/en/',
-        },
-        {
-          name: 'Maybe',
-          src: 'maybe.svg',
-          url: 'https://maybe.co/',
-        },
-        {
-          name: 'Avo',
-          src: 'avo.svg',
-          url: 'https://avohq.io/',
-        },
-      ],
-    }
+<script setup>
+const sponsors = [
+  {
+    name: 'Per Angusta',
+    src: 'per-angusta.svg',
+    url: 'https://www.per-angusta.com/en/',
   },
-
-  head() {
-    return {
-      title: 'Sponsors',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: 'You can support Stimulus Components development on GitHub Sponsors.',
-        },
-      ],
-    }
+  {
+    name: 'Maybe',
+    src: 'maybe.svg',
+    url: 'https://maybe.co/',
   },
-}
+  {
+    name: 'Avo',
+    src: 'avo.svg',
+    url: 'https://avohq.io/',
+  },
+]
+
+useHead({
+  title: 'Sponsors',
+  meta: [
+    {
+      name: 'description',
+      content: 'You can support Stimulus Components development on GitHub Sponsors.',
+    },
+  ],
+})
 </script>

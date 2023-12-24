@@ -2,15 +2,13 @@
   <iframe class="w-full aspect-video" :src="`https://www.youtube.com/embed/${id}`" allowfullscreen></iframe>
 </template>
 
-<script>
-export default {
-  name: 'Youtube',
+<script setup>
+import { defineProps } from 'vue'
 
-  props: {
-    id: {
-      type: String,
-      required: true,
-    },
+defineProps({
+  id: {
+    type: String,
+    required: true,
   },
-}
+})
 </script>

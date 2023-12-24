@@ -22,7 +22,7 @@ const application = Application.start()
 application.register('read-more', ReadMore)
 ```
 
-<DocsDemoLink package-name="read-more"></DocsDemoLink>
+:demo-link{package-name="read-more"}
 
 ## Usage
 
@@ -65,7 +65,7 @@ In your view:
 
 ## 🎛 Extending Controller
 
-<DocsExtendingController>
+::extending-controller
 
 ```js
 import ReadMore from 'stimulus-read-more'
@@ -87,4 +87,4 @@ export default class extends ReadMore {
 }
 ```
 
-</DocsExtendingController>
+::

@@ -24,7 +24,7 @@ application.register('notification', Notification)
 
 This controller uses [stimulus-use/use-transition](https://stimulus-use.github.io/stimulus-use/#/use-transition) under the hood. You can change the animation behavior as you want.
 
-<DocsDemoLink package-name="notification"></DocsDemoLink>
+:demo-link{package-name="notification"}
 
 ## Usage
 
@@ -85,7 +85,7 @@ For instance:
 
 ## 🎛 Extending Controller
 
-<DocsExtendingController>
+::extending-controller
 
 ```js
 import Notification from 'stimulus-notification'
@@ -98,4 +98,4 @@ export default class extends Notification {
 }
 ```
 
-</DocsExtendingController>
+::

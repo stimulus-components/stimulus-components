@@ -33,7 +33,7 @@
             <strong>many companies</strong>.
           </p>
 
-          <NuxtContent :document="component" />
+          <ContentRendererMarkdown :value="data" />
         </div>
 
         <HomeStats></HomeStats>
@@ -46,19 +46,10 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Home',
-  async asyncData({ $content }) {
-    return {
-      component: await $content('examples/content-loader').fetch(),
-    }
-  },
+<script setup>
+useHead({
+  titleTemplate: 'Stimulus Components',
+})
 
-  head() {
-    return {
-      titleTemplate: 'Stimulus Components',
-    }
-  },
-}
+const { data } = await useAsyncData('content-loader', () => queryContent('examples/content-loader').findOne())
 </script>

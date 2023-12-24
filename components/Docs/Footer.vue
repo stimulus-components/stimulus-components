@@ -17,7 +17,7 @@
     </p>
 
     <p>
-      Don’t forget to drop a 🌟 on
+      Don't forget to drop a 🌟 on
       <a href="https://github.com/stimulus-components/stimulus-components" target="_blank">Github</a>
       to support the project.
     </p>
@@ -31,9 +31,3 @@
     </p>
   </div>
 </template>
-
-<script>
-export default {
-  name: 'DocsFooter',
-}
-</script>

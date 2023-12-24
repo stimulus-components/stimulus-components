@@ -24,7 +24,7 @@ const application = Application.start()
 application.register('color-picker', ColorPicker)
 ```
 
-<DocsDemoLink package-name="color-picker"></DocsDemoLink>
+:demo-link{packageName="color-picker"}
 
 ## Usage
 
@@ -62,7 +62,7 @@ See the [Pickr documentation](https://github.com/Simonwep/pickr#usage) for more 
 
 ## 🎛 Extending Controller
 
-<DocsExtendingController>
+::extending-controller
 
 ```js
 import ColorPicker from 'stimulus-color-picker'
@@ -115,4 +115,4 @@ export default class extends ColorPicker {
 }
 ```
 
-</DocsExtendingController>
+::

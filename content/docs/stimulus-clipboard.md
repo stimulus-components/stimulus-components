@@ -22,7 +22,7 @@ const application = Application.start()
 application.register('clipboard', Clipboard)
 ```
 
-<DocsDemoLink package-name="clipboard"></DocsDemoLink>
+:demo-link{package-name="clipboard"}
 
 ## Usage
 
@@ -47,7 +47,7 @@ In your view:
 
 ## 🎛 Extending Controller
 
-<DocsExtendingController>
+::extending-controller
 
 ```js
 import Clipboard from 'stimulus-clipboard'
@@ -68,4 +68,4 @@ export default class extends Clipboard {
 }
 ```
 
-</DocsExtendingController>
+::

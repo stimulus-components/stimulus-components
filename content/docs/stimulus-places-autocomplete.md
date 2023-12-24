@@ -88,7 +88,7 @@ If a target does not exist, it will be ignored.
 
 ## 🎛 Extending Controller
 
-<DocsExtendingController>
+::extending-controller
 
 ```js
 import PlacesAutocomplete from 'stimulus-places-autocomplete'
@@ -121,4 +121,4 @@ export default class extends PlacesAutocomplete {
 }
 ```
 
-</DocsExtendingController>
+::

@@ -22,7 +22,7 @@ const application = Application.start()
 application.register('scroll-reveal', ScrollReveal)
 ```
 
-<DocsDemoLink package-name="scroll-reveal"></DocsDemoLink>
+:demo-link{package-name="scroll-reveal"}
 
 ## Usage
 
@@ -80,7 +80,7 @@ For instance:
 
 ## 🎛 Extending Controller
 
-<DocsExtendingController>
+::extending-controller
 
 ```js
 import ScrollReveal from 'stimulus-scroll-reveal'
@@ -112,4 +112,4 @@ export default class extends ScrollReveal {
 }
 ```
 
-</DocsExtendingController>
+::

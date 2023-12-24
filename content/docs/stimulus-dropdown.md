@@ -24,7 +24,7 @@ application.register('dropdown', Dropdown)
 
 This controller uses [stimulus-use/use-transition](https://stimulus-use.github.io/stimulus-use/#/use-transition) under the hood. You can change the animation behavior as you want.
 
-<DocsDemoLink package-name="dropdown"></DocsDemoLink>
+:demo-link{package-name="dropdown"}
 
 ## Usage
 
@@ -53,7 +53,7 @@ In your view:
 
 ## 🎛 Extending Controller
 
-<DocsExtendingController>
+::extending-controller
 
 ```js
 import Dropdown from 'stimulus-dropdown'
@@ -74,4 +74,4 @@ export default class extends Dropdown {
 }
 ```
 
-</DocsExtendingController>
+::

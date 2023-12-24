@@ -10,23 +10,19 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Docs',
+<script setup>
+definePageMeta({
   layout: 'docs',
+})
 
-  head() {
-    return {
-      title: 'Introduction',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content:
-            'You will find in this section the documentation for every single controller of the Stimulus Components library.',
-        },
-      ],
-    }
-  },
-}
+useHead({
+  title: 'Introduction',
+  meta: [
+    {
+      name: 'description',
+      content:
+        'You will find in this section the documentation for every single controller of the Stimulus Components library.',
+    },
+  ],
+})
 </script>

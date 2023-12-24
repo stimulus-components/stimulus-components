@@ -9,7 +9,7 @@
         </div>
 
         <div class="prose max-w-none overflow-scroll">
-          <Nuxt />
+          <slot />
 
           <DocsFooter />
         </div>
@@ -19,9 +19,3 @@
     <Footer />
   </div>
 </template>
-
-<script>
-export default {
-  name: 'DocsLayout',
-}
-</script>

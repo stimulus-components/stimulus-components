@@ -1,31 +1,23 @@
 <template>
   <div>
-    <NuxtContent :document="component" />
+    <ContentRendererMarkdown :value="data" />
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Installation',
+<script setup>
+definePageMeta({
   layout: 'docs',
+})
 
-  async asyncData({ $content }) {
-    return {
-      component: await $content('pages/installation').fetch(),
-    }
-  },
+useHead({
+  title: 'Installation',
+  meta: [
+    {
+      name: 'description',
+      content: 'How to install dependencies and structure your app.',
+    },
+  ],
+})
 
-  head() {
-    return {
-      title: 'Installation',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: 'How to install dependencies and structure your app.',
-        },
-      ],
-    }
-  },
-}
+const { data } = await useAsyncData('installation', () => queryContent('pages/installation').findOne())
 </script>
