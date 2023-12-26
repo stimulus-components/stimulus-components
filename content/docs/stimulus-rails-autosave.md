@@ -22,6 +22,8 @@ const application = Application.start()
 application.register('autosave', Autosave)
 ```
 
+:demo-link{package-name="rails-autosave"}
+
 ## Usage
 
 ```erb
