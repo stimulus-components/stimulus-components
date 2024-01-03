@@ -144,6 +144,11 @@ const sponsors = [
     src: 'avo.svg',
     url: 'https://avohq.io/',
   },
+  {
+    name: 'SearchApi',
+    src: 'searchapi.svg',
+    url: 'https://searchapi.io/',
+  },
 ]
 
 useHead({
