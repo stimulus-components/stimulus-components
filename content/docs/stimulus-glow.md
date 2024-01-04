@@ -35,29 +35,29 @@ Every element that have a `glow` class will be revealed by the mask but not the 
 [TailwindCSS](https://tailwindcss.com/) is required to use this CSS, because we will use a [custom variant](https://tailwindcss.com/docs/plugins#adding-variants) to limit the glow effect to the overlay.
 
 In your `tailwind.config.js` file, add this plugin:
+
 ```js
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
 
   plugins: [
-    plugin(({ addVariant }) => {
-      addVariant("glow", ".glow-capture .glow-overlay &");
-    },
-    {
-      theme: {
-        extend: {
-          colors: {
-            glow: "color-mix(in srgb, var(--glow-color) calc(<alpha-value> * 100%), transparent)",
+    plugin(
+      ({ addVariant }) => {
+        addVariant('glow', '.glow-capture .glow-overlay &')
+      },
+      {
+        theme: {
+          extend: {
+            colors: {
+              glow: 'color-mix(in srgb, var(--glow-color) calc(<alpha-value> * 100%), transparent)',
+            },
           },
         },
       },
-    }),
-  ]
+    ),
+  ],
 }
 ```
 
@@ -83,28 +83,18 @@ Now in your CSS, add this class:
 ```
 
 Here is a simplified version of the minimum markup you need:
+
 ```html
 <div data-controller="glow" class="relative glow-capture">
-  <div
-    data-glow-target="child"
-    class="glow glow:ring-1 glow:border-glow glow:ring-glow glow:bg-glow/[.15]"
-  >
+  <div data-glow-target="child" class="glow glow:ring-1 glow:border-glow glow:ring-glow glow:bg-glow/[.15]">
     <h2 class="font-bold text-2xl mb-4 text-gray-200 glow:text-glow/[.8]">Chicken Shawarma & Veggies</h2>
 
     <p class="text-sm text-gray-300 glow:text-glow">Vitae ducimus harum earum ratione autem esse ea!</p>
 
-    <button
-      class="glow:text-glow glow:border-glow glow:ring glow:ring-glow"
-    >
-      Add to cart
-    </button>
+    <button class="glow:text-glow glow:border-glow glow:ring glow:ring-glow">Add to cart</button>
   </div>
 
-  <div
-    data-glow-target="overlay"
-    class="glow-overlay"
-    style="--glow-color: #f97316"
-  ></div>
+  <div data-glow-target="overlay" class="glow-overlay" style="--glow-color: #f97316"></div>
 </div>
 ```
 
