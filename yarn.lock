@@ -1341,6 +1341,16 @@
     unist-builder "^4.0.0"
     unist-util-visit "^5.0.0"
 
+"@nuxtjs/plausible@^0.2.4":
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/plausible/-/plausible-0.2.4.tgz#970705847bbb5307cd7ce4f117c4fc9b09c2f771"
+  integrity sha512-9HrSl9ZGKS/7bULAt8uzAGo9BJyIZebzRSLQD8ZhiODaGyRdEQlgcJBw5JgUzjcC5n4T0ZlX3FC6C3Wyp7opgA==
+  dependencies:
+    "@nuxt/kit" "^3.8.2"
+    defu "^6.1.3"
+    pathe "^1.1.1"
+    plausible-tracker "^0.3.8"
+
 "@nuxtjs/robots@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@nuxtjs/robots/-/robots-3.0.0.tgz#057f0a68d847f22c36b4e574b456173e3f3d80b0"
@@ -7027,6 +7037,11 @@ pkg-types@^1.0.3:
     jsonc-parser "^3.2.0"
     mlly "^1.2.0"
     pathe "^1.1.0"
+
+plausible-tracker@^0.3.8:
+  version "0.3.8"
+  resolved "https://registry.yarnpkg.com/plausible-tracker/-/plausible-tracker-0.3.8.tgz#9b8b322cc41e0e1d6473869ef234deea365a5a40"
+  integrity sha512-lmOWYQ7s9KOUJ1R+YTOR3HrjdbxIS2Z4de0P/Jx2dQPteznJl2eX3tXxKClpvbfyGP59B5bbhW8ftN59HbbFSg==
 
 pluralize@^8.0.0:
   version "8.0.0"

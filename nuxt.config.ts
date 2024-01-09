@@ -1,7 +1,7 @@
 import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/content', '@nuxtjs/robots', '@nuxtjs/algolia'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/content', '@nuxtjs/robots', '@nuxtjs/algolia', '@nuxtjs/plausible'],
 
   content: {
     markdown: {
