@@ -13,7 +13,7 @@ For instance, for `stimulus-character-counter`, you will get `window.StimulusCha
 
 You can install the controllers in a few different ways.
 
-## 1. With a modules bundler (Webpack, esbuild, etc.)
+## 1. With a modules bundler (Vite, Webpack, esbuild, etc.)
 
 Because the controller's class is the default export, you can import it with the name of your choice.
 
