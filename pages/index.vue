@@ -38,6 +38,8 @@
 
         <HomeStats></HomeStats>
 
+        <TimecopCTA></TimecopCTA>
+
         <div class="prose mx-auto">
           <DocsFooter></DocsFooter>
         </div>
