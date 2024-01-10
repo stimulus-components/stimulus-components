@@ -116,7 +116,7 @@
             target="_blank"
             class="flex items-center gap-2 border-2 hover:border-orange-400 border-dashed rounded-lg p-2 text-gray-500"
           >
-            <div class="flex content-center justify-center items-center w-12 h-12 border-2 border-dashed rounded-lg">
+            <div class="flex content-center justify-center items-center size-12 border-2 border-dashed rounded-lg">
               +
             </div>
             Your company
