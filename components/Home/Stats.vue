@@ -36,6 +36,7 @@
 </template>
 
 <script setup>
+import { sub, formatISO } from 'date-fns'
 import { ref, computed } from 'vue'
 import { useFetch, useAsyncData } from 'nuxt/app'
 
@@ -49,11 +50,11 @@ const prettyNumber = (number) => {
 }
 
 const downloadsEndpoint = computed(() => {
-  const lastYear = new Date()
-  lastYear.setFullYear(lastYear.getFullYear() - 1)
+  const now = new Date()
+  const lastYear = sub(now, { days: 365 })
 
-  const from = lastYear.toISOString().substring(0, 10)
-  const until = new Date().toISOString().substring(0, 10)
+  const from = formatISO(lastYear, { representation: 'date' })
+  const until = formatISO(now, { representation: 'date' })
 
   return `https://api.npmjs.org/downloads/point/${from}:${until}/${packages.value.join(',')}`
 })
