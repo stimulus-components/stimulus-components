@@ -35,7 +35,7 @@ application.register('chart', Chart)
 ></canvas>
 ```
 
-If you extend this controller, it could be handy to with it with a `target`:
+If you extend this controller, it could be handy to use it with a `target`:
 
 ```html
 <div
