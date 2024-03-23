@@ -2,27 +2,12 @@
 title: Read More
 description: A Stimulus controller to show more or less text.
 package: read-more
+packagePath: '@stimulus-components/read-more'
 ---
 
 ## Installation
 
-```bash
-$ yarn add stimulus-read-more
-```
-
-And use it in your JS file:
-
-```js
-// Probably in app/javascript/controllers/index.js
-
-import { Application } from '@hotwired/stimulus'
-import ReadMore from 'stimulus-read-more'
-
-const application = Application.start()
-application.register('read-more', ReadMore)
-```
-
-:demo-link{package-name="read-more"}
+:installation-block{:package="package" :packagePath="packagePath"}
 
 ## Usage
 
@@ -31,6 +16,8 @@ This controller is based on the [Line-clamp](https://developer.mozilla.org/en-US
 It will update the CSS variable `--read-more-line-clamp` on the element with the value `'unset'` to show all the content.
 
 In your CSS:
+
+::code-block{tabName="app/javascript/stylesheets/application.css"}
 
 ```css
 .my-content {
@@ -41,9 +28,11 @@ In your CSS:
 }
 ```
 
+::
+
 In this case, `--read-more-line-clamp` is `undefined` and `2` is the number of lines displayed by default.
 
-In your view:
+::code-block{tabName="app/views/index.html"}
 
 ```html
 <div data-controller="read-more" data-read-more-more-text-value="Read more" data-read-more-less-text-value="Read less">
@@ -56,19 +45,22 @@ In your view:
 </div>
 ```
 
-## 🛠 Configuration
+::
+
+## Configuration
 
 | Attribute                        | Default     | Description                        | Optional |
 | -------------------------------- | ----------- | ---------------------------------- | -------- |
 | `data-read-more-more-text-value` | `undefined` | Text to display to show more text. | ✅       |
 | `data-read-more-less-text-value` | `undefined` | Text to display to show less text. | ✅       |
 
-## 🎛 Extending Controller
+## Extending Controller
 
 ::extending-controller
+::code-block{tabName="app/javascript/controllers/read_more_controller.js"}
 
 ```js
-import ReadMore from 'stimulus-read-more'
+import ReadMore from '@stimulus-components/read-more'
 
 export default class extends ReadMore {
   connect() {
@@ -87,4 +79,5 @@ export default class extends ReadMore {
 }
 ```
 
+::
 ::

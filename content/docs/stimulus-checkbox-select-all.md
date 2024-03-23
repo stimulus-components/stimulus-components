@@ -2,6 +2,7 @@
 title: Checkbox Select All
 description: A Stimulus controller for managing checkbox lists.
 package: checkbox-select-all
+packagePath: '@stimulus-components/checkbox-select-all'
 ---
 
 ## Video Tutorial
@@ -14,77 +15,79 @@ package: checkbox-select-all
 
 ## Installation
 
-```bash
-$ yarn add stimulus-checkbox-select-all
-```
-
-And use it in your JS file:
-
-```js
-// Probably in app/javascript/controllers/index.js
-
-import { Application } from '@hotwired/stimulus'
-import CheckboxSelectAll from 'stimulus-checkbox-select-all'
-
-const application = Application.start()
-application.register('checkbox-select-all', CheckboxSelectAll)
-```
-
-:demo-link{package-name="checkbox-select-all"}
+:installation-block{:package="package" :packagePath="packagePath"}
 
 ## Usage
 
 ### Without Rails
 
+::code-block{tabName="app/views/index.html.erb"}
+
 ```html
 <table data-controller="checkbox-select-all">
   <tbody>
-    <td class="block">
-      <label>
-        <input type="checkbox" data-checkbox-select-all-target="checkboxAll" />
-        <span>Select All / Deselect All</span>
-      </label>
-    </td>
+    <tr>
+      <td class="block">
+        <label>
+          <input type="checkbox" data-checkbox-select-all-target="checkboxAll" />
+          <span>Select All / Deselect All</span>
+        </label>
+      </td>
 
-    <td class="block">
-      <label>
-        <input type="checkbox" data-checkbox-select-all-target="checkbox" value="1" />
-        <span>Team 1</span>
-      </label>
-    </td>
+      <td class="block">
+        <label>
+          <input type="checkbox" data-checkbox-select-all-target="checkbox" value="1" />
+          <span>Team 1</span>
+        </label>
+      </td>
 
-    <td class="block">
-      <label>
-        <input type="checkbox" data-checkbox-select-all-target="checkbox" checked="checked" value="2" />
-        <span>Team 2</span>
-      </label>
-    </td>
+      <td class="block">
+        <label>
+          <input type="checkbox" data-checkbox-select-all-target="checkbox" checked="checked" value="2" />
+          <span>Team 2</span>
+        </label>
+      </td>
 
-    <td class="block">
-      <label>
-        <input type="checkbox" data-checkbox-select-all-target="checkbox" value="3" />
-        <span>Team 3</span>
-      </label>
-    </td>
+      <td class="block">
+        <label>
+          <input type="checkbox" data-checkbox-select-all-target="checkbox" value="3" />
+          <span>Team 3</span>
+        </label>
+      </td>
+    </tr>
   </tbody>
 </table>
 ```
+
+::
 
 ### With Rails
 
 In your models:
 
+::code-block{tabName="app/models/user.rb"}
+
 ```ruby
 class User < ApplicationRecord
   has_many :teams
 end
+```
 
+::
+
+::code-block{tabName="app/models/team.rb"}
+
+```ruby
 class Team < ApplicationRecord
   belongs_to :user
 end
 ```
 
+::
+
 In your controller:
+
+::code-block{tabName="app/controllers/users_controller.rb"}
 
 ```ruby
 class UsersController < ApplicationController
@@ -108,7 +111,9 @@ class UsersController < ApplicationController
 end
 ```
 
-In your view:
+::
+
+::code-block{tabName="app/views/index.html"}
 
 ```erb
 <%= form_with model: @user, data: { controller: 'checkbox-select-all' } do |f| %>
@@ -126,12 +131,15 @@ In your view:
 <% end %>
 ```
 
-## 🎛 Extending Controller
+::
+
+## Extending Controller
 
 ::extending-controller
+::code-block{tabName="app/javascript/controllers/checkbox_select_all_controller.js"}
 
 ```js
-import CheckboxSelectAll from 'stimulus-checkbox-select-all'
+import CheckboxSelectAll from '@stimulus-components/checkbox-select-all'
 
 export default class extends CheckboxSelectAll {
   connect() {
@@ -147,4 +155,5 @@ export default class extends CheckboxSelectAll {
 }
 ```
 
+::
 ::

@@ -1,8 +1,8 @@
 <template>
-  <div class="flex flex-col min-h-screen">
+  <div class="flex flex-col min-h-screen dark:bg-slate-800">
     <Nav />
 
-    <main class="flex-1 px-4 py-8">
+    <main class="flex-1">
       <slot />
     </main>
 

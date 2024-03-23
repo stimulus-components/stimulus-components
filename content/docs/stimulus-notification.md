@@ -2,33 +2,18 @@
 title: Notification
 description: A Stimulus controller for showing notifications.
 package: notification
+packagePath: '@stimulus-components/notification'
 ---
 
 ## Installation
 
-```bash
-$ yarn add stimulus-notification
-```
-
-And use it in your JS file:
-
-```js
-// Probably in app/javascript/controllers/index.js
-
-import { Application } from '@hotwired/stimulus'
-import Notification from 'stimulus-notification'
-
-const application = Application.start()
-application.register('notification', Notification)
-```
+:installation-block{:package="package" :packagePath="packagePath"}
 
 This controller uses [stimulus-use/use-transition](https://stimulus-use.github.io/stimulus-use/#/use-transition) under the hood. You can change the animation behavior as you want.
 
-:demo-link{package-name="notification"}
-
 ## Usage
 
-In your view:
+::code-block{tabName="app/views/index.html"}
 
 ```html
 <div
@@ -46,10 +31,14 @@ In your view:
 </div>
 ```
 
+::
+
 You can hide the notification by default and open it programmatically.
 Use a [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/Events/Creating_and_triggering_events) and set the correct `value` and `action`.
 
 For instance:
+
+::code-block{tabName="app/views/index.html"}
 
 ```html
 <div
@@ -76,19 +65,22 @@ For instance:
 </script>
 ```
 
-## 🛠 Configuration
+::
+
+## Configuration
 
 | Attribute                        | Default | Description                                                   | Optional |
 | -------------------------------- | ------- | ------------------------------------------------------------- | -------- |
 | `data-notification-delay-value`  | `3000`  | Delay in milliseconds before closing the notification.        | ✅       |
 | `data-notification-hidden-value` | `false` | Hide the notification by default to open it programmatically. | ✅       |
 
-## 🎛 Extending Controller
+## Extending Controller
 
 ::extending-controller
+::code-block{tabName="app/javascript/controllers/notification_controller.js"}
 
 ```js
-import Notification from 'stimulus-notification'
+import Notification from '@stimulus-components/notification'
 
 export default class extends Notification {
   connect() {
@@ -98,4 +90,5 @@ export default class extends Notification {
 }
 ```
 
+::
 ::

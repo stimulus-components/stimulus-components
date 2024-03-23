@@ -2,31 +2,16 @@
 title: Scroll Reveal
 description: A Stimulus controller that animates an element when it becomes visible.
 package: scroll-reveal
+packagePath: '@stimulus-components/scroll-reveal'
 ---
 
 ## Installation
 
-```bash
-$ yarn add stimulus-scroll-reveal
-```
-
-And use it in your JS file:
-
-```js
-// Probably in app/javascript/controllers/index.js
-
-import { Application } from '@hotwired/stimulus'
-import ScrollReveal from 'stimulus-scroll-reveal'
-
-const application = Application.start()
-application.register('scroll-reveal', ScrollReveal)
-```
-
-:demo-link{package-name="scroll-reveal"}
+:installation-block{:package="package" :packagePath="packagePath"}
 
 ## Usage
 
-In your view:
+::code-block{tabName="app/views/index.html"}
 
 ```html
 <div data-controller="scroll-reveal">
@@ -35,7 +20,11 @@ In your view:
 </div>
 ```
 
+::
+
 With custom options:
+
+::code-block{tabName="app/views/index.html"}
 
 ```html
 <div
@@ -49,7 +38,9 @@ With custom options:
 </div>
 ```
 
-## 🛠 Configuration
+::
+
+## Configuration
 
 | Attribute                              | Default | Description                                                     | Optional |
 | -------------------------------------- | ------- | --------------------------------------------------------------- | -------- |
@@ -62,28 +53,30 @@ This controller basically simply adds a class to an element when it becomes visi
 
 For instance:
 
-```html
-<style>
-  .reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: 1s cubic-bezier(0.5, 0, 0, 1);
-    transition-property: opacity, transform;
-  }
+::code-block{tabName="app/javascript/stylesheets/application.css"}
 
-  .reveal.in {
-    opacity: 1;
-    transform: none;
-  }
-</style>
+```css
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 1s cubic-bezier(0.5, 0, 0, 1);
+  transition-property: opacity, transform;
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
 ```
 
-## 🎛 Extending Controller
+::
+
+## Extending Controller
 
 ::extending-controller
+::code-block{tabName="app/javascript/controllers/scroll_reveal_controller.js"}
 
 ```js
-import ScrollReveal from 'stimulus-scroll-reveal'
+import ScrollReveal from '@stimulus-components/scroll-reveal'
 
 export default class extends ScrollReveal {
   connect() {
@@ -112,4 +105,5 @@ export default class extends ScrollReveal {
 }
 ```
 
+::
 ::

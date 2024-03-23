@@ -2,29 +2,16 @@
 title: Scroll To
 description: A Stimulus controller to scroll to elements.
 package: scroll-to
+packagePath: '@stimulus-components/scroll-to'
 ---
 
 ## Installation
 
-```bash
-$ yarn add stimulus-scroll-to
-```
-
-And use it in your JS file:
-
-```js
-// Probably in app/javascript/controllers/index.js
-
-import { Application } from '@hotwired/stimulus'
-import ScrollTo from 'stimulus-scroll-to'
-
-const application = Application.start()
-application.register('scroll-to', ScrollTo)
-```
-
-:demo-link{package-name="scroll-to"}
+:installation-block{:package="package" :packagePath="packagePath"}
 
 ## Usage
+
+::code-block{tabName="app/views/index.html"}
 
 ```html
 <a href="#awesome-stuff-here" data-controller="scroll-to">Scroll to #awesome-stuff-here</a>
@@ -32,7 +19,11 @@ application.register('scroll-to', ScrollTo)
 <h2 id="awesome-stuff-here">Awesome stuff here</h2>
 ```
 
+::
+
 With options:
+
+::code-block{tabName="app/views/index.html"}
 
 ```html
 <a
@@ -40,22 +31,26 @@ With options:
   data-controller="scroll-to"
   data-scroll-to-offset-value="150"
   data-scroll-to-behavior-value="auto"
-  >Scroll to #awesome-stuff-here</a
 >
+  Scroll to #awesome-stuff-here
+</a>
 
 <h2 id="awesome-stuff-here">Awesome stuff here</h2>
 ```
 
-## 🛠 Configuration
+::
+
+## Configuration
 
 | Attribute                       | Default  | Description                               | Optional |
 | ------------------------------- | -------- | ----------------------------------------- | -------- |
 | `data-scroll-to-offset-value`   | `10`     | Offset in pixels from top of the element. | ✅       |
 | `data-scroll-to-behavior-value` | `smooth` | The scroll behavior. `auto` or `smooth`.  | ✅       |
 
-## 🎛 Extending Controller
+## Extending Controller
 
 ::extending-controller
+::code-block{tabName="app/javascript/controllers/scroll_to_controller.js"}
 
 ```js
 import ScrollTo from 'stimulus-scroll-to'
@@ -76,6 +71,7 @@ export default class extends ScrollTo {
 }
 ```
 
+::
 ::
 
 ## Compatibility

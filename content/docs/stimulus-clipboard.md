@@ -2,31 +2,16 @@
 title: Clipboard
 description: A Stimulus controller to copy text to clipboard.
 package: clipboard
+packagePath: '@stimulus-components/clipboard'
 ---
 
 ## Installation
 
-```bash
-$ yarn add stimulus-clipboard
-```
-
-And use it in your JS file:
-
-```js
-// Probably in app/javascript/controllers/index.js
-
-import { Application } from '@hotwired/stimulus'
-import Clipboard from 'stimulus-clipboard'
-
-const application = Application.start()
-application.register('clipboard', Clipboard)
-```
-
-:demo-link{package-name="clipboard"}
+:installation-block{:package="package" :packagePath="packagePath"}
 
 ## Usage
 
-In your view:
+::code-block{tabName="app/views/index.html"}
 
 ```html
 <div data-controller="clipboard" data-clipboard-success-content-value="Copied!">
@@ -36,7 +21,9 @@ In your view:
 </div>
 ```
 
-## 🛠 Configuration
+::
+
+## Configuration
 
 | Attribute                               | Default | Description                                              | Optional |
 | --------------------------------------- | ------- | -------------------------------------------------------- | -------- |
@@ -45,12 +32,13 @@ In your view:
 
 `data-clipboard-target="button"` attribute is `optional` if you don't want to change the text of the button.
 
-## 🎛 Extending Controller
+## Extending Controller
 
 ::extending-controller
+::code-block{tabName="app/javascript/controllers/clipboard_controller.js"}
 
 ```js
-import Clipboard from 'stimulus-clipboard'
+import Clipboard from '@stimulus-components/clipboard'
 
 export default class extends Clipboard {
   connect() {
@@ -68,4 +56,5 @@ export default class extends Clipboard {
 }
 ```
 
+::
 ::

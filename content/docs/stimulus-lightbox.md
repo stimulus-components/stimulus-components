@@ -2,43 +2,39 @@
 title: Lightbox
 description: A Stimulus controller to add a lightbox on images.
 package: lightbox
+packagePath: '@stimulus-components/lightbox'
 ---
-
-This controller is using [lightgalleryjs](https://www.lightgalleryjs.com/) behind the scene.
 
 ## Installation
 
-```bash
-$ yarn add stimulus-lightbox
-```
+:installation-block{:package="package" :packagePath="packagePath"}
 
-And use it in your JS file:
-
-```js
-// Probably in app/javascript/controllers/index.js
-
-import { Application } from '@hotwired/stimulus'
-import Lightbox from 'stimulus-lightbox'
-
-const application = Application.start()
-application.register('lightbox', Lightbox)
-```
-
-:demo-link{package-name="lightbox"}
+::alert
+This component is based on the [lightgalleryjs](https://www.lightgalleryjs.com/){target="\_blank" .underline .hover:no-underline}.
+::
 
 ## Usage
 
 Before starting, your must import the `lightgallery.css` in your `js` or in your `sass`:
 
-```js
-// In your application.js (for example)
-import 'lightgallery/css/lightgallery.css'
+::code-block{tabName="app/javascript/index.js"}
 
-// Or in your sass
-@import '~lightgallery/scss/lightgallery'
+```js
+import 'lightgallery/css/lightgallery.css'
 ```
 
-Basic usage:
+::
+
+Or in your sass:
+::code-block{tabName="app/javascript/stylesheets/application.scss"}
+
+```scss
+@import '~lightgallery/scss/lightgallery';
+```
+
+::
+
+::code-block{tabName="app/views/index.html"}
 
 ```html
 <div data-controller="lightbox">
@@ -56,7 +52,11 @@ Basic usage:
 </div>
 ```
 
+::
+
 With options:
+
+::code-block{tabName="app/views/index.html"}
 
 ```html
 <div data-controller="lightbox" data-lightbox-options-value='{"index": 2}'>
@@ -74,18 +74,21 @@ With options:
 </div>
 ```
 
-## 🛠 Configuration
+::
+
+## Configuration
 
 | Attribute                     | Default | Description                                 | Optional |
 | ----------------------------- | ------- | ------------------------------------------- | -------- |
 | `data-lightbox-options-value` | `{}`    | Options for lightgallery.js as JSON string. | ✅       |
 
-## 🎛 Extending Controller
+## Extending Controller
 
 ::extending-controller
+::code-block{tabName="app/javascript/controllers/lightbox_controller.js"}
 
 ```js
-import Lightbox from 'stimulus-lightbox'
+import Lightbox from '@stimulus-components/lightbox'
 
 export default class extends Lightbox {
   connect() {
@@ -108,4 +111,5 @@ export default class extends Lightbox {
 }
 ```
 
+::
 ::

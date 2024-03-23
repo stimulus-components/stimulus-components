@@ -2,31 +2,18 @@
 title: Reveal Controller
 description: A Stimulus controller to toggle a class on one or multiple items to show or hide them.
 package: reveal-controller
+packagePath: '@stimulus-components/reveal'
 ---
 
 ## Installation
 
-```bash
-$ yarn add stimulus-reveal-controller
-```
-
-And use it in your JS file:
-
-```js
-// Probably in app/javascript/controllers/index.js
-
-import { Application } from '@hotwired/stimulus'
-import Reveal from 'stimulus-reveal-controller'
-
-const application = Application.start()
-application.register('reveal', Reveal)
-```
-
-:demo-link{package-name="reveal-controller"}
+:installation-block{:package="package" :packagePath="packagePath" controllerName="reveal"}
 
 ## Usage
 
 ### Toggle
+
+::code-block{tabName="app/views/index.html"}
 
 ```html
 <div data-controller="reveal" data-reveal-hidden-class="d-none">
@@ -37,7 +24,11 @@ application.register('reveal', Reveal)
 </div>
 ```
 
+::
+
 ### Show
+
+::code-block{tabName="app/views/index.html"}
 
 ```html
 <div data-controller="reveal">
@@ -47,7 +38,11 @@ application.register('reveal', Reveal)
 </div>
 ```
 
+::
+
 ### Hide
+
+::code-block{tabName="app/views/index.html"}
 
 ```html
 <div data-controller="reveal">
@@ -57,18 +52,21 @@ application.register('reveal', Reveal)
 </div>
 ```
 
-## 🛠 Configuration
+::
+
+## Configuration
 
 | Attribute                  | Default  | Description         | Optional |
 | -------------------------- | -------- | ------------------- | -------- |
 | `data-reveal-hidden-class` | `hidden` | CSS class to toggle | ✅       |
 
-## 🎛 Extending Controller
+## Extending Controller
 
 ::extending-controller
+::code-block{tabName="app/javascript/controllers/reveal_controller.js"}
 
 ```js
-import Reveal from 'stimulus-reveal-controller'
+import Reveal from '@stimulus-components/reveal'
 
 export default class extends Reveal {
   connect() {
@@ -78,4 +76,5 @@ export default class extends Reveal {
 }
 ```
 
+::
 ::

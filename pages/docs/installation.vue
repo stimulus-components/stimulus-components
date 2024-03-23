@@ -1,5 +1,7 @@
 <template>
   <div>
+    <p class="font-display text-sm font-medium text-orange-500 mb-2">Getting Started</p>
+
     <ContentRendererMarkdown :value="data" />
   </div>
 </template>
@@ -19,5 +21,5 @@ useHead({
   ],
 })
 
-const { data } = await useAsyncData('installation', () => queryContent('pages/installation').findOne())
+const { data } = await useAsyncData('pages-installation', () => queryContent('pages/installation').findOne())
 </script>

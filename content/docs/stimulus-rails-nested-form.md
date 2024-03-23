@@ -2,33 +2,20 @@
 title: Rails Nested Form
 description: A Stimulus controller to create new fields on the fly to populate your Rails relationship with accepts_nested_attributes_for.
 package: rails-nested-form
+packagePath: '@stimulus-components/rails-nested-form'
 ---
 
 [Nested attributes](https://apidock.com/rails/ActiveRecord/NestedAttributes/ClassMethods) allow you to save attributes on associated records through the parent.
 
 ## Installation
 
-```bash
-$ yarn add stimulus-rails-nested-form
-```
-
-And use it in your JS file:
-
-```js
-// Probably in app/javascript/controllers/index.js
-
-import { Application } from '@hotwired/stimulus'
-import NestedForm from 'stimulus-rails-nested-form'
-
-const application = Application.start()
-application.register('nested-form', NestedForm)
-```
-
-:demo-link{package-name="rails-nested-form"}
+:installation-block{:package="package" :packagePath="packagePath" controllerName="nested-form"}
 
 ## Usage
 
 In your models:
+
+::code-block{tabName="app/models/user.rb"}
 
 ```ruby
 class User < ApplicationRecord
@@ -41,7 +28,11 @@ class Todo < ApplicationRecord
 end
 ```
 
+::
+
 In your controller:
+
+::code-block{tabName="app/controllers/users_controller.rb"}
 
 ```ruby
 class UsersController < ApplicationController
@@ -65,9 +56,11 @@ class UsersController < ApplicationController
 end
 ```
 
+::
+
 To DRY up the code, we extract the fields in a partial called `todo_form` to use it in the [template](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template) with a new `Todo` and in the default `fields_for`.
 
-In your view:
+::code-block{tabName="app/views/users/edit.html.erb"}
 
 ```erb
 <%= form_with model: @user, data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' } do |f| %>
@@ -90,7 +83,9 @@ In your view:
 <% end %>
 ```
 
-In the `_todo_form.html.erb` partial:
+::
+
+::code-block{tabName="app/views/users/\_todo_form.html.erb"}
 
 ```erb
 <div class="nested-form-wrapper" data-new-record="<%= f.object.new_record? %>">
@@ -103,9 +98,11 @@ In the `_todo_form.html.erb` partial:
 </div>
 ```
 
+::
+
 As explained in the [documentation](https://apidock.com/rails/ActionView/Helpers/FormHelper/fields_for), we need to specify the `child_index` and replace its value in JavaScript because the index needs to be unique for each fields.
 
-## 🛠 Configuration
+## Configuration
 
 | Attribute                                 | Default                | Description                   | Optional |
 | ----------------------------------------- | ---------------------- | ----------------------------- | -------- |
@@ -113,12 +110,13 @@ As explained in the [documentation](https://apidock.com/rails/ActionView/Helpers
 
 The remove feature is completely optional.
 
-## 🎛 Extending Controller
+## Extending Controller
 
 ::extending-controller
+::code-block{tabName="app/javascript/controllers/rails_nested_form_controller.js"}
 
 ```js
-import NestedForm from 'stimulus-rails-nested-form'
+import NestedForm from '@stimulus-components/rails-nested-form'
 
 export default class extends NestedForm {
   connect() {
@@ -128,4 +126,5 @@ export default class extends NestedForm {
 }
 ```
 
+::
 ::

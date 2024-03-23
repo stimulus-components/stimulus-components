@@ -2,29 +2,18 @@
 title: Places Autocomplete
 description: A Stimulus controller for Google Places Autocomplete.
 package: places-autocomplete
+packagePath: 'stimulus-places-autocomplete'
 ---
 
 ## Installation
 
-```bash
-$ yarn add stimulus-places-autocomplete
-```
-
-And use it in your JS file:
-
-```js
-// Probably in app/javascript/controllers/index.js
-
-import { Application } from 'stimulus'
-import PlacesAutocomplete from 'stimulus-places-autocomplete'
-
-const application = Application.start()
-application.register('places', PlacesAutocomplete)
-```
+:installation-block{:package="package" :packagePath="packagePath"}
 
 ### Google Maps Callback
 
 Load the Google Maps Api JavaScript in your `<head>`:
+
+::code-block{tabName="app/views/index.html"}
 
 ```html
 <head>
@@ -36,7 +25,11 @@ Load the Google Maps Api JavaScript in your `<head>`:
 </head>
 ```
 
+::
+
 Define a callback to trigger the `PlacesAutocomplete` controller in your views:
+
+::code-block{tabName="app/views/index.html"}
 
 ```js
 window.initAutocomplete = function () {
@@ -44,13 +37,18 @@ window.initAutocomplete = function () {
     bubbles: true,
     cancelable: true,
   })
+
   window.dispatchEvent(event)
 }
 ```
 
+::
+
 👉 Tip: You don't need this callback if you add the `<div>` asynchronously in your DOM.
 
 ## Usage
+
+::code-block{tabName="app/views/index.html"}
 
 ```html
 <div
@@ -78,17 +76,20 @@ window.initAutocomplete = function () {
 </div>
 ```
 
+::
+
 ## Configuration
 
-| Attribute                   | Default | Description                                                                              | Optional |
-| --------------------------- | ------- | ---------------------------------------------------------------------------------------- | -------- |
-| `data-places-country-value` | `[]`    | Array of countries the autocomplete is restricted to. Must be parseable by `JSON.parse`. | ✅       |
+| Attribute                   | Default | Description                                                                                   | Optional |
+| --------------------------- | ------- | --------------------------------------------------------------------------------------------- | -------- |
+| `data-places-country-value` | `[]`    | Array of countries the autocomplete is restricted to. <br/>Must be parseable by `JSON.parse`. | ✅       |
 
 If a target does not exist, it will be ignored.
 
-## 🎛 Extending Controller
+## Extending Controller
 
 ::extending-controller
+::code-block{tabName="app/javascript/controllers/places_autocomplete_controller.js"}
 
 ```js
 import PlacesAutocomplete from 'stimulus-places-autocomplete'
@@ -121,4 +122,5 @@ export default class extends PlacesAutocomplete {
 }
 ```
 
+::
 ::

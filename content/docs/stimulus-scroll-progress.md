@@ -2,33 +2,18 @@
 title: Scroll Progress
 description: A Stimulus controller to add a progress bar when scrolling.
 package: scroll-progress
+packagePath: '@stimulus-components/scroll-progress'
 ---
 
 ## Installation
 
-```bash
-$ yarn add stimulus-scroll-progress
-```
-
-And use it in your JS file:
-
-```js
-// Probably in app/javascript/controllers/index.js
-
-import { Application } from '@hotwired/stimulus'
-import ScrollProgress from 'stimulus-scroll-progress'
-
-const application = Application.start()
-application.register('scroll-progress', ScrollProgress)
-```
-
-:demo-link{package-name="scroll-progress"}
+:installation-block{:package="package" :packagePath="packagePath"}
 
 ## Usage
 
 Add a `div` just after the `body` opening tag:
 
-In your view:
+::code-block{tabName="app/views/index.html"}
 
 ```html
 <body>
@@ -36,9 +21,11 @@ In your view:
 </body>
 ```
 
+::
+
 It's up to you to design it as you want.
 
-## 🛠 Configuration
+## Configuration
 
 To improve performance, the `scroll` event is [throttled](https://lodash.com/docs/4.17.15#throttle).
 
@@ -46,12 +33,13 @@ To improve performance, the `scroll` event is [throttled](https://lodash.com/doc
 | ------------------------------------------- | ------- | ---------------------------------------------------------------------- | -------- |
 | `data-scroll-progress-throttle-delay-value` | `15`    | Delay in milliseconds to update the scroll position. (`0` to disable). | ✅       |
 
-## 🎛 Extending Controller
+## Extending Controller
 
 ::extending-controller
+::code-block{tabName="app/javascript/controllers/scroll_progress_controller.js"}
 
 ```js
-import ScrollProgress from 'stimulus-scroll-progress'
+import ScrollProgress from '@stimulus-components/scroll-progress'
 
 export default class extends ScrollProgress {
   connect() {
@@ -61,4 +49,5 @@ export default class extends ScrollProgress {
 }
 ```
 
+::
 ::

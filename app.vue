@@ -8,7 +8,7 @@
 
 <script setup>
 const title = 'Stimulus Components'
-const description = 'Simple and powerful Stimulus JS library for common JavaScript behavior.'
+const description = 'Stimulus Components is an open-source set of StimulusJS controllers to solve common patterns.'
 
 useHead({
   title,
@@ -18,7 +18,6 @@ useHead({
   },
   link: [
     { rel: 'preconnect', href: 'https://e9in2dium3-dsn.algolia.net' },
-    { rel: 'preconnect', href: 'https://img.shields.io' },
     { rel: 'preconnect', href: 'https://github.com' },
   ],
   meta: [

@@ -2,42 +2,32 @@
 title: Prefetch
 description: A Stimulus controller that prefetch in-viewport links.
 package: prefetch
+packagePath: '@stimulus-components/prefetch'
 ---
 
 ## Installation
 
-```bash
-$ yarn add stimulus-prefetch
-```
-
-And use it in your JS file:
-
-```js
-// Probably in app/javascript/controllers/index.js
-
-import { Application } from '@hotwired/stimulus'
-import Prefetch from 'stimulus-prefetch'
-
-const application = Application.start()
-application.register('prefetch', Prefetch)
-```
-
-:demo-link{package-name="prefetch"}
+:installation-block{:package="package" :packagePath="packagePath"}
 
 ## Usage
+
+::code-block{tabName="app/views/index.html"}
 
 ```html
 <a href="/about" data-controller="prefetch">About</a>.
 ```
 
+::
+
 **Note**: To improve performance, links will only be prefetched if they are in the viewport and if the user isn't on a slow connection.
 
-## 🎛 Extending Controller
+## Extending Controller
 
 ::extending-controller
+::code-block{tabName="app/javascript/controllers/prefetch_controller.js"}
 
 ```js
-import Prefetch from 'stimulus-prefetch'
+import Prefetch from '@stimulus-components/prefetch'
 
 export default class extends Prefetch {
   connect() {
@@ -47,4 +37,5 @@ export default class extends Prefetch {
 }
 ```
 
+::
 ::

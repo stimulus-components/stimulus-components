@@ -2,33 +2,18 @@
 title: Dropdown
 description: A Stimulus controller to create a dropdown.
 package: dropdown
+packagePath: '@stimulus-components/dropdown'
 ---
 
 ## Installation
 
-```bash
-$ yarn add stimulus-dropdown
-```
-
-And use it in your JS file:
-
-```js
-// Probably in app/javascript/controllers/index.js
-
-import { Application } from '@hotwired/stimulus'
-import Dropdown from 'stimulus-dropdown'
-
-const application = Application.start()
-application.register('dropdown', Dropdown)
-```
+:installation-block{:package="package" :packagePath="packagePath"}
 
 This controller uses [stimulus-use/use-transition](https://stimulus-use.github.io/stimulus-use/#/use-transition) under the hood. You can change the animation behavior as you want.
 
-:demo-link{package-name="dropdown"}
-
 ## Usage
 
-In your view:
+::code-block{tabName="app/views/index.html"}
 
 ```html
 <div data-controller="dropdown" class="relative">
@@ -49,14 +34,19 @@ In your view:
 </div>
 ```
 
-[TailwindCSS](https://tailwindcss.com/) is used in this example but it's up to you to style the dropdown as you want.
+::
 
-## 🎛 Extending Controller
+::alert
+[TailwindCSS](https://tailwindcss.com/){target="\_blank" .underline .hover:no-underline} is used in this example, but it's up to you to style the dropdown as you want.
+::
+
+## Extending Controller
 
 ::extending-controller
+::code-block{tabName="app/javascript/controllers/dropdown_controller.js"}
 
 ```js
-import Dropdown from 'stimulus-dropdown'
+import Dropdown from '@stimulus-components/dropdown'
 
 export default class extends Dropdown {
   connect() {
@@ -74,4 +64,5 @@ export default class extends Dropdown {
 }
 ```
 
+::
 ::

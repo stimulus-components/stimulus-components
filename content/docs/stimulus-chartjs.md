@@ -2,31 +2,22 @@
 title: Chartjs
 description: A Stimulus controller to deal with chart.js.
 package: chartjs
+packagePath: '@stimulus-components/chartjs'
 ---
 
 ## Installation
 
-```bash
-$ yarn add stimulus-chartjs
-```
+:installation-block{:package="package" :packagePath="packagePath"}
 
-And use it in your JS file:
-
-```js
-// Probably in app/javascript/controllers/index.js
-
-import { Application } from 'stimulus'
-import Chart from 'stimulus-chartjs'
-
-const application = Application.start()
-application.register('chart', Chart)
-```
-
-:demo-link{package-name="chartjs"}
+::alert
+This component is based on the [Chart.js library](https://www.chartjs.org/){target="\_blank" .underline .hover:no-underline}.
+::
 
 ## Usage
 
 ### Basic usage
+
+::code-block{tabName="app/views/index.html"}
 
 ```html
 <canvas
@@ -35,7 +26,11 @@ application.register('chart', Chart)
 ></canvas>
 ```
 
+::
+
 If you extend this controller, it could be handy to use it with a `target`:
+
+::code-block{tabName="app/views/index.html"}
 
 ```html
 <div
@@ -49,11 +44,13 @@ If you extend this controller, it could be handy to use it with a `target`:
 </div>
 ```
 
+::
+
 **It's much simpler with a framework.**
 
 ### With backend framework (optional)
 
-In your controller:
+::code-block{tabName="app/controllers/charts_controller.rb"}
 
 ```ruby
 class ChartsController < ApplicationController
@@ -81,7 +78,9 @@ class ChartsController < ApplicationController
 end
 ```
 
-In your view:
+::
+
+::code-block{tabName="app/views/index.html"}
 
 ```erb
 <canvas
@@ -91,7 +90,9 @@ In your view:
 ></canvas>
 ```
 
-## 🛠 Configuration
+::
+
+## Configuration
 
 | Attribute                  | Default | Description              | Optional |
 | -------------------------- | ------- | ------------------------ | -------- |
@@ -99,12 +100,13 @@ In your view:
 | `data-chart-type-value`    | `line`  | Type of the chart        | ✅       |
 | `data-chart-options-value` | `{}`    | The options for Chart.js | ✅       |
 
-## 🎛 Extending Controller
+## Extending Controller
 
 ::extending-controller
+::code-block{tabName="app/javascript/controllers/chartjs_controller.js"}
 
 ```js
-import Chart from 'stimulus-chartjs'
+import Chart from '@stimulus-components/chartjs'
 
 export default class extends Chart {
   connect() {
@@ -142,4 +144,5 @@ export default class extends Chart {
 }
 ```
 
+::
 ::

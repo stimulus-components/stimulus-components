@@ -2,36 +2,24 @@
 title: Color Picker
 description: A Stimulus controller to create color picker.
 package: color-picker
+packagePath: '@stimulus-components/color-picker'
 ---
-
-This controller is using [@simonwep/pickr](https://github.com/Simonwep/pickr) behind the scene.
 
 ## Installation
 
-```bash
-$ yarn add stimulus-color-picker
-```
+:installation-block{:package="package" :packagePath="packagePath"}
 
-And use it in your JS file:
-
-```js
-// Probably in app/javascript/controllers/index.js
-
-import { Application } from '@hotwired/stimulus'
-import ColorPicker from 'stimulus-color-picker'
-
-const application = Application.start()
-application.register('color-picker', ColorPicker)
-```
-
-:demo-link{packageName="color-picker"}
+::alert
+This component is based on the [@simonwep/pickr](https://github.com/Simonwep/pickr){target="\_blank" .underline .hover:no-underline}.
+::
 
 ## Usage
 
 Before starting, your must import the theme you want to use in your `js` or in your `sass`:
 
+::code-block{tabName="app/javascript/index.js"}
+
 ```js
-// In your application.js (for example)
 import '@simonwep/pickr/dist/themes/classic.min.css'
 // import '@simonwep/pickr/dist/themes/monolith.min.css'
 // import '@simonwep/pickr/dist/themes/nano.min.css'
@@ -42,7 +30,11 @@ import '@simonwep/pickr/dist/themes/classic.min.css'
 // @import '~@simonwep/pickr/dist/themes/nano.min.css'
 ```
 
+::
+
 Basic usage:
+
+::code-block{tabName="app/views/index.html"}
 
 ```html
 <div data-controller="color-picker">
@@ -52,7 +44,9 @@ Basic usage:
 </div>
 ```
 
-## 🛠 Configuration
+::
+
+## Configuration
 
 | Attribute                       | Default   | Description                  | Optional |
 | ------------------------------- | --------- | ---------------------------- | -------- |
@@ -60,12 +54,13 @@ Basic usage:
 
 See the [Pickr documentation](https://github.com/Simonwep/pickr#usage) for more info in the library itself.
 
-## 🎛 Extending Controller
+## Extending Controller
 
 ::extending-controller
+::code-block{tabName="app/javascript/controllers/color_picker_controller.js"}
 
 ```js
-import ColorPicker from 'stimulus-color-picker'
+import ColorPicker from '@stimulus-components/color-picker'
 
 export default class extends ColorPicker {
   connect() {
@@ -115,4 +110,5 @@ export default class extends ColorPicker {
 }
 ```
 
+::
 ::
