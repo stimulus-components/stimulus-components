@@ -2,33 +2,20 @@
 title: Popover
 description: A Stimulus controller to deal with HTML popover.
 package: popover
+packagePath: '@stimulus-components/popover'
 ---
 
 ## Installation
 
-```bash
-$ yarn add stimulus-popover
-```
-
-And use it in your JS file:
-
-```js
-// Probably in app/javascript/controllers/index.js
-
-import { Application } from '@hotwired/stimulus'
-import Popover from 'stimulus-popover'
-
-const application = Application.start()
-application.register('popover', Popover)
-```
-
-:demo-link{package-name="popover"}
+:installation-block{:package="package" :packagePath="packagePath"}
 
 ## Usage
 
 ### With remote content
 
 In your controller:
+
+::code-block{tabName="app/controllers/users_controller.rb"}
 
 ```ruby
 class UsersController < ApplicationController
@@ -38,7 +25,11 @@ class UsersController < ApplicationController
 end
 ```
 
+::
+
 In your routes:
+
+::code-block{tabName="config/routes.rb"}
 
 ```ruby
 Rails.application.routes.draw do
@@ -46,9 +37,11 @@ Rails.application.routes.draw do
 end
 ```
 
-In your view:
+::
 
 With server rendered content on the fly:
+
+::code-block{tabName="app/views/index.html.erb"}
 
 ```erb
 <div data-controller="popover" data-popover-url-value="<%= card_path %>">
@@ -57,7 +50,11 @@ With server rendered content on the fly:
 </div>
 ```
 
+::
+
 In the card partial `app/views/users/_card.html.erb`:
+
+::code-block{tabName="app/views/users/\_card.html.erb"}
 
 ```html
 <div data-popover-target="card">
@@ -65,12 +62,16 @@ In the card partial `app/views/users/_card.html.erb`:
 </div>
 ```
 
+::
+
 ### With local template
+
+::code-block{tabName="app/views/index.html"}
 
 ```html
 <div data-controller="popover">
-  This is my Github card available on
-  <a href="/profile" data-action="mouseenter->popover#show mouseleave->popover#hide"> Github </a>
+  This is my GitHub card available on
+  <a href="/profile" data-action="mouseenter->popover#show mouseleave->popover#hide"> GitHub </a>
 
   <template data-popover-target="content">
     <div data-popover-target="card">
@@ -80,6 +81,8 @@ In the card partial `app/views/users/_card.html.erb`:
 </div>
 ```
 
+::
+
 ## Configuration
 
 | Attribute                | Default     | Description               | Optional |
@@ -88,12 +91,13 @@ In the card partial `app/views/users/_card.html.erb`:
 
 **Important note**: It's up to **you** to provide the popover style!
 
-## 🎛 Extending Controller
+## Extending Controller
 
 ::extending-controller
+::code-block{tabName="app/javascript/controllers/popover_controller.js"}
 
 ```js
-import Popover from 'stimulus-popover'
+import Popover from '@stimulus-components/popover'
 
 export default class extends Popover {
   connect() {
@@ -103,4 +107,5 @@ export default class extends Popover {
 }
 ```
 
+::
 ::

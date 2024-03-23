@@ -2,31 +2,16 @@
 title: Character Counter
 description: A Stimulus controller that counts the number of characters in any input fields.
 package: character-counter
+packagePath: '@stimulus-components/character-counter'
 ---
 
 ## Installation
 
-```bash
-$ yarn add stimulus-character-counter
-```
-
-And use it in your JS file:
-
-```js
-// Probably in app/javascript/controllers/index.js
-
-import { Application } from 'stimulus'
-import CharacterCounter from 'stimulus-character-counter'
-
-const application = Application.start()
-application.register('character-counter', CharacterCounter)
-```
-
-:demo-link{package-name="character-counter"}
+:installation-block{:package="package" :packagePath="packagePath"}
 
 ## Usage
 
-In your view:
+::code-block{tabName="app/views/index.html"}
 
 ```html
 <div data-controller="character-counter">
@@ -39,7 +24,11 @@ In your view:
 </div>
 ```
 
+::
+
 You can use it in countdown mode, add the correct value and a `maxlength` attribute on the `input`/`textarea` field:
+
+::code-block{tabName="app/views/index.html"}
 
 ```html
 <div data-controller="character-counter" data-character-counter-countdown-value="true">
@@ -52,18 +41,21 @@ You can use it in countdown mode, add the correct value and a `maxlength` attrib
 </div>
 ```
 
-## 🛠 Configuration
+::
+
+## Configuration
 
 | Attribute                                | Default     | Description                  | Optional |
 | ---------------------------------------- | ----------- | ---------------------------- | -------- |
 | `data-character-counter-countdown-value` | `undefined` | Activate the countdown mode. | ✅       |
 
-## 🎛 Extending Controller
+## Extending Controller
 
 ::extending-controller
+::code-block{tabName="app/javascript/controllers/character_counter_controller.js"}
 
 ```js
-import CharacterCounter from 'stimulus-character-counter'
+import CharacterCounter from '@stimulus-components/character-counter'
 
 export default class extends CharacterCounter {
   connect() {
@@ -75,4 +67,5 @@ export default class extends CharacterCounter {
 }
 ```
 
+::
 ::

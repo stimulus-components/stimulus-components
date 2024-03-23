@@ -1,10 +1,11 @@
 <template>
-  <div class="bg-white">
+  <div>
     <div class="relative overflow-hidden">
-      <main class="lg:relative">
-        <HomeHero></HomeHero>
+      <HomeHero />
+      <HomeLogoCloud />
 
-        <div class="prose mx-auto pb-20">
+      <main class="px-4 py-8 lg:relative">
+        <div class="prose dark:prose-invert prose-pre:mt-0 prose-pre:rounded-t-none mx-auto pb-20">
           <p>
             <a href="https://stimulus.hotwired.dev/" target="_blank">Stimulus JS</a> is a modest yet powerful JavaScript
             framework that augments your HTML with just enough behavior to make it shine.
@@ -25,6 +26,10 @@
               <strong>strong API</strong>.
             </li>
             <li>Be easy to <strong>learn</strong> and <strong>use</strong>.</li>
+            <li>
+              Completely <strong>unstyled</strong>, UI agnostic. You bring the <strong>design</strong>, we bring the
+              <strong>JavaScript</strong>.
+            </li>
             <li>Be as close as possible to the Stimulus conventions.</li>
           </ul>
 
@@ -36,12 +41,15 @@
           <ContentRendererMarkdown :value="data" />
         </div>
 
-        <HomeStats></HomeStats>
+        <HomeStats />
+        <HomeComponentsList />
+        <HomePlayground />
+        <HomeTestimonials />
 
-        <TimecopCTA></TimecopCTA>
+        <TimecopCTA />
 
-        <div class="prose mx-auto">
-          <DocsFooter></DocsFooter>
+        <div class="prose dark:prose-invert mx-auto">
+          <DocsFooter />
         </div>
       </main>
     </div>
@@ -53,5 +61,5 @@ useHead({
   titleTemplate: 'Stimulus Components',
 })
 
-const { data } = await useAsyncData('content-loader', () => queryContent('examples/content-loader').findOne())
+const { data } = await useAsyncData('default', () => queryContent('examples/default').findOne())
 </script>

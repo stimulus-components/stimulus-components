@@ -2,31 +2,16 @@
 title: Animated Number
 description: A Stimulus controller that animates a numerical value by counting to it.
 package: animated-number
+packagePath: '@stimulus-components/animated-number'
 ---
 
 ## Installation
 
-```bash
-$ yarn add stimulus-animated-number
-```
-
-And use it in your JS file:
-
-```js
-// Probably in app/javascript/controllers/index.js
-
-import { Application } from '@hotwired/stimulus'
-import AnimatedNumber from 'stimulus-animated-number'
-
-const application = Application.start()
-application.register('animated-number', AnimatedNumber)
-```
-
-:demo-link{package-name="animated-number"}
+:installation-block{:package="package" :packagePath="packagePath"}
 
 ## Usage
 
-In your view:
+::code-block{tabName="app/views/index.html"}
 
 ```html
 <div
@@ -37,7 +22,13 @@ In your view:
 >
   0
 </div>
+```
 
+::
+
+::code-block{tabName="app/views/index.html"}
+
+```html
 <div
   data-controller="animated-number"
   data-animated-number-lazy-value=""
@@ -47,7 +38,13 @@ In your view:
 >
   This animation will start only when the element become visible thanks to Intersection Observers.
 </div>
+```
 
+::
+
+::code-block{tabName="app/views/index.html"}
+
+```html
 <div
   data-controller="animated-number"
   data-animated-number-lazy-value=""
@@ -61,7 +58,9 @@ In your view:
 </div>
 ```
 
-## 🛠 Configuration
+::
+
+## Configuration
 
 | Attribute                                     | Default     | Description                                  | Optional |
 | --------------------------------------------- | ----------- | -------------------------------------------- | -------- |
@@ -72,12 +71,13 @@ In your view:
 | `data-animated-number-lazy-root-margin-value` | `0px`       | rootMargin option for Intersection Observer. | ✅       |
 | `data-animated-number-lazy-threshold-value`   | `0`         | threshold option for Intersection Observer.  | ✅       |
 
-## 🎛 Extending Controller
+## Extending Controller
 
 ::extending-controller
+::code-block{tabName="app/javascript/controllers/animated_number_controller.js"}
 
 ```js
-import AnimatedNumber from 'stimulus-animated-number'
+import AnimatedNumber from '@stimulus-components/animated-number'
 
 export default class extends AnimatedNumber {
   connect() {
@@ -87,4 +87,5 @@ export default class extends AnimatedNumber {
 }
 ```
 
+::
 ::

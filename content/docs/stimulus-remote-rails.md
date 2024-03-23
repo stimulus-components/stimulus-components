@@ -2,31 +2,16 @@
 title: Remote Rails
 description: A Stimulus controller to handle Rails UJS events.
 package: remote-rails
+packagePath: '@stimulus-components/remote-rails'
 ---
 
 ## Installation
 
-```bash
-$ yarn add stimulus-remote-rails
-```
-
-And use it in your JS file:
-
-```js
-// Probably in app/javascript/controllers/index.js
-
-import { Application } from '@hotwired/stimulus'
-import Remote from 'stimulus-remote-rails'
-
-const application = Application.start()
-application.register('remote', Remote)
-```
-
-:demo-link{package-name="remote-rails"}
+:installation-block{:package="package" :packagePath="packagePath" controllerName="remote"}
 
 ## Usage
 
-In your controller:
+::code-block{tabName="app/controllers/comments_controller.rb"}
 
 ```ruby
 class CommentsController < ApplicationController
@@ -50,7 +35,9 @@ class CommentsController < ApplicationController
 end
 ```
 
-In your view:
+::
+
+::code-block{tabName="app/views/comments/edit.html.erb"}
 
 ```erb
 <%= form_with model: @comment, data: { controller: 'remote', action: 'ajax:success->remote#append ajax:error->remote#replace' } do |f| %>
@@ -67,7 +54,11 @@ In your view:
 <% end %>
 ```
 
+::
+
 With a `link_to`:
+
+::code-block{tabName="app/views/comments/index.html.erb"}
 
 ```erb
 <%= link_to 'Click me to append content', content_path, remote: true, data: { controller: 'remote', action: 'ajax:success->remote#append' } %>
@@ -77,15 +68,18 @@ With a `link_to`:
 <%= link_to 'Click me to replace content', content_path, remote: true, data: { controller: 'remote', action: 'ajax:success->remote#replace' } %>
 ```
 
+::
+
 You can use `append`, `prepend` or `replace` methods with the events of your choice.
 
 **Don't forget to add the `remote: true` attribute in your `link_to`!**
 
 You can use it with all [remote elements available in Rails UJS](https://guides.rubyonrails.org/working_with_javascript_in_rails.html#remote-elements).
 
-## 🎛 Extending Controller
+## Extending Controller
 
 ::extending-controller
+::code-block{tabName="app/javascript/controllers/remote_rails_controller.js"}
 
 ```js
 import Remote from 'stimulus-remote-rails'
@@ -98,4 +92,5 @@ export default class extends Remote {
 }
 ```
 
+::
 ::

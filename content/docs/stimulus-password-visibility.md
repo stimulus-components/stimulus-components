@@ -2,31 +2,14 @@
 title: Password Visibility
 description: A Stimulus controller to change a password input visibility.
 package: password-visibility
+packagePath: '@stimulus-components/password-visibility'
 ---
 
 ## Installation
 
-```bash
-$ yarn add stimulus-password-visibility
-```
-
-And use it in your JS file:
-
-```js
-// Probably in app/javascript/controllers/index.js
-
-import { Application } from '@hotwired/stimulus'
-import PasswordVisibility from 'stimulus-password-visibility'
-
-const application = Application.start()
-application.register('password-visibility', PasswordVisibility)
-```
-
-:demo-link{package-name="password-visibility"}
+:installation-block{:package="package" :packagePath="packagePath"}
 
 ## Usage
-
-In your view:
 
 ```html
 <div data-controller="password-visibility">
@@ -39,18 +22,19 @@ In your view:
 </div>
 ```
 
-## 🛠 Configuration
+## Configuration
 
 | Attribute                               | Default  | Description                       | Optional |
 | --------------------------------------- | -------- | --------------------------------- | -------- |
 | `data-password-visibility-hidden-class` | `hidden` | Class to toggle icons visibility. | ✅       |
 
-## 🎛 Extending Controller
+## Extending Controller
 
 ::extending-controller
+::code-block{tabName="app/javascript/controllers/password_visibility_controller.js"}
 
 ```js
-import PasswordVisibility from 'stimulus-password-visibility'
+import PasswordVisibility from '@stimulus-components/password-visibility'
 
 export default class extends PasswordVisibility {
   connect() {
@@ -67,4 +51,5 @@ export default class extends PasswordVisibility {
 }
 ```
 
+::
 ::

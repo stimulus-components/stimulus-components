@@ -2,6 +2,7 @@
 title: Content Loader
 description: A Stimulus controller to asynchronously load HTML from an url.
 package: content-loader
+packagePath: '@stimulus-components/content-loader'
 ---
 
 ## Video Tutorial
@@ -14,27 +15,13 @@ package: content-loader
 
 ## Installation
 
-```bash
-$ yarn add stimulus-content-loader
-```
-
-And use it in your JS file:
-
-```js
-// Probably in app/javascript/controllers/index.js
-
-import { Application } from '@hotwired/stimulus'
-import ContentLoader from 'stimulus-content-loader'
-
-const application = Application.start()
-application.register('content-loader', ContentLoader)
-```
-
-:demo-link{package-name="content-loader"}
+:installation-block{:package="package" :packagePath="packagePath"}
 
 ## Usage
 
 In your controller:
+
+::code-block{tabName="app/controllers/posts_controller.rb"}
 
 ```ruby
 class PostsController < ApplicationController
@@ -44,7 +31,11 @@ class PostsController < ApplicationController
 end
 ```
 
+::
+
 In your routes:
+
+::code-block{tabName="config/routes.rb"}
 
 ```ruby
 Rails.application.routes.draw do
@@ -52,7 +43,9 @@ Rails.application.routes.draw do
 end
 ```
 
-In your view:
+::
+
+::code-block{tabName="app/views/index.html.erb"}
 
 ```erb
 <div data-controller="content-loader" data-content-loader-url-value="<%= comments_path %>">
@@ -104,7 +97,9 @@ In your view:
 </div>
 ```
 
-## 🛠 Configuration
+::
+
+## Configuration
 
 | Attribute                                            | Default     | Description                                  | Optional |
 | ---------------------------------------------------- | ----------- | -------------------------------------------- | -------- |
@@ -115,12 +110,13 @@ In your view:
 | `data-content-loader-lazy-loading-threshold-value`   | `0`         | threshold option for Intersection Observer.  | ✅       |
 | `data-content-loader-load-scripts-value`             | `false`     | Load inline scripts from the content.        | ✅       |
 
-## 🎛 Extending Controller
+## Extending Controller
 
 ::extending-controller
+::code-block{tabName="app/javascript/controllers/content_loader_controller.js"}
 
 ```js
-import ContentLoader from 'stimulus-content-loader'
+import ContentLoader from '@stimulus-components/content-loader'
 
 export default class extends ContentLoader {
   connect() {
@@ -130,6 +126,7 @@ export default class extends ContentLoader {
 }
 ```
 
+::
 ::
 
 ## Credits

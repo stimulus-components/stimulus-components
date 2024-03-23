@@ -2,27 +2,12 @@
 title: Glow
 description: A Stimulus controller that add a mouse-tracing glow effect.
 package: glow
+packagePath: 'stimulus-glow'
 ---
 
 ## Installation
 
-```bash
-$ yarn add stimulus-glow
-```
-
-And use it in your JS file:
-
-```js
-// Probably in app/javascript/controllers/index.js
-
-import { Application } from '@hotwired/stimulus'
-import Glow from 'stimulus-glow'
-
-const application = Application.start()
-application.register('glow', Glow)
-```
-
-:demo-link{package-name="glow"}
+:installation-block{:package="package" :packagePath="packagePath"}
 
 ## How it works
 
@@ -35,6 +20,8 @@ Every element that have a `glow` class will be revealed by the mask but not the 
 [TailwindCSS](https://tailwindcss.com/) is required to use this CSS, because we will use a [custom variant](https://tailwindcss.com/docs/plugins#adding-variants) to limit the glow effect to the overlay.
 
 In your `tailwind.config.js` file, add this plugin:
+
+::code-block{tabName="tailwind.config.js"}
 
 ```js
 const plugin = require('tailwindcss/plugin')
@@ -61,7 +48,10 @@ module.exports = {
 }
 ```
 
+::
+
 Now in your CSS, add this class:
+::code-block{tabName="app/javascript/stylesheets/application.css"}
 
 ```css
 .glow-overlay {
@@ -82,7 +72,11 @@ Now in your CSS, add this class:
 }
 ```
 
+::
+
 Here is a simplified version of the minimum markup you need:
+
+::code-block{tabName="app/views/index.html"}
 
 ```html
 <div data-controller="glow" class="relative glow-capture">
@@ -98,11 +92,14 @@ Here is a simplified version of the minimum markup you need:
 </div>
 ```
 
+::
+
 I suggest you the inspect the [index.html](https://github.com/stimulus-components/stimulus-glow/blob/main/index.html) of the demo for a complete example.
 
-## 🎛 Extending Controller
+## Extending Controller
 
 ::extending-controller
+::code-block{tabName="app/javascript/controllers/glow_controller.js"}
 
 ```js
 import Glow from 'stimulus-glow'
@@ -115,4 +112,5 @@ export default class extends Glow {
 }
 ```
 
+::
 ::

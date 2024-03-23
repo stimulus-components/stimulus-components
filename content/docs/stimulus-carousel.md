@@ -2,42 +2,32 @@
 title: Carousel
 description: A Stimulus controller to deal with carousel.
 package: carousel
+packagePath: '@stimulus-components/carousel'
 ---
-
-This controller is using [Swiper](https://swiperjs.com/) behind the scene.
 
 ## Installation
 
-```bash
-$ yarn add stimulus-carousel
-```
+:installation-block{:package="package" :packagePath="packagePath"}
 
-And use it in your JS file:
-
-```js
-// Probably in app/javascript/controllers/index.js
-
-import { Application } from '@hotwired/stimulus'
-import Carousel from 'stimulus-carousel'
-
-const application = Application.start()
-application.register('carousel', Carousel)
-```
-
-:demo-link{package-name="carousel"}
+::alert
+This component is based on the [Swiper](https://swiperjs.com/){target="\_blank" .underline .hover:no-underline}.
+::
 
 ## Before starting
 
 You must import the `Swiper` CSS in your `js` file:
 
+::code-block{tabName="app/javascript/index.js"}
+
 ```js
-// In your application.js (for example)
 import 'swiper/css/bundle'
 ```
 
+::
+
 ## Usage
 
-Basic usage:
+::code-block{tabName="app/views/index.html"}
 
 ```html
 <div data-controller="carousel" class="swiper-container">
@@ -49,7 +39,11 @@ Basic usage:
 </div>
 ```
 
+::
+
 With options:
+
+::code-block{tabName="app/views/index.html"}
 
 ```html
 <div data-controller="carousel" class="swiper-container" data-carousel-options-value='{"direction": "vertical"}'>
@@ -61,18 +55,21 @@ With options:
 </div>
 ```
 
-## 🛠 Configuration
+::
+
+## Configuration
 
 | Attribute                     | Default | Description                           | Optional |
 | ----------------------------- | ------- | ------------------------------------- | -------- |
 | `data-carousel-options-value` | `{}`    | Options for swiper.js as JSON string. | ✅       |
 
-## 🎛 Extending Controller
+## Extending Controller
 
 ::extending-controller
+::code-block{tabName="app/javascript/controllers/carousel_controller.js"}
 
 ```js
-import Carousel from 'stimulus-carousel'
+import Carousel from '@stimulus-components/carousel'
 
 export default class extends Carousel {
   connect() {
@@ -95,4 +92,5 @@ export default class extends Carousel {
 }
 ```
 
+::
 ::

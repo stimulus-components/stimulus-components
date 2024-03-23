@@ -2,33 +2,20 @@
 title: Timeago
 description: A Stimulus controller that returns the distance between the given date and now in words.
 package: timeago
+packagePath: '@stimulus-components/timeago'
 ---
-
-This controller is using [date-fns/formatDistanceToNow](https://date-fns.org/v2.2.1/docs/formatDistanceToNow) behind the scene.
 
 ## Installation
 
-```bash
-$ yarn add stimulus-timeago
-```
+:installation-block{:package="package" :packagePath="packagePath"}
 
-And use it in your JS file:
-
-```js
-// Probably in app/javascript/controllers/index.js
-
-import { Application } from '@hotwired/stimulus'
-import Timeago from 'stimulus-timeago'
-
-const application = Application.start()
-application.register('timeago', Timeago)
-```
-
-:demo-link{package-name="timeago"}
+::alert
+This component is based on the [date-fns/formatDistanceToNow](https://date-fns.org/v2.2.1/docs/formatDistanceToNow){target="\_blank" .underline .hover:no-underline}.
+::
 
 ## Usage
 
-In your view:
+::code-block{tabName="app/views/index.html"}
 
 ```html
 <p>
@@ -37,7 +24,9 @@ In your view:
 </p>
 ```
 
-## 🛠 Configuration
+::
+
+## Configuration
 
 | Attribute                             | Default     | Description                                                      | Optional |
 | ------------------------------------- | ----------- | ---------------------------------------------------------------- | -------- |
@@ -54,6 +43,8 @@ If the datetime string passed via `data-timeago-datetime-value` is not parseable
 
 If you're using Rails, you can define this helper:
 
+::code-block{tabName="app/helpers/application_helper.rb"}
+
 ```ruby
 def timeago(date, format: :long)
   return if date.blank?
@@ -69,15 +60,22 @@ def timeago(date, format: :long)
 end
 ```
 
+::
+
 And use it in your html:
+
+::code-block{tabName="app/views/index.html.erb"}
 
 ```erb
 <p>Created <%= timeago(@project.created_at) %></p>
 ```
 
-## 🎛 Extending Controller
+::
+
+## Extending Controller
 
 ::extending-controller
+::code-block{tabName="app/javascript/controllers/timeago_controller.js"}
 
 ```js
 import Timeago from 'stimulus-timeago'
@@ -97,4 +95,5 @@ export default class extends Timeago {
 }
 ```
 
+::
 ::

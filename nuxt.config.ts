@@ -1,7 +1,26 @@
 import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/content', '@nuxtjs/robots', '@nuxtjs/algolia', '@nuxtjs/plausible'],
+  modules: [
+    '@nuxtjs/tailwindcss',
+    '@nuxt/content',
+    '@nuxtjs/robots',
+    '@nuxtjs/algolia',
+    '@nuxtjs/plausible',
+    '@nuxtjs/color-mode',
+  ],
+
+  vite: {
+    server: {
+      watch: {
+        usePolling: true,
+      },
+    },
+  },
+
+  colorMode: {
+    classSuffix: '',
+  },
 
   content: {
     markdown: {

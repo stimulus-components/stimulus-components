@@ -2,33 +2,20 @@
 title: Sortable
 description: A Stimulus controller to reorder lists with drag-and-drop.
 package: sortable
+packagePath: '@stimulus-components/sortable'
 ---
-
-This controller is using [SortableJS](https://github.com/SortableJS/sortablejs) behind the scene.
 
 ## Installation
 
-```bash
-$ yarn add stimulus-sortable sortablejs @rails/request.js
-```
+:installation-block{:package="package" :packagePath="packagePath" extraPackages="sortablejs @rails/request.js"}
 
-And use it in your JS file:
-
-```js
-// Probably in app/javascript/controllers/index.js
-
-import { Application } from '@hotwired/stimulus'
-import Sortable from 'stimulus-sortable'
-
-const application = Application.start()
-application.register('sortable', Sortable)
-```
-
-:demo-link{package-name="sortable"}
+::alert
+This component is based on the [SortableJS](https://github.com/SortableJS/sortablejs){target="\_blank" .underline .hover:no-underline}.
+::
 
 ## Usage
 
-In your model:
+::code-block{tabName="app/models/todo.rb"}
 
 ```ruby
 class Todo < ApplicationRecord
@@ -36,7 +23,9 @@ class Todo < ApplicationRecord
 end
 ```
 
-In your controller:
+::
+
+::code-block{tabName="app/controllers/todos_controller.rb"}
 
 ```ruby
 class TodosController < ApplicationController
@@ -52,9 +41,13 @@ class TodosController < ApplicationController
 end
 ```
 
+::
+
 In your views:
 
 ### Basic usage
+
+::code-block{tabName="app/views/index.html"}
 
 ```html
 <ul data-controller="sortable" data-sortable-animation-value="150">
@@ -63,7 +56,11 @@ In your views:
 </ul>
 ```
 
+::
+
 ### With custom handler
+
+::code-block{tabName="app/views/index.html"}
 
 ```html
 <ul data-controller="sortable" data-sortable-handle-value=".handle">
@@ -79,9 +76,13 @@ In your views:
 </ul>
 ```
 
+::
+
 ### With AJAX call
 
 If you're using [@rails/request.js](https://github.com/rails/request.js) in your application, you can add an url as data-attribute on every items to perform an AJAX call to update the new position automatically on drop.
+
+::code-block{tabName="app/views/index.html"}
 
 ```erb
 <ul data-controller="sortable" data-sortable-resource-name-value="todo">
@@ -91,6 +92,8 @@ If you're using [@rails/request.js](https://github.com/rails/request.js) in your
   <% end %>
 </ul>
 ```
+
+::
 
 By default, `position` will be used as param in a PATCH request. You can change it with the `data-sortable-param-name-value` attribute.
 
@@ -106,9 +109,10 @@ If you use `data-sortable-resource-name-value`, the name will be used. For insta
 | `data-sortable-animation-value`     | `150`       | Animation speed moving items when sorting in milliseconds. `0` to disable. | ✅       |
 | `data-sortable-handle-value`        | `undefined` | Drag handle selector within list items.                                    | ✅       |
 
-## 🎛 Extending Controller
+## Extending Controller
 
 ::extending-controller
+::code-block{tabName="app/javascript/controllers/sortable_controller.js"}
 
 ```js
 import Sortable from 'stimulus-sortable'
@@ -142,4 +146,5 @@ export default class extends Sortable {
 }
 ```
 
+::
 ::
