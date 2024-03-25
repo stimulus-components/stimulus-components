@@ -5,6 +5,10 @@ package: content-loader
 packagePath: '@stimulus-components/content-loader'
 ---
 
+::alert
+If Turbo is activated within your application, you can get the same behavior using a `<turbo-frame>` without the necessity of an additional Stimulus controller.
+::
+
 ## Video Tutorial
 
 [Dave Kimura](https://twitter.com/kobaltz) from [Drifting Ruby](https://www.driftingruby.com/) has released a presentation video on how to use this package with a real life example.

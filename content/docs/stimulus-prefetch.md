@@ -5,6 +5,10 @@ package: prefetch
 packagePath: '@stimulus-components/prefetch'
 ---
 
+::alert
+If you have Turbo >=8 enabled in your app, you don't need this component because it's now a built-in feature.
+::
+
 ## Installation
 
 :installation-block{:package="package" :packagePath="packagePath"}
