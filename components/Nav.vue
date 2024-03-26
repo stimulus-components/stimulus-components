@@ -82,8 +82,8 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
 const route = useRoute()
 const isMobileNavOpen = ref(false)
 const links = [
-  { title: 'Docs', url: '/docs/' },
-  { title: 'Sponsors', url: '/sponsors/' },
+  { title: 'Docs', url: '/docs' },
+  { title: 'Sponsors', url: '/sponsors' },
 ]
 
 const toggleOpened = () => {
