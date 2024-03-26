@@ -2,5 +2,5 @@ https://stimulus-components.netlify.app/* https://www.stimulus-components.com/:s
 
 /docs/components/* /docs/:splat 301
 
-/docs/ /docs 301!
-/sponsors/ /sponsors 301!
+/docs /docs/ 301!
+/sponsors /sponsors/ 301!
