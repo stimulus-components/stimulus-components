@@ -52,27 +52,27 @@ window.initAutocomplete = function () {
 
 ```html
 <div
-  data-controller="places"
-  data-action="google-maps-callback@window->places#initAutocomplete"
-  data-places-country-value='["fr"]'
+  data-controller="places-autocomplete"
+  data-action="google-maps-callback@window->places-autocomplete#initAutocomplete"
+  data-places-autocomplete-country-value='["fr"]'
 >
   <input
     type="text"
-    data-action="keydown->places#preventSubmit"
-    data-places-target="address"
+    data-action="keydown->places-autocomplete#preventSubmit"
+    data-places-autocomplete-target="address"
     placeholder="Search a location"
   />
 
-  <input type="hidden" data-places-target="city" />
-  <input type="hidden" data-places-target="streetNumber" />
-  <input type="hidden" data-places-target="route" />
-  <input type="hidden" data-places-target="county" />
-  <input type="hidden" data-places-target="state" />
-  <input type="hidden" data-places-target="postalCode" />
-  <input type="hidden" data-places-target="country" />
+  <input type="hidden" data-places-autocomplete-target="city" />
+  <input type="hidden" data-places-autocomplete-target="streetNumber" />
+  <input type="hidden" data-places-autocomplete-target="route" />
+  <input type="hidden" data-places-autocomplete-target="county" />
+  <input type="hidden" data-places-autocomplete-target="state" />
+  <input type="hidden" data-places-autocomplete-target="postalCode" />
+  <input type="hidden" data-places-autocomplete-target="country" />
 
-  <input type="hidden" data-places-target="longitude" />
-  <input type="hidden" data-places-target="latitude" />
+  <input type="hidden" data-places-autocomplete-target="longitude" />
+  <input type="hidden" data-places-autocomplete-target="latitude" />
 </div>
 ```
 
@@ -82,7 +82,7 @@ window.initAutocomplete = function () {
 
 | Attribute                   | Default | Description                                                                                   | Optional |
 | --------------------------- | ------- | --------------------------------------------------------------------------------------------- | -------- |
-| `data-places-country-value` | `[]`    | Array of countries the autocomplete is restricted to. <br/>Must be parseable by `JSON.parse`. | ✅       |
+| `data-places-autocomplete-country-value` | `[]`    | Array of countries the autocomplete is restricted to. <br/>Must be parseable by `JSON.parse`. | ✅       |
 
 If a target does not exist, it will be ignored.
 
