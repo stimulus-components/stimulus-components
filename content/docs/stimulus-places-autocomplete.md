@@ -80,8 +80,8 @@ window.initAutocomplete = function () {
 
 ## Configuration
 
-| Attribute                   | Default | Description                                                                                   | Optional |
-| --------------------------- | ------- | --------------------------------------------------------------------------------------------- | -------- |
+| Attribute                                | Default | Description                                                                                   | Optional |
+| ---------------------------------------- | ------- | --------------------------------------------------------------------------------------------- | -------- |
 | `data-places-autocomplete-country-value` | `[]`    | Array of countries the autocomplete is restricted to. <br/>Must be parseable by `JSON.parse`. | ✅       |
 
 If a target does not exist, it will be ignored.
