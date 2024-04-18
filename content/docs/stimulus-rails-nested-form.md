@@ -89,6 +89,10 @@ To DRY up the code, we extract the fields in a partial called `todo_form` to use
 
 ```erb
 <div class="nested-form-wrapper" data-new-record="<%= f.object.new_record? %>">
+  <% unless f.object.new_record? %>
+    <%= f.hidden_field :id %>
+  <% end %>
+  
   <%= f.label :description %>
   <%= f.text_field :description %>
 
