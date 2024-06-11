@@ -55,7 +55,7 @@ Now in your CSS, add this class:
 
 ```css
 .glow-overlay {
-  --glow-size: 25rem; /* Change here the size of the glow effect */
+  --glow-size: 25rem; /* Change the size of the glow effect here */
 
   position: absolute;
   inset: 0;
