@@ -13,7 +13,7 @@ packagePath: 'stimulus-glow'
 
 The concept of the effect is to clone an element, the overlay, and applying a [CSS mask](https://developer.mozilla.org/en-US/docs/Web/CSS/mask) with a `radia-gradiant` property that follow the mouse.
 
-Every element that have a `glow` class will be revealed by the mask but not the rest.
+Every element that has a `glow` class will be revealed by the mask but not the rest.
 
 ## Usage
 
