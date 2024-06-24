@@ -30,7 +30,7 @@ import 'swiper/css/bundle'
 ::code-block{tabName="app/views/index.html"}
 
 ```html
-<div data-controller="carousel" class="swiper-container">
+<div data-controller="carousel" class="swiper">
   <div class="swiper-wrapper">
     <div class="swiper-slide">Slide 1</div>
     <div class="swiper-slide">Slide 2</div>
@@ -46,7 +46,7 @@ With options:
 ::code-block{tabName="app/views/index.html"}
 
 ```html
-<div data-controller="carousel" class="swiper-container" data-carousel-options-value='{"direction": "vertical"}'>
+<div data-controller="carousel" class="swiper" data-carousel-options-value='{"direction": "vertical"}'>
   <div class="swiper-wrapper">
     <div class="swiper-slide">Slide 1</div>
     <div class="swiper-slide">Slide 2</div>
