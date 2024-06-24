@@ -1,7 +1,7 @@
 ---
 title: Chartjs
 description: A Stimulus controller to deal with chart.js.
-package: chartjs
+package: chart
 packagePath: '@stimulus-components/chartjs'
 ---
 
