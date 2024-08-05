@@ -44,5 +44,5 @@
     "postcss-html": "^1.5.0",
     "prettier": "^3.2.5"
   },
-  "packageManager": "yarn@4.3.0"
+  "packageManager": "yarn@4.3.1"
 }
