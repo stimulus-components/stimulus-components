@@ -30,18 +30,18 @@
 
           <div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
             <a
-              href="https://www.timecop-app.com/"
+              href="https://www.timecop-app.com/?utm_source=stimulus-components&utm_medium=cta"
               target="_blank"
               rel="noopener"
               class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >Get started</a
             >
             <a
-              href="https://www.timecop-app.com/blog/timecop-2-0-is-here"
+              href="https://www.timecop-app.com/register?utm_source=stimulus-components&utm_medium=cta"
               target="_blank"
               rel="noopener"
               class="text-sm font-semibold leading-6 text-white"
-              >Learn more <span aria-hidden="true">→</span></a
+              >Try it now <span aria-hidden="true">→</span></a
             >
           </div>
         </div>
