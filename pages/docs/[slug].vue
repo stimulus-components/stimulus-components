@@ -45,7 +45,9 @@ definePageMeta({
 })
 
 const route = useRoute()
-const { data } = await useAsyncData('component', () => queryContent(`docs/${route.params.slug}`).findOne())
+const { data } = await useAsyncData(`component-${route.params.slug}`, () =>
+  queryContent(`docs/${route.params.slug}`).findOne(),
+)
 
 const githubUrl = computed(() => `https://github.com/stimulus-components/stimulus-${data.value.package}`)
 const demoUrl = computed(() => `https://stimulus-${data.value.package}.stimulus-components.com`)
