@@ -29,7 +29,6 @@
     "@stimulus-components/dropdown": "^3.0.0",
     "@tailwindcss/typography": "^0.5.13",
     "core-js": "^3.38.0",
-    "date-fns": "^3.6.0",
     "nuxt": "^3.8.2"
   },
   "devDependencies": {

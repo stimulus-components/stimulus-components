@@ -38,8 +38,7 @@
 </template>
 
 <script setup>
-import { sub, formatISO } from 'date-fns'
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { useFetch, useAsyncData } from 'nuxt/app'
 import { prettyNumber } from '@/utils/helpers'
 
@@ -48,25 +47,19 @@ const stats = ref([
   { title: 'Contributors', count: '15+' },
 ])
 
-const downloadsEndpoint = computed(() => {
-  const now = new Date()
-  const lastYear = sub(now, { days: 365 })
+const { data } = await useAsyncData('packages-stats', () =>
+  queryContent('docs').only(['package', 'packagePath']).find(),
+)
 
-  const from = formatISO(lastYear, { representation: 'date' })
-  const until = formatISO(now, { representation: 'date' })
+const baseUrl = 'https://api.npmjs.org/downloads/point/last-year'
 
-  return `https://api.npmjs.org/downloads/point/${from}:${until}/${packages.value.join(',')}`
-})
+// TODO: Only keep packagePath in the future.
+const packages = new Set(data.value.flatMap((p) => [`${baseUrl}/stimulus-${p.package}`, `${baseUrl}/${p.packagePath}`]))
 
-// TODO: Use packagePath in the future.
-const { data: packages } = await useAsyncData('packages-stats', () => queryContent('docs').only(['package']).find())
-packages.value = packages.value.map((p) => `stimulus-${p.package}`)
+const responses = await Promise.all([...packages].map((url) => useFetch(url)))
+const count = responses.reduce((total, { data }) => total + (data?.value?.downloads || 0), 0)
 
-const { data } = await useFetch(downloadsEndpoint.value)
-
-if (data.value) {
-  const count = Object.values(data.value).reduce((acc, item) => acc + (item?.downloads || 0), 0)
-
+if (count) {
   stats.value.push({
     title: 'Downloads last year',
     count: `${prettyNumber(count)}+`,
