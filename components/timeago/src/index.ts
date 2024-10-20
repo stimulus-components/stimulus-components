@@ -57,6 +57,7 @@ export default class Timeago extends Controller<HTMLTimeElement> {
   }
 
   startRefreshing(): void {
+    // @ts-expect-error
     this.refreshTimer = setInterval(() => {
       this.load()
     }, this.refreshIntervalValue)
