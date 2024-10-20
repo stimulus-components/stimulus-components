@@ -23,6 +23,7 @@
     "@nuxtjs/plausible": "^1.0.1",
     "@nuxtjs/robots": "^3.0.0",
     "@nuxtjs/tailwindcss": "^6.12.1",
+    "@stimulus-components/animated-number": "workspace:*",
     "@stimulus-components/character-counter": "workspace:*",
     "@stimulus-components/checkbox-select-all": "workspace:*",
     "@stimulus-components/clipboard": "workspace:*",

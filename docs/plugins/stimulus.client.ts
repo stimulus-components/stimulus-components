@@ -1,7 +1,8 @@
 import { Application } from "@hotwired/stimulus"
+import AnimatedNumber from "@stimulus-components/animated-number/src"
+import CharacterCounter from "@stimulus-components/character-counter/src"
 import CheckboxSelectAll from "@stimulus-components/checkbox-select-all/src"
 import Clipboard from "@stimulus-components/clipboard/src"
-import CharacterCounter from "@stimulus-components/character-counter/src"
 import Dropdown from "@stimulus-components/dropdown/src"
 
 // @ts-expect-error
@@ -9,8 +10,9 @@ import Dropdown from "@stimulus-components/dropdown/src"
 export default defineNuxtPlugin(() => {
   const application = Application.start()
 
+  application.register("animated-number", AnimatedNumber)
+  application.register("character-counter", CharacterCounter)
   application.register("checkbox-select-all", CheckboxSelectAll)
   application.register("clipboard", Clipboard)
-  application.register("character-counter", CharacterCounter)
   application.register("dropdown", Dropdown)
 })

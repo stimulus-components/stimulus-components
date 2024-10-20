@@ -9,6 +9,10 @@ packagePath: "@stimulus-components/animated-number"
 
 :installation-block{:package="package" :packagePath="packagePath"}
 
+## Example
+
+:animated-number
+
 ## Usage
 
 ::code-block{tabName="app/views/index.html"}
