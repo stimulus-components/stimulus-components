@@ -3,7 +3,7 @@ name: Lint
 on: [push]
 
 jobs:
-  lint:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -13,4 +13,4 @@ jobs:
           cache: "pnpm"
       - run: |
           pnpm install
-          pnpm run lint
+          pnpm run test
