@@ -116,6 +116,12 @@ importers:
         specifier: ^0.52.2
         version: 0.52.2(@hotwired/stimulus@3.2.2)(hotkeys-js@3.13.7)
 
+  components/read-more:
+    dependencies:
+      "@hotwired/stimulus":
+        specifier: ^3
+        version: 3.2.2
+
   components/timeago:
     dependencies:
       "@hotwired/stimulus":
@@ -175,6 +181,9 @@ importers:
       "@stimulus-components/dropdown":
         specifier: workspace:*
         version: link:../components/dropdown
+      "@stimulus-components/read-more":
+        specifier: workspace:*
+        version: link:../components/read-more
       "@stimulus-components/timeago":
         specifier: workspace:*
         version: link:../components/timeago

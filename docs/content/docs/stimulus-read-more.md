@@ -9,6 +9,10 @@ packagePath: "@stimulus-components/read-more"
 
 :installation-block{:package="package" :packagePath="packagePath"}
 
+## Example
+
+:read-more
+
 ## Usage
 
 This controller is based on the [Line-clamp](https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-line-clamp) CSS property.

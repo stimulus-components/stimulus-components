@@ -6,6 +6,7 @@ import Clipboard from "@stimulus-components/clipboard/src"
 import Dropdown from "@stimulus-components/dropdown/src"
 import Timeago from "@stimulus-components/timeago/src"
 import Dialog from "@stimulus-components/dialog/src"
+import ReadMore from "@stimulus-components/read-more/src"
 
 // @ts-expect-error
 // eslint-disable-next-line no-undef
@@ -19,4 +20,5 @@ export default defineNuxtPlugin(() => {
   application.register("dropdown", Dropdown)
   application.register("timeago", Timeago)
   application.register("dialog", Dialog)
+  application.register("read-more", ReadMore)
 })

@@ -26,6 +26,7 @@
     "@stimulus-components/animated-number": "workspace:*",
     "@stimulus-components/dialog": "workspace:*",
     "@stimulus-components/timeago": "workspace:*",
+    "@stimulus-components/read-more": "workspace:*",
     "@stimulus-components/character-counter": "workspace:*",
     "@stimulus-components/checkbox-select-all": "workspace:*",
     "@stimulus-components/clipboard": "workspace:*",
