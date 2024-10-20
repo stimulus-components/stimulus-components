@@ -5,6 +5,7 @@ import CheckboxSelectAll from "@stimulus-components/checkbox-select-all/src"
 import Clipboard from "@stimulus-components/clipboard/src"
 import Dropdown from "@stimulus-components/dropdown/src"
 import Timeago from "@stimulus-components/timeago/src"
+import ColorPicker from "@stimulus-components/color-picker/src"
 import Dialog from "@stimulus-components/dialog/src"
 import ReadMore from "@stimulus-components/read-more/src"
 import PasswordVisibility from "@stimulus-components/password-visibility/src"
@@ -23,4 +24,5 @@ export default defineNuxtPlugin(() => {
   application.register("dialog", Dialog)
   application.register("read-more", ReadMore)
   application.register("password-visibility", PasswordVisibility)
+  application.register("color-picker", ColorPicker)
 })

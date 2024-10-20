@@ -102,6 +102,15 @@ importers:
         specifier: ^3
         version: 3.2.2
 
+  components/color-picker:
+    dependencies:
+      '@hotwired/stimulus':
+        specifier: ^3.0.0
+        version: 3.2.2
+      '@simonwep/pickr':
+        specifier: 1.9.0
+        version: 1.9.0
+
   components/dialog:
     dependencies:
       '@hotwired/stimulus':
@@ -182,6 +191,9 @@ importers:
       '@stimulus-components/clipboard':
         specifier: workspace:*
         version: link:../components/clipboard
+      '@stimulus-components/color-picker':
+        specifier: workspace:*
+        version: link:../components/color-picker
       '@stimulus-components/dialog':
         specifier: workspace:*
         version: link:../components/dialog
@@ -1536,6 +1548,9 @@ packages:
   '@shikijs/vscode-textmate@9.3.0':
     resolution: {integrity: sha512-jn7/7ky30idSkd/O5yDBfAnVt+JJpepofP/POZ1iMOxK59cOfqIgg/Dj0eFsjOTMw+4ycJN0uhZH/Eb0bs/EUA==}
 
+  '@simonwep/pickr@1.9.0':
+    resolution: {integrity: sha512-oEYvv15PyfZzjoAzvXYt3UyNGwzsrpFxLaZKzkOSd0WYBVwLd19iJerePDONxC1iF6+DpcswPdLIM2KzCJuYFg==}
+
   '@sinclair/typebox@0.27.8':
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
 
@@ -2642,6 +2657,9 @@ packages:
   copy-anything@3.0.5:
     resolution: {integrity: sha512-yCEafptTtb4bk7GLEQoM8KVJpxAfdBJYaXyzQEgQQQgYrZiDp8SJmGKlYza6CYjEDNstAdNdKA3UuoULlEbS6w==}
     engines: {node: '>=12.13'}
+
+  core-js@3.32.2:
+    resolution: {integrity: sha512-pxXSw1mYZPDGvTQqEc5vgIb83jGQKFGYWY76z4a7weZXUolw3G+OvpZqSRcfYOoOVUQJYEPsWeQK8pKEnUtWxQ==}
 
   core-js@3.38.1:
     resolution: {integrity: sha512-OP35aUorbU3Zvlx7pjsFdu1rGNnD4pgw/CWoYzRY3t2EzoVT7shKHY1dlAy3f41cGIO7ZDPQimhGFTlEYkG/Hw==}
@@ -4800,6 +4818,9 @@ packages:
     resolution: {integrity: sha512-oLxFY2gd2IqnjcYyOXD8XGCftpGtZP2AbHbOkthDkvRywH5ayNtPVy9YlOPcHckXzbLTCHpkb7FB+yuxKV13pQ==}
     engines: {node: ^18 || >=20}
     hasBin: true
+
+  nanopop@2.3.0:
+    resolution: {integrity: sha512-fzN+T2K7/Ah25XU02MJkPZ5q4Tj5FpjmIYq4rvoHX4yb16HzFdCO6JxFFn5Y/oBhQ8no8fUZavnyIv9/+xkBBw==}
 
   nanotar@0.1.1:
     resolution: {integrity: sha512-AiJsGsSF3O0havL1BydvI4+wR76sKT+okKRwWIaK96cZUnXqH0uNBOsHlbwZq3+m2BR1VKqHDVudl3gO4mYjpQ==}
@@ -8734,6 +8755,11 @@ snapshots:
 
   '@shikijs/vscode-textmate@9.3.0': {}
 
+  '@simonwep/pickr@1.9.0':
+    dependencies:
+      core-js: 3.32.2
+      nanopop: 2.3.0
+
   '@sinclair/typebox@0.27.8': {}
 
   '@sindresorhus/is@4.6.0': {}
@@ -10125,6 +10151,8 @@ snapshots:
   copy-anything@3.0.5:
     dependencies:
       is-what: 4.1.16
+
+  core-js@3.32.2: {}
 
   core-js@3.38.1: {}
 
@@ -12851,6 +12879,8 @@ snapshots:
   nanoid@3.3.7: {}
 
   nanoid@5.0.7: {}
+
+  nanopop@2.3.0: {}
 
   nanotar@0.1.1: {}
 
