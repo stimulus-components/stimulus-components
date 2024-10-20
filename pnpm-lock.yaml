@@ -10,6 +10,9 @@ importers:
       "@hotwired/stimulus":
         specifier: ^3.2.2
         version: 3.2.2
+      "@hotwired/turbo":
+        specifier: ^8.0.4
+        version: 8.0.12
       "@types/jest":
         specifier: ^29.5.12
         version: 29.5.13
@@ -74,6 +77,12 @@ importers:
         specifier: ^3
         version: 3.2.2
 
+  components/auto-submit:
+    dependencies:
+      "@hotwired/stimulus":
+        specifier: ^3
+        version: 3.2.2
+
   components/character-counter:
     dependencies:
       "@hotwired/stimulus":
@@ -133,6 +142,9 @@ importers:
       "@nuxtjs/tailwindcss":
         specifier: ^6.12.1
         version: 6.12.1(magicast@0.3.5)(rollup@4.24.0)(webpack-sources@3.2.3)
+      "@stimulus-components/animated-number":
+        specifier: workspace:*
+        version: link:../components/animated-number
       "@stimulus-components/character-counter":
         specifier: workspace:*
         version: link:../components/character-counter
@@ -1159,6 +1171,11 @@ packages:
   "@hotwired/stimulus@3.2.2":
     resolution:
       { integrity: sha512-eGeIqNOQpXoPAIP7tC1+1Yc1yl1xnwYqg+3mzqxyrbE5pg5YFBZcA6YoTiByJB6DKAEsiWtl6tjTJS4IYtbB7A== }
+
+  "@hotwired/turbo@8.0.12":
+    resolution:
+      { integrity: sha512-l3BiQRkD7qrnQv6ms6sqPLczvwbQpXt5iAVwjDvX0iumrz6yEonQkNAzNjeDX25/OJMFDTxpHjkJZHGpM9ikWw== }
+    engines: { node: ">= 14" }
 
   "@humanwhocodes/config-array@0.13.0":
     resolution:
@@ -9414,6 +9431,8 @@ snapshots:
       vue: 3.5.12(typescript@5.6.3)
 
   "@hotwired/stimulus@3.2.2": {}
+
+  "@hotwired/turbo@8.0.12": {}
 
   "@humanwhocodes/config-array@0.13.0":
     dependencies:
