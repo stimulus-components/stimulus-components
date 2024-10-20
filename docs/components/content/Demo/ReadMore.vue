@@ -1,5 +1,5 @@
 <template>
-  <Block title="Dialog">
+  <Block title="Read More">
     <div
       data-controller="read-more"
       data-read-more-more-text-value="Read more &darr;"

@@ -7,6 +7,7 @@ import Dropdown from "@stimulus-components/dropdown/src"
 import Timeago from "@stimulus-components/timeago/src"
 import Dialog from "@stimulus-components/dialog/src"
 import ReadMore from "@stimulus-components/read-more/src"
+import PasswordVisibility from "@stimulus-components/password-visibility/src"
 
 // @ts-expect-error
 // eslint-disable-next-line no-undef
@@ -21,4 +22,5 @@ export default defineNuxtPlugin(() => {
   application.register("timeago", Timeago)
   application.register("dialog", Dialog)
   application.register("read-more", ReadMore)
+  application.register("password-visibility", PasswordVisibility)
 })

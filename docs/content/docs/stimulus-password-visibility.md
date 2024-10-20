@@ -9,6 +9,10 @@ packagePath: "@stimulus-components/password-visibility"
 
 :installation-block{:package="package" :packagePath="packagePath"}
 
+## Example
+
+:password-visibility
+
 ## Usage
 
 ```html
