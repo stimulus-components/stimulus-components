@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Stimulus Checkbox Select All</title>
+
+    <script type="module">
+      import "../app.css"
+      import { Application } from "@hotwired/stimulus"
+      import CheckboxSelectAll from "./src/index"
+
+      const application = Application.start()
+      application.register("checkbox-select-all", CheckboxSelectAll)
+    </script>
+  </head>
+
+  <body>
+    <div class="relative h-full max-w-5xl mx-auto px-4">
+      <section class="mt-16">
+        <form data-controller="checkbox-select-all">
+          <table>
+            <tbody>
+              <tr>
+                <td class="block">
+                  <label>
+                    <input id="checkbox-select-all" type="checkbox" data-checkbox-select-all-target="checkboxAll" />
+                    <span>Select All / Deselect All</span>
+                  </label>
+                </td>
+
+                <td class="block">
+                  <label>
+                    <input type="checkbox" data-checkbox-select-all-target="checkbox" />
+                    <span>Team 1</span>
+                  </label>
+                </td>
+
+                <td class="block">
+                  <label>
+                    <input type="checkbox" data-checkbox-select-all-target="checkbox" checked="checked" />
+                    <span>Team 2</span>
+                  </label>
+                </td>
+
+                <td class="block">
+                  <label>
+                    <input type="checkbox" data-checkbox-select-all-target="checkbox" />
+                    <span>Team 3</span>
+                  </label>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+      </section>
+    </div>
+  </body>
+</html>

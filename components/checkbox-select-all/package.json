@@ -1,0 +1,37 @@
+{
+  "name": "@stimulus-components/checkbox-select-all",
+  "version": "6.0.0",
+  "description": "A Stimulus controller for managing checkbox lists.",
+  "keywords": [
+    "stimulus",
+    "stimulusjs",
+    "stimulus controller",
+    "checkbox",
+    "checkbox-select-all"
+  ],
+  "repository": "git@github.com:stimulus-components/stimulus-checkbox-select-all.git",
+  "bugs": {
+    "url": "https://github.com/stimulus-components/stimulus-checkbox-select-all/issues"
+  },
+  "author": "Guillaume Briday <guillaumebriday@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/stimulus-components/stimulus-checkbox-select-all",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "dist/stimulus-checkbox-select-all.umd.js",
+  "module": "dist/stimulus-checkbox-select-all.mjs",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "types": "tsc --noEmit false --declaration true --emitDeclarationOnly true --outDir dist/types",
+    "dev": "vite",
+    "prod": "vite build --mode netlify",
+    "build": "vite build && yarn types",
+    "version": "yarn build",
+    "np": "np --no-2fa"
+  },
+  "peerDependencies": {
+    "@hotwired/stimulus": "^3"
+  }
+}

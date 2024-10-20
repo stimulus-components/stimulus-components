@@ -1,0 +1,16 @@
+name: Lint
+
+on: [push]
+
+jobs:
+  eslint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version-file: ".node-version"
+          cache: "yarn"
+      - run: |
+          yarn install --silent --non-interactive
+          yarn lint
