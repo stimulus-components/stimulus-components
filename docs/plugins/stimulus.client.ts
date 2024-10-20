@@ -4,6 +4,7 @@ import CharacterCounter from "@stimulus-components/character-counter/src"
 import CheckboxSelectAll from "@stimulus-components/checkbox-select-all/src"
 import Clipboard from "@stimulus-components/clipboard/src"
 import Dropdown from "@stimulus-components/dropdown/src"
+import Timeago from "@stimulus-components/timeago/src"
 
 // @ts-expect-error
 // eslint-disable-next-line no-undef
@@ -15,4 +16,5 @@ export default defineNuxtPlugin(() => {
   application.register("checkbox-select-all", CheckboxSelectAll)
   application.register("clipboard", Clipboard)
   application.register("dropdown", Dropdown)
+  application.register("timeago", Timeago)
 })
