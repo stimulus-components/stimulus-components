@@ -1,0 +1,42 @@
+{
+  "name": "stimulus-components",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
+    "lint:prettier": "prettier --check .",
+    "lint": "pnpm lint:js && pnpm lint:prettier",
+    "lintfix": "prettier --write --list-different . && pnpm lint:js --fix"
+  },
+  "dependencies": {
+    "@docsearch/css": "^3.6.1",
+    "@docsearch/js": "^3.6.1",
+    "@heroicons/vue": "^2.1.5",
+    "@hotwired/stimulus": "^3.2.2",
+    "@nuxt/content": "^2.13.2",
+    "@nuxtjs/algolia": "^1.10.2",
+    "@nuxtjs/color-mode": "^3.4.2",
+    "@nuxtjs/plausible": "^1.0.1",
+    "@nuxtjs/robots": "^3.0.0",
+    "@nuxtjs/tailwindcss": "^6.12.1",
+    "@stimulus-components/character-counter": "workspace:*",
+    "@stimulus-components/checkbox-select-all": "workspace:*",
+    "@stimulus-components/clipboard": "workspace:*",
+    "@stimulus-components/dropdown": "workspace:*",
+    "@tailwindcss/typography": "^0.5.15",
+    "core-js": "^3.38.0",
+    "nuxt": "^3.13.2"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.25.8",
+    "@nuxt/eslint-config": "^0.2.0",
+    "@nuxtjs/eslint-config": "^12.0.0",
+    "eslint-plugin-nuxt": "^4.0.0",
+    "eslint-plugin-vue": "^9.29.0",
+    "postcss-html": "^1.5.0"
+  }
+}

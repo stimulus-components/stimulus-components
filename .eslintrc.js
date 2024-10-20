@@ -1,18 +1,15 @@
+// https://eslint.org/docs/user-guide/configuring
+
 module.exports = {
   root: true,
+  parser: "@typescript-eslint/parser",
   env: {
     browser: true,
     node: true,
+    es6: true,
+    jest: true,
   },
-  parserOptions: {
-    parser: '@babel/eslint-parser',
-    requireConfigFile: false,
-  },
-  extends: ['@nuxt/eslint-config', 'plugin:nuxt/recommended', 'prettier'],
-  plugins: [],
-  // add your custom rules here
-  rules: {
-    'vue/multi-word-component-names': 'off',
-    'vue/no-reserved-component-names': 'off',
-  },
+  // https://github.com/standard/standard/blob/master/docs/RULES-en.md
+  extends: ["standard", "prettier"],
+  plugins: ["@typescript-eslint"],
 }
