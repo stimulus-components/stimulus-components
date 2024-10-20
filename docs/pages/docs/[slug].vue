@@ -45,7 +45,10 @@ const { data } = await useAsyncData(`component-${route.params.slug}`, () =>
   queryContent(`docs/${route.params.slug}`).findOne(),
 )
 
-const githubUrl = computed(() => `https://github.com/stimulus-components/stimulus-${data.value.package}`)
+const githubUrl = computed(
+  () =>
+    `https://github.com/stimulus-components/stimulus-components/tree/feature/pnpm-workspaces/components/${data.value.package}`,
+)
 
 useHead({
   title: `Stimulus ${data.value.title}`,
