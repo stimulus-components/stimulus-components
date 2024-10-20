@@ -24,6 +24,7 @@
     "@nuxtjs/robots": "^3.0.0",
     "@nuxtjs/tailwindcss": "^6.12.1",
     "@stimulus-components/animated-number": "workspace:*",
+    "@stimulus-components/dialog": "workspace:*",
     "@stimulus-components/timeago": "workspace:*",
     "@stimulus-components/character-counter": "workspace:*",
     "@stimulus-components/checkbox-select-all": "workspace:*",
