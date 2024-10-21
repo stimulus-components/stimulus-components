@@ -1,0 +1,9 @@
+[build]
+  publish="dist"
+  command="yarn prod"
+
+[[redirects]]
+  from = "https://stimulus-auto-submit.netlify.app/*"
+  to = "https://stimulus-auto-submit.stimulus-components.com/:splat"
+  status = 301
+  force = true

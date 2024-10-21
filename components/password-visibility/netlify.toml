@@ -1,0 +1,9 @@
+[build]
+  publish="dist"
+  command="yarn prod"
+
+[[redirects]]
+  from = "https://stimulus-password-visibility.netlify.app/*"
+  to = "https://stimulus-password-visibility.stimulus-components.com/:splat"
+  status = 301
+  force = true

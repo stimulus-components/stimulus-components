@@ -1,0 +1,14 @@
+.github
+jest
+.babelrc
+jest.config.js
+index.html
+netlify.toml
+.node-version
+.eslintrc.js
+spec
+tsconfig.json
+vite.config.mjs
+.prettierignore
+postcss.config.js
+tailwind.config.js

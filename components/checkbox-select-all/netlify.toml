@@ -1,0 +1,9 @@
+[build]
+  publish="dist"
+  command="yarn prod"
+
+[[redirects]]
+  from = "https://stimulus-checkbox-select-all.netlify.app/*"
+  to = "https://stimulus-checkbox-select-all.stimulus-components.com/:splat"
+  status = 301
+  force = true

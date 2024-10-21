@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Stimulus Color Picker</title>
+
+    <script type="module">
+      import "../app.css"
+      import { Application } from "@hotwired/stimulus"
+      import ColorPicker from "./src/index"
+      import "@simonwep/pickr/dist/themes/classic.min.css"
+      import "@simonwep/pickr/dist/themes/monolith.min.css"
+      import "@simonwep/pickr/dist/themes/nano.min.css"
+
+      const application = Application.start()
+      application.register("color-picker", ColorPicker)
+    </script>
+  </head>
+
+  <body>
+    <div class="relative h-full max-w-5xl mx-auto px-4">
+      <section class="mt-16 flex gap-8 justify-center text-center">
+        <div data-controller="color-picker">
+          <label>Classic</label>
+          <input type="hidden" name="color" value="#F56565" data-color-picker-target="input" />
+
+          <div data-color-picker-target="button"></div>
+        </div>
+
+        <div data-controller="color-picker" data-color-picker-theme-value="monolith">
+          <label>Monolith</label>
+          <input type="hidden" name="color" value="#667EEA" data-color-picker-target="input" />
+
+          <div data-color-picker-target="button"></div>
+        </div>
+
+        <div data-controller="color-picker" data-color-picker-theme-value="nano">
+          <label>Nano</label>
+          <input type="hidden" name="color" value="#48BB78" data-color-picker-target="input" />
+
+          <div data-color-picker-target="button"></div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

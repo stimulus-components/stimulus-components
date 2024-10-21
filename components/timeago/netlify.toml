@@ -1,0 +1,9 @@
+[build]
+  publish="dist"
+  command="yarn prod"
+
+[[redirects]]
+  from = "https://stimulus-timeago.netlify.app/*"
+  to = "https://stimulus-timeago.stimulus-components.com/:splat"
+  status = 301
+  force = true

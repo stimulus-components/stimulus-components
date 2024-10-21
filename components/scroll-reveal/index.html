@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Stimulus Scroll Reveal</title>
+
+    <script type="module">
+      import "../app.css"
+      import { Application } from "@hotwired/stimulus"
+      import ScrollReveal from "./src/index"
+
+      const application = Application.start()
+      application.register("scroll-reveal", ScrollReveal)
+    </script>
+  </head>
+
+  <body>
+    <div class="relative h-full max-w-5xl mx-auto px-4">
+      <section class="mt-16">
+        <p>Keep scrolling 👇</p>
+
+        <div class="h-screen"></div>
+
+        <div data-controller="scroll-reveal">
+          <p data-scroll-reveal-target="item" class="reveal">Hello</p>
+          <p data-scroll-reveal-target="item" class="reveal" data-delay="250ms">World!</p>
+          <p data-scroll-reveal-target="item" class="reveal" data-delay="500ms">Keep scrolling 👇</p>
+        </div>
+
+        <div class="h-screen"></div>
+
+        <div data-controller="scroll-reveal" data-scroll-reveal-threshold-value="0.9">
+          <p data-scroll-reveal-target="item" class="reveal">With custom</p>
+          <p data-scroll-reveal-target="item" class="reveal">options!</p>
+        </div>
+
+        <div class="h-screen"></div>
+      </section>
+    </div>
+  </body>
+</html>
