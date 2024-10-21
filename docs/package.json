@@ -26,6 +26,7 @@
     "@stimulus-components/animated-number": "workspace:*",
     "@stimulus-components/password-visibility": "workspace:*",
     "@stimulus-components/chartjs": "workspace:*",
+    "@stimulus-components/scroll-reveal": "workspace:*",
     "@stimulus-components/color-picker": "workspace:*",
     "@stimulus-components/dialog": "workspace:*",
     "@stimulus-components/timeago": "workspace:*",

@@ -157,6 +157,12 @@ importers:
         specifier: ^3
         version: 3.2.2
 
+  components/scroll-reveal:
+    dependencies:
+      '@hotwired/stimulus':
+        specifier: ^3
+        version: 3.2.2
+
   components/timeago:
     dependencies:
       '@hotwired/stimulus':
@@ -228,6 +234,9 @@ importers:
       '@stimulus-components/read-more':
         specifier: workspace:*
         version: link:../components/read-more
+      '@stimulus-components/scroll-reveal':
+        specifier: workspace:*
+        version: link:../components/scroll-reveal
       '@stimulus-components/timeago':
         specifier: workspace:*
         version: link:../components/timeago

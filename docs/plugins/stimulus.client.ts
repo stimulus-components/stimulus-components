@@ -10,6 +10,7 @@ import Dialog from "@stimulus-components/dialog/src"
 import ReadMore from "@stimulus-components/read-more/src"
 import PasswordVisibility from "@stimulus-components/password-visibility/src"
 import Chart from "@stimulus-components/chartjs/src"
+import ScrollReveal from "@stimulus-components/scroll-reveal/src"
 
 // @ts-expect-error
 // eslint-disable-next-line no-undef
@@ -27,4 +28,5 @@ export default defineNuxtPlugin(() => {
   application.register("password-visibility", PasswordVisibility)
   application.register("color-picker", ColorPicker)
   application.register("chart", Chart)
+  application.register("scroll-reveal", ScrollReveal)
 })

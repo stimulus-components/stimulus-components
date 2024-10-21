@@ -9,6 +9,10 @@ packagePath: "@stimulus-components/scroll-reveal"
 
 :installation-block{:package="package" :packagePath="packagePath"}
 
+## Example
+
+:scroll-reveal
+
 ## Usage
 
 ::code-block{tabName="app/views/index.html"}
