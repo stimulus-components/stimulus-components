@@ -1,8 +1,7 @@
 {
   "compilerOptions": {
     "lib": ["dom", "es6"],
-    "types": ["vite/client"],
+    "types": ["vite/client", "google.maps"],
     "skipLibCheck": true
-  },
-  "exclude": ["node_modules", "spec", "jest"]
+  }
 }

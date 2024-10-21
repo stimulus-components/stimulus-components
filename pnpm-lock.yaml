@@ -141,6 +141,16 @@ importers:
         specifier: ^3.0.0
         version: 3.2.2
 
+  components/places-autocomplete:
+    dependencies:
+      '@hotwired/stimulus':
+        specifier: ^3
+        version: 3.2.2
+    devDependencies:
+      '@types/google.maps':
+        specifier: ^3.48.7
+        version: 3.55.9
+
   components/read-more:
     dependencies:
       '@hotwired/stimulus':
@@ -194,6 +204,9 @@ importers:
       '@stimulus-components/character-counter':
         specifier: workspace:*
         version: link:../components/character-counter
+      '@stimulus-components/chartjs':
+        specifier: workspace:*
+        version: link:../components/chartjs
       '@stimulus-components/checkbox-select-all':
         specifier: workspace:*
         version: link:../components/checkbox-select-all

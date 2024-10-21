@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Stimulus Places Autocomplete</title>
+
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=change-me&libraries=places&callback=initAutocomplete"
+      async=""
+      defer=""
+    ></script>
+
+    <script type="module">
+      import "../app.css"
+      import { Application } from "@hotwired/stimulus"
+      import PlacesAutocomplete from "./src/index"
+
+      const application = Application.start()
+      application.register("places", PlacesAutocomplete)
+
+      window.initAutocomplete = function () {
+        const event = new Event("google-maps-callback", { bubbles: true, cancelable: true })
+        window.dispatchEvent(event)
+      }
+    </script>
+  </head>
+
+  <body></body>
+</html>

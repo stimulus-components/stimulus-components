@@ -9,6 +9,9 @@ module.exports = {
     es6: true,
     jest: true,
   },
+  globals: {
+    google: true,
+  },
   // https://github.com/standard/standard/blob/master/docs/RULES-en.md
   extends: ["standard", "prettier"],
   plugins: ["@typescript-eslint"],
