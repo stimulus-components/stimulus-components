@@ -13,6 +13,10 @@ packagePath: "@stimulus-components/chartjs"
 This component is based on the [Chart.js library](https://www.chartjs.org/){target="\_blank" .underline .hover:no-underline}.
 ::
 
+## Example
+
+:chartjs
+
 ## Usage
 
 ### Basic usage
