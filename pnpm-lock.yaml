@@ -166,6 +166,12 @@ importers:
         specifier: ^3
         version: 3.2.2
 
+  components/scroll-progress:
+    dependencies:
+      '@hotwired/stimulus':
+        specifier: ^3
+        version: 3.2.2
+
   components/scroll-reveal:
     dependencies:
       '@hotwired/stimulus':
@@ -246,6 +252,9 @@ importers:
       '@stimulus-components/read-more':
         specifier: workspace:*
         version: link:../components/read-more
+      '@stimulus-components/scroll-progress':
+        specifier: workspace:*
+        version: link:../components/scroll-progress
       '@stimulus-components/scroll-reveal':
         specifier: workspace:*
         version: link:../components/scroll-reveal
