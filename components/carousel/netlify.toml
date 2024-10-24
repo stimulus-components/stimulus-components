@@ -1,0 +1,9 @@
+[build]
+  publish="dist"
+  command="yarn prod"
+
+[[redirects]]
+  from = "https://stimulus-carousel.netlify.app/*"
+  to = "https://stimulus-carousel.stimulus-components.com/:splat"
+  status = 301
+  force = true

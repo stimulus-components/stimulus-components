@@ -28,6 +28,7 @@
     "@stimulus-components/chartjs": "workspace:*",
     "@stimulus-components/scroll-reveal": "workspace:*",
     "@stimulus-components/color-picker": "workspace:*",
+    "@stimulus-components/carousel": "workspace:*",
     "@stimulus-components/dialog": "workspace:*",
     "@stimulus-components/timeago": "workspace:*",
     "@stimulus-components/read-more": "workspace:*",

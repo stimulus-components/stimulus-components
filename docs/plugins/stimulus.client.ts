@@ -11,6 +11,7 @@ import ReadMore from "@stimulus-components/read-more/src"
 import PasswordVisibility from "@stimulus-components/password-visibility/src"
 import Chart from "@stimulus-components/chartjs/src"
 import ScrollReveal from "@stimulus-components/scroll-reveal/src"
+import Carousel from "@stimulus-components/carousel/src"
 
 // @ts-expect-error
 // eslint-disable-next-line no-undef
@@ -29,4 +30,5 @@ export default defineNuxtPlugin(() => {
   application.register("color-picker", ColorPicker)
   application.register("chart", Chart)
   application.register("scroll-reveal", ScrollReveal)
+  application.register("carousel", Carousel)
 })

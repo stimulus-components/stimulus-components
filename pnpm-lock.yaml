@@ -84,6 +84,15 @@ importers:
         specifier: ^3
         version: 3.2.2
 
+  components/carousel:
+    dependencies:
+      '@hotwired/stimulus':
+        specifier: ^3
+        version: 3.2.2
+      swiper:
+        specifier: ^11.0.6
+        version: 11.1.14
+
   components/character-counter:
     dependencies:
       '@hotwired/stimulus':
@@ -207,6 +216,9 @@ importers:
       '@stimulus-components/animated-number':
         specifier: workspace:*
         version: link:../components/animated-number
+      '@stimulus-components/carousel':
+        specifier: workspace:*
+        version: link:../components/carousel
       '@stimulus-components/character-counter':
         specifier: workspace:*
         version: link:../components/character-counter
@@ -6221,6 +6233,10 @@ packages:
     resolution: {integrity: sha512-OoohrmuUlBs8B8o6MB2Aevn+pRIH9zDALSR+6hhqVfa6fRwG/Qw9VUMSMW9VNg2CFc/MTIfabtdOVl9ODIJjpw==}
     engines: {node: '>=14.0.0'}
     hasBin: true
+
+  swiper@11.1.14:
+    resolution: {integrity: sha512-VbQLQXC04io6AoAjIUWuZwW4MSYozkcP9KjLdrsG/00Q/yiwvhz9RQyt0nHXV10hi9NVnDNy1/wv7Dzq1lkOCQ==}
+    engines: {node: '>= 4.7.0'}
 
   symbol-observable@1.2.0:
     resolution: {integrity: sha512-e900nM8RRtGhlV36KGEU9k65K3mPb1WV70OdjfxlG2EAuM1noi/E/BaW/uMhL7bPEssK8QV57vN3esixjUvcXQ==}
@@ -14626,6 +14642,8 @@ snapshots:
       css-what: 6.1.0
       csso: 5.0.5
       picocolors: 1.1.0
+
+  swiper@11.1.14: {}
 
   symbol-observable@1.2.0: {}
 
