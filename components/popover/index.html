@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Stimulus Popover</title>
+
+    <script type="module">
+      import "../app.css"
+      import { Application } from "@hotwired/stimulus"
+      import Popover from "./src/index"
+
+      const application = Application.start()
+      application.register("popover", Popover)
+    </script>
+  </head>
+
+  <body>
+    <div class="relative h-full max-w-5xl mx-auto px-4">
+      <section class="mt-16">
+        <h2 class="text-xl mb-2 mt-8">With remote content</h2>
+        <div data-controller="popover" data-popover-url-value="/card.html">
+          This is my GitHub card available on
+          <a
+            href="https://github.com/stimulus-components/stimulus-popover"
+            class="relative"
+            data-action="mouseenter->popover#show mouseleave->popover#hide"
+          >
+            <span class="text-blue-600 no-underline hover:underline">GitHub</span></a
+          >
+        </div>
+
+        <h2 class="text-xl mb-2 mt-8">With local template</h2>
+        <div data-controller="popover">
+          This is my GitHub card available on
+          <a
+            href="https://github.com/stimulus-components/stimulus-popover"
+            class="relative"
+            data-action="mouseenter->popover#show mouseleave->popover#hide"
+          >
+            <span class="text-blue-600 no-underline hover:underline">GitHub</span></a
+          >
+
+          <template data-popover-target="content">
+            <div
+              data-popover-target="card"
+              class="max-w-sm rounded shadow-lg bg-white absolute left-0"
+              style="bottom: 2rem; width: max-content"
+            >
+              <div class="px-6 py-4 flex">
+                <img
+                  class="rounded-full h-16 w-16"
+                  src="https://avatars0.githubusercontent.com/u/8252238?s=460&u=3ba211d048536bfe01d120894eba9d3254db70d5&v=4"
+                  alt=""
+                />
+
+                <div class="ml-4">
+                  <div class="font-bold text-xl mb-2 text-black">Guillaume Briday</div>
+                  <p class="text-gray-500 text-sm">This content is in a hidden template.</p>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

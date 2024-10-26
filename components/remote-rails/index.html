@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Stimulus Remote Rails</title>
+
+    <script type="module">
+      import "../app.css"
+      import { Application } from "@hotwired/stimulus"
+      import RemoteRails from "./src/index"
+      import Rails from "@rails/ujs"
+
+      if (!window._rails_loaded) {
+        Rails.start()
+      }
+
+      const application = Application.start()
+      application.register("remote", RemoteRails)
+    </script>
+  </head>
+
+  <body>
+    <div class="relative h-full max-w-5xl mx-auto px-4">
+      <section class="mt-16">
+        <div class="mb-8">
+          <a
+            href="/message.html"
+            class="text-blue-500"
+            data-controller="remote"
+            data-remote=""
+            data-action="ajax:success->remote#prepend"
+          >
+            Click me to prepend ☝️
+          </a>
+        </div>
+
+        <div class="mb-8">
+          <a
+            href="/message.html"
+            class="text-blue-500"
+            data-controller="remote"
+            data-remote=""
+            data-action="ajax:success->remote#append"
+          >
+            Click me to append 👇
+          </a>
+        </div>
+
+        <div>
+          <a
+            href="/message.html"
+            class="text-blue-500"
+            data-controller="remote"
+            data-remote=""
+            data-action="ajax:success->remote#replace"
+          >
+            Click me to replace 👈
+          </a>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

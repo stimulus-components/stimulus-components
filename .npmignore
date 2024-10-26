@@ -1,0 +1,13 @@
+index.html
+spec
+tsconfig.json
+vite.config.mts
+tailwind.config.ts
+docs
+.github
+screenshot.png
+netlify.toml
+.node-version
+.eslintignore
+.eslintrc.js
+postcss.config.js

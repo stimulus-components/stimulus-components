@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Stimulus Sound</title>
+
+    <script type="module">
+      import "../app.css"
+      import { Application } from "@hotwired/stimulus"
+      import Sound from "./src/index"
+
+      const application = Application.start()
+      application.register("sound", Sound)
+    </script>
+  </head>
+
+  <body>
+    <div class="relative h-full max-w-5xl mx-auto px-4">
+      <section class="mt-16">
+        <div data-controller="sound" data-sound-url-value="/sound.mp3" class="flex flex-col md:flex-row gap-3">
+          <button type="button" data-action="sound#play" class="px-2 py-1 border rounded-md hover:bg-gray-100">
+            ▶️ Play
+          </button>
+          <button type="button" data-action="sound#pause" class="px-2 py-1 border rounded-md hover:bg-gray-100">
+            ⏸️ Pause
+          </button>
+          <button type="button" data-action="sound#reset" class="px-2 py-1 border rounded-md hover:bg-gray-100">
+            ⏹️ Reset
+          </button>
+
+          <button
+            type="button"
+            data-action="sound#muted"
+            data-sound-muted-param="true"
+            class="px-2 py-1 border rounded-md hover:bg-gray-100"
+          >
+            🔇 Mute
+          </button>
+          <button
+            type="button"
+            data-action="sound#muted"
+            data-sound-muted-param="false"
+            class="px-2 py-1 border rounded-md hover:bg-gray-100"
+          >
+            🔈 Unmute
+          </button>
+
+          <button
+            type="button"
+            data-action="sound#loop"
+            data-sound-loop-param="true"
+            class="px-2 py-1 border rounded-md hover:bg-gray-100"
+          >
+            🔁 Loop
+          </button>
+
+          <button
+            type="button"
+            data-action="sound#volume"
+            data-sound-volume-param="1"
+            class="px-2 py-1 border rounded-md hover:bg-gray-100"
+          >
+            🔊 Volume to 100%
+          </button>
+
+          <button
+            type="button"
+            data-action="sound#volume"
+            data-sound-volume-param="0.25"
+            class="px-2 py-1 border rounded-md hover:bg-gray-100"
+          >
+            🔉 Volume to 25%
+          </button>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Stimulus Textarea Autogrow</title>
+
+    <script type="module">
+      import "../app.css"
+      import { Application } from "@hotwired/stimulus"
+      import TextareaAutogrow from "./src/index"
+
+      const application = Application.start()
+      application.register("textarea-autogrow", TextareaAutogrow)
+    </script>
+  </head>
+
+  <body>
+    <div class="relative h-full max-w-5xl mx-auto px-4">
+      <section class="mt-16">
+        <textarea
+          rows="2"
+          data-controller="textarea-autogrow"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        >
+Trysail American Main grog quarterdeck swing the lead overhaul gangway Privateer pink gabion. Arr Buccaneer barque yawl gunwalls six pounders chase guns transom smartly fore. Hang the jib barkadeer poop deck yawl reef fluke lass grapple clipper black jack.
+
+Wherry capstan league spyglass Sea Legs deadlights Corsair landlubber or just lubber parrel sutler. Swing the lead reef crimp sloop red ensign poop deck cog fore killick warp. Trysail Sink me case shot rigging Shiver me timbers barkadeer Privateer poop deck handsomely mizzen.
+
+Chain Shot doubloon snow driver list blow the man down sutler handsomely smartly Admiral of the Black. Aft scuppers furl prow long clothes loaded to the gunwalls square-rigged lugsail spyglass squiffy. Broadside spanker bounty killick fluke quarterdeck swing the lead execution dock squiffy boatswain.
+        </textarea>
+      </section>
+    </div>
+  </body>
+</html>

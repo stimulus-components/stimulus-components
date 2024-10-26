@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Stimulus Rails Nested Form</title>
+
+    <script type="module">
+      import "../app.css"
+      import { Application } from "@hotwired/stimulus"
+      import RailsNestedForm from "./src/index"
+
+      const application = Application.start()
+      application.register("nested-form", RailsNestedForm)
+    </script>
+  </head>
+
+  <body>
+    <div class="relative h-full max-w-5xl mx-auto px-4">
+      <section class="mt-16">
+        <form data-controller="nested-form">
+          <template data-nested-form-target="template">
+            <div class="mt-4 nested-form-wrapper" data-new-record="true">
+              <label for="NEW_RECORD" class="block text-sm font-medium leading-5 text-gray-700">New todo</label>
+              <div class="mt-1 flex relative rounded-md shadow-sm">
+                <input
+                  id="NEW_RECORD"
+                  name="user[todos_attributes][NEW_RECORD][description]"
+                  class="appearance-none border w-full py-2 px-3 rounded-l-md text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  placeholder="Your todo"
+                />
+
+                <button
+                  class="cursor-pointer inline-flex items-center px-3 rounded-r-md border border-l-0 border-gray-300 bg-gray-100 text-gray-500 sm:text-sm"
+                  type="button"
+                  data-action="nested-form#remove"
+                  title="Remove todo"
+                >
+                  X
+                </button>
+
+                <input type="hidden" name="user[todos_attributes][NEW_RECORD][_destroy]" />
+              </div>
+            </div>
+          </template>
+
+          <div class="mt-4 nested-form-wrapper" data-new-record="false">
+            <label for="todo-1" class="block text-sm font-medium leading-5 text-gray-700">Your todo</label>
+            <div class="mt-1 flex relative rounded-md shadow-sm">
+              <input
+                id="todo-1"
+                name="user[todos_attributes][0][description]"
+                class="appearance-none border w-full py-2 px-3 rounded-l-md text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                value="Pet the cat"
+              />
+
+              <button
+                class="cursor-pointer inline-flex items-center px-3 rounded-r-md border border-l-0 border-gray-300 bg-gray-100 text-gray-500 sm:text-sm"
+                type="button"
+                data-action="nested-form#remove"
+                title="Remove todo"
+              >
+                X
+              </button>
+
+              <input type="hidden" name="user[todos_attributes][0][_destroy]" />
+            </div>
+          </div>
+
+          <div id="nested-form-target" data-nested-form-target="target"></div>
+
+          <button
+            id="nested-form-button"
+            type="button"
+            data-action="nested-form#add"
+            class="mt-4 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border rounded shadow"
+          >
+            Add todo
+          </button>
+
+          <button
+            type="submit"
+            class="mt-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-4 border rounded shadow"
+          >
+            Save todos
+          </button>
+        </form>
+      </section>
+    </div>
+  </body>
+</html>

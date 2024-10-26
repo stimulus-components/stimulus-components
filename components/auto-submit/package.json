@@ -1,0 +1,36 @@
+{
+  "name": "@stimulus-components/auto-submit",
+  "version": "6.0.0",
+  "description": "A Stimulus controller to auto-submit forms.",
+  "keywords": [
+    "stimulus",
+    "stimulusjs",
+    "stimulus controller",
+    "autosubmit",
+    "auto-submit form"
+  ],
+  "repository": "git@github.com:stimulus-components/stimulus-components.git",
+  "bugs": {
+    "url": "https://github.com/stimulus-components/stimulus-components/issues"
+  },
+  "author": "Guillaume Briday <guillaumebriday@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/stimulus-components/stimulus-components",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "dist/stimulus-auto-submit.umd.js",
+  "module": "dist/stimulus-auto-submit.mjs",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "types": "tsc --noEmit false --declaration true --emitDeclarationOnly true --outDir dist/types",
+    "dev": "vite",
+    "build": "vite build && pnpm run types",
+    "version": "pnpm build",
+    "np": "np --no-2fa --no-tests"
+  },
+  "peerDependencies": {
+    "@hotwired/stimulus": "^3"
+  }
+}
