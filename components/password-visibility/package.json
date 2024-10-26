@@ -1,0 +1,36 @@
+{
+  "name": "@stimulus-components/password-visibility",
+  "version": "3.0.0",
+  "description": "A Stimulus controller to change a password input visibility.",
+  "keywords": [
+    "stimulus",
+    "stimulusjs",
+    "stimulus controller",
+    "password toggle",
+    "password visibility"
+  ],
+  "repository": "git@github.com:stimulus-components/stimulus-components.git",
+  "bugs": {
+    "url": "https://github.com/stimulus-components/stimulus-components/issues"
+  },
+  "author": "Guillaume Briday <guillaumebriday@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/stimulus-components/stimulus-components",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "dist/stimulus-password-visibility.umd.js",
+  "module": "dist/stimulus-password-visibility.mjs",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "types": "tsc --noEmit false --declaration true --emitDeclarationOnly true --outDir dist/types",
+    "dev": "vite",
+    "build": "vite build && pnpm run types",
+    "version": "pnpm build",
+    "np": "np --no-2fa"
+  },
+  "peerDependencies": {
+    "@hotwired/stimulus": "^3"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "name": "@stimulus-components/dropdown",
+  "version": "3.0.0",
+  "description": "A Stimulus controller to create a dropdown.",
+  "keywords": [
+    "stimulus",
+    "stimulusjs",
+    "stimulus controller",
+    "dropdown"
+  ],
+  "repository": "git@github.com:stimulus-components/stimulus-components.git",
+  "bugs": {
+    "url": "https://github.com/stimulus-components/stimulus-components/issues"
+  },
+  "author": "Guillaume Briday <guillaumebriday@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/stimulus-components/stimulus-components",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "dist/stimulus-dropdown.umd.js",
+  "module": "dist/stimulus-dropdown.mjs",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "types": "tsc --noEmit false --declaration true --emitDeclarationOnly true --outDir dist/types",
+    "dev": "vite",
+    "build": "vite build && pnpm run types",
+    "version": "pnpm run build",
+    "np": "np --no-2fa --no-tests"
+  },
+  "dependencies": {
+    "stimulus-use": "^0.52.2"
+  },
+  "peerDependencies": {
+    "@hotwired/stimulus": "^3"
+  }
+}

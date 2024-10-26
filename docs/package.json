@@ -1,0 +1,53 @@
+{
+  "name": "stimulus-components",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@docsearch/css": "^3.6.1",
+    "@docsearch/js": "^3.6.1",
+    "@heroicons/vue": "^2.1.5",
+    "@hotwired/stimulus": "^3.2.2",
+    "@nuxt/content": "^2.13.2",
+    "@nuxtjs/algolia": "^1.10.2",
+    "@nuxtjs/color-mode": "^3.4.2",
+    "@nuxtjs/plausible": "^1.0.1",
+    "@nuxtjs/robots": "^3.0.0",
+    "@nuxtjs/tailwindcss": "^6.12.1",
+    "@stimulus-components/animated-number": "workspace:*",
+    "@stimulus-components/carousel": "workspace:*",
+    "@stimulus-components/character-counter": "workspace:*",
+    "@stimulus-components/chartjs": "workspace:*",
+    "@stimulus-components/checkbox-select-all": "workspace:*",
+    "@stimulus-components/clipboard": "workspace:*",
+    "@stimulus-components/color-picker": "workspace:*",
+    "@stimulus-components/content-loader": "workspace:*",
+    "@stimulus-components/dialog": "workspace:*",
+    "@stimulus-components/dropdown": "workspace:*",
+    "@stimulus-components/lightbox": "workspace:*",
+    "@stimulus-components/notification": "workspace:*",
+    "@stimulus-components/password-visibility": "workspace:*",
+    "@stimulus-components/popover": "workspace:*",
+    "@stimulus-components/rails-nested-form": "workspace:*",
+    "@stimulus-components/read-more": "workspace:*",
+    "@stimulus-components/remote-rails": "workspace:*",
+    "@stimulus-components/reveal": "workspace:*",
+    "@stimulus-components/scroll-progress": "workspace:*",
+    "@stimulus-components/scroll-reveal": "workspace:*",
+    "@stimulus-components/sortable": "workspace:*",
+    "@stimulus-components/sound": "workspace:*",
+    "@stimulus-components/timeago": "workspace:*",
+    "@tailwindcss/typography": "^0.5.15",
+    "core-js": "^3.38.0",
+    "nuxt": "^3.13.2"
+  },
+  "devDependencies": {
+    "@rails/ujs": "7.1.3-4",
+    "postcss-html": "^1.5.0"
+  }
+}

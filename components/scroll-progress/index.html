@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Stimulus Scroll Progress</title>
+
+    <script type="module">
+      import "../app.css"
+      import { Application } from "@hotwired/stimulus"
+      import ScrollProgress from "./src/index"
+
+      const application = Application.start()
+      application.register("scroll-progress", ScrollProgress)
+    </script>
+  </head>
+
+  <body>
+    <div
+      data-controller="scroll-progress"
+      class="h-2 bg-gradient-to-r from-yellow-500 to-orange-500 fixed top-0 z-50"
+    ></div>
+
+    <div class="relative h-full max-w-5xl mx-auto px-4">
+      <section class="mt-16 text-center" style="height: 1200px">
+        <section class="text-center" style="height: 1200px">Scroll down to see the progress bar 👇</section>
+      </section>
+    </div>
+  </body>
+</html>

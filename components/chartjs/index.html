@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Stimulus Chartjs</title>
+
+    <script type="module">
+      import "../app.css"
+      import { Application } from "@hotwired/stimulus"
+      import Chart from "./src/index"
+
+      const application = Application.start()
+      application.register("chart", Chart)
+    </script>
+  </head>
+
+  <body>
+    <div class="relative h-full max-w-5xl mx-auto">
+      <section class="mt-16">
+        <div
+          class="mb-8"
+          data-controller="chart"
+          data-chart-data-value='{ "labels": ["January", "February", "March", "April", "May", "June", "July"], "datasets": [{ "label": "My First dataset", "backgroundColor": "transparent", "tension": 0.1, "borderColor": "#3B82F6", "data": [37, 83, 78, 54, 12, 5, 99] }] }'
+        >
+          <canvas data-chart-target="canvas"></canvas>
+        </div>
+
+        <canvas
+          data-controller="chart"
+          data-chart-data-value=' { "labels": ["August", "September", "October", "November", "December"], "datasets": [{ "label": "My Second dataset", "backgroundColor": "transparent", "tension": 0.1, "borderColor": "#EF4444", "data": [54, 81, 34, 91, 12, 23] }] }'
+        ></canvas>
+      </section>
+    </div>
+  </body>
+</html>

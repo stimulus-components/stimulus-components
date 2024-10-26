@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="https://unpkg.com/@highlightjs/cdn-assets@11.6.0/styles/atom-one-dark.min.css" rel="stylesheet" />
+
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.6.0/highlight.min.js"></script>
+
+    <title>Stimulus Clipboard</title>
+
+    <script type="module">
+      import "../app.css"
+      import { Application } from "@hotwired/stimulus"
+      import Clipboard from "./src/index"
+
+      const application = Application.start()
+      application.register("clipboard", Clipboard)
+
+      document.querySelectorAll("pre code").forEach((el) => {
+        hljs.highlightElement(el)
+      })
+    </script>
+  </head>
+
+  <body>
+    <div class="relative h-full max-w-md mx-auto px-4">
+      <section class="mt-16">
+        <div
+          data-controller="clipboard"
+          data-clipboard-success-content-value="<strong>Copied!</strong>"
+          class="mt-1 flex rounded-md shadow-sm"
+        >
+          <input
+            type="text"
+            value="Click the button to copy me!"
+            data-clipboard-target="source"
+            readonly
+            class="py-3 px-2 outline-none flex-1 block rounded-none rounded-l-md sm:text-sm border border-gray-300"
+          />
+          <button
+            type="button"
+            data-action="clipboard#copy"
+            data-clipboard-target="button"
+            class="inline-flex items-center px-3 focus:outline-none rounded-r-md border border-l-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="mr-2 w-5 h-5"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M11.35 3.836c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m8.9-4.414c.376.023.75.05 1.124.08 1.131.094 1.976 1.057 1.976 2.192V16.5A2.25 2.25 0 0118 18.75h-2.25m-7.5-10.5H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V18.75m-7.5-10.5h6.375c.621 0 1.125.504 1.125 1.125v9.375m-8.25-3l1.5 1.5 3-3.75"
+              />
+            </svg>
+
+            Copy to clipboard
+          </button>
+        </div>
+
+        <div data-controller="clipboard" data-clipboard-success-content-value="Copied!" class="relative mt-16">
+          <button
+            class="absolute top-2 right-2 p-2 bg-white hover:bg-gray-200 rounded"
+            type="button"
+            data-action="clipboard#copy"
+            data-clipboard-target="button"
+            title="Copy to clipboard"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-5 h-5"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M11.35 3.836c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m8.9-4.414c.376.023.75.05 1.124.08 1.131.094 1.976 1.057 1.976 2.192V16.5A2.25 2.25 0 0118 18.75h-2.25m-7.5-10.5H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V18.75m-7.5-10.5h6.375c.621 0 1.125.504 1.125 1.125v9.375m-8.25-3l1.5 1.5 3-3.75"
+              />
+            </svg>
+          </button>
+
+          <div class="hidden" data-clipboard-target="source">
+            <div class="flex space-x-4">
+              <div>01</div>
+              <div>02</div>
+              <div>03</div>
+            </div>
+          </div>
+
+          <pre><code class="language-html whitespace-pre">&lt;div class=&quot;flex space-x-4&quot;&gt;
+  &lt;div&gt;01&lt;/div&gt;
+  &lt;div&gt;02&lt;/div&gt;
+  &lt;div&gt;03&lt;/div&gt;
+&lt;/div&gt;</code>
+          </pre>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

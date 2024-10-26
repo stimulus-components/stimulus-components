@@ -1,3 +1,8 @@
 {
-  "extends": "./.nuxt/tsconfig.json"
+  "compilerOptions": {
+    "lib": ["dom", "es6"],
+    "types": ["vite/client", "google.maps"],
+    "skipLibCheck": true
+  },
+  "exclude": ["**/tailwind.config.ts", "**/vite.config.mts", "**/*.test.ts"]
 }

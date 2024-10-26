@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Stimulus Read More</title>
+
+    <script type="module">
+      import "../app.css"
+      import { Application } from "@hotwired/stimulus"
+      import ReadMore from "./src/index"
+
+      const application = Application.start()
+      application.register("read-more", ReadMore)
+    </script>
+  </head>
+
+  <body>
+    <div class="relative h-full max-w-md mx-auto px-4">
+      <section class="mt-16">
+        <div
+          data-controller="read-more"
+          data-read-more-more-text-value="Read more &darr;"
+          data-read-more-less-text-value="Read less &uarr;"
+        >
+          <p class="line-clamp" data-read-more-target="content">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vehicula elit ut urna imperdiet
+            maximus. Praesent quis nisi in velit volutpat consectetur in vitae diam. Nulla auctor nulla sapien, auctor
+            varius est vestibulum ut. Morbi ullamcorper est a ipsum fringilla egestas. Vestibulum sed dictum purus.
+            Aliquam dignissim pellentesque magna, in tempus tortor sollicitudin sed. Vestibulum dictum mattis lorem,
+            eget sollicitudin felis elementum in. In ut quam mi. Fusce ac ultrices mauris. Class aptent taciti sociosqu
+            ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce nec erat in ex efficitur faucibus a ac
+            nunc. Duis dui ex, blandit ut sem in, finibus tempor magna. Vivamus iaculis ante ut ex dapibus, id convallis
+            tellus tristique. Maecenas et felis urna. Proin nec ipsum ac felis bibendum pretium. Curabitur nec suscipit
+            tellus. Morbi hendrerit placerat tellus vel laoreet. Nulla nec nibh ligula. In commodo semper scelerisque.
+            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam vulputate
+            gravida sapien non aliquam. Nullam semper nibh justo, at varius orci facilisis id. Maecenas lacinia massa ut
+            gravida tristique. Quisque tincidunt tellus et tempus interdum. Sed volutpat iaculis gravida. Vivamus
+            faucibus urna ut malesuada ullamcorper. Aliquam lobortis velit dolor, in dapibus nibh viverra quis.
+          </p>
+
+          <button type="button" class="text-yellow-600" data-action="read-more#toggle">Read more &darr;</button>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

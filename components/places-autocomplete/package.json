@@ -1,0 +1,33 @@
+{
+  "name": "stimulus-places-autocomplete",
+  "version": "0.5.0",
+  "description": "A Stimulus controller for Google Places Autocomplete.",
+  "keywords": [
+    "stimulus",
+    "stimulusjs",
+    "stimulus controller",
+    "google maps",
+    "google places autocomplete"
+  ],
+  "repository": "git@github.com:stimulus-components/stimulus-components.git",
+  "bugs": {
+    "url": "https://github.com/stimulus-components/stimulus-components/issues"
+  },
+  "author": "Guillaume Briday <guillaumebriday@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/stimulus-components/stimulus-components",
+  "private": false,
+  "main": "dist/stimulus-places-autocomplete.umd.js",
+  "module": "dist/stimulus-places-autocomplete.es.js",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "types": "tsc --noEmit false --declaration true --emitDeclarationOnly true --outDir dist/types",
+    "dev": "vite",
+    "build": "vite build && pnpm run types",
+    "version": "pnpm run build",
+    "np": "np --no-2fa --no-tests"
+  },
+  "peerDependencies": {
+    "@hotwired/stimulus": "^3"
+  }
+}

@@ -6,7 +6,7 @@
 
 ## 📚 Documentation
 
-See [Stimulus Components Website](https://stimulus-components.com/).
+See [Stimulus Components Website](https://www.stimulus-components.com/).
 
 ## 👷 Contributing
 
