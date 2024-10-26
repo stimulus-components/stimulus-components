@@ -13,6 +13,10 @@ packagePath: "@stimulus-components/sortable"
 This component is based on the [SortableJS](https://github.com/SortableJS/sortablejs){target="\_blank" .underline .hover:no-underline}.
 ::
 
+## Example
+
+:sortable
+
 ## Usage
 
 ::code-block{tabName="app/models/todo.rb"}

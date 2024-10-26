@@ -1,0 +1,36 @@
+{
+  "name": "@stimulus-components/sound",
+  "version": "2.0.1",
+  "description": "A Stimulus Controller to play and control sound.",
+  "keywords": [
+    "stimulus",
+    "stimulusjs",
+    "stimulus controller",
+    "audio",
+    "sound"
+  ],
+  "repository": "git@github.com:stimulus-components/stimulus-components.git",
+  "bugs": {
+    "url": "https://github.com/stimulus-components/stimulus-components/issues"
+  },
+  "author": "Guillaume Briday <guillaumebriday@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/stimulus-components/stimulus-components",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "dist/stimulus-sound.umd.js",
+  "module": "dist/stimulus-sound.mjs",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "types": "tsc --noEmit false --declaration true --emitDeclarationOnly true --outDir dist/types",
+    "dev": "vite",
+    "build": "vite build && pnpm run types",
+    "version": "pnpm build",
+    "np": "np --no-2fa --no-tests"
+  },
+  "peerDependencies": {
+    "@hotwired/stimulus": "^3"
+  }
+}

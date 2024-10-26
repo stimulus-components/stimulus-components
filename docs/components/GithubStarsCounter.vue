@@ -14,6 +14,6 @@
 
 <script setup>
 import GithubIcon from "@/components/Icons/GithubIcon.vue"
-import { formatCompactNumber } from "@/utils/helpers"
+import { formatCompactNumber } from "@/utils"
 const { data } = await useFetch("https://api.github.com/repos/stimulus-components/stimulus-components")
 </script>

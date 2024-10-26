@@ -9,6 +9,10 @@ packagePath: "@stimulus-components/scroll-to"
 
 :installation-block{:package="package" :packagePath="packagePath"}
 
+## Example
+
+:scroll-to
+
 ## Usage
 
 ::code-block{tabName="app/views/index.html"}

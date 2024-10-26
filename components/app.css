@@ -1,3 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.line-clamp {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--read-more-line-clamp, 2);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 1s cubic-bezier(0.5, 0, 0, 1);
+  transition-property: opacity, transform;
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+.glow-overlay {
+  --glow-size: 25rem;
+
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  user-select: none;
+  opacity: var(--glow-opacity, 0);
+  mask: radial-gradient(
+    var(--glow-size) var(--glow-size) at var(--glow-x) var(--glow-y),
+    var(--glow-color) 1%,
+    transparent 50%
+  );
+  transition: 400ms mask ease;
+  will-change: mask;
+}

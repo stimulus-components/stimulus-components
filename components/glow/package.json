@@ -1,0 +1,30 @@
+{
+  "name": "stimulus-glow",
+  "version": "0.3.0",
+  "description": "A Stimulus controller that add a mouse-tracing glow effect.",
+  "keywords": [
+    "stimulus",
+    "stimulusjs",
+    "stimulus controller",
+    "glow"
+  ],
+  "repository": "git@github.com:stimulus-components/stimulus-components.git",
+  "bugs": {
+    "url": "https://github.com/stimulus-components/stimulus-components/issues"
+  },
+  "author": "Guillaume Briday <guillaumebriday@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/stimulus-components/stimulus-components",
+  "private": false,
+  "main": "dist/stimulus-glow.umd.js",
+  "module": "dist/stimulus-glow.mjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "version": "pnpm run build",
+    "np": "np --no-2fa --no-tests"
+  },
+  "peerDependencies": {
+    "@hotwired/stimulus": "^3"
+  }
+}

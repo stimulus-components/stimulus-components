@@ -9,6 +9,10 @@ packagePath: "@stimulus-components/reveal"
 
 :installation-block{:package="package" :packagePath="packagePath" controllerName="reveal"}
 
+## Example
+
+:reveal
+
 ## Usage
 
 ### Toggle

@@ -7,9 +7,19 @@ packagePath: "@stimulus-components/rails-nested-form"
 
 [Nested attributes](https://apidock.com/rails/ActiveRecord/NestedAttributes/ClassMethods) allow you to save attributes on associated records through the parent.
 
+## Video Tutorial
+
+[Dean DeHart](https://x.com/deaniocom) has released a presentation video on how to use this package with a real life example with Ruby on Rails.
+
+:Youtube{id="7JNRZLTRDCc"}
+
 ## Installation
 
 :installation-block{:package="package" :packagePath="packagePath" controllerName="nested-form"}
+
+## Example
+
+:rails-nested-form
 
 ## Usage
 

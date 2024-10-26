@@ -40,7 +40,7 @@
 <script setup>
 import { ref } from "vue"
 import { useFetch, useAsyncData } from "nuxt/app"
-import { prettyNumber } from "@/utils/helpers"
+import { prettyNumber } from "@/utils"
 
 const stats = ref([
   { title: "Packages", count: "25+" },

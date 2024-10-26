@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Stimulus Scroll To</title>
+
+    <script type="module">
+      import "../app.css"
+      import { Application } from "@hotwired/stimulus"
+      import ScrollTo from "./src/index"
+
+      const application = Application.start()
+      application.register("scroll-to", ScrollTo)
+    </script>
+  </head>
+
+  <body>
+    <div class="relative h-full max-w-5xl mx-auto px-4">
+      <section class="mt-16 text-center">
+        <a href="#awesome-stuff-here" class="text-blue-500" data-controller="scroll-to" data-scroll-to-offset-value="50"
+          >Scroll to #awesome-stuff-here</a
+        >
+
+        <div class="h-screen"></div>
+
+        <h2 id="awesome-stuff-here" class="text-2xl">Awesome stuff here</h2>
+        <p>Keep scrolling 👇</p>
+
+        <div class="h-screen"></div>
+
+        <a href="#awesome-stuff-here" class="text-blue-500" data-controller="scroll-to" data-scroll-to-offset-value="50"
+          >Scroll to #awesome-stuff-here</a
+        >
+      </section>
+    </div>
+  </body>
+</html>

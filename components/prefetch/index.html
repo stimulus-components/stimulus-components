@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Stimulus Prefetch</title>
+
+    <script type="module">
+      import "../app.css"
+      import { Application } from "@hotwired/stimulus"
+      import Prefetch from "./src/index"
+
+      const application = Application.start()
+      application.register("prefetch", Prefetch)
+    </script>
+  </head>
+
+  <body>
+    <div class="relative h-full max-w-5xl mx-auto px-4">
+      <section class="mt-16">
+        <h2 class="text-2xl mt-4">Home</h2>
+        <p class="mt-3 text-gray-500 text-md">Scroll to prefetch the second page.</p>
+
+        <div style="height: 75vh"></div>
+
+        <a href="/page.html" data-controller="prefetch" class="text-blue-500 hover:underline">Go to second page 👉</a>
+      </section>
+    </div>
+  </body>
+</html>

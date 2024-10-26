@@ -11,6 +11,10 @@ packagePath: "@stimulus-components/notification"
 
 This controller uses [stimulus-use/use-transition](https://stimulus-use.github.io/stimulus-use/#/use-transition) under the hood. You can change the animation behavior as you want.
 
+## Example
+
+:notification
+
 ## Usage
 
 ::code-block{tabName="app/views/index.html"}

@@ -22,11 +22,6 @@
       <p class="mt-4 text-lg text-gray-500">{{ data.description }}</p>
     </div>
 
-    <div class="flex gap-2 not-prose">
-      <img :src="`https://img.shields.io/npm/dt/${data.packagePath}.svg`" alt="" />
-      <img :src="`https://img.shields.io/npm/v/${data.packagePath}.svg`" alt="" />
-    </div>
-
     <hr />
 
     <ContentRendererMarkdown :value="data" />
@@ -45,7 +40,9 @@ const { data } = await useAsyncData(`component-${route.params.slug}`, () =>
   queryContent(`docs/${route.params.slug}`).findOne(),
 )
 
-const githubUrl = computed(() => `https://github.com/stimulus-components/stimulus-${data.value.package}`)
+const githubUrl = computed(
+  () => `https://github.com/stimulus-components/stimulus-components/tree/master/components/${data.value.package}`,
+)
 
 useHead({
   title: `Stimulus ${data.value.title}`,

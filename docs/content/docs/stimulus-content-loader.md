@@ -21,6 +21,10 @@ If Turbo is activated within your application, you can get the same behavior usi
 
 :installation-block{:package="package" :packagePath="packagePath"}
 
+## Example
+
+:content-loader
+
 ## Usage
 
 In your controller:

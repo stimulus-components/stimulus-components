@@ -9,6 +9,10 @@ packagePath: "@stimulus-components/scroll-progress"
 
 :installation-block{:package="package" :packagePath="packagePath"}
 
+## Example
+
+:scroll-progress
+
 ## Usage
 
 Add a `div` just after the `body` opening tag:

@@ -1,5 +1,8 @@
 node_modules
+
 dist
+
 build
-docs/.nuxt
-docs/.output
+
+.nuxt/
+.output/

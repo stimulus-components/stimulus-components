@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Stimulus Auto Submit</title>
+
+    <script type="module">
+      import "../app.css"
+      import "@hotwired/turbo"
+      import { Application } from "@hotwired/stimulus"
+      import AutoSubmit from "./src/index"
+
+      const application = Application.start()
+      application.register("auto-submit", AutoSubmit)
+    </script>
+  </head>
+
+  <body>
+    <div class="relative h-full max-w-5xl mx-auto px-4">
+      <section class="mt-16">
+        <form
+          action="/"
+          method="GET"
+          data-controller="auto-submit"
+          data-turbo-frame="countries"
+          data-turbo-action="advance"
+        >
+          <label for="country">Select your country</label>
+
+          <select
+            name="country"
+            id="country"
+            data-action="auto-submit#submit"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          >
+            <option value="france">France</option>
+            <option value="italy">Italy</option>
+            <option value="usa">United States</option>
+          </select>
+        </form>
+
+        <turbo-frame id="countries">
+          <!-- Need an empty turbo-frame, so it does not reload the page for the example -->
+        </turbo-frame>
+      </section>
+    </div>
+  </body>
+</html>

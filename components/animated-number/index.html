@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Stimulus Animated Number</title>
+
+    <script type="module">
+      import "../app.css"
+      import { Application } from "@hotwired/stimulus"
+      import AnimatedNumber from "./src/index"
+
+      const application = Application.start()
+      application.register("animated-number", AnimatedNumber)
+    </script>
+  </head>
+
+  <body>
+    <div class="relative h-full max-w-5xl mx-auto px-4">
+      <section class="mt-16">
+        Counting from <strong>0</strong> to <strong>100</strong> in <strong>3</strong> seconds:
+        <strong
+          data-controller="animated-number"
+          data-animated-number-start-value="0"
+          data-animated-number-end-value="100"
+          data-animated-number-duration-value="3000"
+          class="text-2xl"
+        ></strong>
+      </section>
+    </div>
+  </body>
+</html>

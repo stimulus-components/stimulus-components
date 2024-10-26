@@ -40,7 +40,7 @@ export default class CheckboxSelectAll extends Controller {
     e.preventDefault()
 
     this.checkboxTargets.forEach((checkbox) => {
-      // @ts-ignore
+      // @ts-expect-error
       checkbox.checked = e.target.checked
       this.triggerInputEvent(checkbox)
     })

@@ -9,6 +9,10 @@ packagePath: "@stimulus-components/remote-rails"
 
 :installation-block{:package="package" :packagePath="packagePath" controllerName="remote"}
 
+## Example
+
+:remote-rails
+
 ## Usage
 
 ::code-block{tabName="app/controllers/comments_controller.rb"}

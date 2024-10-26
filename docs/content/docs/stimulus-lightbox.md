@@ -13,6 +13,10 @@ packagePath: "@stimulus-components/lightbox"
 This component is based on the [lightgalleryjs](https://www.lightgalleryjs.com/){target="\_blank" .underline .hover:no-underline}.
 ::
 
+## Example
+
+:lightbox
+
 ## Usage
 
 Before starting, your must import the `lightgallery.css` in your `js` or in your `sass`:

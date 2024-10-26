@@ -13,6 +13,10 @@ packagePath: "@stimulus-components/carousel"
 This component is based on the [Swiper](https://swiperjs.com/){target="\_blank" .underline .hover:no-underline}.
 ::
 
+## Example
+
+:carousel
+
 ## Before starting
 
 You must import the `Swiper` CSS in your `js` file:

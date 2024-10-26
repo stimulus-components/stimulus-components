@@ -1,21 +1,19 @@
 {
   "private": true,
-  "workspaces": [
-    "components/*",
-    "docs"
-  ],
   "scripts": {
     "lint": "pnpm lint:check && pnpm lint:js && pnpm lint:prettier",
     "lint:check": "tsc --noEmit",
-    "lint:js": "eslint --ext .js,.mjs,.ts --ignore-path .gitignore .",
+    "lint:js": "eslint --ext .js,.mjs,.mts,.ts,.vue --ignore-path .gitignore .",
     "lint:prettier": "prettier --check .",
     "lintfix": "prettier --write --list-different . && pnpm lint:js --fix",
+    "docs": "pnpm -C docs dev",
     "test": "vitest --run"
   },
   "devDependencies": {
     "@hotwired/stimulus": "^3.2.2",
+    "@hotwired/turbo": "^8.0.4",
+    "@nuxt/eslint-config": "^0.2.0",
     "@types/jest": "^29.5.12",
-    "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
     "babel-jest": "^29.7.0",
     "eslint": "^8.57.1",
@@ -26,6 +24,7 @@
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-promise": "6.1.1",
     "eslint-plugin-standard": "5.0.0",
+    "eslint-plugin-vue": "^9.29.0",
     "np": "9.2.0",
     "postcss": "8.4.37",
     "prettier": "3.2.5",

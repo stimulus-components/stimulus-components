@@ -1,9 +1,0 @@
-[build]
-  publish="dist"
-  command="yarn prod"
-
-[[redirects]]
-  from = "https://stimulus-character-counter.netlify.app/*"
-  to = "https://stimulus-character-counter.stimulus-components.com/:splat"
-  status = 301
-  force = true

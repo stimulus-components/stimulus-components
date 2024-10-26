@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Stimulus Reveal Controller</title>
+
+    <script type="module">
+      import "../app.css"
+      import { Application } from "@hotwired/stimulus"
+      import Reveal from "./src/index"
+
+      const application = Application.start()
+      application.register("reveal", Reveal)
+    </script>
+  </head>
+
+  <body>
+    <div class="relative h-full max-w-5xl mx-auto px-4">
+      <section class="mt-16">
+        <div data-controller="reveal">
+          <button
+            id="toggle-button"
+            data-action="click->reveal#toggle"
+            type="button"
+            class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border rounded shadow"
+          >
+            Toggle me!
+          </button>
+
+          <p id="toggle-target" data-reveal-target="item" class="hidden mt-4">Hey 👋</p>
+        </div>
+
+        <div data-controller="reveal" class="mt-4">
+          <button
+            id="toggle-button"
+            data-action="click->reveal#hide"
+            type="button"
+            class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border rounded shadow"
+          >
+            Hide me!
+          </button>
+
+          <p id="toggle-target" data-reveal-target="item" class="mt-4">Hey 🙈</p>
+        </div>
+
+        <div data-controller="reveal" class="mt-4">
+          <button
+            id="toggle-button"
+            data-action="click->reveal#show"
+            type="button"
+            class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border rounded shadow"
+          >
+            Show me!
+          </button>
+
+          <p id="toggle-target" data-reveal-target="item" class="hidden mt-4">Hi 🐵</p>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

@@ -9,13 +9,13 @@
     "clipboard",
     "copy"
   ],
-  "repository": "git@github.com:stimulus-components/stimulus-clipboard.git",
+  "repository": "git@github.com:stimulus-components/stimulus-components.git",
   "bugs": {
-    "url": "https://github.com/stimulus-components/stimulus-clipboard/issues"
+    "url": "https://github.com/stimulus-components/stimulus-components/issues"
   },
   "author": "Guillaume Briday <guillaumebriday@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/stimulus-components/stimulus-clipboard",
+  "homepage": "https://github.com/stimulus-components/stimulus-components",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -26,9 +26,8 @@
   "scripts": {
     "types": "tsc --noEmit false --declaration true --emitDeclarationOnly true --outDir dist/types",
     "dev": "vite",
-    "prod": "vite build --mode netlify",
-    "build": "vite build && yarn types",
-    "version": "yarn build",
+    "build": "vite build && pnpm run types",
+    "version": "pnpm run build",
     "np": "np --no-2fa --no-tests"
   },
   "peerDependencies": {

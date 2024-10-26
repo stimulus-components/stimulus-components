@@ -13,6 +13,10 @@ packagePath: "@stimulus-components/color-picker"
 This component is based on the [@simonwep/pickr](https://github.com/Simonwep/pickr){target="\_blank" .underline .hover:no-underline}.
 ::
 
+## Example
+
+:color-picker
+
 ## Usage
 
 Before starting, your must import the theme you want to use in your `js` or in your `sass`:

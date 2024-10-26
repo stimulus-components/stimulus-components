@@ -13,6 +13,10 @@ packagePath: "@stimulus-components/timeago"
 This component is based on the [date-fns/formatDistanceToNow](https://date-fns.org/v2.2.1/docs/formatDistanceToNow){target="\_blank" .underline .hover:no-underline}.
 ::
 
+## Example
+
+:timeago
+
 ## Usage
 
 ::code-block{tabName="app/views/index.html"}

@@ -50,7 +50,7 @@ const tabs = computed(
       const label = slot.props?.filename || props.tabName
 
       return {
-        label: label,
+        label,
         icon: label === "Terminal" || slot.props?.icon === "Terminal" ? CommandLineIcon : DocumentTextIcon,
         clipboardContent: slot.props?.["clipboard-content"],
         component: slot,

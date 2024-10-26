@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Stimulus Carousel</title>
+
+    <script type="module">
+      import "../app.css"
+      import { Application } from "@hotwired/stimulus"
+      import Carousel from "./src/index"
+      import "swiper/css/bundle"
+
+      const application = Application.start()
+      application.register("carousel", Carousel)
+    </script>
+  </head>
+
+  <body>
+    <div class="relative h-full max-w-5xl mx-auto px-4">
+      <section class="mt-16">
+        <div
+          data-controller="carousel"
+          class="swiper"
+          data-carousel-options-value='{ "navigation": { "nextEl": ".swiper-button-next", "prevEl": ".swiper-button-prev" } }'
+        >
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="h-64 flex justify-center items-center">Slide 1</div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="h-64 flex justify-center items-center">Slide 2</div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="h-64 flex justify-center items-center">Slide 3</div>
+            </div>
+          </div>
+
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

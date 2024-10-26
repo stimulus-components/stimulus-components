@@ -9,6 +9,10 @@ packagePath: "@stimulus-components/sound"
 
 :installation-block{:package="package" :packagePath="packagePath"}
 
+## Example
+
+:sound
+
 ## Usage
 
 ::code-block{tabName="app/views/index.html"}

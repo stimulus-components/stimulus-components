@@ -9,6 +9,10 @@ packagePath: "@stimulus-components/popover"
 
 :installation-block{:package="package" :packagePath="packagePath"}
 
+## Example
+
+:popover
+
 ## Usage
 
 ### With remote content

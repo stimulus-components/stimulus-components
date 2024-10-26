@@ -13,6 +13,10 @@ packagePath: "@stimulus-components/dialog"
 This component is based on the native &lt;Dialog&gt; Element. [Check the documentation on MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog){target="\_blank" .underline .hover:no-underline}.
 ::
 
+## Example
+
+:dialog-modal
+
 ## Usage
 
 ::code-block{tabName="app/views/index.html"}

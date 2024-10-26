@@ -47,7 +47,7 @@
 
 <script setup>
 import markdownParser from "@nuxt/content/transformers/markdown"
-import { toPascalCase } from "@/utils/helpers"
+import { toPascalCase } from "@/utils"
 
 const props = defineProps({
   package: {
@@ -81,7 +81,7 @@ const getTabMarkdown = async (prefix) => {
   const installCommand = `${prefix} ${props.packagePath} ${props.extraPackages}`
 
   return {
-    installCommand: installCommand,
+    installCommand,
     markdownContent: await getInstallMarkdown(installCommand),
   }
 }

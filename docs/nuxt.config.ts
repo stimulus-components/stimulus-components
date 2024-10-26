@@ -29,6 +29,7 @@ export default defineNuxtConfig({
     },
     highlight: {
       theme: "one-dark-pro",
+      langs: ["bash", "ruby", "js", "erb", "html", "scss", "css"],
     },
   },
 
@@ -46,4 +47,6 @@ export default defineNuxtConfig({
       indexName: "stimulus-components",
     },
   },
+
+  compatibilityDate: "2024-10-26",
 })
