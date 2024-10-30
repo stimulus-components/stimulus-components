@@ -1,0 +1,36 @@
+{
+  "name": "@stimulus-components/offline-mode-toggle",
+  "version": "3.0.0",
+  "description": "A Stimulus controller to toggle offline mode",
+  "keywords": [
+    "stimulus",
+    "stimulusjs",
+    "stimulus controller",
+    "offline",
+    "pwa"
+  ],
+  "repository": "git@github.com:stimulus-components/stimulus-components.git",
+  "bugs": {
+    "url": "https://github.com/stimulus-components/stimulus-components/issues"
+  },
+  "author": "Alicia Paz <alicia@teloslabs.co>",
+  "license": "MIT",
+  "homepage": "https://github.com/stimulus-components/stimulus-components",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "dist/offline-mode-toggle.umd.js",
+  "module": "dist/offline-mode-toggle.mjs",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "types": "tsc --noEmit false --declaration true --emitDeclarationOnly true --outDir dist/types",
+    "dev": "vite",
+    "build": "vite build && pnpm run types",
+    "version": "pnpm run build",
+    "np": "np --no-2fa --no-tests"
+  },
+  "peerDependencies": {
+    "@hotwired/stimulus": "^3"
+  }
+}
