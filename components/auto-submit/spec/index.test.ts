@@ -2,24 +2,16 @@
  * @jest-environment jsdom
  */
 
-
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest"
 import { Application } from "@hotwired/stimulus"
 import AutoSubmit from "../src/"
+import { sleep } from "../../../utils"
 
-let formElement: HTMLFormElement
 let application: Application
 
-const setupController = (delayValue = 150) => {
+const startStimulus = () => {
   application = Application.start()
   application.register("auto-submit", AutoSubmit)
-
-  document.body.innerHTML = `
-    <form data-controller="auto-submit" data-auto-submit-delay-value="${delayValue}">
-      <input type="checkbox"  id="completed" data-action="change->auto-submit#submit" />
-    </form>
-  `
-  formElement = document.querySelector("form")!
 }
 
 beforeEach(() => {
@@ -27,38 +19,51 @@ beforeEach(() => {
   HTMLFormElement.prototype.requestSubmit = vi.fn()
 })
 
-afterEach(() => { application.stop() })
-
+afterEach(() => {
+  application.stop()
+})
 
 describe("#submit", () => {
   describe("with default delay value", () => {
-    beforeEach(() => { setupController() })
+    beforeEach(() => {
+      startStimulus()
 
-    it("should call requestSubmit when submit is called", async () => {
-      const requestSubmitSpy = vi.spyOn(formElement, "requestSubmit")
+      document.body.innerHTML = `
+        <form data-controller="auto-submit">
+          <input type="checkbox" data-action="change->auto-submit#submit" />
+        </form>
+      `
+    })
 
-      const completedCheckbox: HTMLInputElement = document.querySelector("#completed")!
-      completedCheckbox.dispatchEvent(new Event("change"))
+    it("should debounce the requestSubmit call", async () => {
+      const requestSubmitSpy = vi.spyOn(document.querySelector("form"), "requestSubmit")
+      const checkbox: HTMLInputElement = document.querySelector("input")
+
+      checkbox.click()
 
       // Wait for the default debounce to complete
-      await new Promise((resolve) => setTimeout(resolve, 150))
+      await sleep(150)
 
       expect(requestSubmitSpy).toHaveBeenCalledOnce()
     })
   })
-  describe("with delay value set", () => {
-    beforeEach(() => { setupController(200) })
 
-    it("should debounce submit when delayValue is set", async () => {
-      const requestSubmitSpy = vi.spyOn(formElement, "requestSubmit")
+  describe("when delay value is set", () => {
+    beforeEach(() => {
+      startStimulus()
 
-      const completedCheckbox: HTMLInputElement = document.querySelector("#completed")!
+      document.body.innerHTML = `
+        <form data-controller="auto-submit" data-auto-submit-delay-value="0">
+          <input type="checkbox" data-action="change->auto-submit#submit" />
+        </form>
+      `
+    })
 
-      completedCheckbox.dispatchEvent(new Event("change"))
-      completedCheckbox.dispatchEvent(new Event("change"))
+    it("should not debounce the requestSubmit call", async () => {
+      const requestSubmitSpy = vi.spyOn(document.querySelector("form"), "requestSubmit")
+      const checkbox: HTMLInputElement = document.querySelector("input")
 
-      // Wait for the debounce to complete
-      await new Promise((resolve) => setTimeout(resolve, 200))
+      checkbox.click()
 
       expect(requestSubmitSpy).toHaveBeenCalledOnce()
     })
