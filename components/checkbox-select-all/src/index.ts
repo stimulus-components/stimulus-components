@@ -4,8 +4,11 @@ export default class CheckboxSelectAll extends Controller {
   declare readonly hasCheckboxAllTarget: boolean
   declare readonly checkboxTargets: HTMLInputElement[]
   declare readonly checkboxAllTarget: HTMLInputElement
+  declare readonly disableIndeterminateValue: boolean
 
   static targets: string[] = ["checkboxAll", "checkbox"]
+
+  static values = { disableIndeterminate: { type: Boolean, default: false } }
 
   initialize() {
     this.toggle = this.toggle.bind(this)
@@ -50,8 +53,12 @@ export default class CheckboxSelectAll extends Controller {
     const checkboxesCount = this.checkboxTargets.length
     const checkboxesCheckedCount = this.checked.length
 
-    this.checkboxAllTarget.checked = checkboxesCheckedCount > 0
-    this.checkboxAllTarget.indeterminate = checkboxesCheckedCount > 0 && checkboxesCheckedCount < checkboxesCount
+    if (this.disableIndeterminateValue) {
+      this.checkboxAllTarget.checked = checkboxesCheckedCount === checkboxesCount
+    } else {
+      this.checkboxAllTarget.checked = checkboxesCheckedCount > 0
+      this.checkboxAllTarget.indeterminate = checkboxesCheckedCount > 0 && checkboxesCheckedCount < checkboxesCount
+    }
   }
 
   triggerInputEvent(checkbox: HTMLInputElement): void {
