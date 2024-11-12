@@ -1,6 +1,6 @@
 {
   "name": "@stimulus-components/timeago",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "A Stimulus controller that returns the distance between the given date and now in words.",
   "keywords": [
     "stimulus",
@@ -30,7 +30,7 @@
     "version": "pnpm run build"
   },
   "dependencies": {
-    "date-fns": "^3.6.0"
+    "date-fns": "^3.6.0 || ^4"
   },
   "peerDependencies": {
     "@hotwired/stimulus": "^3"
