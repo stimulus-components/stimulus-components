@@ -6,9 +6,14 @@ export default class CheckboxSelectAll extends Controller {
   declare readonly checkboxAllTarget: HTMLInputElement
   declare readonly disableIndeterminateValue: boolean
 
-  static targets: string[] = ["checkboxAll", "checkbox"]
+  static targets = ["checkboxAll", "checkbox"]
 
-  static values = { disableIndeterminate: { type: Boolean, default: false } }
+  static values = {
+    disableIndeterminate: {
+      type: Boolean,
+      default: false,
+    },
+  }
 
   initialize() {
     this.toggle = this.toggle.bind(this)

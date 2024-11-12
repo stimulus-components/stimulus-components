@@ -51,3 +51,25 @@ describe("#refresh", () => {
     expect(toggleCheckbox.indeterminate).toBe(true)
   })
 })
+
+describe("when disabled indeterminate state", () => {
+  beforeEach((): void => {
+    startStimulus()
+
+    document.body.innerHTML = `
+    <form data-controller="checkbox-select-all" data-checkbox-select-all-disable-indeterminate-value="true">
+      <input id="checkbox-select-all" type="checkbox" data-checkbox-select-all-target="checkboxAll" />
+      <input type="checkbox" data-checkbox-select-all-target="checkbox" />
+      <input type="checkbox" data-checkbox-select-all-target="checkbox" checked="checked" />
+      <input type="checkbox" data-checkbox-select-all-target="checkbox" />
+    </form>
+  `
+  })
+
+  it("change the checkboxAll state", (): void => {
+    const toggleCheckbox: HTMLInputElement = document.querySelector("#checkbox-select-all")
+
+    expect(toggleCheckbox.checked).toBe(false)
+    expect(toggleCheckbox.indeterminate).toBe(false)
+  })
+})

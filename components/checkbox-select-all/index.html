@@ -55,6 +55,44 @@
           </table>
         </form>
       </section>
+
+      <section class="mt-16">
+        <form data-controller="checkbox-select-all" data-checkbox-select-all-disable-indeterminate-value="true">
+          <table>
+            <tbody>
+              <tr>
+                <td class="block">
+                  <label>
+                    <input type="checkbox" data-checkbox-select-all-target="checkboxAll" />
+                    <span>Select All / Deselect All</span>
+                  </label>
+                </td>
+
+                <td class="block">
+                  <label>
+                    <input type="checkbox" data-checkbox-select-all-target="checkbox" />
+                    <span>Team 1</span>
+                  </label>
+                </td>
+
+                <td class="block">
+                  <label>
+                    <input type="checkbox" data-checkbox-select-all-target="checkbox" checked="checked" />
+                    <span>Team 2</span>
+                  </label>
+                </td>
+
+                <td class="block">
+                  <label>
+                    <input type="checkbox" data-checkbox-select-all-target="checkbox" />
+                    <span>Team 3</span>
+                  </label>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+      </section>
     </div>
   </body>
 </html>
