@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 import { Chart, registerables, ChartType, ChartOptions, ChartData } from "chart.js"
 
-Chart.register(...registerables);
+Chart.register(...registerables)
 
 export default class Chartjs extends Controller<HTMLCanvasElement> {
   declare canvasTarget: HTMLCanvasElement
