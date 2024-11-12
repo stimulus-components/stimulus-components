@@ -14,6 +14,15 @@ Do not hesitate to contribute to the controllers by adapting or adding features 
 
 Don't forget to drop a 🌟 on [GitHub](https://github.com/stimulus-components/stimulus-components) to support the project.
 
+### Publish a new version
+
+```bash
+$ pnpm run lintfix && pnpm run test
+$ cd components/<specific-package-name>
+$ pnpm version <patch|minor|major>
+$ pnpm publish
+```
+
 ## 📝 License
 
 This project is released under the [MIT](http://opensource.org/licenses/MIT) license.
