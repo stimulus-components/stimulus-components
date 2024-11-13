@@ -3,7 +3,7 @@
     <div data-controller="reveal">
       <button
         id="toggle-button"
-        data-action="click->reveal#toggle"
+        data-action="reveal#toggle"
         type="button"
         class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border rounded shadow"
       >
@@ -16,7 +16,7 @@
     <div data-controller="reveal" class="mt-4">
       <button
         id="toggle-button"
-        data-action="click->reveal#hide"
+        data-action="reveal#hide"
         type="button"
         class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border rounded shadow"
       >
@@ -29,7 +29,7 @@
     <div data-controller="reveal" class="mt-4">
       <button
         id="toggle-button"
-        data-action="click->reveal#show"
+        data-action="reveal#show"
         type="button"
         class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border rounded shadow"
       >
