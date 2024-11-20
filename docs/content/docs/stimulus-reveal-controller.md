@@ -21,7 +21,7 @@ packagePath: "@stimulus-components/reveal"
 
 ```html
 <div data-controller="reveal" data-reveal-hidden-class="d-none">
-  <button data-action="click->reveal#toggle" type="button" class="btn">Toggle me!</button>
+  <button data-action="reveal#toggle" type="button" class="btn">Toggle me!</button>
 
   <p data-reveal-target="item" class="d-none mt-4">Hey 👋</p>
   <p data-reveal-target="item" class="d-none mt-4">You can have multiple items</p>
@@ -36,7 +36,7 @@ packagePath: "@stimulus-components/reveal"
 
 ```html
 <div data-controller="reveal">
-  <button data-action="click->reveal#show" type="button" class="btn">Show me!</button>
+  <button data-action="reveal#show" type="button" class="btn">Show me!</button>
 
   <p data-reveal-target="item" class="hidden mt-4">Hey 👋</p>
 </div>
@@ -50,7 +50,7 @@ packagePath: "@stimulus-components/reveal"
 
 ```html
 <div data-controller="reveal">
-  <button data-action="click->reveal#hide" type="button" class="btn">Hide me!</button>
+  <button data-action="reveal#hide" type="button" class="btn">Hide me!</button>
 
   <p data-reveal-target="item" class="mt-4">Hey 👋</p>
 </div>
