@@ -1,6 +1,14 @@
 <template>
-  <nav class="shadow sticky top-0 z-50 bg-white dark:bg-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" :class="{ shadow: isMobileNavOpen }">
+  <nav
+    :class="[
+      'z-50 bg-white dark:bg-slate-800',
+      {
+        'absolute top-6 left-12 right-12 shadow-lg rounded-xl': isHome,
+        'sticky top-0 shadow': !isHome,
+      },
+    ]"
+  >
+    <div class="px-4 sm:px-6 lg:px-8" :class="{ shadow: isMobileNavOpen }">
       <div class="flex justify-between h-16">
         <div class="flex w-full gap-2 md:gap-8 items-center">
           <div class="flex items-center md:hidden">
@@ -81,6 +89,8 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline"
 
 const route = useRoute()
 const isMobileNavOpen = ref(false)
+const isHome = ref(false)
+
 const links = [
   { title: "Docs", url: "/docs/" },
   { title: "Sponsors", url: "/sponsors/" },
@@ -100,6 +110,8 @@ watch(
   () => route.fullPath,
   () => {
     isMobileNavOpen.value = false
+    isHome.value = route.path === "/"
   },
+  { immediate: true },
 )
 </script>

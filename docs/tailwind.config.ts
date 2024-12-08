@@ -1,9 +1,19 @@
+import typography from "@tailwindcss/typography"
+import type { PluginAPI } from "tailwindcss/types/config"
+
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: "class",
   theme: {
     extend: {
-      typography: (theme) => ({
+      colors: {
+        primary: "#383241",
+        secondary: "#FFD99C",
+        "text-secondary": "#8B89A9",
+        tertiary: "#B1FFBE",
+        "surface-primary": "#D0CEFD",
+      },
+      typography: (theme: PluginAPI["theme"]) => ({
         DEFAULT: {
           css: {
             a: {
@@ -33,5 +43,5 @@ export default {
       }),
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [typography],
 }

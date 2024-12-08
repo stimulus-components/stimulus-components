@@ -19,7 +19,7 @@ Because the controller's class is the default export, you can import it with the
 
 Install the package:
 
-::code-block{tabName="Terminal"}
+::code-block
 
 ```bash
 $ yarn add @stimulus-components/character-counter
@@ -51,7 +51,7 @@ See: [Official Stimulus installation guide with this approach](https://stimulus.
 
 Add the package in your `importmap.rb` configuration file:
 
-::code-block{tabName="Terminal"}
+::code-block
 
 ```bash
 $ bin/importmap pin @stimulus-components/character-counter
@@ -97,7 +97,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 Install the package:
 
-::code-block{tabName="Terminal"}
+::code-block
 
 ```bash
 $ yarn add @stimulus-components/character-counter

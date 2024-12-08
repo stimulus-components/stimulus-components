@@ -60,7 +60,7 @@
       </p>
     </div>
 
-    <TimecopCTA></TimecopCTA>
+    <TimecopCTA />
   </div>
 </template>
 

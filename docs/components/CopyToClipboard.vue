@@ -1,11 +1,13 @@
 <template>
-  <button
-    class="rounded-md text-sm p-2 text-gray-500 dark:text-white dark:hover:text-gray-300 hover:text-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
-    @click.prevent="copyToClipboard"
-  >
-    <ClipboardDocumentCheckIcon v-if="copying" class="size-5" />
-    <ClipboardDocumentIcon v-else class="size-5" />
-  </button>
+  <div class="flex justify-end">
+    <button
+      class="rounded-md text-sm p-2 text-gray-500 dark:text-white dark:hover:text-gray-300 hover:text-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+      @click.prevent="copyToClipboard"
+    >
+      <ClipboardDocumentCheckIcon v-if="copying" class="size-5" />
+      <ClipboardDocumentIcon v-else class="size-5" />
+    </button>
+  </div>
 </template>
 
 <script setup>

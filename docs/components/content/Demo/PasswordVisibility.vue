@@ -2,12 +2,12 @@
   <Block title="Password Visibility">
     <div data-controller="password-visibility">
       <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-      <div class="md:w-1/2 mt-1 relative rounded-md shadow-sm">
+      <div class="mt-1 relative rounded-md shadow-sm">
         <input
           id="password"
           type="password"
           name="password"
-          class="focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2 pr-10 sm:text-sm border-gray-300 rounded-md"
+          class="focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2 pr-10 sm:text-sm border border-gray-300 rounded-md"
           placeholder="Your password"
           value="my-super-secret-password"
           data-password-visibility-target="input"

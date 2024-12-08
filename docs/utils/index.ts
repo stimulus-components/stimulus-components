@@ -1,3 +1,5 @@
+import markdownParser from "@nuxt/content/transformers/markdown"
+
 export function capitalize(text) {
   return text.charAt(0).toUpperCase() + text.slice(1)
 }
@@ -17,4 +19,13 @@ export function formatCompactNumber(number) {
 
 export function prettyNumber(number) {
   return new Intl.NumberFormat("en-US", { maximumSignificantDigits: 4 }).format(number)
+}
+
+export async function codeToMarkdown(content: string, language = "html") {
+  return markdownParser.parse(
+    null,
+    `\`\`\`${language}
+${content.trim()}
+\`\`\`\``,
+  )
 }
