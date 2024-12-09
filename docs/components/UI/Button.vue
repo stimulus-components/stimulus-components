@@ -3,7 +3,7 @@
     :href="href"
     :target="target"
     :class="[
-      'inline-flex items-center justify-center gap-1 px-8 py-3 rounded-xl text-base font-medium md:py-4 md:text-lg md:px-10',
+      'z-20 inline-flex items-center justify-center gap-1 px-8 py-3 rounded-xl text-base font-medium md:py-4 md:text-lg md:px-10',
       variantClasses,
     ]"
   >

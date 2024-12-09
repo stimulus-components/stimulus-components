@@ -1,5 +1,5 @@
 <template>
-  <div class="py-16 mx-auto max-w-7xl px-6 lg:px-8">
+  <div class="py-16 mx-auto max-w-7xl px-6">
     <div class="mx-auto max-w-2xl text-center">
       <div class="inline-flex rounded-full p-0.5 -rotate-2 bg-gradient-to-tr from-surface-primary to-secondary">
         <h2 class="bg-white relative rounded-full px-3 py-1 text-sm leading-6 text-primary backdrop-blur-sm">

@@ -29,7 +29,7 @@
             Timecop is a time tracking app that brings simplicity in your day to day life.
           </p>
 
-          <div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
+          <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 lg:justify-start">
             <UIButton
               href="https://www.timecop-app.com/?utm_source=stimulus-components&utm_medium=cta"
               variant="secondary"

@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-secondary pt-12 sm:pt-16 -mx-4">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="bg-secondary pt-12 sm:pt-16">
+    <div class="max-w-7xl mx-auto px-6">
       <div class="max-w-4xl mx-auto text-center">
         <h2 class="text-3xl sm:text-4xl font-extrabold text-primary dark:text-white">Numbers speak for themselves</h2>
 

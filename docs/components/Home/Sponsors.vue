@@ -1,36 +1,40 @@
 <template>
-  <div class="py-24 sm:py-32 bg-surface-primary -mx-4">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8 grid sm:grid-cols-2 gap-8">
-      <div class="flex flex-col gap-6 items-start justify-center">
-        <h2 class="text-5xl font-bold leading-8 text-primary dark:text-white">Sponsors</h2>
+  <div class="bg-surface-primary">
+    <SponsorsLines />
 
-        <p class="text-text-secondary font-light leading-8">
-          Stimulus Component is an MIT licensed open source project and completely free to use. However, the amount of
-          effort needed to maintain and develop new features for the project is not sustainable without proper financial
-          backing. You can support Stimulus Components development on GitHub Sponsors.
-        </p>
+    <div class="relative py-16 -mx-4">
+      <div class="mx-auto max-w-7xl px-10 grid sm:grid-cols-2 gap-8">
+        <div class="flex flex-col gap-6 items-start justify-center">
+          <h2 class="text-5xl font-bold leading-8 text-primary dark:text-white">Sponsors</h2>
 
-        <UIButton href="https://github.com/sponsors/stimulus-components">Become a sponsor</UIButton>
-      </div>
+          <p class="text-text-secondary font-light leading-8">
+            Stimulus Component is an MIT licensed open source project and completely free to use. However, the amount of
+            effort needed to maintain and develop new features for the project is not sustainable without proper
+            financial backing. You can support Stimulus Components development on GitHub Sponsors.
+          </p>
 
-      <div class="flex flex-col gap-6">
-        <div v-for="(sponsor, index) in sponsors" :key="sponsor.name">
-          <a :href="sponsor.url" target="_blank" rel="noopener noreferrer">
-            <img
-              :src="`/sponsors/${sponsor.src}`"
-              :alt="sponsor.name"
-              :class="[
-                'max-h-12 w-full object-contain',
-                {
-                  'sm:rotate-6': index === 0,
-                  'sm:rotate-3': index === 1,
-                  'sm:-rotate-3': index === 3,
-                  'sm:-rotate-6': index === 4,
-                },
-              ]"
-              loading="lazy"
-            />
-          </a>
+          <UIButton href="https://github.com/sponsors/stimulus-components">Become a sponsor</UIButton>
+        </div>
+
+        <div class="flex flex-col gap-6">
+          <div v-for="(sponsor, index) in sponsors" :key="sponsor.name">
+            <a :href="sponsor.url" target="_blank" rel="noopener noreferrer">
+              <img
+                :src="`/sponsors/${sponsor.src}`"
+                :alt="sponsor.name"
+                :class="[
+                  'max-h-10 w-full object-contain',
+                  {
+                    'sm:rotate-6': index === 0,
+                    'sm:rotate-3': index === 1,
+                    'sm:-rotate-3': index === 3,
+                    'sm:-rotate-6': index === 4,
+                  },
+                ]"
+                loading="lazy"
+              />
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -38,6 +42,8 @@
 </template>
 
 <script setup>
+import SponsorsLines from "@/components/Home/SponsorsLines.vue"
+
 const sponsors = [
   {
     name: "SpendHQ",
@@ -46,7 +52,7 @@ const sponsors = [
   },
   {
     name: "Maybe",
-    src: "maybe.png",
+    src: "maybe.svg",
     url: "https://maybe.co/",
   },
   {

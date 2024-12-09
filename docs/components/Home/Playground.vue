@@ -1,5 +1,5 @@
 <template>
-  <div class="py-16 mx-auto max-w-6xl">
+  <div class="py-16 mx-auto max-w-6xl px-6">
     <h2 class="text-text-secondary text-2xl text-center">Import your design</h2>
 
     <div class="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-16 mt-12">
@@ -33,7 +33,9 @@
       <component :is="selectedTab?.component" />
     </div>
 
-    <ComponentsMoreButton />
+    <div class="mt-12 flex justify-center">
+      <UIButton href="/docs" variant="tertiary">Explore 25+ components</UIButton>
+    </div>
   </div>
 </template>
 
@@ -41,7 +43,6 @@
 import PlaygroundSimple from "@/components/Home/Playground/PlaygroundSimple.vue"
 import PlaygroundBrutalist from "@/components/Home/Playground/PlaygroundBrutalist.vue"
 import PlaygroundPlayful from "@/components/Home/Playground/PlaygroundPlayful.vue"
-import ComponentsMoreButton from "@/components/Home/ComponentsMoreButton.vue"
 import { Square2StackIcon, SwatchIcon, CubeIcon } from "@heroicons/vue/24/outline"
 
 const selectedIndex = ref(1)
