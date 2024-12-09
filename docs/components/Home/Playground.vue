@@ -1,8 +1,8 @@
 <template>
-  <div class="py-24 sm:py-32 mx-auto max-w-6xl">
+  <div class="py-16 mx-auto max-w-6xl">
     <h2 class="text-text-secondary text-2xl text-center">Import your design</h2>
 
-    <div class="flex justify-center gap-16 mt-12">
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-16 mt-12">
       <button
         v-for="(tab, index) in tabs"
         :key="index"

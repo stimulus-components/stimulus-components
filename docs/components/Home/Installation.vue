@@ -1,8 +1,10 @@
 <template>
   <div
-    class="prose dark:prose-invert prose-pre:mt-0 prose-pre:rounded-t-none prose-pre:rounded-b-xl prose-pre:mb-0 prose-h3:mt-0 py-16 max-w-6xl mx-auto pb-20"
+    class="prose dark:prose-invert prose-pre:mt-0 prose-pre:rounded-t-none prose-pre:rounded-b-xl prose-pre:mb-0 prose-h3:mt-0 py-16 max-w-6xl mx-auto"
   >
-    <h2 class="text-primary text-2xl text-center">Completely unstyled, UI agnostic</h2>
+    <h2 class="text-4xl font-bold leading-8 tracking-tight text-primary text-center">
+      Completely unstyled, UI agnostic
+    </h2>
 
     <div class="grid md:grid-cols-2 gap-12 bg-[#F6F5FF] p-5 rounded-3xl">
       <div>

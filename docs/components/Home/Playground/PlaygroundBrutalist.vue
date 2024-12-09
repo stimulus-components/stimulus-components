@@ -21,7 +21,7 @@ const content = `
 <div
   data-controller="clipboard"
   data-clipboard-success-content-value="<strong>Copied!</strong>"
-  class="flex items-center justify-between gap-2"
+  class="flex flex-col sm:flex-row items-center justify-between gap-2"
 >
   <input
     type="text"

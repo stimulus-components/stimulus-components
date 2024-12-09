@@ -1,12 +1,10 @@
 <template>
   <div class="py-16 bg-[#FAFAFA] -mx-4">
-    <div class="mx-auto max-w-6xl">
-      <div class="mx-auto px-6 lg:px-8">
-        <div class="mx-auto max-w-xl text-center">
-          <h2 class="text-4xl font-bold leading-8 tracking-tight text-primary">Several types of components</h2>
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="text-center">
+        <h2 class="text-4xl font-bold leading-8 tracking-tight text-primary">Several types of components</h2>
 
-          <p class="mt-3 text-text-secondary font-medium sm:mt-4">Several Stimulus components, several fonctions</p>
-        </div>
+        <p class="text-text-secondary font-light leading-8 mt-3">Several Stimulus components, several fonctions</p>
       </div>
 
       <ul class="mt-16 grid items-stretch gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

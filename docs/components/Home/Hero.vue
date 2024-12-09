@@ -1,22 +1,18 @@
 <template>
-  <div class="bg-surface-primary">
-    <div class="relative px-6 pt-14 lg:px-8">
-      <div class="mx-auto text-center max-w-2xl py-16">
-        <div class="inline-flex rounded-full p-0.5 rotate-2 bg-gradient-to-tr from-tertiary to-secondary">
-          <h1 class="bg-white relative rounded-full px-3 py-1 text-sm leading-6 text-primary backdrop-blur-sm">
-            Stimulus Components
-          </h1>
-        </div>
+  <div class="bg-surface-primary pt-40 pb-16">
+    <div class="relative px-6 lg:px-8 mx-auto text-center max-w-2xl">
+      <div class="inline-flex rounded-full p-0.5 rotate-2 bg-gradient-to-tr from-tertiary to-secondary">
+        <h1 class="bg-white relative rounded-full px-3 py-1 text-sm leading-6 text-primary backdrop-blur-sm">
+          Stimulus Components
+        </h1>
+      </div>
 
-        <div class="text-center">
-          <h2 class="mt-6 text-5xl font-extrabold leading-16 text-primary text-balance">
-            Library style-free with built-in behavior
-          </h2>
+      <div class="mt-6 mb-16 text-center text-primary">
+        <h2 class="text-5xl font-extrabold leading-16 text-balance">Library style-free with built-in behavior</h2>
 
-          <p class="text-primary">
-            Stimulus Components is an open-source set of StimulusJS controllers to solve common patterns.
-          </p>
-        </div>
+        <p class="text-text-secondary font-light leading-6 mt-4">
+          Stimulus Components is an open-source set of StimulusJS controllers to solve common patterns.
+        </p>
       </div>
     </div>
 
@@ -42,12 +38,12 @@
       </div>
     </div>
 
-    <div class="py-12 sm:flex sm:justify-center">
+    <div class="py-12 flex flex-col sm:flex-row items-center justify-center gap-4">
       <div>
         <UIButton variant="tertiary" href="/docs">Get started</UIButton>
       </div>
 
-      <div class="mt-3 sm:mt-0 sm:ml-3">
+      <div class="">
         <UIButton href="https://github.com/stimulus-components/stimulus-components" target="_blank">
           <GithubIcon />
 
