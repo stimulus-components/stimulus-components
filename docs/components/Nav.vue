@@ -3,7 +3,7 @@
     :class="[
       'z-50 bg-white dark:bg-slate-800',
       {
-        'absolute top-6 left-12 right-12 shadow-lg rounded-xl': isHome,
+        'absolute top-6 left-4 sm:left-12 right-4 sm:right-12 shadow-lg rounded-xl': isHome,
         'sticky top-0 shadow': !isHome,
       },
     ]"

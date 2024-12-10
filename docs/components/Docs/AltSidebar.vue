@@ -19,7 +19,7 @@
 import { PencilSquareIcon, StarIcon, HeartIcon } from "@heroicons/vue/24/outline"
 
 const route = useRoute()
-const links = [
+const links = ref([
   {
     title: "Edit this page",
     icon: PencilSquareIcon,
@@ -27,5 +27,5 @@ const links = [
   },
   { title: "Star on GitHub", icon: StarIcon, path: "https://github.com/stimulus-components/stimulus-components" },
   { title: "Become a sponsor", icon: HeartIcon, path: "https://github.com/sponsors/stimulus-components" },
-]
+])
 </script>

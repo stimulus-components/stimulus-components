@@ -3,7 +3,7 @@
     <div class="relative overflow-hidden">
       <HomeHero />
 
-      <main class="px-4 py-8 lg:relative">
+      <main>
         <HomeInstallation />
         <HomePlayground />
 

@@ -1,8 +1,8 @@
 <template>
-  <div class="py-24 sm:py-32 mx-auto max-w-6xl">
+  <div class="pb-16 mx-auto max-w-6xl px-4">
     <h2 class="text-text-secondary text-2xl text-center">Import your design</h2>
 
-    <div class="flex justify-center gap-16 mt-12">
+    <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-16 mt-12">
       <button
         v-for="(tab, index) in tabs"
         :key="index"
@@ -12,7 +12,7 @@
         @click.prevent="selectedIndex = index"
       >
         <span class="flex items-center gap-2 px-5">
-          <component :is="tab.icon" class="size-8" :class="tab.iconClass" />
+          <component :is="tab.icon" :class="tab.iconClass" />
 
           {{ tab.label }}
         </span>
@@ -33,7 +33,9 @@
       <component :is="selectedTab?.component" />
     </div>
 
-    <ComponentsMoreButton />
+    <div class="mt-12 flex justify-center">
+      <UIButton href="/docs" variant="tertiary">Getting started</UIButton>
+    </div>
   </div>
 </template>
 
@@ -41,27 +43,28 @@
 import PlaygroundSimple from "@/components/Home/Playground/PlaygroundSimple.vue"
 import PlaygroundBrutalist from "@/components/Home/Playground/PlaygroundBrutalist.vue"
 import PlaygroundPlayful from "@/components/Home/Playground/PlaygroundPlayful.vue"
-import ComponentsMoreButton from "@/components/Home/ComponentsMoreButton.vue"
-import { Square2StackIcon, SwatchIcon, CubeIcon } from "@heroicons/vue/24/outline"
+import BrutalistIcon from "@/components/Icons/BrutalistIcon.vue"
+import PlayfulIcon from "@/components/Icons/PlayfulIcon.vue"
+import SimpleIcon from "@/components/Icons/SimpleIcon.vue"
 
 const selectedIndex = ref(1)
 const tabs = [
   {
     label: "Simple",
     component: PlaygroundSimple,
-    icon: Square2StackIcon,
+    icon: SimpleIcon,
     iconClass: "text-gray-400",
   },
   {
     label: "Brutalist",
     component: PlaygroundBrutalist,
-    icon: CubeIcon,
+    icon: BrutalistIcon,
     iconClass: "text-teal-400",
   },
   {
     label: "Playful",
     component: PlaygroundPlayful,
-    icon: SwatchIcon,
+    icon: PlayfulIcon,
     iconClass: "text-pink-400",
   },
 ]

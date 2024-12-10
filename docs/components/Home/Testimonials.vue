@@ -1,19 +1,17 @@
 <template>
-  <div class="py-16 mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="mx-auto max-w-2xl text-center">
-      <div class="inline-flex rounded-full p-0.5 -rotate-2 bg-gradient-to-tr from-surface-primary to-secondary">
-        <h2 class="bg-white relative rounded-full px-3 py-1 text-sm leading-6 text-primary backdrop-blur-sm">
-          Testimonials
-        </h2>
-      </div>
-
-      <p class="mt-2 text-3xl font-bold tracking-tight text-primary dark:text-white sm:text-4xl">
-        See what other developers are saying about it!
-      </p>
+  <div class="pt-16 mx-auto max-w-6xl px-4 text-center">
+    <div class="inline-flex rounded-full p-0.5 -rotate-2 bg-gradient-to-tr from-surface-primary to-secondary">
+      <h2 class="bg-white relative rounded-full px-3 py-1 text-sm leading-6 text-primary backdrop-blur-sm">
+        Testimonials
+      </h2>
     </div>
 
-    <div class="mx-auto mt-16 flow-root max-w-2xl sm:mt-20 lg:mx-0 lg:max-w-none">
-      <div class="-mt-8 sm:-mx-4 sm:columns-2 lg:columns-3">
+    <p class="text-4xl font-bold leading-8 tracking-tight text-primary mt-2">
+      See what other developers are saying about it!
+    </p>
+
+    <div class="text-left mt-8">
+      <div class="sm:-mx-4 sm:columns-2 lg:columns-3">
         <div
           v-for="(testimonial, index) in testimonials"
           :key="testimonial.author"
@@ -101,6 +99,13 @@ const testimonials = [
       "From time to time I need to apply a common pattern that I haven't yet built with Stimulus. Stimulus Components has it already! The components are polished, easy to implement, and the docs are great!",
     username: "adrianthedev",
     job: "Creator of @avo_hq",
+  },
+  {
+    author: "Adrian Siami",
+    content:
+      "Inspiring and smart stimulus controllers that will get you a head start, a great toolbox for any sensible developer!",
+    username: "intrepidd",
+    job: "Open source contributor",
   },
 ]
 </script>

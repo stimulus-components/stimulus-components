@@ -1,31 +1,25 @@
 <template>
-  <div class="bg-secondary pt-12 sm:pt-16 -mx-4">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-primary dark:text-white">Numbers speak for themselves</h2>
+  <div class="bg-secondary py-12">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-4xl font-bold leading-8 tracking-tight text-primary text-center">Numbers speak for themselves</h2>
 
-        <p class="mt-3 text-xl text-primary font-medium sm:mt-4">
-          Stimulus Components is the library of choice when you are working with Stimulus JS.
-        </p>
-      </div>
-    </div>
+      <p class="text-primary font-light leading-8 mt-3 text-center">
+        Stimulus Components is the library of choice when you are working with Stimulus JS.
+      </p>
 
-    <div class="mt-10 pb-12 sm:pb-16">
-      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-4xl mx-auto">
-          <dl class="grid md:grid-cols-3 gap-8">
-            <div
-              v-for="stat in stats"
-              :key="stat.title"
-              class="flex flex-col bg-white dark:bg-slate-900 rounded-3xl dark:border-slate-800 p-6 text-center text-primary border border-surface-primary"
-            >
-              <dt class="order-2 mt-2 text-lg leading-6 font-medium">{{ stat.title }}</dt>
-              <dd class="order-1 text-4xl font-extrabold">
-                {{ stat.count }}
-              </dd>
-            </div>
-          </dl>
-        </div>
+      <div class="mt-10 max-w-4xl mx-auto">
+        <dl class="grid md:grid-cols-3 gap-8">
+          <div
+            v-for="stat in stats"
+            :key="stat.title"
+            class="flex flex-col bg-white dark:bg-slate-900 rounded-3xl dark:border-slate-800 p-6 text-center text-primary border border-surface-primary"
+          >
+            <dt class="order-2 mt-2 text-lg leading-6 font-medium">{{ stat.title }}</dt>
+            <dd class="order-1 text-4xl font-extrabold">
+              {{ stat.count }}
+            </dd>
+          </div>
+        </dl>
       </div>
     </div>
   </div>
