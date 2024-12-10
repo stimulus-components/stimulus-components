@@ -1,5 +1,5 @@
 <template>
-  <Block title="Character Counter">
+  <Block title="Character Counter" :is-home="isHome">
     <div data-controller="character-counter">
       <textarea
         data-character-counter-target="input"
@@ -16,4 +16,11 @@
 
 <script setup>
 import Block from "@/components/UI/Block.vue"
+
+defineProps({
+  isHome: {
+    type: Boolean,
+    default: false,
+  },
+})
 </script>

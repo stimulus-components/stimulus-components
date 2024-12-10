@@ -7,25 +7,29 @@
       >
         <h3 class="text-sm font-semibold text-gray-800 dark:text-gray-200">Install the package</h3>
 
-        <CodeBlock copy-to-clipboard>
-          <ContentRenderer
-            :filename="tabs.yarn.filename"
-            :value="tabs.yarn.markdownContent"
-            :clipboard-content="tabs.yarn.installCommand"
-            icon="Terminal"
-          />
-          <ContentRenderer
-            :filename="tabs.npm.filename"
-            :value="tabs.npm.markdownContent"
-            :clipboard-content="tabs.npm.installCommand"
-            icon="Terminal"
-          />
-          <ContentRenderer
-            :filename="tabs.importmaps.filename"
-            :value="tabs.importmaps.markdownContent"
-            :clipboard-content="tabs.importmaps.installCommand"
-            icon="Terminal"
-          />
+        <div class="flex gap-6 mt-6">
+          <button
+            v-for="(tab, index) in tabs"
+            :key="index"
+            type="button"
+            tabindex="-1"
+            :class="[
+              'flex items-center gap-2 mb-2 pb-2 border-b-2',
+              {
+                'border-transparent': index !== selectedIndex,
+                'border-orange-500': index === selectedIndex,
+              },
+            ]"
+            @click.prevent="selectedIndex = index"
+          >
+            <component :is="tab.icon" class="size-4" :class="tab.iconClass" />
+
+            {{ tab.filename }}
+          </button>
+        </div>
+
+        <CodeBlock :clipboard-content="selectedTab.installCommand" icon="Terminal">
+          <ContentRenderer :value="selectedTab.markdownContent" />
         </CodeBlock>
       </li>
 
@@ -46,8 +50,11 @@
 </template>
 
 <script setup>
-import markdownParser from "@nuxt/content/transformers/markdown"
-import { toPascalCase } from "@/utils"
+import { codeToMarkdown, toPascalCase } from "@/utils"
+import YarnIcon from "@/components/Icons/YarnIcon.vue"
+import NpmIcon from "@/components/Icons/NpmIcon.vue"
+import BunIcon from "@/components/Icons/BunIcon.vue"
+import PnpmIcon from "@/components/Icons/PnpmIcon.vue"
 
 const props = defineProps({
   package: {
@@ -68,48 +75,48 @@ const props = defineProps({
   },
 })
 
-const getInstallMarkdown = async (installCommand) => {
-  return markdownParser.parse(
-    null,
-    `\`\`\`bash
-$ ${installCommand}
-\`\`\``,
-  )
-}
-
 const getTabMarkdown = async (prefix) => {
   const installCommand = `${prefix} ${props.packagePath} ${props.extraPackages}`
 
   return {
     installCommand,
-    markdownContent: await getInstallMarkdown(installCommand),
+    markdownContent: await codeToMarkdown(`$ ${installCommand}`, "bash"),
   }
 }
 
-const tabs = {
-  yarn: {
+const selectedIndex = ref(0)
+const tabs = [
+  {
     filename: "yarn",
     ...(await getTabMarkdown("yarn add")),
+    icon: YarnIcon,
   },
-  npm: {
+  {
     filename: "npm",
     ...(await getTabMarkdown("npm install")),
+    icon: NpmIcon,
   },
-  importmaps: {
-    filename: "importmaps",
-    ...(await getTabMarkdown("bin/importmap pin")),
+  {
+    filename: "pnpm",
+    ...(await getTabMarkdown("pnpm add")),
+    icon: PnpmIcon,
   },
-}
+  {
+    filename: "bun",
+    ...(await getTabMarkdown("bun add")),
+    icon: BunIcon,
+  },
+]
+const selectedTab = computed(() => tabs.find((_, index) => index === selectedIndex.value))
 
 const className = toPascalCase(props.package)
-const importMarkdown = await markdownParser.parse(
-  null,
-  `\`\`\`js
+const content = `
 import { Application } from '@hotwired/stimulus'
 import ${className} from '${props.packagePath}'
 
 const application = Application.start()
 application.register('${props.controllerName || props.package}', ${className})
-\`\`\``,
-)
+`
+
+const importMarkdown = await codeToMarkdown(content, "js")
 </script>
