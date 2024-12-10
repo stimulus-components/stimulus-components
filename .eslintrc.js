@@ -16,7 +16,7 @@ module.exports = {
     google: true,
   },
   // https://github.com/standard/standard/blob/master/docs/RULES-en.md
-  extends: ["standard", "@nuxt/eslint-config", "prettier"],
+  extends: ["@nuxt/eslint-config", "plugin:prettier/recommended"],
   rules: {
     "vue/multi-word-component-names": "off",
     "vue/no-reserved-component-names": "off",
