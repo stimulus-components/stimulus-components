@@ -91,5 +91,11 @@ const testimonials = [
     username: "cbldev",
     job: "Founder of Dilolabs",
   },
+  {
+    author: "Yaroslav Shmarov",
+    content: "Don't reinvent the wheel. Use Stimulus Components. I use them in all my projects.",
+    username: "yarotheslav",
+    job: "Founder of SupeRails.com",
+  },
 ]
 </script>
