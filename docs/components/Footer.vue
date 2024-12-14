@@ -1,16 +1,16 @@
 <template>
   <footer class="overflow-hidden">
     <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-      <nav class="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
+      <nav class="-mx-5 -my-2 flex flex-wrap justify-center">
         <div v-for="link in links" :key="link.title" class="px-5 py-2">
-          <NuxtLink :to="link.path" class="text-base text-gray-500 hover:text-gray-900">
+          <NuxtLink :to="link.path" class="text-base text-primary dark:text-text-secondary-dark">
             {{ link.title }}
           </NuxtLink>
         </div>
       </nav>
 
       <div class="mt-8 flex justify-center space-x-6">
-        <a href="https://twitter.com/guillaumebriday" class="text-gray-400 hover:text-gray-500">
+        <a href="https://twitter.com/guillaumebriday" class="text-primary dark:text-text-secondary-dark">
           <span class="sr-only">Twitter</span>
           <svg class="size-5" fill="currentColor" viewBox="0 0 512 512">
             <path
@@ -21,13 +21,13 @@
           </svg>
         </a>
 
-        <a href="https://github.com/stimulus-components" class="text-gray-400 hover:text-gray-500">
+        <a href="https://github.com/stimulus-components" class="text-primary dark:text-text-secondary-dark">
           <span class="sr-only">GitHub</span>
           <GithubIcon />
         </a>
       </div>
 
-      <p class="mt-8 text-center text-base text-gray-400">
+      <p class="mt-8 text-center text-base text-text-secondary">
         &copy; {{ new Date().getFullYear() }} Stimulus Components. By
         <a href="https://guillaumebriday.fr" class="underline hover:no-underline" target="_blank">Guillaume Briday</a>.
       </p>

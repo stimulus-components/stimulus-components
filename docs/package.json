@@ -9,16 +9,16 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@docsearch/css": "^3.6.1",
-    "@docsearch/js": "^3.6.1",
-    "@heroicons/vue": "^2.1.5",
+    "@docsearch/css": "^3.8.0",
+    "@docsearch/js": "^3.8.0",
+    "@heroicons/vue": "^2.2.0",
     "@hotwired/stimulus": "^3.2.2",
-    "@nuxt/content": "^2.13.2",
+    "@nuxt/content": "^2.13.4",
     "@nuxtjs/algolia": "^1.10.2",
-    "@nuxtjs/color-mode": "^3.4.2",
-    "@nuxtjs/plausible": "^1.0.1",
+    "@nuxtjs/color-mode": "^3.5.2",
+    "@nuxtjs/plausible": "^1.2.0",
     "@nuxtjs/robots": "^3.0.0",
-    "@nuxtjs/tailwindcss": "^6.12.1",
+    "@nuxtjs/tailwindcss": "^6.12.2",
     "@stimulus-components/animated-number": "workspace:*",
     "@stimulus-components/carousel": "workspace:*",
     "@stimulus-components/character-counter": "workspace:*",
@@ -43,11 +43,12 @@
     "@stimulus-components/sound": "workspace:*",
     "@stimulus-components/timeago": "workspace:*",
     "@tailwindcss/typography": "^0.5.15",
-    "core-js": "^3.38.0",
-    "nuxt": "^3.13.2"
+    "core-js": "^3.39.0",
+    "nuxt": "^3.14.1592",
+    "yaml": "^2.6.1"
   },
   "devDependencies": {
     "@rails/ujs": "7.1.3-4",
-    "postcss-html": "^1.5.0"
+    "postcss-html": "^1.7.0"
   }
 }

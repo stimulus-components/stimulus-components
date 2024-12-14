@@ -1,9 +1,34 @@
+import colors from "tailwindcss/colors"
+import typography from "@tailwindcss/typography"
+import type { PluginAPI } from "tailwindcss/types/config"
+
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: "class",
   theme: {
     extend: {
-      typography: (theme) => ({
+      colors: {
+        primary: {
+          DEFAULT: "#383241",
+          dark: colors.slate["200"],
+        },
+        secondary: {
+          DEFAULT: "#FFD99C",
+          dark: "#FFD99C",
+        },
+        "text-secondary": {
+          DEFAULT: "#8B89A9",
+          dark: "#D0CEFD",
+        },
+        tertiary: {
+          DEFAULT: "#B1FFBE",
+        },
+        "surface-primary": {
+          DEFAULT: "#D0CEFD",
+          dark: colors.slate["900"],
+        },
+      },
+      typography: (theme: PluginAPI["theme"]) => ({
         DEFAULT: {
           css: {
             a: {
@@ -33,5 +58,5 @@ export default {
       }),
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [typography],
 }

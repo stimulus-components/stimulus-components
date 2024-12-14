@@ -1,10 +1,29 @@
 <template>
   <li>
     <div
-      class="group relative before:absolute before:-inset-2.5 before:rounded-[20px] before:bg-gray-50 dark:before:bg-slate-500 before:opacity-0 hover:before:opacity-100"
+      class="relative h-full flex flex-col justify-end bg-white dark:bg-surface-primary-dark p-5 rounded-2xl drop-shadow-xl"
     >
+      <img
+        :src="`/components/stimulus-${component.package}.svg`"
+        :alt="component.title"
+        class="mb-3 size-8"
+        loading="lazy"
+      />
+
+      <h4 class="text-lg font-bold text-primary dark:text-primary-dark group-hover:text-orange-600">
+        <NuxtLink :to="component._path">
+          <span class="absolute -inset-2.5 z-10"></span>
+
+          <span class="relative">{{ component.title }}</span>
+        </NuxtLink>
+      </h4>
+
+      <p class="grow relative my-2 text-xs font-medium text-text-secondary dark:text-text-secondary-dark">
+        {{ component.description }}
+      </p>
+
       <div
-        class="dark:bg-slate-600 relative aspect-[2/1] overflow-hidden rounded-lg bg-gray-50 ring-1 ring-gray-900/10"
+        class="dark:bg-slate-800 relative aspect-[2/1] overflow-hidden rounded-lg bg-gray-50 ring-1 ring-gray-900/10"
       >
         <img
           :src="`/components/stimulus-${component.package}.png`"
@@ -13,16 +32,6 @@
           loading="lazy"
         />
       </div>
-
-      <h4 class="mt-4 text-sm font-medium text-slate-900 dark:text-gray-300 group-hover:text-orange-600">
-        <NuxtLink :to="component._path">
-          <span class="absolute -inset-2.5 z-10"></span>
-
-          <span class="relative">{{ component.title }}</span>
-        </NuxtLink>
-      </h4>
-
-      <p class="relative mt-1.5 text-xs font-medium text-slate-500 dark:text-slate-300">{{ component.description }}</p>
     </div>
   </li>
 </template>

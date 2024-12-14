@@ -10,7 +10,7 @@
         value="Click the button to copy me!"
         data-clipboard-target="source"
         readonly
-        class="py-3 px-2 outline-none flex-1 block rounded-none rounded-l-md sm:text-sm border border-gray-300"
+        class="w-full bg-gray-100 py-3 px-2 outline-none flex-1 block rounded-none rounded-l-md sm:text-sm border border-gray-300"
       />
       <button
         type="button"
@@ -20,7 +20,7 @@
       >
         <ClipboardDocumentCheckIcon class="size-5" />
 
-        Copy to clipboard
+        Copy
       </button>
     </div>
   </Block>
