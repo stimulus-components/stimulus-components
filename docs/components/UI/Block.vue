@@ -1,5 +1,12 @@
 <template>
-  <div class="relative not-prose rounded-xl border border-slate-200 p-6">
+  <div
+    :class="[
+      'relative not-prose rounded-xl p-6',
+      {
+        'border border-slate-200': !isHome,
+      },
+    ]"
+  >
     <h2 class="mb-4 font-semibold font-display text-base text-slate-900 dark:text-white">{{ title }}</h2>
 
     <slot />
@@ -11,6 +18,10 @@ defineProps({
   title: {
     type: String,
     required: true,
+  },
+  isHome: {
+    type: Boolean,
+    default: false,
   },
 })
 </script>

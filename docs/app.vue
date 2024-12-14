@@ -8,7 +8,8 @@
 
 <script setup>
 const title = "Stimulus Components"
-const description = "Stimulus Components is an open-source set of StimulusJS controllers to solve common patterns."
+const description =
+  "Over 25 Stimulus controllers with built-in behavior, top-tier documentation, designed for easy extension, and ready for your styles to solve every day frontend problems."
 
 useHead({
   title,

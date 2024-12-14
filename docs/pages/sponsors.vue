@@ -60,7 +60,7 @@
       </p>
     </div>
 
-    <TimecopCTA></TimecopCTA>
+    <TimecopCTA />
   </div>
 </template>
 
@@ -73,7 +73,7 @@ const sponsors = [
   },
   {
     name: "Maybe",
-    src: "maybe.png",
+    src: "maybe.svg",
     url: "https://maybe.co/",
   },
   {
@@ -85,6 +85,16 @@ const sponsors = [
     name: "SearchApi",
     src: "searchapi.svg",
     url: "https://searchapi.io/",
+  },
+  {
+    name: "Studio HB",
+    src: "studio-hb.svg",
+    url: "https://www.studio-hb.com/",
+  },
+  {
+    name: "Dilolabs",
+    src: "dilolabs.svg",
+    url: "https://www.dilolabs.fr/",
   },
 ]
 
