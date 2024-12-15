@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-surface-primary dark:bg-surface-primary-dark relative overflow-y-hidden">
+  <div class="bg-surface-primary dark:bg-surface-primary-dark relative overflow-hidden">
     <HeroLines />
 
     <div class="relative pt-40 pb-16 px-4">
@@ -34,6 +34,7 @@
               'md:translate-x-1/3': index === 0,
               'md:-translate-y-1/4 z-40': index === 1,
               'md:-translate-x-1/3 z-30': index === 2,
+              'z-10': index === 3,
               'md:-rotate-6': index === 0 || index === 3,
               'md:rotate-6': index === 2 || index === 4,
               'md:-translate-y-1/4 md:translate-x-1/2': index >= 3,

@@ -7,7 +7,7 @@
       >
         <h3 class="text-sm font-semibold text-gray-800 dark:text-gray-200">Install the package</h3>
 
-        <div class="flex gap-6 mt-6">
+        <div class="flex gap-6 mt-6 overflow-x-scroll">
           <button
             v-for="(tab, index) in tabs"
             :key="index"
