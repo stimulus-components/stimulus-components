@@ -9,6 +9,7 @@ export default class StimulusSortable extends Controller<HTMLElement> {
   declare responseKindValue: Options["responseKind"]
   declare sortable: Sortable
   declare handleValue: string
+  declare indexOffsetValue: number
 
   static values = {
     resourceName: String,
@@ -22,6 +23,10 @@ export default class StimulusSortable extends Controller<HTMLElement> {
     },
     animation: Number,
     handle: String,
+    indexOffset: {
+      type: Number,
+      default: 1,
+    },
   }
 
   initialize() {
@@ -46,7 +51,7 @@ export default class StimulusSortable extends Controller<HTMLElement> {
     const param = this.resourceNameValue ? `${this.resourceNameValue}[${this.paramNameValue}]` : this.paramNameValue
 
     const data = new FormData()
-    data.append(param, newIndex + 1)
+    data.append(param, newIndex + this.indexOffsetValue)
 
     return await patch(item.dataset.sortableUpdateUrl, { body: data, responseKind: this.responseKindValue })
   }
