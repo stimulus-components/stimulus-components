@@ -10,4 +10,4 @@ netlify.toml
 .node-version
 .eslintignore
 .eslintrc.js
-postcss.config.js
+postcss.config.mjs

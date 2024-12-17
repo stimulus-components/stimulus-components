@@ -137,6 +137,12 @@ end
 
 ::
 
+## Configuration
+
+| Attribute                                              | Default | Description                      | Optional |
+| ------------------------------------------------------ | ------- | -------------------------------- | -------- |
+| `data-checkbox-select-all-disable-indeterminate-value` | `false` | Disable the indeterminate state. | ✅       |
+
 ## Extending Controller
 
 ::extending-controller

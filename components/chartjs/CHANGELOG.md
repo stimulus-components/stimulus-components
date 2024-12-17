@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [6.0.1] - 2024-11-12
+
+### Chore
+
+- Update the package to support compatibility with import maps.
+
 ## [6.0.0] - 2024-02-25
 
 ### Chore

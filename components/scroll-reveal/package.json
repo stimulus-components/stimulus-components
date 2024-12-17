@@ -27,8 +27,7 @@
     "types": "tsc --noEmit false --declaration true --emitDeclarationOnly true --outDir dist/types",
     "dev": "vite",
     "build": "vite build && pnpm run types",
-    "version": "pnpm build",
-    "np": "np --no-2fa --no-tests"
+    "version": "pnpm build"
   },
   "peerDependencies": {
     "@hotwired/stimulus": "^3"

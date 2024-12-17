@@ -12,8 +12,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
-    "version": "pnpm run build",
-    "np": "np --no-2fa --no-test"
+    "version": "pnpm run build"
   },
   "peerDependencies": {
     "@hotwired/stimulus": "^3"

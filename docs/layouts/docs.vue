@@ -9,11 +9,9 @@
         </div>
 
         <div
-          class="prose dark:prose-invert max-w-none overflow-x-scroll prose-pre:mt-0 prose-pre:rounded-t-none prose-table:whitespace-nowrap"
+          class="prose dark:prose-invert max-w-none overflow-x-scroll prose-pre:mt-0 prose-pre:rounded-t-none prose-pre:rounded-b-xl prose-table:whitespace-nowrap"
         >
           <slot />
-
-          <DocsFooter />
         </div>
 
         <DocsAltSidebar />

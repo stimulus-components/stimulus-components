@@ -19,13 +19,21 @@
 import { PencilSquareIcon, StarIcon, HeartIcon } from "@heroicons/vue/24/outline"
 
 const route = useRoute()
-const links = [
-  {
-    title: "Edit this page",
-    icon: PencilSquareIcon,
-    path: `https://github.com/stimulus-components/stimulus-components/blob/master/content/docs/${route.params.slug}.md`,
+const links = ref([])
+
+watch(
+  () => route.params.slug,
+  () => {
+    links.value = [
+      {
+        title: "Edit this page",
+        icon: PencilSquareIcon,
+        path: `https://github.com/stimulus-components/stimulus-components/blob/master/docs/content/docs/${route.params.slug}.md`,
+      },
+      { title: "Star on GitHub", icon: StarIcon, path: "https://github.com/stimulus-components/stimulus-components" },
+      { title: "Become a sponsor", icon: HeartIcon, path: "https://github.com/sponsors/stimulus-components" },
+    ]
   },
-  { title: "Star on GitHub", icon: StarIcon, path: "https://github.com/stimulus-components/stimulus-components" },
-  { title: "Become a sponsor", icon: HeartIcon, path: "https://github.com/sponsors/stimulus-components" },
-]
+  { immediate: true },
+)
 </script>

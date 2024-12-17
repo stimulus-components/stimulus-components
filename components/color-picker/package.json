@@ -27,8 +27,7 @@
     "types": "tsc --noEmit false --declaration true --emitDeclarationOnly true --outDir dist/types",
     "dev": "vite",
     "build": "vite build && pnpm run types",
-    "version": "pnpm run build",
-    "np": "np --no-2fa --no-tests"
+    "version": "pnpm run build"
   },
   "dependencies": {
     "@simonwep/pickr": "1.9.0"
