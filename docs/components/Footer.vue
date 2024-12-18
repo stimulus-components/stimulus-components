@@ -27,7 +27,7 @@
         </a>
       </div>
 
-      <p class="mt-8 text-center text-base text-text-secondary">
+      <p class="mt-8 text-center text-balance text-base text-text-secondary">
         &copy; {{ new Date().getFullYear() }} Stimulus Components. By
         <a href="https://guillaumebriday.fr" class="underline hover:no-underline" target="_blank">Guillaume Briday</a>.
       </p>
