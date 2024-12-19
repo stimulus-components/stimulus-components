@@ -110,9 +110,9 @@ end
 ::code-block{tabName="app/javascript/controllers/chartjs_controller.js"}
 
 ```js
-import Chart from "@stimulus-components/chartjs"
+import Chartjs from "@stimulus-components/chartjs"
 
-export default class extends Chart {
+export default class extends Chartjs {
   connect() {
     super.connect()
     console.log("Do what you want here.")
