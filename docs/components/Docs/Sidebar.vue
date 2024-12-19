@@ -16,6 +16,17 @@
               <component :is="link.icon" v-if="link.icon" class="size-5" />
 
               {{ link.title }}
+
+              <span
+                v-if="link.isNew"
+                class="inline-flex rounded-full rotate-2 p-0.5 bg-gradient-to-tr from-surface-primary to-secondary"
+              >
+                <span
+                  class="bg-white dark:bg-slate-800 relative rounded-full px-2 py-1 text-xs text-primary dark:text-primary-dark"
+                >
+                  New
+                </span>
+              </span>
             </NuxtLink>
           </li>
         </ul>
