@@ -94,7 +94,7 @@ Here is a simplified version of the minimum markup you need:
 
 ::
 
-I suggest you the inspect the [index.html](https://github.com/stimulus-components/stimulus-glow/blob/main/index.html) of the demo for a complete example.
+I suggest you the inspect the [index.html](https://github.com/stimulus-components/stimulus-components/blob/master/components/glow/index.html) of the demo for a complete example.
 
 ## Extending Controller
 
