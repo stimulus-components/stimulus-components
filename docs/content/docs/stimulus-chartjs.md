@@ -25,8 +25,8 @@ This component is based on the [Chart.js library](https://www.chartjs.org/){targ
 
 ```html
 <canvas
-  data-controller="chart"
-  data-chart-data-value='{ "labels": ["January", "February", "March", "April", "May", "June", "July"], "datasets": [{ "label": "My First dataset", "backgroundColor": "transparent", "borderColor": "#3B82F6", "data": [37, 83, 78, 54, 12, 5, 99] }] }'
+  data-controller="chartjs"
+  data-chartjs-data-value='{ "labels": ["January", "February", "March", "April", "May", "June", "July"], "datasets": [{ "label": "My First dataset", "backgroundColor": "transparent", "borderColor": "#3B82F6", "data": [37, 83, 78, 54, 12, 5, 99] }] }'
 ></canvas>
 ```
 
@@ -38,13 +38,13 @@ If you extend this controller, it could be handy to use it with a `target`:
 
 ```html
 <div
-  data-controller="chart"
-  data-chart-data-value='{ "labels": ["January", "February", "March", "April", "May", "June", "July"], "datasets": [{ "label": "My First dataset", "backgroundColor": "transparent", "borderColor": "#3B82F6", "data": [37, 83, 78, 54, 12, 5, 99] }] }'
+  data-controller="chartjs"
+  data-chartjs-data-value='{ "labels": ["January", "February", "March", "April", "May", "June", "July"], "datasets": [{ "label": "My First dataset", "backgroundColor": "transparent", "borderColor": "#3B82F6", "data": [37, 83, 78, 54, 12, 5, 99] }] }'
 >
-  <canvas data-chart-target="canvas"></canvas>
+  <canvas data-chartjs-target="canvas"></canvas>
 
   <!-- You need to define this action -->
-  <button data-action="chart#update">Update me!</button>
+  <button data-action="chartjs#update">Update me!</button>
 </div>
 ```
 
@@ -88,9 +88,9 @@ end
 
 ```erb
 <canvas
-  data-controller="chart"
-  data-chart-data-value="<%= @chart_data.to_json %>"
-  data-chart-options-value="<%= @chart_options.to_json %>"
+  data-controller="chartjs"
+  data-chartjs-data-value="<%= @chart_data.to_json %>"
+  data-chartjs-options-value="<%= @chart_options.to_json %>"
 ></canvas>
 ```
 
@@ -98,11 +98,11 @@ end
 
 ## Configuration
 
-| Attribute                  | Default | Description              | Optional |
-| -------------------------- | ------- | ------------------------ | -------- |
-| `data-chart-data-value`    | `{}`    | The data for Chart.js    | ❌       |
-| `data-chart-type-value`    | `line`  | Type of the chart        | ✅       |
-| `data-chart-options-value` | `{}`    | The options for Chart.js | ✅       |
+| Attribute                    | Default | Description              | Optional |
+| ---------------------------- | ------- | ------------------------ | -------- |
+| `data-chartjs-data-value`    | `{}`    | The data for Chart.js    | ❌       |
+| `data-chartjs-type-value`    | `line`  | Type of the chart        | ✅       |
+| `data-chartjs-options-value` | `{}`    | The options for Chart.js | ✅       |
 
 ## Extending Controller
 
