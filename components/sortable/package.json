@@ -31,7 +31,7 @@
   },
   "peerDependencies": {
     "@hotwired/stimulus": "^3",
-    "@rails/request.js": "^0.0.8",
+    "@rails/request.js": "~0.0.8",
     "sortablejs": "^1.15.0"
   }
 }
