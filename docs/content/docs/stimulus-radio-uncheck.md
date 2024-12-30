@@ -20,11 +20,11 @@ isNew: true
 
 ```html
 <div data-controller="radio-uncheck">
-  <input type="radio" name="radio" value="1" data-radio-uncheck-target="input">
+  <input type="radio" name="radio" value="1" data-radio-uncheck-target="input" />
   <label for="radio-1">Radio 1</label>
-  <input type="radio" name="radio" value="2" data-radio-uncheck-target="input">
+  <input type="radio" name="radio" value="2" data-radio-uncheck-target="input" />
   <label for="radio-2">Radio 2</label>
-  <input type="radio" name="radio" value="3" data-radio-uncheck-target="input">
+  <input type="radio" name="radio" value="3" data-radio-uncheck-target="input" />
   <label for="radio-3">Radio 3</label>
 
   <button data-action="click->radio-uncheck#uncheck">Uncheck</button>
