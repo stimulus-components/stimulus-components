@@ -27,7 +27,7 @@
           data-radio-uncheck-target="radio"
           name="team"
           type="radio"
-          class="h-4 w-4 border-gray-300 text-orange-600 focus:ring-orange-600"
+          class="size-4 border-gray-300 text-orange-600 focus:ring-orange-600"
         />
         <label for="team-3" class="block text-sm/6 font-medium text-gray-900">Team 3</label>
       </div>
