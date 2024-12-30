@@ -3,8 +3,8 @@
   "scripts": {
     "lint": "pnpm lint:check && pnpm lint:js",
     "lint:check": "tsc --noEmit",
-    "lint:js": "eslint --ext .js,.mjs,.mts,.ts,.vue --ignore-path .gitignore .",
-    "lintfix": "pnpm lint:js --fix",
+    "lint:js": "eslint --ignore-path .gitignore .",
+    "lintfix": "prettier --write --list-different . && pnpm lint:js --fix",
     "docs": "pnpm -C docs dev",
     "test": "vitest --run"
   },

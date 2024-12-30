@@ -117,6 +117,12 @@ importers:
         specifier: 1.9.0
         version: 1.9.0
 
+  components/confirmation:
+    dependencies:
+      '@hotwired/stimulus':
+        specifier: ^3
+        version: 3.2.2
+
   components/content-loader:
     dependencies:
       '@hotwired/stimulus':
@@ -324,6 +330,9 @@ importers:
       '@stimulus-components/color-picker':
         specifier: workspace:*
         version: link:../components/color-picker
+      '@stimulus-components/confirmation':
+        specifier: workspace:*
+        version: link:../components/confirmation
       '@stimulus-components/content-loader':
         specifier: workspace:*
         version: link:../components/content-loader

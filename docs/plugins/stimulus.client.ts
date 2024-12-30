@@ -8,6 +8,7 @@ import Chart from "@stimulus-components/chartjs/src"
 import CheckboxSelectAll from "@stimulus-components/checkbox-select-all/src"
 import Clipboard from "@stimulus-components/clipboard/src"
 import ColorPicker from "@stimulus-components/color-picker/src"
+import Confirmation from "@stimulus-components/confirmation/src"
 import ContentLoader from "@stimulus-components/content-loader/src"
 import Dialog from "@stimulus-components/dialog/src"
 import Dropdown from "@stimulus-components/dropdown/src"
@@ -37,6 +38,7 @@ export default defineNuxtPlugin(() => {
   application.register("checkbox-select-all", CheckboxSelectAll)
   application.register("clipboard", Clipboard)
   application.register("color-picker", ColorPicker)
+  application.register("confirmation", Confirmation)
   application.register("content-loader", ContentLoader)
   application.register("dialog", Dialog)
   application.register("dropdown", Dropdown)

@@ -26,6 +26,7 @@
     "@stimulus-components/checkbox-select-all": "workspace:*",
     "@stimulus-components/clipboard": "workspace:*",
     "@stimulus-components/color-picker": "workspace:*",
+    "@stimulus-components/confirmation": "workspace:*",
     "@stimulus-components/content-loader": "workspace:*",
     "@stimulus-components/dialog": "workspace:*",
     "@stimulus-components/dropdown": "workspace:*",
