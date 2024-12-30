@@ -3,8 +3,8 @@
     <form data-controller="radio-uncheck" class="space-y-4">
       <div class="flex items-center gap-x-3">
         <input
-          data-radio-uncheck-target="radio"
           id="team-1"
+          data-radio-uncheck-target="radio"
           name="team"
           type="radio"
           class="h-4 w-4 border-gray-300 text-orange-600 focus:ring-orange-600"
@@ -13,8 +13,8 @@
       </div>
       <div class="flex items-center gap-x-3">
         <input
-          data-radio-uncheck-target="radio"
           id="team-2"
+          data-radio-uncheck-target="radio"
           name="team"
           type="radio"
           class="h-4 w-4 border-gray-300 text-orange-600 focus:ring-orange-600"
@@ -23,8 +23,8 @@
       </div>
       <div class="flex items-center gap-x-3">
         <input
-          data-radio-uncheck-target="radio"
           id="team-3"
+          data-radio-uncheck-target="radio"
           name="team"
           type="radio"
           class="h-4 w-4 border-gray-300 text-orange-600 focus:ring-orange-600"
