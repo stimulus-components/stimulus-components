@@ -1,6 +1,6 @@
 ---
 title: Radio Uncheck
-description: A Stimulus controller to uncheck radio buttons.
+description: A Stimulus controller for unchecking all radio buttons in a group.
 package: radio-uncheck
 packagePath: "@stimulus-components/radio-uncheck"
 isNew: true
