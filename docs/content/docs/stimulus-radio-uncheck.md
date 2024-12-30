@@ -27,7 +27,7 @@ isNew: true
   <input type="radio" name="radio" value="3" data-radio-uncheck-target="input" />
   <label for="radio-3">Radio 3</label>
 
-  <button data-action="click->radio-uncheck#uncheck">Uncheck</button>
+  <button data-action="radio-uncheck#uncheck">Uncheck</button>
 </div>
 ```
 
