@@ -60,7 +60,7 @@
       </p>
     </div>
 
-    <TimecopCTA />
+    <SlogCTA />
   </div>
 </template>
 

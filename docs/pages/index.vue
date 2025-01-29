@@ -13,7 +13,7 @@
         <HomeSponsors />
         <HomeTestimonials />
 
-        <TimecopCTA />
+        <SlogCTA />
 
         <HomeContributing />
       </main>

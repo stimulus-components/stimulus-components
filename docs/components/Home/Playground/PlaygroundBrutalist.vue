@@ -23,7 +23,7 @@ const content = `
 >
   <input
     type="text"
-    value="https://www.timecop-app.com/register"
+    value="https://www.slog-app.com/register"
     data-clipboard-target="source"
     readonly
     class="w-full px-3 py-2 text-gray-700 bg-gray-100 border border-black focus:outline-none focus:ring-2 focus:ring-teal-500"

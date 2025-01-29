@@ -22,22 +22,22 @@
           <p class="text-xs leading-8 text-secondary uppercase mb-3">Special sponsor</p>
 
           <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Simplify your time tracking with Timecop
+            Simplify your time tracking with Slog
           </h2>
 
           <p class="mt-6 text-lg leading-8 text-gray-300">
-            Timecop is a time tracking app that brings simplicity in your day to day life.
+            Slog is a time tracking app that brings simplicity in your day to day life.
           </p>
 
           <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 lg:justify-start">
             <UIButton
-              href="https://www.timecop-app.com/?utm_source=stimulus-components&utm_medium=cta"
+              href="https://www.slog-app.com/?utm_source=stimulus-components&utm_medium=cta"
               variant="secondary"
             >
               Get started
             </UIButton>
 
-            <UIButton href="https://www.timecop-app.com/register?utm_source=stimulus-components&utm_medium=cta">
+            <UIButton href="https://www.slog-app.com/register?utm_source=stimulus-components&utm_medium=cta">
               Try it now
             </UIButton>
           </div>
@@ -46,7 +46,7 @@
         <div class="relative mt-16 h-80 lg:mt-8">
           <img
             class="!absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10"
-            src="/timecop-cta.png"
+            src="/slog-cta.png"
             alt="App screenshot"
             width="1500"
             height="812"
