@@ -1,9 +1,9 @@
+import type { Config } from "tailwindcss"
 import colors from "tailwindcss/colors"
 import typography from "@tailwindcss/typography"
 import type { PluginAPI } from "tailwindcss/types/config"
 import plugin from "tailwindcss/plugin"
 
-/** @type {import('tailwindcss').Config} */
 export default {
   darkMode: "class",
   theme: {
@@ -76,4 +76,4 @@ export default {
       },
     ),
   ],
-}
+} satisfies Config
