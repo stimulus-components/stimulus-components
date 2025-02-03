@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## 5.1.0 - 2025-02-03
+
+### Chore
+
+- Using `toLocaleString` instead of `toString` to display numbers with a language-sensitive representation.
+- Adding specs.
+
 ## [5.0.0] - 2024-02-25
 
 ### Chore
