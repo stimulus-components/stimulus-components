@@ -1,6 +1,6 @@
 {
   "name": "@stimulus-components/character-counter",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "description": "A Stimulus controller that counts the number of characters in any input fields.",
   "keywords": [
     "stimulus",
