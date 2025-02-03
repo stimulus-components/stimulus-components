@@ -1,6 +1,6 @@
 {
   "name": "@stimulus-components/sortable",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "A Stimulus controller to reorder lists with drag-and-drop.",
   "keywords": [
     "stimulus",
