@@ -1,8 +1,9 @@
 <template>
   <div
     :class="[
-      'relative not-prose rounded-xl p-6',
+      'not-prose rounded-xl p-6',
       {
+        relative: title !== 'Glow',
         'border border-slate-200': !isHome,
       },
     ]"

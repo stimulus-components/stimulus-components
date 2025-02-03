@@ -46,6 +46,7 @@
     "@tailwindcss/typography": "^0.5.15",
     "core-js": "^3.39.0",
     "nuxt": "^3.14.1592",
+    "stimulus-glow": "workspace:*",
     "yaml": "^2.6.1"
   },
   "devDependencies": {

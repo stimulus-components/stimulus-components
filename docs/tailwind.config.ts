@@ -1,6 +1,7 @@
 import colors from "tailwindcss/colors"
 import typography from "@tailwindcss/typography"
 import type { PluginAPI } from "tailwindcss/types/config"
+import plugin from "tailwindcss/plugin"
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -58,5 +59,21 @@ export default {
       }),
     },
   },
-  plugins: [typography],
+  plugins: [
+    typography,
+    plugin(
+      ({ addVariant }) => {
+        addVariant("glow", ".glow-capture .glow-overlay &")
+      },
+      {
+        theme: {
+          extend: {
+            colors: {
+              glow: "color-mix(in srgb, var(--glow-color) calc(<alpha-value> * 100%), transparent)",
+            },
+          },
+        },
+      },
+    ),
+  ],
 }

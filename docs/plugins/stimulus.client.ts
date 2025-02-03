@@ -12,6 +12,7 @@ import Confirmation from "@stimulus-components/confirmation/src"
 import ContentLoader from "@stimulus-components/content-loader/src"
 import Dialog from "@stimulus-components/dialog/src"
 import Dropdown from "@stimulus-components/dropdown/src"
+import Glow from "stimulus-glow/src"
 import Lightbox from "@stimulus-components/lightbox/src"
 import Notification from "@stimulus-components/notification/src"
 import PasswordVisibility from "@stimulus-components/password-visibility/src"
@@ -26,7 +27,6 @@ import Sortable from "@stimulus-components/sortable/src"
 import Sound from "@stimulus-components/sound/src"
 import Timeago from "@stimulus-components/timeago/src"
 
-// @ts-expect-error
 // eslint-disable-next-line no-undef
 export default defineNuxtPlugin(() => {
   const application = Application.start()
@@ -42,6 +42,7 @@ export default defineNuxtPlugin(() => {
   application.register("content-loader", ContentLoader)
   application.register("dialog", Dialog)
   application.register("dropdown", Dropdown)
+  application.register("glow", Glow)
   application.register("lightbox", Lightbox)
   application.register("nested-form", RailsNestedForm)
   application.register("notification", Notification)

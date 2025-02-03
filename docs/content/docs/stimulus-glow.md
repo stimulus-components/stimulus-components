@@ -9,6 +9,10 @@ packagePath: "stimulus-glow"
 
 :installation-block{:package="package" :packagePath="packagePath"}
 
+## Example
+
+:glow
+
 ## How it works
 
 The concept of the effect is to clone an element, the overlay, and applying a [CSS mask](https://developer.mozilla.org/en-US/docs/Web/CSS/mask) with a `radial-gradient` property that follow the mouse.
