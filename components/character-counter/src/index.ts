@@ -22,7 +22,7 @@ export default class CharacterCounter extends Controller {
   }
 
   update(): void {
-    this.counterTarget.innerHTML = this.count.toString()
+    this.counterTarget.innerHTML = this.count.toLocaleString()
   }
 
   get count(): number {
