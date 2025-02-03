@@ -27,6 +27,7 @@ import Sortable from "@stimulus-components/sortable/src"
 import Sound from "@stimulus-components/sound/src"
 import Timeago from "@stimulus-components/timeago/src"
 
+// @ts-expect-error
 // eslint-disable-next-line no-undef
 export default defineNuxtPlugin(() => {
   const application = Application.start()
