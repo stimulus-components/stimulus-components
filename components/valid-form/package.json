@@ -1,0 +1,20 @@
+{
+  "name": "stimulus-valid-form",
+  "version": "4.1.0",
+  "description": "A Stimulus controller for autogrowing textarea.",
+  "repository": "git@github.com:stimulus-components/stimulus-components.git",
+  "author": "Guillaume Briday <guillaumebriday@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/stimulus-components/stimulus-components",
+  "private": false,
+  "main": "dist/stimulus-valid-form.umd.js",
+  "module": "dist/stimulus-valid-form.mjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "version": "pnpm run build"
+  },
+  "peerDependencies": {
+    "@hotwired/stimulus": "^3"
+  }
+}
