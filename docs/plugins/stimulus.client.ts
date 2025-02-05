@@ -26,6 +26,7 @@ import ScrollReveal from "@stimulus-components/scroll-reveal/src"
 import Sortable from "@stimulus-components/sortable/src"
 import Sound from "@stimulus-components/sound/src"
 import Timeago from "@stimulus-components/timeago/src"
+import ValidForm from "@stimulus-components/valid-form/src"
 
 // @ts-expect-error
 // eslint-disable-next-line no-undef
@@ -57,6 +58,7 @@ export default defineNuxtPlugin(() => {
   application.register("sortable", Sortable)
   application.register("sound", Sound)
   application.register("timeago", Timeago)
+  application.register("valid-form", ValidForm)
 
   // @ts-expect-error
   if (!window._rails_loaded) {

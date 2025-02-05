@@ -1,0 +1,35 @@
+{
+  "name": "@stimulus-components/valid-form",
+  "version": "1.0.0",
+  "description": "A Stimulus controller to prevent submitting forms until their fields are valid.",
+  "keywords": [
+    "stimulus",
+    "stimulusjs",
+    "stimulus controller",
+    "valid-form"
+  ],
+  "repository": "git@github.com:stimulus-components/stimulus-components.git",
+  "bugs": {
+    "url": "https://github.com/stimulus-components/stimulus-components/issues"
+  },
+  "author": "Martin Arce <martin.arce.teixeira@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/stimulus-components/stimulus-components",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "dist/stimulus-valid-form.umd.js",
+  "module": "dist/stimulus-valid-form.mjs",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "types": "tsc --noEmit false --declaration true --emitDeclarationOnly true --outDir dist/types",
+    "dev": "vite",
+    "build": "vite build && pnpm run types",
+    "version": "pnpm run build"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "@hotwired/stimulus": "^3"
+  }
+}
