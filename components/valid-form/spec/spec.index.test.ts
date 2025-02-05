@@ -1,15 +1,15 @@
 /**
  * @jest-environment jsdom
  */
-import { describe, it, expect, beforeEach } from "vitest"
+import { describe, it, expect, beforeEach, vi } from "vitest"
 import { Application } from "@hotwired/stimulus"
 import ValidForm from "../src/index"
 
 describe("ValidForm Controller", () => {
   describe("validates input text", () => {
-    let form, input, submit
+    let form, input, submit, controller
 
-    beforeEach(() => {
+    beforeEach(async () => {
       document.body.innerHTML = `
 <form data-controller="valid-form">
   <input type="text" required minlength="4" maxlength="8">
@@ -23,6 +23,12 @@ describe("ValidForm Controller", () => {
       form = document.querySelector("form")
       input = form.querySelector("input[type='text']")
       submit = form.querySelector("input[type='submit']")
+
+      await new Promise((resolve) => setTimeout(resolve, 10)) // Waiting to the controller to fully load
+      controller = application.getControllerForElementAndIdentifier(form, "valid-form")
+      if (!controller) {
+        throw new Error("Controller was not initialized properly.")
+      }
     })
 
     it("should disable the submit button on initial load", () => {
@@ -48,6 +54,29 @@ describe("ValidForm Controller", () => {
       form.dispatchEvent(new Event("input", { bubbles: true }))
 
       expect(submit.disabled).toBe(true)
+    })
+
+    it("should call the onValidated method when the form becomes valid", () => {
+      const onValidatedSpy = vi.spyOn(controller, "onValidated")
+      const onInvalidatedSpy = vi.spyOn(controller, "onInvalidated")
+
+      input.value = "test" // Valid input (minlength=4)
+      input.dispatchEvent(new Event("input", { bubbles: true }))
+      expect(onValidatedSpy).toHaveBeenCalled()
+      expect(onInvalidatedSpy).not.toHaveBeenCalled()
+    })
+
+    it("should call the onInvalidated method when the form becomes invalid", () => {
+      const onValidatedSpy = vi.spyOn(controller, "onValidated")
+      const onInvalidatedSpy = vi.spyOn(controller, "onInvalidated")
+
+      input.value = "test" // Valid input (minlength=4)
+      input.dispatchEvent(new Event("input", { bubbles: true }))
+
+      input.value = ""
+      input.dispatchEvent(new Event("input", { bubbles: true }))
+      expect(onValidatedSpy).toHaveBeenCalled()
+      expect(onInvalidatedSpy).toHaveBeenCalled()
     })
   })
 

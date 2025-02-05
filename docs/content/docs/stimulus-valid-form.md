@@ -41,9 +41,18 @@ Read more: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Learn_web_dev
 
 ::
 
+## Events
+
+| Method          | Description                         |
+| --------------- | ----------------------------------- |
+| `onValidated`   | Called when the form turns valid.   |
+| `onInvalidated` | Called when the form turns invalid. |
+
 ## Extending Controller
 
 ::extending-controller
+You can override or extend the functionality by overriding **onValidated/onInvalidated** methods.
+
 ::code-block{tabName="app/javascript/controllers/valid_form_controller.js"}
 
 ```js
@@ -53,6 +62,12 @@ export default class extends ValidForm {
   connect() {
     super.connect()
     console.log("Do what you want here.")
+  }
+  onValidated() {
+    // When the form becomes valid, this method is called.
+  }
+  onInvalidated() {
+    // When the form becomes invalid, this method is called.
   }
 }
 ```

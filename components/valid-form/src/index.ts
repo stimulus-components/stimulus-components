@@ -3,6 +3,7 @@ type SubmitElement = HTMLInputElement | HTMLButtonElement
 type ValidatableHtmlElement = HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
 
 export default class ValidForm extends Controller<HTMLFormElement> {
+  private isValidForm: Boolean
   private submitElement: SubmitElement | null = null
   private validatableElements: ValidatableHtmlElement[] = []
 
@@ -16,6 +17,10 @@ export default class ValidForm extends Controller<HTMLFormElement> {
     this.element.addEventListener("input", this.listenFormChanges.bind(this))
   }
 
+  disconnect(): void {
+    this.element.removeEventListener("input", this.listenFormChanges.bind(this))
+  }
+
   listenFormChanges(event: Event): void {
     const target = event.target as ValidatableHtmlElement
     if (!this.validatableElements.includes(target)) {
@@ -26,13 +31,12 @@ export default class ValidForm extends Controller<HTMLFormElement> {
 
   validateForm(): void {
     if (this.element.checkValidity()) {
-      this.submitElement.disabled = false
+      this.isValidForm === true ? null : this.onValidated()
+      this.isValidForm = true
     } else {
-      this.submitElement.disabled = true
+      this.isValidForm === false ? null : this.onInvalidated()
+      this.isValidForm = false
     }
-  }
-  disconnect(): void {
-    this.element.removeEventListener("input", this.listenFormChanges.bind(this))
   }
 
   setup(): void {
@@ -43,6 +47,13 @@ export default class ValidForm extends Controller<HTMLFormElement> {
           el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement || el instanceof HTMLSelectElement,
       )
       .filter((el: ValidatableHtmlElement) => el.willValidate)
+
+    this.isValidForm = this.element.checkValidity()
+    if (this.isValidForm) {
+      this.submitElement.disabled = false
+    } else {
+      this.submitElement.disabled = true
+    }
   }
 
   isValidSetup(): boolean {
@@ -59,5 +70,14 @@ export default class ValidForm extends Controller<HTMLFormElement> {
     }
 
     return true
+  }
+
+  // Events callbacks
+  onValidated(): void {
+    this.submitElement.disabled = false
+  }
+
+  onInvalidated(): void {
+    this.submitElement.disabled = true
   }
 }
