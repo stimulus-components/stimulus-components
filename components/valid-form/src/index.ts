@@ -1,9 +1,10 @@
 import { Controller } from "@hotwired/stimulus"
 type SubmitElement = HTMLInputElement | HTMLButtonElement
+type ValidatableHtmlElement = HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
 
 export default class ValidForm extends Controller<HTMLFormElement> {
   private submitElement: SubmitElement | null = null
-  private validatingElements: HTMLInputElement[] = []
+  private validatingElements: ValidatableHtmlElement[] = []
 
   connect(): void {
     this.setup()
@@ -16,7 +17,7 @@ export default class ValidForm extends Controller<HTMLFormElement> {
   }
 
   listenFormChanges(event: Event): void {
-    const target = event.target as HTMLInputElement
+    const target = event.target as ValidatableHtmlElement
     if (!this.validatingElements.includes(target)) {
       return
     }
@@ -36,12 +37,19 @@ export default class ValidForm extends Controller<HTMLFormElement> {
 
   setup(): void {
     this.submitElement = this.element.querySelector('[type="submit"]')
-    this.validatingElements = Array.from(this.element.querySelectorAll('input[type="text"]'))
+    this.validatingElements = Array.from(this.element.querySelectorAll("input, textarea, select"))
+      .filter(
+        (el): el is ValidatableHtmlElement =>
+          el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement || el instanceof HTMLSelectElement,
+      )
+      .filter((el: ValidatableHtmlElement) => el.willValidate)
   }
 
   isValidSetup(): boolean {
     if (!this.validatingElements.length) {
-      console.warn("You're using Stimulus Components Valid form but your form does not contains any required fields")
+      console.warn(
+        "You're using Stimulus Components Valid form but your form does not contain any fields that contain validations",
+      )
       return false
     }
 
