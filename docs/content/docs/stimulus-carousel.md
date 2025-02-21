@@ -1,6 +1,6 @@
 ---
 title: Carousel
-description: A Stimulus controller to deal with carousel.
+description: A Stimulus controller to deal with carousels.
 package: carousel
 packagePath: "@stimulus-components/carousel"
 ---
