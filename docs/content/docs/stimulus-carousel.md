@@ -10,7 +10,7 @@ packagePath: "@stimulus-components/carousel"
 :installation-block{:package="package" :packagePath="packagePath"}
 
 ::alert
-This component is based on the [Swiper](https://swiperjs.com/){target="\_blank" .underline .hover:no-underline}.
+This component is based on the [Swiper](https://swiperjs.com/){target="\_blank" .underline .hover:no-underline} library.
 ::
 
 ## Example
