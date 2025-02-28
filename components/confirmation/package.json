@@ -1,6 +1,6 @@
 {
   "name": "@stimulus-components/confirmation",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Stimulus controller to confirm actions manually",
   "keywords": [
     "stimulus",
