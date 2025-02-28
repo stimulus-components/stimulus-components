@@ -24,7 +24,7 @@ export default class Confirmation extends Controller<HTMLFormElement> {
     this.check()
   }
 
-  inputTargetDisconnect(): void {
+  inputTargetDisconnected(): void {
     this.check()
   }
 }
