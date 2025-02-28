@@ -20,7 +20,7 @@ export default class Confirmation extends Controller<HTMLFormElement> {
     })
   }
 
-  inputTargetConnect(): void {
+  inputTargetConnected(): void {
     this.check()
   }
 
