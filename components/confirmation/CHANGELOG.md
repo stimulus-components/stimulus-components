@@ -13,7 +13,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Used the existing Stimulus `inputTargetConnect` and `inputTargetDisconnect` callbacks to re-run `check()` when targets are added or removed from the DOM, improving support for dynamically updated forms.
 
-
 ## [1.0.0] - 2024-12-17
 
 ### Added
