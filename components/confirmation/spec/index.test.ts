@@ -5,7 +5,7 @@
 import { beforeEach, describe, it, expect } from "vitest"
 import { Application } from "@hotwired/stimulus"
 import Confirmation from "../src/index"
-import { nextFrame } from "../../../utils"
+import { sleep } from "../../../utils"
 
 const startStimulus = (): void => {
   const application = Application.start()
@@ -144,7 +144,7 @@ describe("#check", () => {
       newInput.value = "DELETE"
 
       form.appendChild(newInput)
-      await nextFrame()
+      await sleep()
 
       const itemsEnabled = document.querySelectorAll<HTMLInputElement>("[data-confirmation-target='item']:enabled")
       expect(itemsEnabled.length).toBe(1)
