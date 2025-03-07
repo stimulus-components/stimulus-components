@@ -112,6 +112,7 @@ If you use `data-sortable-resource-name-value`, the name will be used. For insta
 | `data-sortable-response-kind-value` | `html`      | The response kind you want for `@rails/request.js`.                        | ✅       |
 | `data-sortable-animation-value`     | `150`       | Animation speed moving items when sorting in milliseconds. `0` to disable. | ✅       |
 | `data-sortable-handle-value`        | `undefined` | Drag handle selector within list items.                                    | ✅       |
+| `data-sortable-index-offset-value`  | `1`         | Offset of the index used for the item position.                            | ✅       |
 
 ## Extending Controller
 
