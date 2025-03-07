@@ -127,6 +127,7 @@ describe("#check", () => {
         </form>
       `
     })
+
     it("should re-run check when a new input is added", async () => {
       const form = document.querySelector<HTMLFormElement>("[data-controller='confirmation']")
       const input = document.querySelector<HTMLInputElement>("#confirmation")
@@ -144,7 +145,8 @@ describe("#check", () => {
       newInput.value = "DELETE"
 
       form.appendChild(newInput)
-      await sleep()
+
+      await sleep(10)
 
       const itemsEnabled = document.querySelectorAll<HTMLInputElement>("[data-confirmation-target='item']:enabled")
       expect(itemsEnabled.length).toBe(1)

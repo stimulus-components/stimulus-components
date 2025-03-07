@@ -3,7 +3,6 @@ title: Confirmation
 description: A Stimulus controller to confirm actions manually.
 package: confirmation
 packagePath: "@stimulus-components/confirmation"
-isNew: true
 ---
 
 ## Installation
