@@ -30,7 +30,7 @@
     "version": "pnpm build"
   },
   "dependencies": {
-    "stimulus-use": "^0.52.2"
+    "stimulus-use": "^0.52.3"
   },
   "peerDependencies": {
     "@hotwired/stimulus": "^3"

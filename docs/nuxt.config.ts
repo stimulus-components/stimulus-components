@@ -10,6 +10,13 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
   ],
 
+  // @ts-expect-error
+  tailwindcss: {
+    config: {
+      content: ["./pages/**/*.{vue,js,ts}", "./components/**/*.{vue,js,ts}"],
+    },
+  },
+
   vite: {
     server: {
       watch: {
@@ -18,7 +25,6 @@ export default defineNuxtConfig({
     },
   },
 
-  // @ts-expect-error
   colorMode: {
     classSuffix: "",
   },

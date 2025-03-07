@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "@hotwired/stimulus": "^3.2.2",
-    "@hotwired/turbo": "^8.0.4",
+    "@hotwired/turbo": "^8.0.13",
     "@nuxt/eslint-config": "^0.2.0",
     "@types/google.maps": "^3.58.1",
     "@types/jest": "^29.5.14",
@@ -18,14 +18,14 @@
     "babel-jest": "^29.7.0",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-vue": "^9.32.0",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-vue": "^9.33.0",
     "postcss": "8.4.37",
     "prettier": "3.2.5",
     "tailwindcss": "3.4.1",
     "typescript": "5.3.3",
     "vite": "5.2.0",
-    "vitest": "^2.1.8"
+    "vitest": "^2.1.9"
   },
   "packageManager": "pnpm@9.15.0"
 }
