@@ -1,6 +1,6 @@
 ---
 title: Carousel
-description: A Stimulus controller to deal with carousel.
+description: A Stimulus controller to deal with carousels.
 package: carousel
 packagePath: "@stimulus-components/carousel"
 ---
@@ -10,7 +10,7 @@ packagePath: "@stimulus-components/carousel"
 :installation-block{:package="package" :packagePath="packagePath"}
 
 ::alert
-This component is based on the [Swiper](https://swiperjs.com/){target="\_blank" .underline .hover:no-underline}.
+This component is based on the [Swiper](https://swiperjs.com/){target="\_blank" .underline .hover:no-underline} library.
 ::
 
 ## Example
