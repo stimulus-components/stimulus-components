@@ -19,4 +19,12 @@ export default class Confirmation extends Controller<HTMLFormElement> {
       target.disabled = disabled
     })
   }
+
+  inputTargetConnected(): void {
+    this.check()
+  }
+
+  inputTargetDisconnected(): void {
+    this.check()
+  }
 }
