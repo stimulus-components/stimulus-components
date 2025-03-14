@@ -15,9 +15,9 @@
         </blockquote>
 
         <figcaption>
-          <a :href="`https://twitter.com/${testimonial.username}`" class="flex items-center gap-x-4" target="_blank">
+          <a :href="testimonial.url" class="flex items-center gap-x-4" target="_blank">
             <img
-              :src="`/testimonials/${testimonial.username}.jpg`"
+              :src="`/testimonials/${testimonial.avatar}`"
               :alt="testimonial.name"
               class="size-12 rounded-full bg-gray-50 p-0.5 bg-gradient-to-tr from-surface-primary to-secondary"
               loading="lazy"
