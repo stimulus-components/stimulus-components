@@ -10,8 +10,8 @@
       </nav>
 
       <div class="mt-8 flex justify-center space-x-6">
-        <a href="https://twitter.com/guillaumebriday" class="text-primary dark:text-text-secondary-dark">
-          <span class="sr-only">Twitter</span>
+        <a href="https://x.com/guillaumebriday" class="text-primary dark:text-text-secondary-dark">
+          <span class="sr-only">X</span>
           <svg class="size-5" fill="currentColor" viewBox="0 0 512 512">
             <path
               fill-rule="evenodd"
