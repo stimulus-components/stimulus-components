@@ -35,6 +35,7 @@
     "@stimulus-components/password-visibility": "workspace:*",
     "@stimulus-components/popover": "workspace:*",
     "@stimulus-components/rails-nested-form": "workspace:*",
+    "@stimulus-components/radio-uncheck": "workspace:*",
     "@stimulus-components/read-more": "workspace:*",
     "@stimulus-components/remote-rails": "workspace:*",
     "@stimulus-components/reveal": "workspace:*",
