@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Support for decimal numbers with configurable decimal places
+- Configurable decimal separator for different locales (e.g., "." or ",")
+- Configurable thousands separator for different locales (e.g., "," or ".")
+
 ## [5.0.0] - 2024-02-25
 
 ### Chore
