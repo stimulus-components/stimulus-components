@@ -9,6 +9,7 @@ export default class StimulusSortable extends Controller<HTMLElement> {
   declare responseKindValue: Options["responseKind"]
   declare sortable: Sortable
   declare handleValue: string
+  declare draggableValue: string
 
   static values = {
     resourceName: String,
@@ -22,6 +23,7 @@ export default class StimulusSortable extends Controller<HTMLElement> {
     },
     animation: Number,
     handle: String,
+    draggable: String
   }
 
   initialize() {
@@ -56,6 +58,7 @@ export default class StimulusSortable extends Controller<HTMLElement> {
       animation: this.animationValue || this.defaultOptions.animation || 150,
       handle: this.handleValue || this.defaultOptions.handle || undefined,
       onUpdate: this.onUpdate,
+      draggable: this.draggableValue || this.defaultOptions.draggable || (/^[uo]l$/i.test(this.element.nodeName) ? '>li' : '>*'),
     }
   }
 
