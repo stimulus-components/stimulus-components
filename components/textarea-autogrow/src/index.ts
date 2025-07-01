@@ -17,7 +17,12 @@ export default class extends Controller<HTMLInputElement> {
     },
   }
 
+  initialize(): void {
+    this.autogrow = this.autogrow.bind(this)
+  }
+
   connect(): void {
+    this.element.style.overflow = 'hidden'
     const delay: number = this.resizeDebounceDelayValue
 
     this.onResize = delay > 0 ? debounce(this.autogrow, delay) : this.autogrow
@@ -37,14 +42,23 @@ export default class extends Controller<HTMLInputElement> {
     textarea.style.height = 'auto'
     textarea.style.overflowY = 'hidden'
 
-    const lineHeight = parseFloat(getComputedStyle(textarea).lineHeight)
-    const maxHeight = this.maxHeightValue * lineHeight
-
-    while (textarea.scrollHeight > textarea.offsetHeight && textarea.offsetHeight < maxHeight) {
-      textarea.style.height = `${textarea.offsetHeight + lineHeight}px`
+    // while textarea scrollHeight > textarea offsetHeight & textarea offsetHeight < this.maxHeightValue (15) rows * height of 1 row
+    while (
+      textarea.scrollHeight > textarea.offsetHeight &&
+      textarea.offsetHeight <
+        this.maxHeightValue * parseFloat(getComputedStyle(textarea).lineHeight)
+    ) {
+      // increase height of textarea by one row
+      textarea.style.height = `${
+        textarea.offsetHeight +
+        parseFloat(getComputedStyle(textarea).lineHeight)
+      }px`
     }
-
-    if (textarea.offsetHeight >= maxHeight) {
+    // if textarea already has > maxHeight rows, activate scroll
+    if (
+      textarea.offsetHeight >=
+      this.maxHeightValue * parseFloat(getComputedStyle(textarea).lineHeight)
+    ) {
       textarea.style.overflowY = 'auto'
     }
   }
