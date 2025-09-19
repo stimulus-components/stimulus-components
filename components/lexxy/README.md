@@ -2,7 +2,7 @@
 
 ## Getting started
 
-A Stimulus controller that adds file attachment validation to [Basecamp's Lexxy editor](https://github.com/basecamp/lexxy).
+A Stimulus controller that adds enhanced features to [Basecamp's Lexxy editor](https://github.com/basecamp/lexxy).
 
 ## 📚 Documentation
 
