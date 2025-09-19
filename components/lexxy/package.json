@@ -1,0 +1,37 @@
+{
+  "name": "@stimulus-components/lexxy",
+  "version": "1.0.0",
+  "description": "A Stimulus controller that adds enhanced features to Lexxy editor.",
+  "keywords": [
+    "stimulus",
+    "stimulusjs",
+    "stimulus controller",
+    "lexxy",
+    "rich text editor",
+    "lexical"
+  ],
+  "repository": "git@github.com:stimulus-components/stimulus-components.git",
+  "bugs": {
+    "url": "https://github.com/stimulus-components/stimulus-components/issues"
+  },
+  "author": "Guillaume Briday <guillaumebriday@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/stimulus-components/stimulus-components",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "dist/stimulus-lexxy.umd.js",
+  "module": "dist/stimulus-lexxy.mjs",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "types": "tsc --noEmit false --declaration true --emitDeclarationOnly true --outDir dist/types",
+    "dev": "vite",
+    "build": "vite build && pnpm run types",
+    "version": "pnpm build"
+  },
+  "peerDependencies": {
+    "@37signals/lexxy": "^0.1.7.beta",
+    "@rails/activestorage": "^8"
+  }
+}

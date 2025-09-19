@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Stimulus Lexxy</title>
+
+    <script type="module">
+      import "../app.css"
+      import "./lexxy.css"
+      import "@37signals/lexxy"
+      import { Application } from "@hotwired/stimulus"
+      import Lexxy from "./src/index"
+
+      const application = Application.start()
+      application.register("lexxy", Lexxy)
+    </script>
+  </head>
+
+  <body>
+    <div class="max-w-5xl mx-auto p-4">
+      <lexxy-editor
+        name="content"
+        data-controller="lexxy"
+      ></lexxy-editor>
+    </div>
+  </body>
+</html>
