@@ -15,8 +15,8 @@ export default defineConfig({
       external: ["@37signals/lexxy", "@hotwired/stimulus"],
       output: {
         globals: {
-          "lexxy": "Lexxy",
           "@hotwired/stimulus": "Stimulus",
+          lexxy: "Lexxy",
         },
       },
     },

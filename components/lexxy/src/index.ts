@@ -41,8 +41,8 @@ export default class Lexxy extends Controller<HTMLElement> {
         detail: {
           file,
           allowedTypes: this.typesValue,
-          message: `File type not allowed. We only accept ${this.typesValue.join(", ")}.`
-        }
+          message: `File type not allowed. We only accept ${this.typesValue.join(", ")}.`,
+        },
       })
       return
     }
@@ -55,8 +55,8 @@ export default class Lexxy extends Controller<HTMLElement> {
           file,
           maxBytes: this.maxBytesValue,
           maxMB,
-          message: `File too large. Maximum ${maxMB} MB allowed.`
-        }
+          message: `File too large. Maximum ${maxMB} MB allowed.`,
+        },
       })
     }
   }
