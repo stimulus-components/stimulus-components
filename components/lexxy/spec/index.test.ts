@@ -16,9 +16,9 @@ const startStimulus = () => {
 // Helper function to create mock files
 const createMockFile = (name: string, type: string, size: number): File => {
   const file = new File([""], name, { type })
-    Object.defineProperty(file, "size", {
+  Object.defineProperty(file, "size", {
     value: size,
-    writable: false
+    writable: false,
   })
   return file
 }
@@ -28,7 +28,7 @@ const dispatchFileAcceptEvent = (element: HTMLElement, file: File) => {
   const event = new CustomEvent("lexxy:file-accept", {
     detail: { file },
     bubbles: true,
-    cancelable: true
+    cancelable: true,
   })
   element.dispatchEvent(event)
   return event
@@ -46,10 +46,10 @@ describe("Lexxy Controller", () => {
         data-controller="lexxy"
       ></lexxy-editor>
     `
-    element = document.querySelector("[data-controller=\"lexxy\"]") as HTMLElement
+    element = document.querySelector('[data-controller="lexxy"]') as HTMLElement
 
     // Wait for controller to be connected
-    await new Promise(resolve => setTimeout(resolve, 0))
+    await new Promise((resolve) => setTimeout(resolve, 0))
   })
 
   afterEach(() => {
@@ -71,10 +71,10 @@ describe("Lexxy Controller", () => {
       const validFiles = [
         createMockFile("image.jpg", "image/jpeg", 1024),
         createMockFile("image.png", "image/png", 1024),
-        createMockFile("document.pdf", "application/pdf", 1024)
+        createMockFile("document.pdf", "application/pdf", 1024),
       ]
 
-      validFiles.forEach(file => {
+      validFiles.forEach((file) => {
         const eventSpy = vi.fn()
         element.addEventListener("lexxy:invalid-type", eventSpy)
 
@@ -166,8 +166,8 @@ describe("Lexxy Controller", () => {
           data-lexxy-types-value="[&quot;image/gif&quot;]"
         ></lexxy-editor>
       `
-      const customElement = document.querySelector("[data-controller=\"lexxy\"]") as HTMLElement
-      await new Promise(resolve => setTimeout(resolve, 0))
+      const customElement = document.querySelector('[data-controller="lexxy"]') as HTMLElement
+      await new Promise((resolve) => setTimeout(resolve, 0))
 
       // Test custom size limit (1.5MB)
       const oversizedFile = createMockFile("image.gif", "image/gif", 2 * 1024 * 1024) // 2MB
@@ -203,8 +203,8 @@ describe("Lexxy Controller", () => {
           attachments="false"
         ></lexxy-editor>
       `
-      const disabledElement = document.querySelector("[data-controller=\"lexxy\"]") as HTMLElement
-      await new Promise(resolve => setTimeout(resolve, 0))
+      const disabledElement = document.querySelector('[data-controller="lexxy"]') as HTMLElement
+      await new Promise((resolve) => setTimeout(resolve, 0))
 
       const mockFile = createMockFile("test.jpg", "image/jpeg", 1024)
       const eventSpy = vi.fn()
@@ -254,7 +254,7 @@ describe("Lexxy Controller", () => {
       const event = new CustomEvent("lexxy:file-accept", {
         detail: {},
         bubbles: true,
-        cancelable: true
+        cancelable: true,
       })
 
       const typeSpy = vi.fn()
@@ -273,7 +273,7 @@ describe("Lexxy Controller", () => {
       const event = new CustomEvent("lexxy:file-accept", {
         detail: { file: null },
         bubbles: true,
-        cancelable: true
+        cancelable: true,
       })
 
       const typeSpy = vi.fn()
