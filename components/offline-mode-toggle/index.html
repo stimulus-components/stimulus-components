@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Stimulus Offline Mode Toggle</title>
+
+    <script type="module">
+      import "../app.css"
+      import { Application } from "@hotwired/stimulus"
+      import OfflineModeToggle from "./src/index"
+
+      const application = Application.start()
+      application.register("offline-mode-toggle", OfflineModeToggle)
+    </script>
+  </head>
+
+  <body>
+    <div class="relative h-full max-w-5xl mx-auto px-4">
+      <section class="mt-16">
+        <div
+          data-controller="offline-mode-toggle" 
+          data-offline-mode-toggle-connection-test-path-value=""
+          class="flex items-center m-2"
+          >
+          <button 
+            type="button" 
+            class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" 
+            role="switch"
+            aria-checked="false" 
+            aria-labelledby="offline-toggle"
+            data-action="click->offline-mode-toggle#toggle"
+            data-offline-mode-toggle-target="button"
+            data-test-id="offline_mode_button"
+            >
+            <span
+              aria-hidden="true"
+              class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"
+              data-offline-mode-toggle-target="span" 
+              >
+              </span>
+          </button>
+          <span class="ml-3" id="offline-mode-label">
+            <span data-offline-mode-toggle-target="label" class='m-1 text-sm md:m-1' ></span>
+          </span>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
