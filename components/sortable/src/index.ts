@@ -1,14 +1,15 @@
 import { Controller } from "@hotwired/stimulus"
 import Sortable from "sortablejs"
-import { patch, Options } from "@rails/request.js"
+import { FetchRequest, type ResponseKind } from "@rails/request.js"
 
 export default class StimulusSortable extends Controller<HTMLElement> {
   declare animationValue: number
   declare resourceNameValue: string
   declare paramNameValue: string
-  declare responseKindValue: Options["responseKind"]
+  declare responseKindValue: ResponseKind
   declare sortable: Sortable
   declare handleValue: string
+  declare methodValue: string
   declare draggableValue: string
 
   static values = {
@@ -23,6 +24,10 @@ export default class StimulusSortable extends Controller<HTMLElement> {
     },
     animation: Number,
     handle: String,
+    method: {
+      type: String,
+      default: "patch",
+    },
     draggable: String
   }
 
@@ -50,7 +55,11 @@ export default class StimulusSortable extends Controller<HTMLElement> {
     const data = new FormData()
     data.append(param, newIndex + 1)
 
-    return await patch(item.dataset.sortableUpdateUrl, { body: data, responseKind: this.responseKindValue })
+    const request = new FetchRequest(this.methodValue, item.dataset.sortableUpdateUrl, {
+      body: data,
+      responseKind: this.responseKindValue,
+    })
+    return await request.perform()
   }
 
   get options(): Sortable.Options {

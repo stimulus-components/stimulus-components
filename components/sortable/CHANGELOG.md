@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [5.0.3] - 2025-09-22
+
+### Added
+
+- Adding `method` option. Thanks @seb-jean!
+
 ## [5.0.2] - 2024-02-03
 
 ### Chore
