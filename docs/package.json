@@ -42,6 +42,7 @@
     "@stimulus-components/scroll-reveal": "workspace:*",
     "@stimulus-components/sortable": "workspace:*",
     "@stimulus-components/sound": "workspace:*",
+    "@stimulus-components/textarea-autogrow": "workspace:*",
     "@stimulus-components/timeago": "workspace:*",
     "@tailwindcss/typography": "^0.5.18",
     "core-js": "^3.45.1",
