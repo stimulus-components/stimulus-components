@@ -67,6 +67,7 @@ import CheckboxSelectAll from "@/components/content/Demo/CheckboxSelectAll.vue"
 import Clipboard from "@/components/content/Demo/Clipboard.vue"
 import Dropdown from "@/components/content/Demo/Dropdown.vue"
 import PasswordVisibility from "@/components/content/Demo/PasswordVisibility.vue"
+import TextareaAutogrow from "@/components/content/Demo/TextareaAutogrow.vue"
 import HeroLines from "@/components/Home/HeroLines.vue"
 
 const { data: components } = await useAsyncData("components-hero", () =>
@@ -74,7 +75,7 @@ const { data: components } = await useAsyncData("components-hero", () =>
     .sort({ title: 1 })
     .where({
       package: {
-        $in: ["character-counter", "checkbox-select-all", "clipboard", "dropdown", "password-visibility"],
+        $in: ["character-counter", "checkbox-select-all", "clipboard", "dropdown", "password-visibility", "textarea-autogrow"],
       },
     })
     .find(),
@@ -86,5 +87,6 @@ const componentsDemo = {
   clipboard: Clipboard,
   dropdown: Dropdown,
   "password-visibility": PasswordVisibility,
+  "textarea-autogrow": TextareaAutogrow,
 }
 </script>

@@ -1,5 +1,5 @@
 {
-  "name": "stimulus-textarea-autogrow",
+  "name": "@stimulus-components/textarea-autogrow",
   "version": "4.1.0",
   "description": "A Stimulus controller for autogrowing textarea.",
   "repository": "git@github.com:stimulus-components/stimulus-components.git",

@@ -2,12 +2,16 @@
 title: Textarea Autogrow
 description: A Stimulus controller for autogrowing textarea.
 package: textarea-autogrow
-packagePath: "stimulus-textarea-autogrow"
+packagePath: "@stimulus-components/textarea-autogrow"
 ---
 
 ## Installation
 
 :installation-block{:package="package" :packagePath="packagePath"}
+
+## Example
+
+:textarea-autogrow
 
 ## Usage
 
