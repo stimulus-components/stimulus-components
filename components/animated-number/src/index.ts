@@ -7,6 +7,9 @@ export default class AnimatedNumber extends Controller<HTMLElement> {
   declare endValue: number
   declare durationValue: number
   declare lazyValue: number
+  declare decimalPlacesValue: number
+  declare decimalSeparatorValue: string
+  declare thousandsSeparatorValue: string
 
   static values = {
     start: Number,
@@ -18,6 +21,18 @@ export default class AnimatedNumber extends Controller<HTMLElement> {
       default: "0px",
     },
     lazy: Boolean,
+    decimalPlaces: {
+      type: Number,
+      default: 0,
+    },
+    decimalSeparator: {
+      type: String,
+      default: ".",
+    },
+    thousandsSeparator: {
+      type: String,
+      default: ",",
+    },
   }
 
   connect(): void {
@@ -32,8 +47,9 @@ export default class AnimatedNumber extends Controller<HTMLElement> {
 
       const elapsed: number = timestamp - startTimestamp
       const progress: number = Math.min(elapsed / this.durationValue, 1)
+      const currentValue = progress * (this.endValue - this.startValue) + this.startValue
 
-      this.element.innerHTML = Math.floor(progress * (this.endValue - this.startValue) + this.startValue).toString()
+      this.element.innerHTML = this.formatNumber(currentValue)
 
       if (progress < 1) {
         window.requestAnimationFrame(step)
@@ -41,6 +57,13 @@ export default class AnimatedNumber extends Controller<HTMLElement> {
     }
 
     window.requestAnimationFrame(step)
+  }
+
+  formatNumber(value: number): string {
+    const rounded = value.toFixed(this.decimalPlacesValue)
+    const [integerPartRaw, decimalPart = ""] = rounded.split(".")
+    const integerPart = integerPartRaw.replace(/\B(?=(\d{3})+(?!\d))/g, this.thousandsSeparatorValue)
+    return decimalPart ? `${integerPart}${this.decimalSeparatorValue}${decimalPart}` : integerPart
   }
 
   lazyAnimate(): void {
