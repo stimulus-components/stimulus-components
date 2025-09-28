@@ -63,3 +63,42 @@ describe("#nestedForm", (): void => {
     })
   })
 })
+
+describe("#deeplyNestedForm", (): void => {
+  beforeEach((): void => {
+    startStimulus()
+
+    document.body.innerHTML = `
+      <form data-controller="nested-form" data-nested-form-new-record-placeholder-value="NEW_OUTER_RECORD">
+        <template data-nested-form-target="template">
+          <div class="nested-form-wrapper" data-new-record="true">
+            <label for="NEW_OUTER_RECORD">New todo</label>
+
+            <div data-controller="nested-form">
+              <div class="nested-form-wrapper" data-new-record="true">
+                <label for="NEW_RECORD">New todo</label>
+              </div>
+            </div>
+          </div>
+        </template>
+
+        <div>
+          <label>Your todo</label>
+        </div>
+
+        <div data-nested-form-target="target"></div>
+
+        <button type="button" data-action="nested-form#add">Add todo</button>
+      </form>
+    `
+  })
+
+  it("retains new record placeholder in deeply nested forms", (): void => {
+    const addButton: HTMLButtonElement = document.querySelector("[data-action='nested-form#add']")
+    expect(document.querySelector("form[data-controller='nested-form']").innerHTML).toContain("NEW_RECORD")
+
+    addButton.click()
+
+    expect(document.querySelector("div[data-controller='nested-form']").innerHTML).toContain("NEW_RECORD")
+  })
+})
