@@ -68,9 +68,17 @@ export default class Pluralize extends Controller {
 
   getText(target, number): string {
     const plural = this.usePlural(number)
-    const text = plural ? target.dataset.plural : target.dataset.singular
+    const text = plural ? this.getPluralText(target) : this.getSingularText(target)
 
     return text
+  }
+
+  getPluralText(target): string {
+    return target.dataset.plural
+  }
+
+  getSingularText(target): string {
+    return target.dataset.singular
   }
 
   updateTargetsWithNumber(number): void {
