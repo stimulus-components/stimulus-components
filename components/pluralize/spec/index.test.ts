@@ -72,4 +72,56 @@ describe("#update", () => {
       expect(texts[1].innerHTML).toBe("puppies")
     })
   })
+
+  describe("for observation", () => {
+    beforeEach((): void => {
+      startStimulus()
+
+      document.body.innerHTML = `
+      <div data-controller="pluralize">
+        There
+        <span data-pluralize-target="text" data-singular="is" data-plural="are"></span>
+        <strong data-pluralize-target="observe"></strong>
+        <span data-pluralize-target="text" data-singular="puppy" data-plural="puppies"></span>
+        to be seen.
+      </div>
+    `
+    })
+
+    it("should correctly pluralize for 0", async (): Promise<void> => {
+      const texts = document.querySelectorAll<HTMLElement>('[data-pluralize-target="text"]')
+      const value = document.querySelector<HTMLElement>('[data-pluralize-target="observe"]')
+
+      value.textContent = "0"
+      await new Promise(process.nextTick)
+
+      expect(value.innerHTML).toBe("0")
+      expect(texts[0].innerHTML).toBe("are")
+      expect(texts[1].innerHTML).toBe("puppies")
+    })
+
+    it("should correctly pluralize for 1", async (): Promise<void> => {
+      const texts = document.querySelectorAll<HTMLElement>('[data-pluralize-target="text"]')
+      const value = document.querySelector<HTMLElement>('[data-pluralize-target="observe"]')
+
+      value.textContent = "1"
+      await new Promise(process.nextTick)
+
+      expect(value.innerHTML).toBe("1")
+      expect(texts[0].innerHTML).toBe("is")
+      expect(texts[1].innerHTML).toBe("puppy")
+    })
+
+    it("should correctly pluralize for 2", async (): Promise<void> => {
+      const texts = document.querySelectorAll<HTMLElement>('[data-pluralize-target="text"]')
+      const value = document.querySelector<HTMLElement>('[data-pluralize-target="observe"]')
+
+      value.textContent = "2"
+      await new Promise(process.nextTick)
+
+      expect(value.innerHTML).toBe("2")
+      expect(texts[0].innerHTML).toBe("are")
+      expect(texts[1].innerHTML).toBe("puppies")
+    })
+  })
 })
