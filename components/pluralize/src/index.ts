@@ -2,39 +2,24 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class Pluralize extends Controller {
   declare readonly inputTarget: HTMLInputElement
-  declare readonly observeTarget: HTMLElement
   declare readonly textTargets: Array<HTMLElement>
   declare readonly valueTargets: Array<HTMLElement>
-  declare readonly phraseTargets: Array<HTMLElement>
 
   declare readonly hasInputTarget: boolean
-  declare readonly hasObserveTarget: boolean
-  declare readonly hasCountdownValue: boolean
 
-  static targets = ["input", "observe", "text", "value", "phrase"]
-  static values = {
-    singular: { type: String, default: "" },
-    plural: { type: String, default: "" },
-  }
+  static targets = ["input", "text", "value"]
 
   initialize(): void {
-    console.log("yooooo")
     this.update = this.update.bind(this)
   }
 
-  connect(): void {
-    console.log("HELLO?")
-  }
-
   inputTargetConnected(element): void {
-    console.log("input target hello?", { element })
     this.update()
-    element.addEventListener('input', this.update)
+    element.addEventListener("input", this.update)
   }
 
   inputTargetDisconnected(element): void {
-    console.log("input target GOODBYE", { element })
-    element.removeEventListener('input', this.update)
+    element.removeEventListener("input", this.update)
   }
 
   update(): void {
@@ -43,7 +28,7 @@ export default class Pluralize extends Controller {
   }
 
   get number(): number {
-    let value: string;
+    let value: string
 
     if (this.hasInputTarget) {
       value = this.inputTarget.value
@@ -58,15 +43,15 @@ export default class Pluralize extends Controller {
 
   getText(target, number): string {
     const plural = this.usePlural(number)
-    const text = plural ? target.dataset.plural: target.dataset.singular
+    const text = plural ? target.dataset.plural : target.dataset.singular
 
     return text
   }
 
   updateTargetsWithNumber(number): void {
-    this.valueTargets.forEach((valueTarget) => valueTarget.textContent = number);
+    this.valueTargets.forEach((valueTarget) => valueTarget.textContent = number)
     this.textTargets.forEach((textTarget) => {
       textTarget.textContent = this.getText(textTarget, number)
-    });
+    })
   }
 }

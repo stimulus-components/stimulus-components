@@ -183,6 +183,12 @@ importers:
         specifier: ^3
         version: 3.2.2
 
+  components/pluralize:
+    dependencies:
+      '@hotwired/stimulus':
+        specifier: ^3
+        version: 3.2.2
+
   components/popover:
     dependencies:
       '@hotwired/stimulus':
@@ -348,6 +354,9 @@ importers:
       '@stimulus-components/password-visibility':
         specifier: workspace:*
         version: link:../components/password-visibility
+      '@stimulus-components/pluralize':
+        specifier: workspace:*
+        version: link:../components/pluralize
       '@stimulus-components/popover':
         specifier: workspace:*
         version: link:../components/popover
