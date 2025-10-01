@@ -46,11 +46,11 @@ export default class Pluralize extends Controller {
   }
 
   update(): void {
-    const number = this.number || 0
-    this.updateTargetsWithNumber(number)
+    const count = this.count || 0
+    this.updateTargetsWithCount(count)
   }
 
-  get number(): number {
+  get count(): number {
     let value: string
 
     if (this.hasInputTarget) {
@@ -62,12 +62,12 @@ export default class Pluralize extends Controller {
     return Number(value)
   }
 
-  usePlural(number): boolean {
-    return number != 1
+  usePlural(count): boolean {
+    return count != 1
   }
 
-  getText(target, number): string {
-    const plural = this.usePlural(number)
+  getText(target, count): string {
+    const plural = this.usePlural(count)
     const text = plural ? this.getPluralText(target) : this.getSingularText(target)
 
     return text
@@ -81,10 +81,10 @@ export default class Pluralize extends Controller {
     return target.dataset.singular
   }
 
-  updateTargetsWithNumber(number): void {
-    this.valueTargets.forEach((valueTarget) => valueTarget.textContent = number)
+  updateTargetsWithCount(count): void {
+    this.valueTargets.forEach((valueTarget) => valueTarget.textContent = count)
     this.textTargets.forEach((textTarget) => {
-      textTarget.textContent = this.getText(textTarget, number)
+      textTarget.textContent = this.getText(textTarget, count)
     })
   }
 }

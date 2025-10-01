@@ -64,7 +64,7 @@ export default class extends Pluralize {
 
   // Function to override if you want to change the logic from
   // 1 = singular, otherwise plural
-  getText(target, number)
+  getText(target, count)
 }
 ```
 

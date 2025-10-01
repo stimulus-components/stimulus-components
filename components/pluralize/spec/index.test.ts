@@ -11,6 +11,10 @@ const startStimulus = (): void => {
   application.register("pluralize", Pluralize)
 }
 
+let input: HTMLInputElement
+let value: HTMLElement
+let texts: NodeListOf<HTMLElement>
+
 describe("#update", () => {
   describe("for an input", () => {
     beforeEach((): void => {
@@ -31,13 +35,13 @@ describe("#update", () => {
         from this input.
       </div>
     `
+
+      input = document.querySelector<HTMLInputElement>('[data-pluralize-target="input"]')
+      texts = document.querySelectorAll<HTMLElement>('[data-pluralize-target="text"]')
+      value = document.querySelector<HTMLElement>('[data-pluralize-target="value"]')
     })
 
     it("should correctly pluralize for 0", (): void => {
-      const input = document.querySelector<HTMLInputElement>('[data-pluralize-target="input"]')
-      const texts = document.querySelectorAll<HTMLElement>('[data-pluralize-target="text"]')
-      const value = document.querySelector<HTMLElement>('[data-pluralize-target="value"]')
-
       input.value = "0"
       input.dispatchEvent(new Event("input"))
 
@@ -47,10 +51,6 @@ describe("#update", () => {
     })
 
     it("should correctly pluralize for 1", (): void => {
-      const input = document.querySelector<HTMLInputElement>('[data-pluralize-target="input"]')
-      const texts = document.querySelectorAll<HTMLElement>('[data-pluralize-target="text"]')
-      const value = document.querySelector<HTMLElement>('[data-pluralize-target="value"]')
-
       input.value = "1"
       input.dispatchEvent(new Event("input"))
 
@@ -60,10 +60,6 @@ describe("#update", () => {
     })
 
     it("should correctly pluralize for 2", (): void => {
-      const input = document.querySelector<HTMLInputElement>('[data-pluralize-target="input"]')
-      const texts = document.querySelectorAll<HTMLElement>('[data-pluralize-target="text"]')
-      const value = document.querySelector<HTMLElement>('[data-pluralize-target="value"]')
-
       input.value = "2"
       input.dispatchEvent(new Event("input"))
 
@@ -86,12 +82,12 @@ describe("#update", () => {
         to be seen.
       </div>
     `
+
+      texts = document.querySelectorAll<HTMLElement>('[data-pluralize-target="text"]')
+      value = document.querySelector<HTMLElement>('[data-pluralize-target="observe"]')
     })
 
     it("should correctly pluralize for 0", async (): Promise<void> => {
-      const texts = document.querySelectorAll<HTMLElement>('[data-pluralize-target="text"]')
-      const value = document.querySelector<HTMLElement>('[data-pluralize-target="observe"]')
-
       value.textContent = "0"
       await new Promise(process.nextTick)
 
@@ -101,9 +97,6 @@ describe("#update", () => {
     })
 
     it("should correctly pluralize for 1", async (): Promise<void> => {
-      const texts = document.querySelectorAll<HTMLElement>('[data-pluralize-target="text"]')
-      const value = document.querySelector<HTMLElement>('[data-pluralize-target="observe"]')
-
       value.textContent = "1"
       await new Promise(process.nextTick)
 
@@ -113,9 +106,6 @@ describe("#update", () => {
     })
 
     it("should correctly pluralize for 2", async (): Promise<void> => {
-      const texts = document.querySelectorAll<HTMLElement>('[data-pluralize-target="text"]')
-      const value = document.querySelector<HTMLElement>('[data-pluralize-target="observe"]')
-
       value.textContent = "2"
       await new Promise(process.nextTick)
 
