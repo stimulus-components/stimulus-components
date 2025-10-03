@@ -147,6 +147,12 @@ importers:
         specifier: ^0.52.3
         version: 0.52.3(@hotwired/stimulus@3.2.2)(hotkeys-js@3.13.7)
 
+  components/file-input-preview:
+    dependencies:
+      '@hotwired/stimulus':
+        specifier: ^3
+        version: 3.2.2
+
   components/glow:
     dependencies:
       '@hotwired/stimulus':
