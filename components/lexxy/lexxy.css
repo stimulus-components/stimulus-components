@@ -1,0 +1,685 @@
+:root {
+  /* Colors */
+  --lexxy-color-ink: oklch(20% 0 0);
+  --lexxy-color-ink-medium: oklch(40% 0 0);
+  --lexxy-color-ink-light: oklch(60% 0 0);
+  --lexxy-color-ink-lighter: oklch(85% 0 0);
+  --lexxy-color-ink-lightest: oklch(96% 0 0);
+  --lexxy-color-ink-inverted: white;
+
+  --lexxy-color-accent-dark: oklch(57% 0.19 260);
+  --lexxy-color-accent-medium: oklch(66% 0.196 258);
+  --lexxy-color-accent-lightest: oklch(92% 0.026 254);
+
+  --lexxy-color-red: oklch(60% 0.15 27);
+  --lexxy-color-green: oklch(60% 0.15 145);
+  --lexxy-color-blue: oklch(66% 0.196 258);
+  --lexxy-color-purple: oklch(60% 0.15 305);
+
+  --lexxy-color-code-token-att: #d73a49;
+  --lexxy-color-code-token-comment: #6a737d;
+  --lexxy-color-code-token-function: #6f42c1;
+  --lexxy-color-code-token-operator: #d73a49;
+  --lexxy-color-code-token-property: #005cc5;
+  --lexxy-color-code-token-punctuation: #24292e;
+  --lexxy-color-code-token-selector: #22863a;
+  --lexxy-color-code-token-variable: #e36209;
+
+  --lexxy-color-canvas: var(--lexxy-color-ink-inverted);
+  --lexxy-color-text: var(--lexxy-color-ink);
+  --lexxy-color-text-subtle: var(--lexxy-color-ink-medium);
+  --lexxy-color-link: var(--lexxy-color-accent-dark);
+  --lexxy-color-selected: var(--lexxy-color-accent-lightest);
+  --lexxy-color-selected-dark: var(--lexxy-color-blue-medium);
+  --lexxy-color-code-bg: var(--lexxy-color-ink-lightest);
+
+  /* Typography */
+  --lexxy-font-base: system-ui, sans-serif;
+  --lexxy-font-mono: ui-monospace, "Menlo", "Monaco", Consolas, monospace;
+  --lexxy-text-small: 0.875rem;
+  --lexxy-content-margin: 1rem;
+
+  /* Focus ring */
+  --lexxy-focus-ring-color: var(--lexxy-color-accent-dark);
+  --lexxy-focus-ring-offset: 2px;
+  --lexxy-focus-ring-size: 2px;
+
+  /* Misc */
+  --lexxy-radius: 0.5ch;
+  --lexxy-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --lexxy-z-popup: 1000;
+}
+
+/* Text styles
+/* -------------------------------------------------------------------------- */
+
+:where(.lexxy-content) {
+  color: var(--lexxy-color-ink);
+
+  h1, h2, h3, h4, h5, h6 {
+    display: block;
+    font-weight: bold;
+    hyphens: auto;
+    margin-block: 0 var(--lexxy-content-margin);
+    overflow-wrap: break-word;
+    text-wrap: balance;
+  }
+
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+  h4 { font-size: 1rem; }
+  h5 { font-size: 0.875rem; }
+  h6 { font-size: 0.75rem; }
+
+  p,
+  ul,
+  ol,
+  dl,
+  blockquote,
+  figure,
+  .attachment {
+    margin-block: 0 var(--lexxy-content-margin);
+
+    &:not(lexxy-editor &) {
+      overflow-wrap: break-word;
+      text-wrap: pretty;
+    }
+  }
+
+  blockquote {
+    border-inline-start: 0.25em solid var(--lexxy-color-ink-lighter);
+    font-style: italic;
+    margin: var(--lexxy-content-margin) 0;
+    padding: 0.5lh 2ch;
+  }
+
+  p:empty {
+    display: none;
+  }
+
+  img,
+  video,
+  embed,
+  object {
+    inline-size: auto;
+    margin-inline: auto;
+    max-block-size: 32rem;
+    object-fit: contain;
+
+    a:has(&) {
+      display: inline-block;
+    }
+  }
+
+  code, pre {
+    background-color: var(--lexxy-color-ink-lightest);
+    border-radius: var(--lexxy-radius);
+    color: var(--lexxy-color-ink);
+    font-family: var(--lexxy-font-mono);
+    font-size: 0.9em;
+    padding: 0.25ch 0.5ch;
+
+    &:is(pre),
+    &[data-language] {
+      border-radius: var(--lexxy-radius);
+      display: block;
+      hyphens: none;
+      margin-block: 0 var(--lexxy-content-margin);
+      overflow-x: auto;
+      padding: 1ch;
+      tab-size: 2;
+      text-wrap: nowrap;
+      white-space: pre;
+      word-break: break-word;
+    }
+  }
+
+  > :last-child {
+    margin-block-end: 0;
+  }
+
+  /* Keywords and attributes */
+  .code-token__attr,
+  .token.atrule,
+  .token.attr,
+  .token.keyword {
+    color: var(--lexxy-color-code-token-att);
+  }
+
+  /* Constants, booleans, numbers, properties, tags */
+  .code-token__property,
+  .token.boolean,
+  .token.constant,
+  .token.deleted,
+  .token.number,
+  .token.property,
+  .token.symbol,
+  .token.tag {
+    color: var(--lexxy-color-code-token-property);
+  }
+
+  /* Strings, selectors, and built-in constructs */
+  .code-token__selector,
+  .token.builtin,
+  .token.char,
+  .token.inserted,
+  .token.selector,
+  .token.string {
+    color: var(--lexxy-color-code-token-selector);
+  }
+
+  /* Comments and meta information */
+  .code-token__comment,
+  .token.cdata,
+  .token.comment,
+  .token.doctype,
+  .token.prolog {
+    color: var(--lexxy-color-code-token-comment);
+    font-style: italic;
+  }
+
+  /* Operators and symbolic entities */
+  .code-token__operator,
+  .token.entity,
+  .token.operator,
+  .token.url {
+    color: var(--lexxy-color-code-token-operator);
+  }
+
+  /* Functions and class names */
+  .code-token__function,
+  .token.class,
+  .token.class-name,
+  .token.function {
+    color: var(--lexxy-color-code-token-function);
+  }
+
+  /* Variables, regex, namespaces, important */
+  .code-token__variable,
+  .token.important,
+  .token.namespace,
+  .token.regex,
+  .token.variable {
+    color: var(--lexxy-color-code-token-variable);
+  }
+
+  /* Punctuation */
+  .code-token__punctuation,
+  .token.punctuation {
+    color: var(--lexxy-color-code-token-punctuation);
+  }
+}
+
+:where([data-lexical-cursor]) {
+  animation: blink 1s step-end infinite;
+  block-size: 1lh;
+  border-inline-start: 1px solid currentColor;
+  line-height: inherit;
+  margin-block: 1em;
+}
+
+/* Attachments
+/* ------------------------------------------------------------------------ */
+
+:where(.attachment) {
+  block-size: auto;
+  display: block;
+  inline-size: fit-content;
+  position: relative;
+  margin-inline: auto;
+  max-inline-size: 100%;
+  text-align: center;
+
+  :where(progress) {
+    inline-size: 100%;
+    margin: auto;
+  }
+}
+
+:where(.attachment__caption) {
+  color: var(--lexxy-color-text-subtle);
+  font-size: var(--lexxy-text-small);
+
+  input {
+    color: inherit;
+    border: none;
+    inline-size: 100%;
+    max-inline-size: 100%;
+    text-align: center;
+
+    &:focus {
+      outline: none;
+    }
+
+    @supports (field-sizing: content) {
+      field-sizing: content;
+      inline-size: auto;
+      min-inline-size: 20ch;
+    }
+  }
+}
+
+:where(.attachment__icon) {
+  aspect-ratio: 4/5;
+  background-color: color-mix(var(--lexxy-attachment-icon-color), transparent 90%);
+  block-size: 3lh;
+  border: 2px solid var(--lexxy-attachment-icon-color);
+  border-block-start-width: 1ch;
+  border-radius: var(--lexxy-radius);
+  box-sizing: border-box;
+  color: var(--lexxy-attachment-icon-color);
+  display: grid;
+  font-size: var(--lexxy-text-small);
+  font-weight: bold;
+  inline-size: auto;
+  place-content: center;
+  text-transform: uppercase;
+}
+
+:where(.attachment--preview) {
+  border-radius: var(--lexxy-radius);
+
+  img, video {
+    block-size: auto;
+    display: block;
+    margin-inline: auto;
+    max-inline-size: 100%;
+    user-select: none;
+  }
+
+  > a {
+    display: block;
+  }
+
+  .attachment__caption {
+    margin-block-start: 1ch;
+  }
+}
+
+:where(.attachment--file) {
+  --lexxy-attachment-icon-color: var(--lexxy-color-text-subtle);
+
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1ch;
+  inline-size: auto;
+
+  .attachment__caption {
+    display: grid;
+    flex: 1;
+    text-align: start;
+  }
+
+  .attachment__name {
+    color: var(--lexxy-color-ink);
+    font-weight: bold;
+  }
+}
+
+:where(
+  .attachment--psd,
+  .attachment--key,
+  .attachment--sketch,
+  .attachment--ai,
+  .attachment--eps,
+  .attachment--indd,
+  .attachment--svg,
+  .attachment--ppt,
+  .attachment--pptx
+) {
+  --lexxy-attachment-icon-color: var(--lexxy-color-red);
+}
+
+:where(
+  .attachment--css,
+  .attachment--php,
+  .attachment--json,
+  .attachment--htm,
+  .attachment--html,
+  .attachment--rb,
+  .attachment--erb,
+  .attachment--ts,
+  .attachment--js
+) {
+  --lexxy-attachment-icon-color: var(--lexxy-color-purple);
+}
+
+:where(
+  .attachment--txt,
+  .attachment--pages,
+  .attachment--rtf,
+  .attachment--md,
+  .attachment--doc,
+  .attachment--docx
+) {
+  --lexxy-attachment-icon-color: var(--lexxy-color-blue);
+}
+
+:where(
+  .attachment--csv,
+  .attachment--numbers,
+  .attachment--xls,
+  .attachment--xlsx
+) {
+  --lexxy-attachment-icon-color: var(--lexxy-color-green);
+}
+
+/* Custom attachments such as mentions, etc. */
+:where(action-text-attachment[content-type^="application/vnd.actiontext"]) {
+  --lexxy-attachment-bg-color: transparent;
+  --lexxy-attachment-image-size: 1em;
+  --lexxy-attachment-text-color: currentColor;
+
+  align-items: center;
+  background: var(--lexxy-attachment-bg-color);
+  border-radius: var(--lexxy-radius);
+  box-shadow: -0.25ch 0 0 var(--lexxy-attachment-bg-color), 0.5ch 0 0 var(--lexxy-attachment-bg-color);
+  color: var(--lexxy-attachment-text-color);
+  display: inline-flex;
+  gap: 0.25ch;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  white-space: normal;
+
+  img {
+    block-size: var(--lexxy-attachment-image-size);
+    border-radius: 50%;
+    inline-size: var(--lexxy-attachment-image-size);
+  }
+
+  &.node--selected {
+    --lexxy-attachment-bg-color: var(--lexxy-color-accent-dark);
+    --lexxy-attachment-text-color: var(--lexxy-color-ink-inverted);
+  }
+}
+
+:where(lexxy-editor) {
+  --lexxy-editor-padding: 1ch;
+  --lexxy-editor-rows: 8lh;
+  @supports (min-block-size: attr(rows lh)) {
+    --lexxy-editor-rows: attr(rows lh, 8lh);
+  }
+
+  --lexxy-toolbar-gap: 2px;
+
+  border: 1px solid var(--lexxy-color-ink-lighter);
+  border-radius: calc(var(--lexxy-radius) + var(--lexxy-toolbar-gap));
+  display: block;
+  overflow: visible;
+  position: relative;
+  transition: opacity 150ms;
+
+  input,
+  button {
+    &:focus-visible {
+      outline-color: var(--lexxy-focus-ring-color);
+    }
+  }
+
+  button,
+  summary {
+    -webkit-appearance: none;
+    appearance: none;
+    background: var(--lexxy-color-canvas);
+    border: none;
+    border-radius: var(--lexxy-radius);
+    cursor: pointer;
+    font-size: inherit;
+    inline-size: auto;
+
+    @media(any-hover: hover) {
+      &:hover {
+        filter: brightness(0.9);
+      }
+    }
+  }
+
+  .node--selected {
+    &:has(img) img,
+    &:not(:has(img)) {
+      outline: var(--lexxy-focus-ring-size) solid var(--lexxy-focus-ring-color);
+      outline-offset: var(--lexxy-focus-ring-offset);
+    }
+  }
+
+  action-text-attachment {
+    cursor: pointer;
+  }
+}
+
+/* Placeholder */
+:where(.lexxy-editor--empty) {
+  .lexxy-editor__content:not(:has(ul, ol))::before {
+    content: attr(placeholder);
+    color: currentColor;
+    cursor: text;
+    opacity: 0.66;
+    pointer-events: none;
+    position: absolute;
+    white-space: pre-line;
+  }
+}
+
+:where(.lexxy-editor__content) {
+  min-block-size: var(--lexxy-editor-rows);
+  outline: 0;
+  padding: var(--lexxy-editor-padding);
+}
+
+:where(.lexxy-editor--drag-over) {
+  background-color: var(--lexxy-color-selected);
+  border-radius: var(--lexxy-radius);
+  outline: 2px dashed var(--lexxy-color-selected-dark);
+}
+
+/* Toolbar
+/* -------------------------------------------------------------------------- */
+
+:where(lexxy-toolbar) {
+  --lexxy-toolbar-icon-size: 1em;
+
+  border-block-end: 1px solid var(--lexxy-color-ink-lighter);
+  color: currentColor;
+  display: flex;
+  font-size: inherit;
+  gap: var(--lexxy-toolbar-gap);
+  max-inline-size: 100%;
+  padding: 2px;
+  position: relative;
+}
+
+:where(.lexxy-editor__toolbar-button) {
+  aspect-ratio: 1;
+  block-size: 2lh;
+  color: currentColor;
+  display: grid;
+  place-items: center;
+
+  &:is(:active) {
+    background-color: var(--lexxy-color-selected);
+  }
+
+  &[aria-pressed="true"] {
+    background-color: var(--lexxy-color-selected);
+  }
+
+  svg {
+    -webkit-touch-callout: none;
+    block-size: var(--lexxy-toolbar-icon-size);
+    fill: currentColor;
+    grid-area: 1/1;
+    inline-size: var(--lexxy-toolbar-icon-size);
+    user-select: none;
+  }
+}
+
+:where(.lexxy-editor__toolbar-overflow) {
+  display: none;
+  position: relative;
+  z-index: 1;
+
+  summary {
+    list-style: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    [open] & {
+      filter: brightness(0.9);
+    }
+  }
+}
+
+:where(.lexxy-editor__toolbar-overflow-menu) {
+  background-color: var(--lexxy-color-canvas);
+  border-radius: calc(var(--lexxy-radius) + var(--lexxy-toolbar-gap));
+  box-shadow: var(--lexxy-shadow);
+  display: flex;
+  inset-inline-end: 0;
+  padding: var(--lexxy-toolbar-gap);
+  position: absolute;
+}
+
+/* Link dialog
+/* -------------------------------------------------------------------------- */
+
+:where(.lexxy-link-dialog) {
+  display: contents;
+
+  dialog {
+    background-color: var(--lexxy-color-canvas);
+    border: 1px solid var(--lexxy-color-ink-lighter);
+    border-radius: var(--lexxy-radius);
+    box-shadow: var(--lexxy-shadow);
+    color: var(--lexxy-color-ink);
+    padding: 1ch;
+    position: absolute;
+    z-index: 1;
+  }
+
+  .lexxy-dialog-actions {
+    display: flex;
+    font-size: var(--lexxy-text-small);
+    flex: 1 1 0%;
+    gap: 1ch;
+    margin-block-start: 1ch;
+  }
+
+  input[type="url"],
+  button {
+    line-height: 1.5lh;
+    padding-inline: 1ch;
+  }
+
+  input[type="url"] {
+    border: 1px solid var(--lexxy-color-ink-lighter);
+    border-radius: var(--lexxy-radius);
+    min-inline-size: 30ch;
+  }
+
+  button {
+    background-color: var(--lexxy-color-ink-lightest);
+    inline-size: 100%;
+    justify-content: center;
+  }
+
+  button[type="submit"] {
+    background-color: var(--lexxy-color-accent-dark);
+    color: var(--lexxy-color-ink-inverted);
+  }
+}
+
+/* Language picker
+/* -------------------------------------------------------------------------- */
+
+:where(.lexxy-code-language-picker) {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--lexxy-color-canvas);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m12 19.5c-.7 0-1.3-.3-1.7-.8l-9.8-11.1c-.7-.8-.6-1.9.2-2.6.8-.6 1.9-.6 2.5.2l8.6 9.8c0 .1.2.1.4 0l8.6-9.8c.7-.8 1.8-.9 2.6-.2s.9 1.8.2 2.6l-9.8 11.1c-.4.5-1.1.8-1.7.8z' fill='%23000'/%3E%3C/svg%3E");
+  background-position: center right 1ch;
+  background-repeat: no-repeat;
+  background-size: 1ch;
+  block-size: 1.5lh;
+  border: 1px solid var(--lexxy-color-ink-lighter);
+  border-radius: var(--lexxy-radius);
+  color: var(--lexxy-color-ink);
+  font-family: var(--lexxy-font-base);
+  font-size: var(--lexxy-text-small);
+  font-weight: normal;
+  inset-inline-end: var(--lexxy-editor-padding);
+  margin: 0.5ch 0.5ch 0 -0.5ch;
+  padding: 0 2ch 0 1ch;
+  text-align: start;
+
+  @media (prefers-color-scheme: dark) {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m12 19.5c-.7 0-1.3-.3-1.7-.8l-9.8-11.1c-.7-.8-.6-1.9.2-2.6.8-.6 1.9-.6 2.5.2l8.6 9.8c0 .1.2.1.4 0l8.6-9.8c.7-.8 1.8-.9 2.6-.2s.9 1.8.2 2.6l-9.8 11.1c-.4.5-1.1.8-1.7.8z' fill='%23fff'/%3E%3C/svg%3E");
+  }
+}
+
+/* Prompt
+/* ------------------------------------------------------------------------ */
+
+:where(.lexxy-prompt-menu) {
+  --lexxy-prompt-avatar-size: 24px;
+  --lexxy-prompt-min-width: 20ch;
+  --lexxy-prompt-padding: 0.5ch;
+
+  background-color: var(--lexxy-color-canvas);
+  border-radius: calc(var(--lexxy-prompt-padding) * 2);
+  box-shadow: var(--lexxy-shadow);
+  color: var(--lexxy-color-ink);
+  font-family: var(--lexxy-font-base);
+  font-size: var(--lexxy-text-small);
+  list-style: none;
+  margin: 0;
+  max-block-size: 200px;
+  min-inline-size: var(--lexxy-prompt-min-width);
+  overflow: auto;
+  padding: var(--lexxy-prompt-padding);
+  visibility: hidden;
+  z-index: var(--lexxy-z-popup);
+}
+
+:where(.lexxy-prompt-menu--visible) {
+  visibility: initial;
+}
+
+:where(.lexxy-prompt-menu__item) {
+  align-items: center;
+  border-radius: var(--lexxy-radius);
+  cursor: pointer;
+  display: flex;
+  gap: var(--lexxy-prompt-padding);
+  padding: var(--lexxy-prompt-padding);
+  white-space: nowrap;
+
+  &:hover {
+    background-color: var(--lexxy-color-ink-lightest);
+  }
+
+  &[aria-selected] {
+    background-color: var(--lexxy-color-selected);
+  }
+
+  img {
+    block-size: var(--lexxy-prompt-avatar-size);
+    border-radius: 50%;
+    flex-shrink: 0;
+    inline-size: var(--lexxy-prompt-avatar-size);
+    margin: 0;
+  }
+
+  + & {
+    margin-top: 2px;
+  }
+}
+
+:where(.lexxy-prompt-menu__item--empty) {
+  color: var(--lexxy-color-ink-medium);
+  padding: var(--lexxy-prompt-padding);
+}

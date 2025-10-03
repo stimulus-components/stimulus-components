@@ -153,6 +153,15 @@ importers:
         specifier: ^3
         version: 3.2.2
 
+  components/lexxy:
+    dependencies:
+      '@37signals/lexxy':
+        specifier: ^0.1.9.beta
+        version: 0.1.9-beta(@rails/activestorage@8.0.300)
+      '@rails/activestorage':
+        specifier: ^8
+        version: 8.0.300
+
   components/lightbox:
     dependencies:
       '@hotwired/stimulus':
@@ -405,6 +414,14 @@ importers:
         version: 3.4.1
 
 packages:
+
+  '@37signals/lexxy@0.1.9-beta':
+    resolution: {integrity: sha512-emQ+cqxma9tJ7vT+3pla94UfZNxU8g6pCAfMXJ8+XPSjSvq19dSiLuveIJUN+11E/jrrNjmEOvsfuKwiTy6OVg==}
+    peerDependencies:
+      '@rails/activestorage': ^7.0.0
+    peerDependenciesMeta:
+      '@rails/activestorage':
+        optional: true
 
   '@algolia/abtesting@1.3.0':
     resolution: {integrity: sha512-KqPVLdVNfoJzX5BKNGM9bsW8saHeyax8kmPFXul5gejrSPN3qss7PgsFH5mMem7oR8tvjvNkia97ljEYPYCN8Q==}
@@ -1141,6 +1158,42 @@ packages:
   '@kwsites/promise-deferred@1.1.1':
     resolution: {integrity: sha512-GaHYm+c0O9MjZRu0ongGBRbinu8gVAMd2UZjji6jVmqKtZluZnptXGWhz1E8j8D2HJ3f/yMxKAUC0b+57wncIw==}
 
+  '@lexical/clipboard@0.32.1':
+    resolution: {integrity: sha512-oO7CuMVh3EFEqtE6+7Ccf7jMD5RNUmSdTnFm/X4kYNGqs9lgGt8j5PgSk7oP9OuAjxKNdBTbltSlh54CX3AUIg==}
+
+  '@lexical/code@0.32.1':
+    resolution: {integrity: sha512-2rXj8s/CG32XKQ2EpORpACfpzyAxB+/SrQW2cjwczarLs5Fxnx6u6HwahZnxaF0z5UHIPUy90qDiOiRExc74Yg==}
+
+  '@lexical/history@0.32.1':
+    resolution: {integrity: sha512-IRsKllumYEWxmzR2evN30MFY+JBM723lSyzm2PAQcgHCeBxi8t0Vc3EdyJRay+YdN65JgrohQi1WbktbK923uQ==}
+
+  '@lexical/html@0.32.1':
+    resolution: {integrity: sha512-uctCdC9gVzx/Sw9CimT4C2IDfSbfEGYunyIrJBpsfcdqp0rroGNizjIoZNBH3xcgkk9UDboSADo+wimbzEoy8A==}
+
+  '@lexical/link@0.32.1':
+    resolution: {integrity: sha512-atdwNpWjZ0U2/kgS0ATTkZ8lJLHiv3TsJgqJL33BuV9Gn7advJokd4faM79Y8XxkhiPi1lVTBSHgI8V4hs+c+Q==}
+
+  '@lexical/list@0.32.1':
+    resolution: {integrity: sha512-3zShCfEdAvodR6mQ5CNN1gcEwfV341LXJzWCIkZzG1cPwaiBHUlT7TynQtKTPn1sATCEMmxoDG0/T+itsRNZgA==}
+
+  '@lexical/markdown@0.32.1':
+    resolution: {integrity: sha512-AmUTRRx6Je0AOiQqp48Xn92/71AzhFgi4nO1EtPW5eae1CihrtiEh5UQr48mV6EyjvH9D3OlOLU8XrzS+J9a+w==}
+
+  '@lexical/rich-text@0.32.1':
+    resolution: {integrity: sha512-SnmpZ7boTLxeYfNezNLvchDiJOAALA2nD0Uq/SpkIOJ6R01R7m1aPdLv55LGKoBT9UxCRdo0HWXytwiVZI+ehQ==}
+
+  '@lexical/selection@0.32.1':
+    resolution: {integrity: sha512-X1aXJdq/5EOuSuMOqK3t+rEVmpqLf+vc2Kl5YuP8+gGWUbXuxR6iryrQuy1mAViZpF/5qw4HO/Sb+9JjubaZEg==}
+
+  '@lexical/table@0.32.1':
+    resolution: {integrity: sha512-sGk2jUbQHj5hatpxRyl6IE2oWsjRnYhmaP94THzn95/uK69o8eSizcnd148WzYsX8Zz+L9PTLS1xjvCbfLTP+A==}
+
+  '@lexical/text@0.32.1':
+    resolution: {integrity: sha512-0Ek8F3KC4d16b2YaTHdyYFqDSBZ5KRtGrqU3GBog+VOGxucGaEbXEK1/ypX5CTe/wwkQDrH0FKWPQbd3l5t5YQ==}
+
+  '@lexical/utils@0.32.1':
+    resolution: {integrity: sha512-ZaqZZksNIHJd+g8GXc11D1ESi8JzsdLVQZ+9odXVaNxtwDIaGIqMSccFyuZ9VSoJDde4JXZkgp/0PShbAZDkyw==}
+
   '@mapbox/node-pre-gyp@2.0.0':
     resolution: {integrity: sha512-llMXd39jtP0HpQLVI37Bf1m2ADlEb35GYSh1SDSLsBhR+5iCxiNGlT31yqbNtVHygHAtMy6dWFERpU2JgufhPg==}
     engines: {node: '>=18'}
@@ -1632,6 +1685,9 @@ packages:
   '@poppinss/exception@1.2.2':
     resolution: {integrity: sha512-m7bpKCD4QMlFCjA/nKTs23fuvoVFoA83brRKmObCUNmi/9tVu8Ve3w4YQAnJu4q3Tjf5fr685HYIC/IA2zHRSg==}
 
+  '@rails/activestorage@8.0.300':
+    resolution: {integrity: sha512-vgugHjdH0wLM1+ajWdoiNNFphDsZrd349iJvfyVPC21IkMdJOnaBpF4eaV847cDqP/7mxxDZ4nkhc7dgQjGa4A==}
+
   '@rails/request.js@0.0.11':
     resolution: {integrity: sha512-2U3uYS0kbljt+pAstN+LIlZOl7xmOKig5N6FrvtUWO1wq0zR1Hf90fHfD2SYiyV8yH1nyKpoTmbLqWT0xe1zDg==}
 
@@ -2107,6 +2163,9 @@ packages:
 
   '@types/stack-utils@2.0.3':
     resolution: {integrity: sha512-9aEbYZ3TbYMznPdcdr3SmIrLXwC/AKZXQeCf9Pgao5CKb8CyHuEX5jzWPTkvregvhRJHcpRO6BFoGW9ycaOkYw==}
+
+  '@types/trusted-types@2.0.7':
+    resolution: {integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==}
 
   '@types/unist@2.0.11':
     resolution: {integrity: sha512-CmBKiL6NNo/OqgmMn95Fk9Whlp2mtvIv+KNpQKN2F4SjvrEesubTRWGYSg+BnWZOnlCaSTU1sMpsBOzgbYhnsA==}
@@ -3256,6 +3315,9 @@ packages:
   domino@2.1.6:
     resolution: {integrity: sha512-3VdM/SXBZX2omc9JF9nOPCtDaYQ67BGp5CoLpIQlO2KCAPETs8TcDHacF26jXadGbvUteZzRTeos2fhID5+ucQ==}
 
+  dompurify@3.2.7:
+    resolution: {integrity: sha512-WhL/YuveyGXJaerVlMYGWhvQswa7myDG17P7Vu65EWC05o8vfeNbvNf4d/BOvH99+ZW+LlQsc1GDKMa1vNK6dw==}
+
   domutils@3.1.0:
     resolution: {integrity: sha512-H78uMmQtI2AhgDJjWeQmHwJJ2bLPD3GMmO7Zja/ZZh84wkm+4ut+IUnUdRa8uCGX88DiVx1j6FRe1XfxEgjEZA==}
 
@@ -4260,6 +4322,9 @@ packages:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
 
+  lexical@0.32.1:
+    resolution: {integrity: sha512-Rvr9p00zUwzjXIqElIjMDyl/24QHw68yaqmXUWIT3lSdSAr8OpjSJK3iWBLZwVZwwpVhwShZRckomc+3vSb/zw==}
+
   lightgallery@2.8.3:
     resolution: {integrity: sha512-s67Z7KZAhIu/io7qs2yIM+8+hUyDQ1ufRtCQwhFnmHVzRQ8cKlxf53CxS/DpJ0sDGOWHNx5L6Y3PfACQxiH+8A==}
     engines: {node: '>=6.0.0'}
@@ -4424,6 +4489,11 @@ packages:
 
   markdown-table@3.0.3:
     resolution: {integrity: sha512-Z1NL3Tb1M9wH4XESsCDEksWoKTdlUafKc4pt0GRwjUyXaCFZ+dc3g2erqB6zm3szA2IUSi7VnPI+o/9jnxh9hw==}
+
+  marked@16.3.0:
+    resolution: {integrity: sha512-K3UxuKu6l6bmA5FUwYho8CfJBlsUWAooKtdGgMcERSpF7gcBUrCGsLH7wDaaNOzwq18JzSUDyoEb/YsrqMac3w==}
+    engines: {node: '>= 20'}
+    hasBin: true
 
   math-intrinsics@1.1.0:
     resolution: {integrity: sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==}
@@ -5370,6 +5440,10 @@ packages:
     resolution: {integrity: sha512-D1tKtYvByrBkFLe2wHJl2bwMJIiT8rW+XA+TiataH79/FszLQMrpGEvzUVkzPau7OCO0Qnrhpe87PqtOAIB8Yw==}
     engines: {node: ^18.14.0 || ^20.0.0 || ^22.0.0 || >=24.0.0}
 
+  prismjs@1.30.0:
+    resolution: {integrity: sha512-DEvV2ZF2r2/63V+tK8hQvrR2ZGn10srHbXviTlcv7Kpzw8jWiNTqbVgjO3IY8RxrrOUF8VPMQQFysYYYv0YZxw==}
+    engines: {node: '>=6'}
+
   process-nextick-args@2.0.1:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}
 
@@ -5734,6 +5808,9 @@ packages:
 
   space-separated-tokens@2.0.2:
     resolution: {integrity: sha512-PEGlAwrG8yXGXRjW32fGbg66JAlOAwbObuqVoJpv/mRgoWDQfgH1wDPvtzWyUSNAXBGSk8h755YDbbcEy3SH2Q==}
+
+  spark-md5@3.0.2:
+    resolution: {integrity: sha512-wcFzz9cDfbuqe0FZzfi2or1sgyIrsDwmPwfZC4hiNidPdPINjeUwNfv5kldczoEAcjl9Y1L3SM7Uz2PUEQzxQw==}
 
   speakingurl@14.0.1:
     resolution: {integrity: sha512-1POYv7uv2gXoyGFpBCmpDVSNV74IfsWlDW216UPjbWufNf+bSU6GdbDsxdcxtfwb4xlI3yxzOTKClUosxARYrQ==}
@@ -6718,6 +6795,25 @@ packages:
 
 snapshots:
 
+  '@37signals/lexxy@0.1.9-beta(@rails/activestorage@8.0.300)':
+    dependencies:
+      '@lexical/clipboard': 0.32.1
+      '@lexical/code': 0.32.1
+      '@lexical/history': 0.32.1
+      '@lexical/html': 0.32.1
+      '@lexical/link': 0.32.1
+      '@lexical/list': 0.32.1
+      '@lexical/markdown': 0.32.1
+      '@lexical/rich-text': 0.32.1
+      '@lexical/selection': 0.32.1
+      '@lexical/table': 0.32.1
+      '@lexical/utils': 0.32.1
+      dompurify: 3.2.7
+      marked: 16.3.0
+      prismjs: 1.30.0
+    optionalDependencies:
+      '@rails/activestorage': 8.0.300
+
   '@algolia/abtesting@1.3.0':
     dependencies:
       '@algolia/client-common': 5.37.0
@@ -7563,6 +7659,80 @@ snapshots:
 
   '@kwsites/promise-deferred@1.1.1': {}
 
+  '@lexical/clipboard@0.32.1':
+    dependencies:
+      '@lexical/html': 0.32.1
+      '@lexical/list': 0.32.1
+      '@lexical/selection': 0.32.1
+      '@lexical/utils': 0.32.1
+      lexical: 0.32.1
+
+  '@lexical/code@0.32.1':
+    dependencies:
+      '@lexical/utils': 0.32.1
+      lexical: 0.32.1
+      prismjs: 1.30.0
+
+  '@lexical/history@0.32.1':
+    dependencies:
+      '@lexical/utils': 0.32.1
+      lexical: 0.32.1
+
+  '@lexical/html@0.32.1':
+    dependencies:
+      '@lexical/selection': 0.32.1
+      '@lexical/utils': 0.32.1
+      lexical: 0.32.1
+
+  '@lexical/link@0.32.1':
+    dependencies:
+      '@lexical/utils': 0.32.1
+      lexical: 0.32.1
+
+  '@lexical/list@0.32.1':
+    dependencies:
+      '@lexical/selection': 0.32.1
+      '@lexical/utils': 0.32.1
+      lexical: 0.32.1
+
+  '@lexical/markdown@0.32.1':
+    dependencies:
+      '@lexical/code': 0.32.1
+      '@lexical/link': 0.32.1
+      '@lexical/list': 0.32.1
+      '@lexical/rich-text': 0.32.1
+      '@lexical/text': 0.32.1
+      '@lexical/utils': 0.32.1
+      lexical: 0.32.1
+
+  '@lexical/rich-text@0.32.1':
+    dependencies:
+      '@lexical/clipboard': 0.32.1
+      '@lexical/selection': 0.32.1
+      '@lexical/utils': 0.32.1
+      lexical: 0.32.1
+
+  '@lexical/selection@0.32.1':
+    dependencies:
+      lexical: 0.32.1
+
+  '@lexical/table@0.32.1':
+    dependencies:
+      '@lexical/clipboard': 0.32.1
+      '@lexical/utils': 0.32.1
+      lexical: 0.32.1
+
+  '@lexical/text@0.32.1':
+    dependencies:
+      lexical: 0.32.1
+
+  '@lexical/utils@0.32.1':
+    dependencies:
+      '@lexical/list': 0.32.1
+      '@lexical/selection': 0.32.1
+      '@lexical/table': 0.32.1
+      lexical: 0.32.1
+
   '@mapbox/node-pre-gyp@2.0.0(encoding@0.1.13)':
     dependencies:
       consola: 3.4.2
@@ -8380,6 +8550,10 @@ snapshots:
 
   '@poppinss/exception@1.2.2': {}
 
+  '@rails/activestorage@8.0.300':
+    dependencies:
+      spark-md5: 3.0.2
+
   '@rails/request.js@0.0.11': {}
 
   '@rails/ujs@7.1.3-4': {}
@@ -8807,6 +8981,9 @@ snapshots:
   '@types/semver@7.5.8': {}
 
   '@types/stack-utils@2.0.3': {}
+
+  '@types/trusted-types@2.0.7':
+    optional: true
 
   '@types/unist@2.0.11': {}
 
@@ -10137,6 +10314,10 @@ snapshots:
 
   domino@2.1.6: {}
 
+  dompurify@3.2.7:
+    optionalDependencies:
+      '@types/trusted-types': 2.0.7
+
   domutils@3.1.0:
     dependencies:
       dom-serializer: 2.0.0
@@ -11395,6 +11576,8 @@ snapshots:
       prelude-ls: 1.2.1
       type-check: 0.4.0
 
+  lexical@0.32.1: {}
+
   lightgallery@2.8.3: {}
 
   lightningcss-darwin-arm64@1.30.1:
@@ -11558,6 +11741,8 @@ snapshots:
       tmpl: 1.0.5
 
   markdown-table@3.0.3: {}
+
+  marked@16.3.0: {}
 
   math-intrinsics@1.1.0:
     optional: true
@@ -12946,6 +13131,8 @@ snapshots:
       ansi-styles: 5.2.0
       react-is: 18.3.1
 
+  prismjs@1.30.0: {}
+
   process-nextick-args@2.0.1: {}
 
   process@0.11.10: {}
@@ -13390,6 +13577,8 @@ snapshots:
   source-map@0.7.6: {}
 
   space-separated-tokens@2.0.2: {}
+
+  spark-md5@3.0.2: {}
 
   speakingurl@14.0.1: {}
 
