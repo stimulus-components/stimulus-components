@@ -120,7 +120,7 @@ If you use `data-sortable-resource-name-value`, the name will be used. For insta
 ::code-block{tabName="app/javascript/controllers/sortable_controller.js"}
 
 ```js
-import Sortable from "stimulus-sortable"
+import Sortable from "@stimulus-components/sortable"
 
 export default class extends Sortable {
   connect() {
