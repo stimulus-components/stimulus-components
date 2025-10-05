@@ -31,8 +31,8 @@ You must have Lexxy editor already running. This controller does not include Lex
 
 The controller will automatically handle file attachment validation for the Lexxy editor. It listens for file attachment events and validates the files based on the configured types and maximum size. If a file is invalid, it prevents the attachment and dispatches custom events.
 The controller dispatches the following custom events:
-- `lexxy:invalid-type`: Fired when a file is invalid due to its type. The event detail contains the file, allowed types and default message.
-- `lexxy:invalid-size`: Fired when a file is invalid due to its size. The event detail contains the file, maximum size and default message.
+- `stimulus-lexxy:invalid-type`: Fired when a file is invalid due to its type. The event detail contains the file, allowed types and default message.
+- `stimulus-lexxy:invalid-size`: Fired when a file is invalid due to its size. The event detail contains the file, maximum size and default message.
 
 
 ## Configuration
