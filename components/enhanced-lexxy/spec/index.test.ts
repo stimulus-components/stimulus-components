@@ -4,7 +4,7 @@
 
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest"
 import { Application } from "@hotwired/stimulus"
-import Lexxy from "../src/"
+import Lexxy from "../src"
 
 let application: Application
 
@@ -34,7 +34,7 @@ const dispatchFileAcceptEvent = (element: HTMLElement, file: File) => {
   return event
 }
 
-describe("Lexxy Controller", () => {
+describe("Enhanced Lexxy Controller", () => {
   let element: HTMLElement
 
   beforeEach(async () => {
@@ -43,10 +43,10 @@ describe("Lexxy Controller", () => {
     document.body.innerHTML = `
       <lexxy-editor
         name="content"
-        data-controller="lexxy"
+        data-controller="enhanced-lexxy"
       ></lexxy-editor>
     `
-    element = document.querySelector('[data-controller="lexxy"]') as HTMLElement
+    element = document.querySelector('[data-controller="enhanced-lexxy"]') as HTMLElement
 
     // Wait for controller to be connected
     await new Promise((resolve) => setTimeout(resolve, 0))
@@ -76,21 +76,21 @@ describe("Lexxy Controller", () => {
 
       validFiles.forEach((file) => {
         const eventSpy = vi.fn()
-        element.addEventListener("stimulus-lexxy:invalid-type", eventSpy)
+        element.addEventListener("stimulus-enhanced-lexxy:invalid-type", eventSpy)
 
         const event = dispatchFileAcceptEvent(element, file)
 
         expect(eventSpy).not.toHaveBeenCalled()
         expect(event.defaultPrevented).toBe(false)
 
-        element.removeEventListener("stimulus-lexxy:invalid-type", eventSpy)
+        element.removeEventListener("stimulus-enhanced-lexxy:invalid-type", eventSpy)
       })
     })
 
     it("should reject invalid file types", () => {
       const invalidFile = createMockFile("document.txt", "text/plain", 1024)
       const eventSpy = vi.fn()
-      element.addEventListener("stimulus-lexxy:invalid-type", eventSpy)
+      element.addEventListener("stimulus-enhanced-lexxy:invalid-type", eventSpy)
 
       const event = dispatchFileAcceptEvent(element, invalidFile)
 
@@ -106,7 +106,7 @@ describe("Lexxy Controller", () => {
     it("should reject files with no type", () => {
       const invalidFile = createMockFile("document", "", 1024)
       const eventSpy = vi.fn()
-      element.addEventListener("stimulus-lexxy:invalid-type", eventSpy)
+      element.addEventListener("stimulus-enhanced-lexxy:invalid-type", eventSpy)
 
       const event = dispatchFileAcceptEvent(element, invalidFile)
 
@@ -119,7 +119,7 @@ describe("Lexxy Controller", () => {
     it("should allow files within size limit", () => {
       const validFile = createMockFile("image.jpg", "image/jpeg", 3 * 1024 * 1024) // 3MB
       const eventSpy = vi.fn()
-      element.addEventListener("stimulus-lexxy:invalid-size", eventSpy)
+      element.addEventListener("stimulus-enhanced-lexxy:invalid-size", eventSpy)
 
       const event = dispatchFileAcceptEvent(element, validFile)
 
@@ -130,7 +130,7 @@ describe("Lexxy Controller", () => {
     it("should reject files exceeding size limit", () => {
       const oversizedFile = createMockFile("image.jpg", "image/jpeg", 10 * 1024 * 1024) // 10MB
       const eventSpy = vi.fn()
-      element.addEventListener("stimulus-lexxy:invalid-size", eventSpy)
+      element.addEventListener("stimulus-enhanced-lexxy:invalid-size", eventSpy)
 
       const event = dispatchFileAcceptEvent(element, oversizedFile)
 
@@ -147,7 +147,7 @@ describe("Lexxy Controller", () => {
     it("should handle exact size limit", () => {
       const exactSizeFile = createMockFile("image.jpg", "image/jpeg", 5 * 1024 * 1024) // Exactly 5MB
       const eventSpy = vi.fn()
-      element.addEventListener("stimulus-lexxy:invalid-size", eventSpy)
+      element.addEventListener("stimulus-enhanced-lexxy:invalid-size", eventSpy)
 
       const event = dispatchFileAcceptEvent(element, exactSizeFile)
 
@@ -161,18 +161,18 @@ describe("Lexxy Controller", () => {
       document.body.innerHTML = `
         <lexxy-editor
           name="content"
-          data-controller="lexxy"
+          data-controller="enhanced-lexxy"
           data-lexxy-max-bytes-value="1572864"
           data-lexxy-types-value="[&quot;image/gif&quot;]"
         ></lexxy-editor>
       `
-      const customElement = document.querySelector('[data-controller="lexxy"]') as HTMLElement
+      const customElement = document.querySelector('[data-controller="enhanced-lexxy"]') as HTMLElement
       await new Promise((resolve) => setTimeout(resolve, 0))
 
       // Test custom size limit (1.5MB)
       const oversizedFile = createMockFile("image.gif", "image/gif", 2 * 1024 * 1024) // 2MB
       const sizeEventSpy = vi.fn()
-      customElement.addEventListener("stimulus-lexxy:invalid-size", sizeEventSpy)
+      customElement.addEventListener("stimulus-enhanced-lexxy:invalid-size", sizeEventSpy)
 
       dispatchFileAcceptEvent(customElement, oversizedFile)
 
@@ -184,7 +184,7 @@ describe("Lexxy Controller", () => {
       // Test custom allowed types (only GIF)
       const wrongTypeFile = createMockFile("image.jpg", "image/jpeg", 1024)
       const typeEventSpy = vi.fn()
-      customElement.addEventListener("stimulus-lexxy:invalid-type", typeEventSpy)
+      customElement.addEventListener("stimulus-enhanced-lexxy:invalid-type", typeEventSpy)
 
       dispatchFileAcceptEvent(customElement, wrongTypeFile)
 
@@ -199,16 +199,16 @@ describe("Lexxy Controller", () => {
       document.body.innerHTML = `
         <lexxy-editor
           name="content"
-          data-controller="lexxy"
+          data-controller="enhanced-lexxy"
           attachments="false"
         ></lexxy-editor>
       `
-      const disabledElement = document.querySelector('[data-controller="lexxy"]') as HTMLElement
+      const disabledElement = document.querySelector('[data-controller="enhanced-lexxy"]') as HTMLElement
       await new Promise((resolve) => setTimeout(resolve, 0))
 
       const mockFile = createMockFile("test.jpg", "image/jpeg", 1024)
       const eventSpy = vi.fn()
-      disabledElement.addEventListener("stimulus-lexxy:invalid-type", eventSpy)
+      disabledElement.addEventListener("stimulus-enhanced-lexxy:invalid-type", eventSpy)
 
       const event = dispatchFileAcceptEvent(disabledElement, mockFile)
 
@@ -223,8 +223,8 @@ describe("Lexxy Controller", () => {
       const typeSpy = vi.fn()
       const sizeSpy = vi.fn()
 
-      element.addEventListener("stimulus-lexxy:invalid-type", typeSpy)
-      element.addEventListener("stimulus-lexxy:invalid-size", sizeSpy)
+      element.addEventListener("stimulus-enhanced-lexxy:invalid-type", typeSpy)
+      element.addEventListener("stimulus-enhanced-lexxy:invalid-size", sizeSpy)
 
       const event = dispatchFileAcceptEvent(element, invalidFile)
 
@@ -238,8 +238,8 @@ describe("Lexxy Controller", () => {
       const typeSpy = vi.fn()
       const sizeSpy = vi.fn()
 
-      element.addEventListener("stimulus-lexxy:invalid-type", typeSpy)
-      element.addEventListener("stimulus-lexxy:invalid-size", sizeSpy)
+      element.addEventListener("stimulus-enhanced-lexxy:invalid-type", typeSpy)
+      element.addEventListener("stimulus-enhanced-lexxy:invalid-size", sizeSpy)
 
       const event = dispatchFileAcceptEvent(element, invalidFile)
 
@@ -259,8 +259,8 @@ describe("Lexxy Controller", () => {
 
       const typeSpy = vi.fn()
       const sizeSpy = vi.fn()
-      element.addEventListener("stimulus-lexxy:invalid-type", typeSpy)
-      element.addEventListener("stimulus-lexxy:invalid-size", sizeSpy)
+      element.addEventListener("stimulus-enhanced-lexxy:invalid-type", typeSpy)
+      element.addEventListener("stimulus-enhanced-lexxy:invalid-size", sizeSpy)
 
       element.dispatchEvent(event)
 
@@ -277,7 +277,7 @@ describe("Lexxy Controller", () => {
       })
 
       const typeSpy = vi.fn()
-      element.addEventListener("stimulus-lexxy:invalid-type", typeSpy)
+      element.addEventListener("stimulus-enhanced-lexxy:invalid-type", typeSpy)
 
       element.dispatchEvent(event)
 

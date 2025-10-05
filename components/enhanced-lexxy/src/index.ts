@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 
-export default class Lexxy extends Controller<HTMLElement> {
+export default class EnhancedLexxy extends Controller<HTMLElement> {
   declare maxBytesValue: number
   declare typesValue: Array<string>
   declare attachments: boolean
@@ -37,7 +37,7 @@ export default class Lexxy extends Controller<HTMLElement> {
 
     if (this.typesValue.indexOf(file.type) === -1) {
       event.preventDefault()
-      const customEvent = new CustomEvent("stimulus-lexxy:invalid-type", {
+      const customEvent = new CustomEvent("stimulus-enhanced-lexxy:invalid-type", {
         detail: {
           file,
           allowedTypes: this.typesValue,
@@ -52,7 +52,7 @@ export default class Lexxy extends Controller<HTMLElement> {
     if (file.size > this.maxBytesValue) {
       event.preventDefault()
       const maxMB = Number((this.maxBytesValue / 1048576).toFixed(1))
-      const customEvent = new CustomEvent("stimulus-lexxy:invalid-size", {
+      const customEvent = new CustomEvent("stimulus-enhanced-lexxy:invalid-size", {
         detail: {
           file,
           maxBytes: this.maxBytesValue,

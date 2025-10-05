@@ -1,4 +1,4 @@
-# Stimulus Lexxy
+# Stimulus Enhanced Lexxy
 
 ## Getting started
 
@@ -6,7 +6,7 @@ A Stimulus controller that adds enhanced features to [Basecamp's Lexxy editor](h
 
 ## 📚 Documentation
 
-See [stimulus-lexxy documentation](https://www.stimulus-components.com/docs/stimulus-lexxy/).
+See [stimulus-enhanced-lexxy documentation](https://www.stimulus-components.com/docs/stimulus-enhanced-lexxy/).
 
 ## 👷‍♂️ Contributing
 

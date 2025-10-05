@@ -8,8 +8,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
-      name: "StimulusLexxy",
-      fileName: "stimulus-lexxy",
+      name: "StimulusEnhancedLexxy",
+      fileName: "stimulus-enhanced-lexxy",
     },
     rollupOptions: {
       external: ["@37signals/lexxy", "@hotwired/stimulus"],
