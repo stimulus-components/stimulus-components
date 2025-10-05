@@ -147,20 +147,20 @@ importers:
         specifier: ^0.52.3
         version: 0.52.3(@hotwired/stimulus@3.2.2)(hotkeys-js@3.13.7)
 
+  components/enhanced-lexxy:
+    dependencies:
+      '@37signals/lexxy':
+        specifier: ^0.1.9.beta
+        version: 0.1.10-beta(@rails/activestorage@8.0.300)
+      '@rails/activestorage':
+        specifier: ^8
+        version: 8.0.300
+
   components/glow:
     dependencies:
       '@hotwired/stimulus':
         specifier: ^3
         version: 3.2.2
-
-  components/lexxy:
-    dependencies:
-      '@37signals/lexxy':
-        specifier: ^0.1.9.beta
-        version: 0.1.9-beta(@rails/activestorage@8.0.300)
-      '@rails/activestorage':
-        specifier: ^8
-        version: 8.0.300
 
   components/lightbox:
     dependencies:
@@ -415,8 +415,8 @@ importers:
 
 packages:
 
-  '@37signals/lexxy@0.1.9-beta':
-    resolution: {integrity: sha512-emQ+cqxma9tJ7vT+3pla94UfZNxU8g6pCAfMXJ8+XPSjSvq19dSiLuveIJUN+11E/jrrNjmEOvsfuKwiTy6OVg==}
+  '@37signals/lexxy@0.1.10-beta':
+    resolution: {integrity: sha512-7vcjbw2R7vSZKi8w5swNvfuBHYMwzouomAgdhojTDGyqZKUP5xttiVHT9nVhiMIlUydERP/ey08XSgMb26LYng==}
     peerDependencies:
       '@rails/activestorage': ^7.0.0
     peerDependenciesMeta:
@@ -6795,7 +6795,7 @@ packages:
 
 snapshots:
 
-  '@37signals/lexxy@0.1.9-beta(@rails/activestorage@8.0.300)':
+  '@37signals/lexxy@0.1.10-beta(@rails/activestorage@8.0.300)':
     dependencies:
       '@lexical/clipboard': 0.32.1
       '@lexical/code': 0.32.1
