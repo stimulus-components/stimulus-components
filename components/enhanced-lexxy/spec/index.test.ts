@@ -4,13 +4,13 @@
 
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest"
 import { Application } from "@hotwired/stimulus"
-import Lexxy from "../src"
+import EnhancedLexxy from "../src"
 
 let application: Application
 
 const startStimulus = () => {
   application = Application.start()
-  application.register("lexxy", Lexxy)
+  application.register("enhanced-lexxy", EnhancedLexxy)
 }
 
 // Helper function to create mock files
@@ -62,7 +62,7 @@ describe("Enhanced Lexxy Controller", () => {
   describe("initialization", () => {
     it("should connect successfully", () => {
       expect(element).toBeTruthy()
-      expect(element.dataset.controller).toBe("lexxy")
+      expect(element.dataset.controller).toBe("enhanced-lexxy")
     })
   })
 
@@ -162,8 +162,8 @@ describe("Enhanced Lexxy Controller", () => {
         <lexxy-editor
           name="content"
           data-controller="enhanced-lexxy"
-          data-lexxy-max-bytes-value="1572864"
-          data-lexxy-types-value="[&quot;image/gif&quot;]"
+          data-enhanced-lexxy-max-bytes-value="1572864"
+          data-enhanced-lexxy-types-value="[&quot;image/gif&quot;]"
         ></lexxy-editor>
       `
       const customElement = document.querySelector('[data-controller="enhanced-lexxy"]') as HTMLElement
