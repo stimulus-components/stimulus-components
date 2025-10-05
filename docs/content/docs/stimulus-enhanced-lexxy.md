@@ -1,8 +1,8 @@
 ---
-title: Lexxy
+title: Enhanced Lexxy
 description: A Stimulus controller that adds enhanced features to Lexxy editor.
-package: lexxy
-packagePath: "@stimulus-components/lexxy"
+package: enhanced-lexxy
+packagePath: "@stimulus-components/enhanced-lexxy"
 ---
 
 ## Installation
@@ -15,7 +15,7 @@ This component is based on the [Basecamp's Lexxy editor](https://github.com/base
 
 ## Before starting
 
-You must have Lexxy editor already running. This controller does not include Lexxy itself, only the Stimulus controller to add file attachment validation.
+You must have Lexxy editor already running. This controller does not include Lexxy itself, only the Stimulus controller to add enhanced features.
 
 ## Usage
 
@@ -23,7 +23,7 @@ You must have Lexxy editor already running. This controller does not include Lex
 
 ```erb
 <%= form_with model: @post do |form| %>
-  <%= form.rich_text_area :content, data: { controller: "lexxy" } %>
+  <%= form.rich_text_area :content, data: { controller: "enhanced-lexxy" } %>
 <% end %>
 ```
 
@@ -31,26 +31,26 @@ You must have Lexxy editor already running. This controller does not include Lex
 
 The controller will automatically handle file attachment validation for the Lexxy editor. It listens for file attachment events and validates the files based on the configured types and maximum size. If a file is invalid, it prevents the attachment and dispatches custom events.
 The controller dispatches the following custom events:
-- `stimulus-lexxy:invalid-type`: Fired when a file is invalid due to its type. The event detail contains the file, allowed types and default message.
-- `stimulus-lexxy:invalid-size`: Fired when a file is invalid due to its size. The event detail contains the file, maximum size and default message.
+- `stimulus-enhanced-lexxy:invalid-type`: Fired when a file is invalid due to its type. The event detail contains the file, allowed types and default message.
+- `stimulus-enhanced-lexxy:invalid-size`: Fired when a file is invalid due to its size. The event detail contains the file, maximum size and default message.
 
 
 ## Configuration
 
 | Attribute                      | Default                     | Description                                                                 | Optional |
 | ------------------------------ | --------------------------- | --------------------------------------------------------------------------- | -------- |
-| `data-lexxy-types-value`       | `["image/jpeg", "image/png", "application/pdf"]` | Allowed file types for attachment (MIME types).                              | ✅       |
-| `data-lexxy-max-bytes-value`   | `5242880`                | Maximum file size for attachments in bytes (5MB default).                   | ✅       |
+| `data-enhanced-lexxy-types-value`       | `["image/jpeg", "image/png", "application/pdf"]` | Allowed file types for attachment (MIME types).                              | ✅       |
+| `data-enhanced-lexxy-max-bytes-value`   | `5242880`                | Maximum file size for attachments in bytes (5MB default).                   | ✅       |
 
 ## Extending Controller
 
 ::extending-controller
-::code-block{tabName="app/javascript/controllers/lexxy_controller.js"}
+::code-block{tabName="app/javascript/controllers/enhanced_lexxy_controller.js"}
 
 ```js
-import Lexxy from "stimulus-lexxy"
+import EnhancedLexxy from "stimulus-enhanced-lexxy"
 
-export default class extends Lexxy {
+export default class extends EnhancedLexxy {
   static values = {
     types: {
       type: Array,
