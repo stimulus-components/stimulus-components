@@ -40,7 +40,7 @@ The controller dispatches the following custom events:
 | Attribute                      | Default                     | Description                                                                 | Optional |
 | ------------------------------ | --------------------------- | --------------------------------------------------------------------------- | -------- |
 | `data-enhanced-lexxy-types-value`       | `["image/jpeg", "image/png", "application/pdf"]` | Allowed file types for attachment (MIME types).                              | ✅       |
-| `data-enhanced-lexxy-max-bytes-value`   | `5242880`                | Maximum file size for attachments in bytes (5MB default).                   | ✅       |
+| `data-enhanced-lexxy-max-bytes-value`   | `5 * 1024 * 1024`                | Maximum file size for attachments in bytes (5MB default).                   | ✅       |
 
 ## Extending Controller
 
@@ -58,7 +58,7 @@ export default class extends EnhancedLexxy {
     },
     maxBytes: {
       type: Number,
-      default: 5242880, // You can change the default max file size here (in bytes).
+      default: 5 * 1024 * 1024, // You can change the default max file size here (in bytes).
     },
   }
 
