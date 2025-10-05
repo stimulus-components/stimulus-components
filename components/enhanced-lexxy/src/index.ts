@@ -51,7 +51,7 @@ export default class EnhancedLexxy extends Controller<HTMLElement> {
 
     if (file.size > this.maxBytesValue) {
       event.preventDefault()
-      const maxMB = Number((this.maxBytesValue / 1048576).toFixed(1))
+      const maxMB = new Intl.NumberFormat("en-US", { maximumFractionDigits: 1 }).format(this.maxBytesValue / 1048576)
       const customEvent = new CustomEvent("stimulus-enhanced-lexxy:invalid-size", {
         detail: {
           file,
