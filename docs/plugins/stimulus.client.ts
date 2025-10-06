@@ -25,6 +25,7 @@ import ScrollProgress from "@stimulus-components/scroll-progress/src"
 import ScrollReveal from "@stimulus-components/scroll-reveal/src"
 import Sortable from "@stimulus-components/sortable/src"
 import Sound from "@stimulus-components/sound/src"
+import TextareaAutogrow from "@stimulus-components/textarea-autogrow/src"
 import Timeago from "@stimulus-components/timeago/src"
 
 // @ts-expect-error
@@ -56,6 +57,7 @@ export default defineNuxtPlugin(() => {
   application.register("scroll-reveal", ScrollReveal)
   application.register("sortable", Sortable)
   application.register("sound", Sound)
+  application.register("textarea-autogrow", TextareaAutogrow)
   application.register("timeago", Timeago)
 
   // @ts-expect-error

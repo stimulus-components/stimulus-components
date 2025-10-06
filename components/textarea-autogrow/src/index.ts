@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 import { debounce } from "../../../utils"
 
-export default class extends Controller<HTMLInputElement> {
+export default class TextareaAutogrow extends Controller<HTMLInputElement> {
   declare onResize: EventListenerOrEventListenerObject // eslint-disable-line no-undef
   declare resizeDebounceDelayValue: number
 
