@@ -55,6 +55,8 @@ export default class CheckboxSelectAll extends Controller {
   }
 
   refresh(): void {
+    if (!this.hasCheckboxAllTarget) return
+
     const checkboxesCount = this.checkboxTargets.length
     const checkboxesCheckedCount = this.checked.length
 
