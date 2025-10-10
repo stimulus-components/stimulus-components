@@ -17,6 +17,7 @@ import Lightbox from "@stimulus-components/lightbox/src"
 import Notification from "@stimulus-components/notification/src"
 import PasswordVisibility from "@stimulus-components/password-visibility/src"
 import Popover from "@stimulus-components/popover/src"
+import RadioUncheck from "@stimulus-components/radio-uncheck/src"
 import RailsNestedForm from "@stimulus-components/rails-nested-form/src"
 import ReadMore from "@stimulus-components/read-more/src"
 import RemoteRails from "@stimulus-components/remote-rails/src"
@@ -49,6 +50,7 @@ export default defineNuxtPlugin(() => {
   application.register("notification", Notification)
   application.register("password-visibility", PasswordVisibility)
   application.register("popover", Popover)
+  application.register("radio-uncheck", RadioUncheck)
   application.register("read-more", ReadMore)
   application.register("remote", RemoteRails)
   application.register("reveal", Reveal)
