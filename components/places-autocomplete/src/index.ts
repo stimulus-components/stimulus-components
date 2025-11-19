@@ -11,10 +11,9 @@ interface Address {
 }
 
 export default class extends Controller {
-  declare autocomplete: google.maps.places.Autocomplete
-  declare place: google.maps.places.PlaceResult
-
-  declare addressTarget: HTMLInputElement
+  declare autocompleteElement: google.maps.places.PlaceAutocompleteElement
+  declare place: google.maps.places.Place
+  declare addressTarget: HTMLElement
   declare streetNumberTarget: HTMLInputElement
   declare routeTarget: HTMLInputElement
   declare cityTarget: HTMLInputElement
@@ -55,24 +54,31 @@ export default class extends Controller {
   }
 
   initialize(): void {
-    this.placeChanged = this.placeChanged.bind(this)
+    this.placeSelected = this.placeSelected.bind(this)
   }
 
-  connect(): void {
+  async connect(): Promise<void> {
     if (typeof google !== "undefined") {
-      this.initAutocomplete()
+      await this.initAutocomplete()
     }
   }
 
-  initAutocomplete(): void {
-    this.autocomplete = new google.maps.places.Autocomplete(this.addressTarget, this.autocompleteOptions)
-
-    this.autocomplete.addListener("place_changed", this.placeChanged)
+  async initAutocomplete(): Promise<void> {
+    ;(await google.maps.importLibrary("places")) as google.maps.PlacesLibrary
+    this.autocompleteElement = new google.maps.places.PlaceAutocompleteElement(this.autocompleteOptions)
+    this.addressTarget.replaceWith(this.autocompleteElement)
+    this.autocompleteElement.addEventListener("gmp-select", this.placeSelected)
   }
 
-  placeChanged(): void {
-    this.place = this.autocomplete.getPlace()
-    const addressComponents: google.maps.GeocoderAddressComponent[] = this.place.address_components
+  async placeSelected(event: any): Promise<void> {
+    const placePrediction = event.placePrediction
+    this.place = placePrediction.toPlace()
+
+    await this.place.fetchFields({
+      fields: ["addressComponents", "location"],
+    })
+
+    const addressComponents = this.place.addressComponents
 
     if (addressComponents !== undefined) {
       const formattedAddress = this.formatAddressComponents(addressComponents) as Address
@@ -80,8 +86,8 @@ export default class extends Controller {
       this.setAddressComponents(formattedAddress)
     }
 
-    if (this.place.geometry !== undefined) {
-      this.setGeometry(this.place.geometry)
+    if (this.place.location !== undefined) {
+      this.setGeometry(this.place.location)
     }
   }
 
@@ -95,18 +101,21 @@ export default class extends Controller {
     if (this.hasPostalCodeTarget) this.postalCodeTarget.value = address.postal_code || ""
   }
 
-  setGeometry(geometry: google.maps.places.PlaceGeometry): void {
-    if (this.hasLongitudeTarget) this.longitudeTarget.value = geometry.location.lng().toString()
-    if (this.hasLatitudeTarget) this.latitudeTarget.value = geometry.location.lat().toString()
+  setGeometry(location: google.maps.LatLng): void {
+    if (this.hasLongitudeTarget) this.longitudeTarget.value = location.lng().toString()
+    if (this.hasLatitudeTarget) this.latitudeTarget.value = location.lat().toString()
   }
 
-  get autocompleteOptions(): google.maps.places.AutocompleteOptions {
-    return {
-      fields: ["address_components", "geometry"],
-      componentRestrictions: {
+  get autocompleteOptions(): google.maps.places.PlaceAutocompleteElementOptions {
+    const options: google.maps.places.PlaceAutocompleteElementOptions = {}
+
+    if (this.countryValue && this.countryValue.length > 0) {
+      options.componentRestrictions = {
         country: this.countryValue,
-      },
+      }
     }
+
+    return options
   }
 
   preventSubmit(event: KeyboardEvent): void {
@@ -115,13 +124,13 @@ export default class extends Controller {
     }
   }
 
-  private formatAddressComponents(addressComponents: google.maps.GeocoderAddressComponent[]): Address {
+  private formatAddressComponents(addressComponents: google.maps.places.AddressComponent[]): Address {
     const data = {}
 
-    addressComponents.forEach((component: google.maps.GeocoderAddressComponent) => {
+    addressComponents.forEach((component: google.maps.places.AddressComponent) => {
       const type = component.types[0]
 
-      data[type] = component.long_name
+      data[type] = component.longText
     })
 
     return data as Address

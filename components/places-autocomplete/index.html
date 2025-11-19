@@ -6,11 +6,7 @@
 
     <title>Stimulus Places Autocomplete</title>
 
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=change-me&libraries=places&callback=initAutocomplete"
-      async=""
-      defer=""
-    ></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=change-me&loading=async"></script>
 
     <script type="module">
       import "../app.css"
@@ -19,13 +15,12 @@
 
       const application = Application.start()
       application.register("places", PlacesAutocomplete)
-
-      window.initAutocomplete = function () {
-        const event = new Event("google-maps-callback", { bubbles: true, cancelable: true })
-        window.dispatchEvent(event)
-      }
     </script>
   </head>
 
-  <body></body>
+  <body>
+    <div data-controller="places">
+      <input type="text" data-places-target="address" />
+    </div>
+  </body>
 </html>
