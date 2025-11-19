@@ -35,6 +35,7 @@ export default class extends Controller {
   declare hasLatitudeTarget: boolean
 
   declare countryValue: Array<string>
+  declare wrapperClassValue: string
 
   static targets = [
     "address",
@@ -51,6 +52,7 @@ export default class extends Controller {
 
   static values = {
     country: Array,
+    wrapperClass: String,
   }
 
   initialize(): void {
@@ -66,6 +68,9 @@ export default class extends Controller {
   async initAutocomplete(): Promise<void> {
     ;(await google.maps.importLibrary("places")) as google.maps.PlacesLibrary
     this.autocompleteElement = new google.maps.places.PlaceAutocompleteElement(this.autocompleteOptions)
+    if (this.wrapperClassValue) {
+      this.autocompleteElement.classList = this.wrapperClassValue
+    }
     this.addressTarget.replaceWith(this.autocompleteElement)
     this.autocompleteElement.addEventListener("gmp-select", this.placeSelected)
   }
