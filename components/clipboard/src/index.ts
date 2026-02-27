@@ -47,7 +47,6 @@ export default class Clipboard extends Controller {
       this.buttonTarget.innerHTML = this.successContentValue
     }
 
-    // @ts-expect-error
     this.timeout = window.setTimeout(() => {
       if (this.hasButtonTarget) {
         this.buttonTarget.innerHTML = this.originalContent
