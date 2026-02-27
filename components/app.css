@@ -35,16 +35,3 @@
   transition: 400ms mask ease;
   will-change: mask;
 }
-
-.clipboard-example {
-  transition:
-    transform 200ms ease,
-    box-shadow 200ms ease;
-}
-
-.clipboard-example.--copied {
-  transform: translateY(-0.125rem);
-  box-shadow:
-    0 12px 20px rgba(37, 99, 235, 0.2),
-    0 0 0 3px rgba(191, 219, 254, 0.8);
-}
