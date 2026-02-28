@@ -13,6 +13,7 @@ import ContentLoader from "@stimulus-components/content-loader/src"
 import Dialog from "@stimulus-components/dialog/src"
 import Dropdown from "@stimulus-components/dropdown/src"
 import Glow from "stimulus-glow/src"
+import Hotkey from "@stimulus-components/hotkey/src"
 import Lightbox from "@stimulus-components/lightbox/src"
 import Notification from "@stimulus-components/notification/src"
 import PasswordVisibility from "@stimulus-components/password-visibility/src"
@@ -44,6 +45,7 @@ export default defineNuxtPlugin(() => {
   application.register("dialog", Dialog)
   application.register("dropdown", Dropdown)
   application.register("glow", Glow)
+  application.register("hotkey", Hotkey)
   application.register("lightbox", Lightbox)
   application.register("nested-form", RailsNestedForm)
   application.register("notification", Notification)
