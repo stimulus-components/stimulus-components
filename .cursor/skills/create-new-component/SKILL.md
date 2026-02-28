@@ -107,11 +107,31 @@ Use `components/character-counter/vite.config.mts` as base when there are no ext
 - Start Stimulus with `Application.start()`, register the controller with the kebab-case name, then set `document.body.innerHTML` with the right `data-controller`, targets, and values.
 - See `components/character-counter/spec/index.test.ts` for structure.
 
-## 5. Docs site (optional)
+## 5. Docs site
 
-- Add to `docs/package.json` dependencies: `"@stimulus-components/<name>": "workspace:*"`.
-- Add a Vue demo in `docs/components/content/Demo/<PascalName>.vue` if the component should appear in the docs.
-- Add content and routes in `docs/` as needed (e.g. @nuxt/content).
+Add the component to the documentation site so it appears in the sidebar and has a doc page with a live demo.
+
+### 5.1. Dependency and Stimulus registration
+
+- **`docs/package.json`**: Add to `dependencies`: `"@stimulus-components/<name>": "workspace:*"` (alphabetically with other `@stimulus-components/*`).
+- **`docs/plugins/stimulus.client.ts`**:
+  - Add: `import <PascalName> from "@stimulus-components/<name>/src"`.
+  - Add: `application.register("<name>", <PascalName>)` (e.g. `application.register("speech-recognition", SpeechRecognition)`).
+
+### 5.2. Doc page
+
+- **`docs/content/docs/stimulus-<name>.md`**: Create a doc page with:
+  - Frontmatter: `title`, `description`, `package: "<name>"`, `packagePath: "@stimulus-components/<name>"`.
+  - Sections: Installation (`:installation-block{:package="package" :packagePath="packagePath"}`), optional alert, Example (`:<name>`), Usage (HTML example in `::code-block`), Configuration table if needed, Extending Controller.
+  - The docs sidebar is built from `queryContent("docs").sort({ title: 1 })`, so the new file is picked up automatically. The URL is `/docs/stimulus-<name>`.
+
+Use `docs/content/docs/stimulus-character-counter.md` or `docs/content/docs/stimulus-speech-recognition.md` as a template.
+
+### 5.3. Demo component
+
+- **`docs/components/content/Demo/<PascalName>.vue`**:
+  - Use the `<Block title="...">` wrapper and put inside it a `div` with `data-controller="<name>"` and the appropriate targets/values/actions.
+  - Reference this demo in the doc page with `:<name>` (kebab-case; Nuxt Content resolves it to the Demo component).
 
 ## 6. Checklist
 
@@ -120,6 +140,7 @@ Use `components/character-counter/vite.config.mts` as base when there are no ext
 - [ ] `vite.config.mts` has correct `name`, `fileName`, and externals/globals.
 - [ ] No semicolons; Prettier 120 print width (per `.prettierrc`).
 - [ ] Run from repo root: `pnpm install`, `pnpm run lint`, `pnpm run test`.
+- [ ] If adding to docs: `docs/package.json`, `docs/plugins/stimulus.client.ts`, `docs/content/docs/stimulus-<name>.md`, `docs/components/content/Demo/<PascalName>.vue`.
 
 ## Quick reference: naming
 
