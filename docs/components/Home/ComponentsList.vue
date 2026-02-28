@@ -40,6 +40,7 @@ const { data: components } = await useAsyncData("components-list", () =>
           "auto-submit",
           "rails-nested-form",
           "dialog",
+          "textarea-autogrow",
         ],
       },
     })

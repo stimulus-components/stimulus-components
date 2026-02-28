@@ -375,6 +375,9 @@ importers:
       '@stimulus-components/sound':
         specifier: workspace:*
         version: link:../components/sound
+      '@stimulus-components/textarea-autogrow':
+        specifier: workspace:*
+        version: link:../components/textarea-autogrow
       '@stimulus-components/timeago':
         specifier: workspace:*
         version: link:../components/timeago
