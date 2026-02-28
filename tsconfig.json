@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "lib": ["dom", "es6"],
-    "types": ["vite/client", "google.maps"],
+    "types": ["vite/client", "google.maps", "dom-speech-recognition"],
     "skipLibCheck": true
   },
   "exclude": ["**/tailwind.config.ts", "**/vite.config.mts", "**/*.test.ts"]

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Stimulus Speech Recognition</title>
+
+    <script type="module">
+      import "../app.css"
+      import { Application } from "@hotwired/stimulus"
+      import SpeechRecognitionController from "./src/index"
+
+      const application = Application.start()
+      application.register("speech-recognition", SpeechRecognitionController)
+    </script>
+  </head>
+
+  <body>
+    <div class="relative h-full max-w-5xl mx-auto px-4">
+      <section class="mt-16">
+        <div data-controller="speech-recognition">
+          <textarea
+            data-speech-recognition-target="input"
+            class="shadow-sm appearance-none border w-full py-2 px-3 rounded-md text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            placeholder="Click Start and speak..."
+            rows="4"
+          ></textarea>
+
+          <div class="mt-2 flex gap-2 items-center">
+            <button
+              type="button"
+              data-speech-recognition-target="startButton"
+              data-action="click->speech-recognition#start"
+              class="hidden px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              Start
+            </button>
+
+            <button
+              type="button"
+              data-speech-recognition-target="stopButton"
+              data-action="click->speech-recognition#stop"
+              class="hidden px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500"
+            >
+              Stop
+            </button>
+
+            <span data-speech-recognition-target="indicator" class="hidden text-sm text-gray-500">Recording...</span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

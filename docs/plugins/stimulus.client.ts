@@ -25,6 +25,7 @@ import Reveal from "@stimulus-components/reveal/src"
 import ScrollProgress from "@stimulus-components/scroll-progress/src"
 import ScrollReveal from "@stimulus-components/scroll-reveal/src"
 import Sortable from "@stimulus-components/sortable/src"
+import SpeechRecognition from "@stimulus-components/speech-recognition/src"
 import Sound from "@stimulus-components/sound/src"
 import Timeago from "@stimulus-components/timeago/src"
 
@@ -58,6 +59,7 @@ export default defineNuxtPlugin(() => {
   application.register("scroll-reveal", ScrollReveal)
   application.register("sortable", Sortable)
   application.register("sound", Sound)
+  application.register("speech-recognition", SpeechRecognition)
   application.register("timeago", Timeago)
 
   // @ts-expect-error

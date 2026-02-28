@@ -13,6 +13,7 @@
     "@hotwired/turbo": "^8.0.13",
     "@nuxt/eslint-config": "^0.2.0",
     "@tailwindcss/postcss": "^4.1.13",
+    "@types/dom-speech-recognition": "^0.0.7",
     "@types/google.maps": "^3.58.1",
     "@types/jest": "^30.0.0",
     "@types/rails__request.js": "^0.0.1",
