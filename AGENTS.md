@@ -80,13 +80,13 @@ stimulus-components/
 
 ## Commands (from repo root)
 
-| Command        | Description                          |
-|----------------|--------------------------------------|
-| `pnpm install` | Install all workspace dependencies   |
-| `pnpm run lint`| Type-check + ESLint                  |
-| `pnpm run lintfix` | Prettier + ESLint --fix          |
-| `pnpm run test`| Run Vitest for all tests             |
-| `pnpm run docs`| Start Nuxt docs dev server          |
+| Command            | Description                        |
+| ------------------ | ---------------------------------- |
+| `pnpm install`     | Install all workspace dependencies |
+| `pnpm run lint`    | Type-check + ESLint                |
+| `pnpm run lintfix` | Prettier + ESLint --fix            |
+| `pnpm run test`    | Run Vitest for all tests           |
+| `pnpm run docs`    | Start Nuxt docs dev server         |
 
 ## Working on a component
 

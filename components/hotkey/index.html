@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Stimulus Hotkey</title>
+
+    <script type="module">
+      import "../app.css"
+      import { Application } from "@hotwired/stimulus"
+      import Hotkey from "./src/index"
+
+      const application = Application.start()
+      application.register("hotkey", Hotkey)
+    </script>
+  </head>
+
+  <body>
+    <div class="relative h-full max-w-5xl mx-auto px-4">
+      <section class="mt-16">
+        <p class="mb-4 text-gray-600">Press i to click the button:</p>
+        <button
+          type="button"
+          data-controller="hotkey"
+          data-action="keydown.i@document->hotkey#click"
+          class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+          onclick="alert('Button clicked!')"
+        >
+          Submit
+        </button>
+      </section>
+    </div>
+  </body>
+</html>

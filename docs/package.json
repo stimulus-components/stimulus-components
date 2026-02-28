@@ -30,6 +30,7 @@
     "@stimulus-components/content-loader": "workspace:*",
     "@stimulus-components/dialog": "workspace:*",
     "@stimulus-components/dropdown": "workspace:*",
+    "@stimulus-components/hotkey": "workspace:*",
     "@stimulus-components/lightbox": "workspace:*",
     "@stimulus-components/notification": "workspace:*",
     "@stimulus-components/password-visibility": "workspace:*",
