@@ -30,7 +30,7 @@
     "version": "pnpm run build"
   },
   "dependencies": {
-    "@simonwep/pickr": "1.9.0"
+    "@simonwep/pickr": "1.9.1"
   },
   "peerDependencies": {
     "@hotwired/stimulus": "^3"
