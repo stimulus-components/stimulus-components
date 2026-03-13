@@ -21,7 +21,13 @@ export default class AutoSubmit extends Controller<HTMLFormElement> {
     }
   }
 
-  submit(): void {
-    this.element.requestSubmit()
+  submit(event: Event): void {
+    if (event.target instanceof HTMLInputElement && event.target.type == "submit") {
+      event.target.form.requestSubmit(event.target)
+    } else if (event.target instanceof HTMLInputElement) {
+      event.target.form.requestSubmit()
+    } else {
+      this.element.requestSubmit()
+    }
   }
 }
