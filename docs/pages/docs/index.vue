@@ -67,7 +67,7 @@ const links = [
     title: "Sponsors",
     path: "/sponsors/",
     icon: CubeTransparentIcon,
-    description: "Step-by-step guides to setting up your system and installing the library",
+    description: "Check out our patreons and help keep this project alive and improving.",
   },
 ]
 </script>
