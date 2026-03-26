@@ -35,6 +35,6 @@
     "@hotwired/stimulus": "^3"
   },
   "devDependencies": {
-    "@types/dom-speech-recognition": "^0.0.7"
+    "@types/dom-speech-recognition": "^0.0.8"
   }
 }
