@@ -5,6 +5,7 @@ export default class Clipboard extends Controller {
   declare originalContent: string
   declare successDurationValue: number
   declare successContentValue: string
+  declare successClassValue: string
   declare timeout: number
   declare readonly buttonTarget: HTMLElement
   declare readonly sourceTarget: HTMLInputElement
@@ -15,6 +16,10 @@ export default class Clipboard extends Controller {
     successDuration: {
       type: Number,
       default: 2000,
+    },
+    successClass: {
+      type: String,
+      default: "--copied",
     },
   }
 
@@ -30,20 +35,24 @@ export default class Clipboard extends Controller {
     const text = this.sourceTarget.innerHTML || this.sourceTarget.value
 
     navigator.clipboard.writeText(text).then(() => this.copied())
+    this.element.classList.add(this.successClassValue)
   }
 
   copied(): void {
-    if (!this.hasButtonTarget) return
-
     if (this.timeout) {
       clearTimeout(this.timeout)
     }
 
-    this.buttonTarget.innerHTML = this.successContentValue
+    if (this.hasButtonTarget) {
+      this.buttonTarget.innerHTML = this.successContentValue
+    }
 
-    // @ts-expect-error
-    this.timeout = setTimeout(() => {
-      this.buttonTarget.innerHTML = this.originalContent
+    this.timeout = window.setTimeout(() => {
+      if (this.hasButtonTarget) {
+        this.buttonTarget.innerHTML = this.originalContent
+      }
+
+      this.element.classList.remove(this.successClassValue)
     }, this.successDurationValue)
   }
 }
