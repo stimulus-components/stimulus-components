@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.2] - 2026-04-14
+
+### Changed
+
+- Use `openValue` to remember the visibility of the modal when using the browser's back and forward buttons.
+
 ## [1.0.1] - 2024-03-28
 
 ### Changed
