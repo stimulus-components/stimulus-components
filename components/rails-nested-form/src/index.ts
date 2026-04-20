@@ -4,6 +4,7 @@ export default class RailsNestedForm extends Controller {
   declare targetTarget: HTMLElement
   declare templateTarget: HTMLElement
   declare wrapperSelectorValue: string
+  declare newRecordPlaceholderValue: string
 
   static targets = ["target", "template"]
   static values = {
@@ -11,12 +12,20 @@ export default class RailsNestedForm extends Controller {
       type: String,
       default: ".nested-form-wrapper",
     },
+    newRecordPlaceholder: {
+      type: String,
+      default: "NEW_RECORD",
+    },
   }
 
   add(e: Event): void {
     e.preventDefault()
 
-    const content: string = this.templateTarget.innerHTML.replace(/NEW_RECORD/g, new Date().getTime().toString())
+    // @ts-expect-error
+    const content: string = this.templateTarget.innerHTML.replaceAll(
+      this.newRecordPlaceholderValue,
+      new Date().getTime().toString(),
+    )
     this.targetTarget.insertAdjacentHTML("beforebegin", content)
 
     const event = new CustomEvent("rails-nested-form:add", { bubbles: true })
