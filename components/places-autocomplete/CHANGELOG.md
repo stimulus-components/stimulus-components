@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.0] - 2025-11-19
+
+### Changed
+
+- replaces `google.maps.places.Autocomplete` with `google.maps.places.PlaceAutocompleteElement`
+
 ## [0.5.0] - 2022-05-02
 
 ### Chore
