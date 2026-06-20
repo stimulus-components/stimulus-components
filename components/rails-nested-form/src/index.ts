@@ -16,7 +16,12 @@ export default class RailsNestedForm extends Controller {
   add(e: Event): void {
     e.preventDefault()
 
-    const content: string = this.templateTarget.innerHTML.replace(/NEW_RECORD/g, new Date().getTime().toString())
+    const content: string = this.templateTarget.innerHTML.replace(
+      /((?:name|id|for)="[^"]*?)NEW_RECORD/g,
+      function (_match, p1) {
+        return p1 + new Date().getTime().toString()
+      },
+    )
     this.targetTarget.insertAdjacentHTML("beforebegin", content)
 
     const event = new CustomEvent("rails-nested-form:add", { bubbles: true })
