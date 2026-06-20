@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class Dialog extends Controller {
   declare readonly dialogTarget: HTMLDialogElement
-  declare readonly openValue: boolean
+  declare openValue: boolean
 
   static targets = ["dialog"]
   static values = {
@@ -29,10 +29,12 @@ export default class Dialog extends Controller {
   }
 
   open(): void {
+    this.openValue = true
     this.dialogTarget.showModal()
   }
 
   close(): void {
+    this.openValue = false
     this.dialogTarget.setAttribute("closing", "")
 
     Promise.all(this.dialogTarget.getAnimations().map((animation) => animation.finished)).then(() => {
