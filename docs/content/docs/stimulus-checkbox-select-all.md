@@ -28,13 +28,17 @@ packagePath: "@stimulus-components/checkbox-select-all"
 ::code-block{tabName="app/views/index.html.erb"}
 
 ```html
-<table data-controller="checkbox-select-all">
+<table
+  data-controller="checkbox-select-all"
+  data-checkbox-select-all-checked-text-value="Unselect all"
+  data-checkbox-select-all-unchecked-text-value="Select all"
+>
   <tbody>
     <tr>
       <td class="block">
         <label>
           <input type="checkbox" data-checkbox-select-all-target="checkboxAll" />
-          <span>Select All / Deselect All</span>
+          <span data-checkbox-select-all-target="label">Select all</span>
         </label>
       </td>
 
@@ -64,6 +68,8 @@ packagePath: "@stimulus-components/checkbox-select-all"
 ```
 
 ::
+
+Add `data-checkbox-select-all-target="label"` plus the two text values only if you want the select-all label to update automatically. If you leave them out, the controller still manages the checkbox state without changing any label text.
 
 ### With Rails
 
@@ -120,10 +126,14 @@ end
 ::code-block{tabName="app/views/index.html"}
 
 ```erb
-<%= form_with model: @user, data: { controller: 'checkbox-select-all' } do |f| %>
+<%= form_with model: @user, data: {
+  controller: 'checkbox-select-all',
+  checkbox_select_all_checked_text_value: 'Unselect all',
+  checkbox_select_all_unchecked_text_value: 'Select all'
+} do |f| %>
   <label>
     <input type="checkbox" data-checkbox-select-all-target="checkboxAll" />
-    <span>Select All / Deselect All</span>
+    <span data-checkbox-select-all-target="label">Select all</span>
   </label>
 
   <%= f.collection_check_boxes :team_ids, Team.all, :id, :name do |b| %>
@@ -139,9 +149,15 @@ end
 
 ## Configuration
 
-| Attribute                                              | Default | Description                      | Optional |
-| ------------------------------------------------------ | ------- | -------------------------------- | -------- |
-| `data-checkbox-select-all-disable-indeterminate-value` | `false` | Disable the indeterminate state. | ✅       |
+| Attribute                                              | Default | Description                                          | Optional |
+| ------------------------------------------------------ | ------- | ---------------------------------------------------- | -------- |
+| `data-checkbox-select-all-disable-indeterminate-value` | `false` | Disable the indeterminate state.                     | ✅       |
+| `data-checkbox-select-all-checked-text-value`          | -       | Text used when the select-all checkbox is checked.   | ✅       |
+| `data-checkbox-select-all-unchecked-text-value`        | -       | Text used when the select-all checkbox is unchecked. | ✅       |
+
+`data-checkbox-select-all-target="label"` is optional and marks the element whose text should change.
+
+In the default indeterminate mode, a partial selection uses the checked label text.
 
 ## Extending Controller
 

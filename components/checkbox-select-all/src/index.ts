@@ -4,20 +4,32 @@ export default class CheckboxSelectAll extends Controller {
   declare readonly hasCheckboxAllTarget: boolean
   declare readonly checkboxTargets: HTMLInputElement[]
   declare readonly checkboxAllTarget: HTMLInputElement
+  declare readonly hasLabelTarget: boolean
+  declare readonly labelTarget: HTMLElement
   declare readonly disableIndeterminateValue: boolean
+  declare readonly hasCheckedTextValue: boolean
+  declare readonly checkedTextValue: string
+  declare readonly hasUncheckedTextValue: boolean
+  declare readonly uncheckedTextValue: string
 
-  static targets = ["checkboxAll", "checkbox"]
+  static targets = ["checkboxAll", "checkbox", "label"]
 
   static values = {
     disableIndeterminate: {
       type: Boolean,
       default: false,
     },
+    checkedText: String,
+    uncheckedText: String,
   }
 
   initialize() {
     this.toggle = this.toggle.bind(this)
     this.refresh = this.refresh.bind(this)
+  }
+
+  connect(): void {
+    this.refresh()
   }
 
   checkboxAllTargetConnected(checkbox: HTMLInputElement): void {
@@ -52,6 +64,8 @@ export default class CheckboxSelectAll extends Controller {
       checkbox.checked = e.target.checked
       this.triggerInputEvent(checkbox)
     })
+
+    this.refresh()
   }
 
   refresh(): void {
@@ -64,6 +78,16 @@ export default class CheckboxSelectAll extends Controller {
       this.checkboxAllTarget.checked = checkboxesCheckedCount > 0
       this.checkboxAllTarget.indeterminate = checkboxesCheckedCount > 0 && checkboxesCheckedCount < checkboxesCount
     }
+
+    this.updateLabel()
+  }
+
+  private updateLabel(): void {
+    if (!this.hasLabelTarget) return
+    if (!this.hasCheckedTextValue) return
+    if (!this.hasUncheckedTextValue) return
+
+    this.labelTarget.textContent = this.checkboxAllTarget.checked ? this.checkedTextValue : this.uncheckedTextValue
   }
 
   triggerInputEvent(checkbox: HTMLInputElement): void {
