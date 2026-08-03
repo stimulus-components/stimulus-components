@@ -22,7 +22,7 @@
   },
   "main": "dist/stimulus-auto-submit.umd.js",
   "module": "dist/stimulus-auto-submit.mjs",
-  "types": "dist/types/index.d.ts",
+  "types": "dist/types/components/auto-submit/src/index.d.ts",
   "scripts": {
     "types": "tsc --noEmit false --declaration true --emitDeclarationOnly true --rootDir ../.. --outDir dist/types",
     "dev": "vite",

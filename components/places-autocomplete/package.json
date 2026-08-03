@@ -18,7 +18,7 @@
   "homepage": "https://github.com/stimulus-components/stimulus-components",
   "private": false,
   "main": "dist/stimulus-places-autocomplete.umd.js",
-  "module": "dist/stimulus-places-autocomplete.es.js",
+  "module": "dist/stimulus-places-autocomplete.mjs",
   "types": "dist/types/index.d.ts",
   "scripts": {
     "types": "tsc --noEmit false --declaration true --emitDeclarationOnly true --rootDir src --outDir dist/types",

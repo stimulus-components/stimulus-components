@@ -22,7 +22,7 @@
   },
   "main": "dist/stimulus-scroll-progress.umd.js",
   "module": "dist/stimulus-scroll-progress.mjs",
-  "types": "dist/types/index.d.ts",
+  "types": "dist/types/components/scroll-progress/src/index.d.ts",
   "scripts": {
     "types": "tsc --noEmit false --declaration true --emitDeclarationOnly true --rootDir ../.. --outDir dist/types",
     "dev": "vite",
