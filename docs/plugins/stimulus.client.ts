@@ -29,8 +29,7 @@ import SpeechRecognition from "@stimulus-components/speech-recognition/src"
 import Sound from "@stimulus-components/sound/src"
 import Timeago from "@stimulus-components/timeago/src"
 
-// @ts-expect-error
-// eslint-disable-next-line no-undef
+// @ts-expect-error defineNuxtPlugin is a Nuxt auto-import resolved at build time
 export default defineNuxtPlugin(() => {
   const application = Application.start()
 
@@ -62,7 +61,6 @@ export default defineNuxtPlugin(() => {
   application.register("speech-recognition", SpeechRecognition)
   application.register("timeago", Timeago)
 
-  // @ts-expect-error
   if (!window._rails_loaded) {
     Rails.start()
   }

@@ -37,7 +37,7 @@ export default class ColorPicker extends Controller<HTMLElement> {
   }
 
   onSave(color: Pickr.HSVaColor) {
-    this.inputTarget.value = null
+    this.inputTarget.value = ""
 
     if (color) {
       this.inputTarget.value = color.toHEXA().toString()

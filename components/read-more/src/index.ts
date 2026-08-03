@@ -17,7 +17,11 @@ export default class ReadMore extends Controller {
   }
 
   toggle(event: Event): void {
-    this.open === false ? this.show(event) : this.hide(event)
+    if (this.open === false) {
+      this.show(event)
+    } else {
+      this.hide(event)
+    }
   }
 
   show(event: Event): void {

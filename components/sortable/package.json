@@ -35,6 +35,9 @@
     "@rails/request.js": "~0.0.8",
     "sortablejs": "^1.15.0"
   },
+  "devDependencies": {
+    "@types/sortablejs": "^1.15.9"
+  },
   "files": [
     "dist"
   ],

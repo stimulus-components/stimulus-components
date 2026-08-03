@@ -18,7 +18,7 @@ export default class Popover extends Controller {
     // Temporally variable to prevent `event.currentTarget` to being null.
     const element = event.currentTarget
 
-    let content: string = null
+    let content: string | undefined
 
     if (this.hasContentTarget) {
       content = this.contentTarget.innerHTML
@@ -39,7 +39,7 @@ export default class Popover extends Controller {
     }
   }
 
-  async fetch(): Promise<string> {
+  async fetch(): Promise<string | undefined> {
     if (!this.remoteContent) {
       if (!this.hasUrlValue) {
         console.error("[stimulus-popover] You need to pass an url to fetch the popover content.")

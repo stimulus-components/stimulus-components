@@ -25,15 +25,15 @@ export default class Sound extends Controller {
     this.sound.load()
   }
 
-  volume({ params }) {
+  volume({ params }: { params: { volume: number } }) {
     this.sound.volume = params.volume
   }
 
-  muted({ params }) {
+  muted({ params }: { params: { muted: boolean } }) {
     this.sound.muted = params.muted
   }
 
-  loop({ params }) {
+  loop({ params }: { params: { loop: boolean } }) {
     this.sound.loop = params.loop
   }
 }

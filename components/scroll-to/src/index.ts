@@ -2,13 +2,13 @@ import { Controller } from "@hotwired/stimulus"
 
 interface Option {
   offset?: number
-  // eslint-disable-next-line no-undef
+
   behavior?: ScrollBehavior
 }
 
 export default class ScrollTo extends Controller<HTMLAnchorElement> {
   declare offsetValue: number
-  // eslint-disable-next-line no-undef
+
   declare behaviorValue: ScrollBehavior
   declare hasOffsetValue: boolean
 
@@ -61,7 +61,6 @@ export default class ScrollTo extends Controller<HTMLAnchorElement> {
     return 10
   }
 
-  // eslint-disable-next-line no-undef
   get behavior(): ScrollBehavior {
     return this.behaviorValue || this.defaultOptions.behavior || "smooth"
   }

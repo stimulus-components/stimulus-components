@@ -1,11 +1,11 @@
 import { Controller } from "@hotwired/stimulus"
 import lightGallery from "lightgallery"
-import { LightGallerySettings } from "lightgallery/lg-settings"
-import { LightGallery } from "lightgallery/lightgallery"
+import type { LightGallerySettings } from "lightgallery/lg-settings"
+import type { LightGallery } from "lightgallery/lightgallery"
 
 export default class Lightbox extends Controller<HTMLElement> {
-  optionsValue: LightGallerySettings
-  lightGallery: LightGallery
+  declare optionsValue: LightGallerySettings
+  declare lightGallery: LightGallery
 
   static values = {
     options: Object,

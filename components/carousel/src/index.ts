@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
-import SwiperOptions from "swiper"
+import type SwiperOptions from "swiper"
 // @ts-expect-error
 import Swiper from "swiper/bundle"
 

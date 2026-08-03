@@ -5,7 +5,7 @@ export default class Clipboard extends Controller {
   declare originalContent: string
   declare successDurationValue: number
   declare successContentValue: string
-  declare timeout: number
+  declare timeout: ReturnType<typeof setTimeout>
   declare readonly buttonTarget: HTMLElement
   declare readonly sourceTarget: HTMLInputElement
 
@@ -41,7 +41,6 @@ export default class Clipboard extends Controller {
 
     this.buttonTarget.innerHTML = this.successContentValue
 
-    // @ts-expect-error
     this.timeout = setTimeout(() => {
       this.buttonTarget.innerHTML = this.originalContent
     }, this.successDurationValue)

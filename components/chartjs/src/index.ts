@@ -1,5 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
-import { Chart, registerables, ChartType, ChartOptions, ChartData } from "chart.js"
+import type { ChartType, ChartOptions, ChartData } from "chart.js"
+import { Chart, registerables } from "chart.js"
 
 Chart.register(...registerables)
 
@@ -27,7 +28,7 @@ export default class Chartjs extends Controller<HTMLCanvasElement> {
   connect(): void {
     const element = this.hasCanvasTarget ? this.canvasTarget : this.element
 
-    this.chart = new Chart(element.getContext("2d"), {
+    this.chart = new Chart(element, {
       type: this.typeValue,
       data: this.chartData,
       options: this.chartOptions,
@@ -36,7 +37,6 @@ export default class Chartjs extends Controller<HTMLCanvasElement> {
 
   disconnect(): void {
     this.chart.destroy()
-    this.chart = undefined
   }
 
   get chartData(): ChartData {
