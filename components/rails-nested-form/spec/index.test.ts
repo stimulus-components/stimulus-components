@@ -50,10 +50,9 @@ describe("#nestedForm", (): void => {
     const addButton: HTMLButtonElement = document.querySelector("[data-action='nested-form#add']")
 
     // @ts-expect-error
-    vi.spyOn(global, "CustomEvent").mockImplementation((type: string, eventInit?: CustomEventInit) => ({
-      type,
-      eventInit,
-    }))
+    vi.spyOn(global, "CustomEvent").mockImplementation(function (type: string, eventInit?: CustomEventInit) {
+      return { type, eventInit }
+    })
     const mockDispatchEvent = vi.spyOn(controllerElement, "dispatchEvent").mockImplementation(() => true)
 
     addButton.click()

@@ -1,4 +1,3 @@
-// @ts-expect-error
 import markdownParser from "@nuxt/content/transformers/markdown"
 
 export function capitalize(text: string) {
