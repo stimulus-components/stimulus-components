@@ -7,7 +7,10 @@ export default defineNuxtConfig({
   css: ["~/assets/css/tailwind.css"],
 
   vite: {
-    plugins: [tailwindcss()],
+    // @ts-expect-error pnpm installs vite under several peer-suffixed paths, so the
+    // Plugin type @tailwindcss/vite is built against is structurally identical to,
+    // but nominally distinct from, the one Nuxt's config expects. Runtime is fine.
+    plugins: tailwindcss(),
 
     server: {
       watch: {
@@ -16,8 +19,6 @@ export default defineNuxtConfig({
     },
   },
 
-  // @ts-expect-error module config keys (colorMode, content, robots, algolia) are
-  // augmented by their Nuxt modules at build time and unknown to the root tsc pass
   colorMode: {
     classSuffix: "",
   },

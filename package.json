@@ -17,7 +17,7 @@
     "@changesets/cli": "^2.31.0",
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo": "^8.0.13",
-    "@nuxt/eslint-config": "^1.16.0",
+    "@nuxt/eslint-config": "^1.17.0",
     "@types/dom-speech-recognition": "^0.0.12",
     "@types/google.maps": "^3.65.4",
     "@types/rails__request.js": "^0.0.1",
@@ -27,8 +27,13 @@
     "jsdom": "^30.0.1",
     "prettier": "3.9.6",
     "typescript": "6.0.3",
-    "vite": "8.2.0",
+    "vite": "7.3.6",
     "vitest": "^4.1.10"
   },
-  "packageManager": "pnpm@10.30.3"
+  "packageManager": "pnpm@10.30.3",
+  "pnpm": {
+    "overrides": {
+      "vite": "7.3.6"
+    }
+  }
 }
