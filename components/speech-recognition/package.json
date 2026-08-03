@@ -29,12 +29,17 @@
     "types": "tsc --noEmit false --declaration true --emitDeclarationOnly true --outDir dist/types",
     "dev": "vite",
     "build": "vite build && pnpm run types",
-    "version": "pnpm build"
+    "version": "pnpm build",
+    "prepack": "pnpm run build"
   },
   "peerDependencies": {
     "@hotwired/stimulus": "^3"
   },
   "devDependencies": {
     "@types/dom-speech-recognition": "^0.0.11"
-  }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false
 }

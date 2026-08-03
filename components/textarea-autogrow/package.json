@@ -12,9 +12,14 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
-    "version": "pnpm run build"
+    "version": "pnpm run build",
+    "prepack": "pnpm run build"
   },
   "peerDependencies": {
     "@hotwired/stimulus": "^3"
-  }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false
 }

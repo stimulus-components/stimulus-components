@@ -16,12 +16,13 @@ Don't forget to drop a 🌟 on [GitHub](https://github.com/stimulus-components/s
 
 ### Publish a new version
 
+Releases are managed with [changesets](https://github.com/changesets/changesets). After changing a component, add a changeset describing the bump:
+
 ```bash
-$ pnpm run lintfix && pnpm run test
-$ cd components/<specific-package-name>
-$ pnpm version <patch|minor|major>
-$ pnpm publish
+$ pnpm changeset
 ```
+
+Commit the generated file with your change. On merge to `master`, the **Release** workflow opens a "Version Packages" PR that bumps versions and updates changelogs; merging that PR publishes the affected packages to npm (with provenance).
 
 ## 📝 License
 
