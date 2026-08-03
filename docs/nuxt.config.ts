@@ -1,23 +1,14 @@
 import { defineNuxtConfig } from "nuxt/config"
+import tailwindcss from "@tailwindcss/vite"
 
 export default defineNuxtConfig({
-  modules: [
-    "@nuxtjs/tailwindcss",
-    "@nuxt/content",
-    "@nuxtjs/robots",
-    "@nuxtjs/algolia",
-    "@nuxtjs/plausible",
-    "@nuxtjs/color-mode",
-  ],
+  modules: ["@nuxt/content", "@nuxtjs/robots", "@nuxtjs/algolia", "@nuxtjs/plausible", "@nuxtjs/color-mode"],
 
-  // @ts-expect-error
-  tailwindcss: {
-    config: {
-      content: ["./pages/**/*.{vue,js,ts}", "./components/**/*.{vue,js,ts}"],
-    },
-  },
+  css: ["~/assets/css/tailwind.css"],
 
   vite: {
+    plugins: [tailwindcss()],
+
     server: {
       watch: {
         usePolling: true,
@@ -25,6 +16,8 @@ export default defineNuxtConfig({
     },
   },
 
+  // @ts-expect-error module config keys (colorMode, content, robots, algolia) are
+  // augmented by their Nuxt modules at build time and unknown to the root tsc pass
   colorMode: {
     classSuffix: "",
   },
