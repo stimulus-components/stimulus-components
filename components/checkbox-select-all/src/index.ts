@@ -55,6 +55,10 @@ export default class CheckboxSelectAll extends Controller {
   }
 
   refresh(): void {
+    // A checkbox target can connect or disconnect while no checkboxAll target is
+    // in the DOM, e.g. when it lives in a conditionally rendered header row.
+    if (!this.hasCheckboxAllTarget) return
+
     const checkboxesCount = this.checkboxTargets.length
     const checkboxesCheckedCount = this.checked.length
 

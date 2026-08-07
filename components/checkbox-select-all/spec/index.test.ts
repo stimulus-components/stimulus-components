@@ -58,6 +58,37 @@ describe("#refresh", () => {
   })
 })
 
+describe("without a checkboxAll target", () => {
+  // Stimulus processes DOM mutations from a MutationObserver callback, so the
+  // target lifecycle runs a microtask after innerHTML is assigned.
+  const flush = (): Promise<void> => new Promise((resolve) => setTimeout(resolve, 0))
+
+  let controller: CheckboxSelectAll
+
+  beforeEach(async (): Promise<void> => {
+    document.body.innerHTML = `
+      <form id="form" data-controller="checkbox-select-all">
+        <input id="checkbox" type="checkbox" data-checkbox-select-all-target="checkbox" />
+      </form>
+    `
+
+    await flush()
+
+    controller = application.getControllerForElementAndIdentifier(
+      document.querySelector("#form"),
+      "checkbox-select-all",
+    ) as CheckboxSelectAll
+  })
+
+  it("connects the controller", (): void => {
+    expect(controller).not.toBeNull()
+  })
+
+  it("refreshes without raising", (): void => {
+    expect((): void => controller.refresh()).not.toThrow()
+  })
+})
+
 describe("when disabled indeterminate state", () => {
   beforeEach((): void => {
     document.body.innerHTML = `
