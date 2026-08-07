@@ -386,6 +386,9 @@ importers:
       '@stimulus-components/scroll-reveal':
         specifier: workspace:*
         version: link:../components/scroll-reveal
+      '@stimulus-components/scroll-to':
+        specifier: workspace:*
+        version: link:../components/scroll-to
       '@stimulus-components/sortable':
         specifier: workspace:*
         version: link:../components/sortable

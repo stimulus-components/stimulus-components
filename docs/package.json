@@ -40,6 +40,7 @@
     "@stimulus-components/reveal": "workspace:*",
     "@stimulus-components/scroll-progress": "workspace:*",
     "@stimulus-components/scroll-reveal": "workspace:*",
+    "@stimulus-components/scroll-to": "workspace:*",
     "@stimulus-components/sortable": "workspace:*",
     "@stimulus-components/sound": "workspace:*",
     "@stimulus-components/speech-recognition": "workspace:*",
