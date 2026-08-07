@@ -2,6 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class ContentLoader extends Controller<HTMLElement> {
   declare refreshTimer: ReturnType<typeof setInterval>
+  declare observer?: IntersectionObserver
   declare readonly hasUrlValue: boolean
   declare readonly hasLazyLoadingValue: boolean
   declare readonly hasRefreshIntervalValue: boolean
@@ -38,6 +39,7 @@ export default class ContentLoader extends Controller<HTMLElement> {
 
   disconnect(): void {
     this.stopRefreshing()
+    this.stopObserving()
   }
 
   load(): void {
@@ -54,20 +56,17 @@ export default class ContentLoader extends Controller<HTMLElement> {
       rootMargin: this.lazyLoadingRootMarginValue,
     }
 
-    const observer = new IntersectionObserver(
-      (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
-        entries.forEach((entry: IntersectionObserverEntry) => {
-          if (entry.isIntersecting) {
-            this.load()
+    this.observer = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry: IntersectionObserverEntry) => {
+        if (entry.isIntersecting) {
+          this.load()
 
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      options,
-    )
+          this.stopObserving()
+        }
+      })
+    }, options)
 
-    observer.observe(this.element)
+    this.observer.observe(this.element)
   }
 
   fetch(): void {
@@ -103,6 +102,11 @@ export default class ContentLoader extends Controller<HTMLElement> {
     if (this.refreshTimer) {
       clearInterval(this.refreshTimer)
     }
+  }
+
+  stopObserving(): void {
+    this.observer?.disconnect()
+    this.observer = undefined
   }
 
   loadScripts(): void {
