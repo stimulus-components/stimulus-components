@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class ContentLoader extends Controller<HTMLElement> {
-  declare refreshTimer: number
+  declare refreshTimer: ReturnType<typeof setInterval>
   declare readonly hasUrlValue: boolean
   declare readonly hasLazyLoadingValue: boolean
   declare readonly hasRefreshIntervalValue: boolean
@@ -29,7 +29,11 @@ export default class ContentLoader extends Controller<HTMLElement> {
       return
     }
 
-    this.hasLazyLoadingValue ? this.lazyLoad() : this.load()
+    if (this.hasLazyLoadingValue) {
+      this.lazyLoad()
+    } else {
+      this.load()
+    }
   }
 
   disconnect(): void {
@@ -90,7 +94,6 @@ export default class ContentLoader extends Controller<HTMLElement> {
   }
 
   startRefreshing(): void {
-    // @ts-expect-error
     this.refreshTimer = setInterval(() => {
       this.fetch()
     }, this.refreshIntervalValue)
@@ -107,7 +110,7 @@ export default class ContentLoader extends Controller<HTMLElement> {
       const script: HTMLScriptElement = document.createElement("script")
       script.innerHTML = content.innerHTML
 
-      document.head.appendChild(script).parentNode.removeChild(script)
+      document.head.appendChild(script).parentNode?.removeChild(script)
     })
   }
 }

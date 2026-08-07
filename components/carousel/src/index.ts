@@ -1,9 +1,8 @@
 import { Controller } from "@hotwired/stimulus"
-import SwiperOptions from "swiper"
-// @ts-expect-error
+import type { SwiperOptions } from "swiper/types"
 import Swiper from "swiper/bundle"
 
-export default class Carousel extends Controller {
+export default class Carousel extends Controller<HTMLElement> {
   declare swiper: Swiper
   declare optionsValue: SwiperOptions
 
@@ -20,11 +19,9 @@ export default class Carousel extends Controller {
 
   disconnect(): void {
     this.swiper.destroy()
-    this.swiper = undefined
   }
 
   get defaultOptions(): SwiperOptions {
-    // @ts-expect-error
     return {}
   }
 }

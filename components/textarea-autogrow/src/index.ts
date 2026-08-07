@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 import { debounce } from "../../../utils"
 
 export default class extends Controller<HTMLInputElement> {
-  declare onResize: EventListenerOrEventListenerObject // eslint-disable-line no-undef
+  declare onResize: EventListenerOrEventListenerObject
   declare resizeDebounceDelayValue: number
 
   static values = {

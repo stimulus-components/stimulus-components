@@ -6,3 +6,5 @@ build
 
 .nuxt/
 .output/
+
+.claude/worktrees

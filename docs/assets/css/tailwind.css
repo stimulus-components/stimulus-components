@@ -1,0 +1,65 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Previously `content` in tailwind.config.ts, plus the globs @nuxtjs/tailwindcss added for us. */
+@source "../../app.vue";
+@source "../../components";
+@source "../../content";
+@source "../../layouts";
+@source "../../pages";
+@source "../../plugins";
+
+/* @nuxtjs/color-mode toggles a bare `dark` class on <html> (classSuffix: ""),
+   so the v3 `darkMode: "class"` behaviour has to be restated here. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Replaces the v3 plugin: addVariant("glow", ".glow-capture .glow-overlay &") */
+@custom-variant glow (.glow-capture .glow-overlay &);
+
+@theme {
+  /* Hex values are kept verbatim from tailwind.config.ts so the palette does not
+     shift; the two slate references are Tailwind 3's slate-200 / slate-900. */
+  --color-primary: #383241;
+  --color-primary-dark: #e2e8f0;
+  --color-secondary: #ffd99c;
+  --color-secondary-dark: #ffd99c;
+  --color-text-secondary: #8b89a9;
+  --color-text-secondary-dark: #d0cefd;
+  --color-tertiary: #b1ffbe;
+  --color-surface-primary: #d0cefd;
+  --color-surface-primary-dark: #0f172a;
+
+  /* The glow colour is per-element, set inline as --glow-color on .glow-overlay.
+     A theme value referencing it directly would be resolved once at :root and
+     inherit as invalid, so the real value is bound on .glow-overlay below.
+     Every glow utility is behind the `glow:` variant, so this default is inert. */
+  --color-glow: transparent;
+}
+
+.glow-overlay {
+  --color-glow: var(--glow-color, transparent);
+}
+
+/* Ported from the v3 `typography` theme block. */
+.prose {
+  --tw-prose-links: #f97316;
+  --tw-prose-invert-links: #f97316;
+  --tw-prose-code: #6b7280;
+  --tw-prose-invert-code: #6b7280;
+}
+
+.prose a:hover {
+  color: #c2410c;
+}
+
+.prose :not(pre) > code {
+  background-color: #f3f4f6;
+  font-weight: 400;
+  border-radius: 0.375rem;
+  padding: 0.125rem 0.25rem;
+}
+
+.prose code::before,
+.prose code::after {
+  content: none;
+}

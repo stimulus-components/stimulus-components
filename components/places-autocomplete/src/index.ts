@@ -72,7 +72,7 @@ export default class extends Controller {
 
   placeChanged(): void {
     this.place = this.autocomplete.getPlace()
-    const addressComponents: google.maps.GeocoderAddressComponent[] = this.place.address_components
+    const addressComponents = this.place.address_components
 
     if (addressComponents !== undefined) {
       const formattedAddress = this.formatAddressComponents(addressComponents) as Address
@@ -96,6 +96,8 @@ export default class extends Controller {
   }
 
   setGeometry(geometry: google.maps.places.PlaceGeometry): void {
+    if (!geometry.location) return
+
     if (this.hasLongitudeTarget) this.longitudeTarget.value = geometry.location.lng().toString()
     if (this.hasLatitudeTarget) this.latitudeTarget.value = geometry.location.lat().toString()
   }
@@ -116,7 +118,7 @@ export default class extends Controller {
   }
 
   private formatAddressComponents(addressComponents: google.maps.GeocoderAddressComponent[]): Address {
-    const data = {}
+    const data: Record<string, string> = {}
 
     addressComponents.forEach((component: google.maps.GeocoderAddressComponent) => {
       const type = component.types[0]
@@ -124,6 +126,6 @@ export default class extends Controller {
       data[type] = component.long_name
     })
 
-    return data as Address
+    return data as unknown as Address
   }
 }

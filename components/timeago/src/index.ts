@@ -1,5 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
-import { formatDistanceToNow, FormatDistanceToNowOptions, Locale } from "date-fns"
+import type { FormatDistanceToNowOptions, Locale } from "date-fns"
+import { formatDistanceToNow } from "date-fns"
 
 export default class Timeago extends Controller<HTMLTimeElement> {
   declare isValid: boolean

@@ -1,10 +1,19 @@
 <template>
   <button
-    :aria-label="`Switch to ${isDark ? 'light' : 'dark'} mode`"
+    aria-label="Toggle dark mode"
     class="font-medium rounded-md text-sm p-2 text-gray-500 dark:text-white dark:hover:text-gray-300 hover:text-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
     @click.prevent="isDark = !isDark"
   >
-    <component :is="isDark ? SunIcon : MoonIcon" class="size-5" />
+    <!-- The active colour mode is only known in the browser, so rendering the
+         icon on the server guarantees a hydration mismatch — and Vue does not
+         repair those in production, leaving the wrong icon on screen. -->
+    <ClientOnly>
+      <component :is="isDark ? SunIcon : MoonIcon" class="size-5" />
+
+      <template #fallback>
+        <span class="block size-5" />
+      </template>
+    </ClientOnly>
   </button>
 </template>
 

@@ -2,15 +2,21 @@
  * @jest-environment jsdom
  */
 
-import { beforeEach, describe, it, expect } from "vitest"
+import { beforeEach, afterEach, describe, it, expect } from "vitest"
 import { Application } from "@hotwired/stimulus"
 import Confirmation from "../src/index"
 import { sleep } from "../../../utils"
 
+let application: Application
+
 const startStimulus = (): void => {
-  const application = Application.start()
+  application = Application.start()
   application.register("confirmation", Confirmation)
 }
+
+afterEach((): void => {
+  application.stop()
+})
 
 describe("#check", () => {
   describe("with one input", () => {

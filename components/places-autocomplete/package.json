@@ -18,15 +18,20 @@
   "homepage": "https://github.com/stimulus-components/stimulus-components",
   "private": false,
   "main": "dist/stimulus-places-autocomplete.umd.js",
-  "module": "dist/stimulus-places-autocomplete.es.js",
+  "module": "dist/stimulus-places-autocomplete.mjs",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "types": "tsc --noEmit false --declaration true --emitDeclarationOnly true --outDir dist/types",
+    "types": "tsc --noEmit false --declaration true --emitDeclarationOnly true --rootDir src --outDir dist/types",
     "dev": "vite",
     "build": "vite build && pnpm run types",
-    "version": "pnpm run build"
+    "version": "pnpm run build",
+    "prepack": "pnpm run build"
   },
   "peerDependencies": {
     "@hotwired/stimulus": "^3"
-  }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false
 }

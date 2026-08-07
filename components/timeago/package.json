@@ -24,15 +24,20 @@
   "module": "dist/stimulus-timeago.mjs",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "types": "tsc --noEmit false --declaration true --emitDeclarationOnly true --outDir dist/types",
+    "types": "tsc --noEmit false --declaration true --emitDeclarationOnly true --rootDir src --outDir dist/types",
     "dev": "vite",
     "build": "vite build && pnpm run types",
-    "version": "pnpm run build"
+    "version": "pnpm run build",
+    "prepack": "pnpm run build"
   },
   "dependencies": {
     "date-fns": "^3.6.0 || ^4"
   },
   "peerDependencies": {
     "@hotwired/stimulus": "^3"
-  }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false
 }

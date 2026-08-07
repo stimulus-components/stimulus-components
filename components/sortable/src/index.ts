@@ -42,16 +42,15 @@ export default class StimulusSortable extends Controller<HTMLElement> {
 
   disconnect() {
     this.sortable.destroy()
-    this.sortable = undefined
   }
 
-  async onUpdate({ item, newIndex }) {
+  async onUpdate({ item, newIndex }: Sortable.SortableEvent) {
     if (!item.dataset.sortableUpdateUrl) return
 
     const param = this.resourceNameValue ? `${this.resourceNameValue}[${this.paramNameValue}]` : this.paramNameValue
 
     const data = new FormData()
-    data.append(param, newIndex + 1)
+    data.append(param, String((newIndex ?? 0) + 1))
 
     const request = new FetchRequest(this.methodValue, item.dataset.sortableUpdateUrl, {
       body: data,

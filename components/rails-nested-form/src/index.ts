@@ -34,8 +34,8 @@ export default class RailsNestedForm extends Controller {
     } else {
       wrapper.style.display = "none"
 
-      const input: HTMLInputElement = wrapper.querySelector("input[name*='_destroy']")
-      input.value = "1"
+      const input = wrapper.querySelector<HTMLInputElement>("input[name*='_destroy']")
+      if (input) input.value = "1"
     }
 
     const event = new CustomEvent("rails-nested-form:remove", { bubbles: true })

@@ -1,20 +1,19 @@
-export function debounce(callback: Function, delay: number) {
-  let timeout: number
+export function debounce(this: unknown, callback: (...args: unknown[]) => unknown, delay: number) {
+  let timeout: ReturnType<typeof setTimeout>
 
-  return (...args) => {
+  return (...args: unknown[]) => {
     clearTimeout(timeout)
 
-    // @ts-expect-error
     timeout = setTimeout(() => {
       callback.apply(this, args)
     }, delay)
   }
 }
 
-export function throttle(callback: Function, delay: number) {
+export function throttle(this: unknown, callback: (...args: unknown[]) => unknown, delay: number) {
   let shouldWait = false
 
-  return (...args) => {
+  return (...args: unknown[]) => {
     if (shouldWait) return
 
     callback.apply(this, args)

@@ -1,23 +1,17 @@
 import { defineNuxtConfig } from "nuxt/config"
+import tailwindcss from "@tailwindcss/vite"
 
 export default defineNuxtConfig({
-  modules: [
-    "@nuxtjs/tailwindcss",
-    "@nuxt/content",
-    "@nuxtjs/robots",
-    "@nuxtjs/algolia",
-    "@nuxtjs/plausible",
-    "@nuxtjs/color-mode",
-  ],
+  modules: ["@nuxt/content", "@nuxtjs/robots", "@nuxtjs/algolia", "@nuxtjs/plausible", "@nuxtjs/color-mode"],
 
-  // @ts-expect-error
-  tailwindcss: {
-    config: {
-      content: ["./pages/**/*.{vue,js,ts}", "./components/**/*.{vue,js,ts}"],
-    },
-  },
+  css: ["~/assets/css/tailwind.css"],
 
   vite: {
+    // @ts-expect-error pnpm installs vite under several peer-suffixed paths, so the
+    // Plugin type @tailwindcss/vite is built against is structurally identical to,
+    // but nominally distinct from, the one Nuxt's config expects. Runtime is fine.
+    plugins: tailwindcss(),
+
     server: {
       watch: {
         usePolling: true,

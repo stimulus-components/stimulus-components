@@ -29,8 +29,8 @@ export default class Prefetch extends Controller<HTMLAnchorElement> {
   }
 
   prefetch(): void {
-    // @ts-ignore
-    const connection: any = navigator.connection
+    const connection = (navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } })
+      .connection
 
     if (connection) {
       // Don't prefetch if using 2G or if Save-Data is enabled.

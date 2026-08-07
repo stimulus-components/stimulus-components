@@ -3,31 +3,37 @@
   "scripts": {
     "lint": "pnpm lint:check && pnpm lint:js",
     "lint:check": "tsc --noEmit",
-    "lint:js": "eslint --ignore-path .gitignore .",
+    "lint:js": "eslint .",
     "lintfix": "prettier --write --list-different . && pnpm lint:js --fix",
     "docs": "pnpm -C docs dev",
-    "test": "vitest --run"
+    "test": "vitest --run",
+    "build:components": "pnpm --filter \"./components/*\" run build",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "pnpm build:components && changeset publish"
   },
   "devDependencies": {
+    "@changesets/changelog-github": "^0.7.0",
+    "@changesets/cli": "^2.31.0",
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo": "^8.0.13",
-    "@nuxt/eslint-config": "^0.2.0",
-    "@tailwindcss/postcss": "^4.1.13",
-    "@types/dom-speech-recognition": "^0.0.11",
-    "@types/google.maps": "^3.58.1",
-    "@types/jest": "^30.0.0",
+    "@nuxt/eslint-config": "^1.17.0",
+    "@types/dom-speech-recognition": "^0.0.12",
+    "@types/google.maps": "^3.65.4",
     "@types/rails__request.js": "^0.0.1",
-    "@typescript-eslint/parser": "^8.44.1",
-    "babel-jest": "^30.1.2",
-    "eslint": "^8.57.1",
-    "eslint-config-prettier": "^9.1.2",
-    "eslint-plugin-prettier": "^5.5.4",
-    "eslint-plugin-vue": "^9.33.0",
-    "prettier": "3.6.2",
-    "tailwindcss": "3.4.19",
-    "typescript": "5.9.3",
-    "vite": "7.1.12",
-    "vitest": "^3.2.4"
+    "eslint": "^10.8.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.6",
+    "jsdom": "^30.0.1",
+    "prettier": "3.9.6",
+    "typescript": "6.0.3",
+    "vite": "7.3.6",
+    "vitest": "^4.1.10"
   },
-  "packageManager": "pnpm@10.30.3"
+  "packageManager": "pnpm@10.30.3",
+  "pnpm": {
+    "overrides": {
+      "vite": "7.3.6"
+    }
+  }
 }

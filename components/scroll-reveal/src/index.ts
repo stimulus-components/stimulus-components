@@ -57,7 +57,6 @@ export default class ScrollReveal extends Controller {
     })
   }
 
-  // eslint-disable-next-line no-undef
   get intersectionObserverOptions(): IntersectionObserverInit {
     return {
       threshold: this.threshold,

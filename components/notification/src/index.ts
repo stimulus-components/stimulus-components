@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 import { useTransition } from "stimulus-use"
 
 export default class Notification extends Controller {
-  declare timeout: number
+  declare timeout: ReturnType<typeof setTimeout>
   declare enter: (event?: Event) => void
   declare leave: (event?: Event) => void
   declare transitioned: false
@@ -35,7 +35,6 @@ export default class Notification extends Controller {
   show() {
     this.enter()
 
-    // @ts-expect-error
     this.timeout = setTimeout(this.hide, this.delayValue)
   }
 

@@ -21,11 +21,15 @@ export default class AnimatedNumber extends Controller<HTMLElement> {
   }
 
   connect(): void {
-    this.lazyValue ? this.lazyAnimate() : this.animate()
+    if (this.lazyValue) {
+      this.lazyAnimate()
+    } else {
+      this.animate()
+    }
   }
 
   animate(): void {
-    let startTimestamp: number = null
+    let startTimestamp: number | null = null
 
     const step = (timestamp: number) => {
       if (!startTimestamp) startTimestamp = timestamp
@@ -57,7 +61,6 @@ export default class AnimatedNumber extends Controller<HTMLElement> {
     observer.observe(this.element)
   }
 
-  // eslint-disable-next-line
   get lazyAnimateOptions(): IntersectionObserverInit {
     return {
       threshold: this.lazyThresholdValue,
