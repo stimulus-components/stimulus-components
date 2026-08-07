@@ -1,6 +1,6 @@
 {
   "name": "@stimulus-components/reveal",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "A Stimulus controller to toggle a class on one or multiple items to show or hide them.",
   "keywords": [
     "stimulus",
