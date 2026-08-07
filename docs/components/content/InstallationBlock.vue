@@ -31,6 +31,10 @@
         <CodeBlock :clipboard-content="selectedTab.installCommand" icon="Terminal">
           <ContentRenderer :value="selectedTab.markdownContent" />
         </CodeBlock>
+
+        <p v-if="selectedTab.note" class="text-sm text-gray-500 dark:text-gray-400 mt-3">
+          {{ selectedTab.note }}
+        </p>
       </li>
 
       <li
@@ -42,7 +46,7 @@
         </h3>
 
         <CodeBlock tab-name="app/javascript/controllers/index.js">
-          <ContentRenderer :value="importMarkdown" />
+          <ContentRenderer :value="selectedTab.importMarkdown" />
         </CodeBlock>
       </li>
     </ol>
@@ -50,6 +54,7 @@
 </template>
 
 <script setup>
+import { MapPinIcon } from "@heroicons/vue/24/solid"
 import { codeToMarkdown, toPascalCase } from "@/utils"
 import YarnIcon from "@/components/Icons/YarnIcon.vue"
 import NpmIcon from "@/components/Icons/NpmIcon.vue"
@@ -75,12 +80,32 @@ const props = defineProps({
   },
 })
 
-const getTabMarkdown = async (prefix) => {
-  const installCommand = `${prefix} ${props.packagePath} ${props.extraPackages}`
+const className = toPascalCase(props.package)
+const identifier = props.controllerName || props.package
+
+const bundlerImport = `
+import { Application } from '@hotwired/stimulus'
+import ${className} from '${props.packagePath}'
+
+const application = Application.start()
+application.register('${identifier}', ${className})
+`
+
+// In a Rails app with importmaps, the application instance already exists.
+const importmapImport = `
+import { application } from 'controllers/application'
+import ${className} from '${props.packagePath}'
+
+application.register('${identifier}', ${className})
+`
+
+const getTabMarkdown = async (prefix, importContent = bundlerImport) => {
+  const installCommand = `${prefix} ${props.packagePath} ${props.extraPackages}`.trim()
 
   return {
     installCommand,
     markdownContent: await codeToMarkdown(`$ ${installCommand}`, "bash"),
+    importMarkdown: await codeToMarkdown(importContent, "js"),
   }
 }
 
@@ -106,17 +131,13 @@ const tabs = [
     ...(await getTabMarkdown("bun add")),
     icon: BunIcon,
   },
+  {
+    filename: "importmap",
+    ...(await getTabMarkdown("bin/importmap pin", importmapImport)),
+    icon: MapPinIcon,
+    iconClass: "text-[#D30001]",
+    note: `This pins the package from a CDN into your config/importmap.rb. Importmaps don't work well with external dependencies, and not at all with CSS.`,
+  },
 ]
 const selectedTab = computed(() => tabs.find((_, index) => index === selectedIndex.value))
-
-const className = toPascalCase(props.package)
-const content = `
-import { Application } from '@hotwired/stimulus'
-import ${className} from '${props.packagePath}'
-
-const application = Application.start()
-application.register('${props.controllerName || props.package}', ${className})
-`
-
-const importMarkdown = await codeToMarkdown(content, "js")
 </script>
