@@ -24,6 +24,7 @@ import RemoteRails from "@stimulus-components/remote-rails/src"
 import Reveal from "@stimulus-components/reveal/src"
 import ScrollProgress from "@stimulus-components/scroll-progress/src"
 import ScrollReveal from "@stimulus-components/scroll-reveal/src"
+import ScrollTo from "@stimulus-components/scroll-to/src"
 import Sortable from "@stimulus-components/sortable/src"
 import SpeechRecognition from "@stimulus-components/speech-recognition/src"
 import Sound from "@stimulus-components/sound/src"
@@ -56,6 +57,7 @@ export default defineNuxtPlugin(() => {
   application.register("reveal", Reveal)
   application.register("scroll-progress", ScrollProgress)
   application.register("scroll-reveal", ScrollReveal)
+  application.register("scroll-to", ScrollTo)
   application.register("sortable", Sortable)
   application.register("sound", Sound)
   application.register("speech-recognition", SpeechRecognition)
