@@ -1,3 +1,7 @@
+/**
+ * @vitest-environment jsdom
+ */
+
 import { beforeEach, afterEach, describe, it, expect, vi } from "vitest"
 import { Application } from "@hotwired/stimulus"
 import RailsNestedForm from "../src/index"

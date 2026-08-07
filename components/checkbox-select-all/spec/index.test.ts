@@ -1,3 +1,7 @@
+/**
+ * @vitest-environment jsdom
+ */
+
 import { beforeEach, afterEach, describe, it, expect } from "vitest"
 import { Application } from "@hotwired/stimulus"
 import CheckboxSelectAll from "../src/index"
