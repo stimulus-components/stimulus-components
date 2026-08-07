@@ -23,6 +23,15 @@
   "main": "dist/stimulus-auto-submit.umd.js",
   "module": "dist/stimulus-auto-submit.mjs",
   "types": "dist/types/components/auto-submit/src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/components/auto-submit/src/index.d.ts",
+      "import": "./dist/stimulus-auto-submit.mjs",
+      "require": "./dist/stimulus-auto-submit.umd.js"
+    },
+    "./src": "./src/index.ts",
+    "./package.json": "./package.json"
+  },
   "scripts": {
     "types": "tsc --noEmit false --declaration true --emitDeclarationOnly true --rootDir ../.. --outDir dist/types",
     "dev": "vite",

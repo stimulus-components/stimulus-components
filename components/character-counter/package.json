@@ -24,6 +24,15 @@
   "main": "dist/stimulus-character-counter.umd.js",
   "module": "dist/stimulus-character-counter.mjs",
   "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/stimulus-character-counter.mjs",
+      "require": "./dist/stimulus-character-counter.umd.js"
+    },
+    "./src": "./src/index.ts",
+    "./package.json": "./package.json"
+  },
   "scripts": {
     "types": "tsc --noEmit false --declaration true --emitDeclarationOnly true --rootDir src --outDir dist/types",
     "dev": "vite",

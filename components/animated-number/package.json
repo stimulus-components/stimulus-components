@@ -22,6 +22,15 @@
   "main": "dist/stimulus-animated-number.umd.js",
   "module": "dist/stimulus-animated-number.mjs",
   "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/stimulus-animated-number.mjs",
+      "require": "./dist/stimulus-animated-number.umd.js"
+    },
+    "./src": "./src/index.ts",
+    "./package.json": "./package.json"
+  },
   "scripts": {
     "types": "tsc --noEmit false --declaration true --emitDeclarationOnly true --rootDir src --outDir dist/types",
     "dev": "vite",
