@@ -2,7 +2,7 @@
 title: Glow
 description: A Stimulus controller that add a mouse-tracing glow effect.
 package: glow
-packagePath: "stimulus-glow"
+packagePath: "@stimulus-components/glow"
 ---
 
 ## Installation
@@ -106,7 +106,7 @@ I suggest you the inspect the [index.html](https://github.com/stimulus-component
 ::code-block{tabName="app/javascript/controllers/glow_controller.js"}
 
 ```js
-import Glow from "stimulus-glow"
+import Glow from "@stimulus-components/glow"
 
 export default class extends Glow {
   connect() {

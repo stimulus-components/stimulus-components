@@ -1,5 +1,5 @@
 {
-  "name": "stimulus-places-autocomplete",
+  "name": "@stimulus-components/places-autocomplete",
   "version": "0.5.0",
   "description": "A Stimulus controller for Google Places Autocomplete.",
   "keywords": [

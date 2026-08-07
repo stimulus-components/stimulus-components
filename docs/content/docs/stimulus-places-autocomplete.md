@@ -2,7 +2,7 @@
 title: Places Autocomplete
 description: A Stimulus controller for Google Places Autocomplete.
 package: places-autocomplete
-packagePath: "stimulus-places-autocomplete"
+packagePath: "@stimulus-components/places-autocomplete"
 ---
 
 ## Installation
@@ -92,7 +92,7 @@ If a target does not exist, it will be ignored.
 ::code-block{tabName="app/javascript/controllers/places_autocomplete_controller.js"}
 
 ```js
-import PlacesAutocomplete from "stimulus-places-autocomplete"
+import PlacesAutocomplete from "@stimulus-components/places-autocomplete"
 
 export default class extends PlacesAutocomplete {
   connect() {

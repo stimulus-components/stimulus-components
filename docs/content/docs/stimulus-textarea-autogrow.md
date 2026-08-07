@@ -2,7 +2,7 @@
 title: Textarea Autogrow
 description: A Stimulus controller for autogrowing textarea.
 package: textarea-autogrow
-packagePath: "stimulus-textarea-autogrow"
+packagePath: "@stimulus-components/textarea-autogrow"
 ---
 
 ## Installation
@@ -39,7 +39,7 @@ The height is calculated on window resize to match the content height.
 ::code-block{tabName="app/javascript/controllers/textarea_autogrow_controller.js"}
 
 ```js
-import TextareaAutogrow from "stimulus-textarea-autogrow"
+import TextareaAutogrow from "@stimulus-components/textarea-autogrow"
 
 export default class extends TextareaAutogrow {
   connect() {

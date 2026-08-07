@@ -28,9 +28,9 @@
 "@stimulus-components/sound": patch
 "@stimulus-components/speech-recognition": patch
 "@stimulus-components/timeago": patch
-"stimulus-glow": patch
-"stimulus-places-autocomplete": patch
-"stimulus-textarea-autogrow": patch
+"@stimulus-components/glow": patch
+"@stimulus-components/places-autocomplete": patch
+"@stimulus-components/textarea-autogrow": patch
 ---
 
 Packaging: publish only the built `dist/` (via a new `files` allowlist), build automatically before publish with a `prepack` hook, and flag packages as `sideEffects: false` so bundlers can tree-shake them. Also hardens controllers under TypeScript `strict` mode.

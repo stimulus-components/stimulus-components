@@ -2,7 +2,7 @@
 "@stimulus-components/auto-submit": patch
 "@stimulus-components/scroll-progress": patch
 "@stimulus-components/carousel": patch
-"stimulus-places-autocomplete": patch
+"@stimulus-components/places-autocomplete": patch
 ---
 
 Fix broken package entrypoints and a wrong exported type.
