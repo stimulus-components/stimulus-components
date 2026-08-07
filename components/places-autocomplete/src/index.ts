@@ -11,7 +11,7 @@ interface Address {
 }
 
 export default class extends Controller {
-  declare autocomplete: google.maps.places.Autocomplete
+  declare autocomplete: google.maps.places.PlaceAutocompleteElement
   declare place: google.maps.places.PlaceResult
 
   declare addressTarget: HTMLInputElement
@@ -65,7 +65,7 @@ export default class extends Controller {
   }
 
   initAutocomplete(): void {
-    this.autocomplete = new google.maps.places.Autocomplete(this.addressTarget, this.autocompleteOptions)
+    this.autocomplete = new google.maps.places.PlaceAutocompleteElement(this.addressTarget, this.autocompleteOptions)
 
     this.autocomplete.addListener("place_changed", this.placeChanged)
   }
