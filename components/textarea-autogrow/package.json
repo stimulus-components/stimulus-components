@@ -9,9 +9,11 @@
   "private": false,
   "main": "dist/stimulus-textarea-autogrow.umd.js",
   "module": "dist/stimulus-textarea-autogrow.mjs",
+  "types": "dist/types/components/textarea-autogrow/src/index.d.ts",
   "scripts": {
+    "types": "tsc --noEmit false --declaration true --emitDeclarationOnly true --rootDir ../.. --outDir dist/types",
     "dev": "vite",
-    "build": "tsc --noEmit && vite build",
+    "build": "vite build && pnpm run types",
     "version": "pnpm run build",
     "prepack": "pnpm run build"
   },

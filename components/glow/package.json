@@ -18,9 +18,11 @@
   "private": false,
   "main": "dist/stimulus-glow.umd.js",
   "module": "dist/stimulus-glow.mjs",
+  "types": "dist/types/index.d.ts",
   "scripts": {
+    "types": "tsc --noEmit false --declaration true --emitDeclarationOnly true --rootDir src --outDir dist/types",
     "dev": "vite",
-    "build": "tsc --noEmit && vite build",
+    "build": "vite build && pnpm run types",
     "version": "pnpm run build",
     "prepack": "pnpm run build"
   },
