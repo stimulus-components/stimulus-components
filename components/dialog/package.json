@@ -23,6 +23,15 @@
   "main": "dist/stimulus-dialog.umd.js",
   "module": "dist/stimulus-dialog.mjs",
   "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/stimulus-dialog.mjs",
+      "require": "./dist/stimulus-dialog.umd.js"
+    },
+    "./src": "./src/index.ts",
+    "./package.json": "./package.json"
+  },
   "scripts": {
     "types": "tsc --noEmit false --declaration true --emitDeclarationOnly true --rootDir src --outDir dist/types",
     "dev": "vite",

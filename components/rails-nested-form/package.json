@@ -23,6 +23,15 @@
   "main": "dist/stimulus-rails-nested-form.umd.js",
   "module": "dist/stimulus-rails-nested-form.mjs",
   "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/stimulus-rails-nested-form.mjs",
+      "require": "./dist/stimulus-rails-nested-form.umd.js"
+    },
+    "./src": "./src/index.ts",
+    "./package.json": "./package.json"
+  },
   "scripts": {
     "types": "tsc --noEmit false --declaration true --emitDeclarationOnly true --rootDir src --outDir dist/types",
     "dev": "vite",
