@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import { beforeEach, afterEach, describe, it, expect } from "vitest"
 import { Application } from "@hotwired/stimulus"
 import Confirmation from "../src/index"
