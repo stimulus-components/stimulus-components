@@ -1,3 +1,7 @@
+/**
+ * @vitest-environment jsdom
+ */
+
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest"
 import { Application } from "@hotwired/stimulus"
 import SpeechRecognitionController from "../src/index"
