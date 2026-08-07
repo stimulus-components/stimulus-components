@@ -45,7 +45,7 @@ packagePath: "@stimulus-components/auto-submit"
 ::code-block{tabName="app/javascript/controllers/auto_submit_controller.js"}
 
 ```js
-import AutoSubmit from "stimulus-auto-submit"
+import AutoSubmit from "@stimulus-components/auto-submit"
 
 export default class extends AutoSubmit {
   static values = {

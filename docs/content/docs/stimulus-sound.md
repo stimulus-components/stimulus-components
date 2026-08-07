@@ -38,7 +38,7 @@ packagePath: "@stimulus-components/sound"
 ::code-block{tabName="app/javascript/controllers/sound_controller.js"}
 
 ```js
-import Sound from "stimulus-sound"
+import Sound from "@stimulus-components/sound"
 
 export default class extends Sound {
   connect() {
