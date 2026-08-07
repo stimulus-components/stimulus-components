@@ -82,7 +82,7 @@ And use it in your html:
 ::code-block{tabName="app/javascript/controllers/timeago_controller.js"}
 
 ```js
-import Timeago from "stimulus-timeago"
+import Timeago from "@stimulus-components/timeago"
 import { fr } from "date-fns/locale"
 
 export default class extends Timeago {

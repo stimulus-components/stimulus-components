@@ -57,7 +57,7 @@ With options:
 ::code-block{tabName="app/javascript/controllers/scroll_to_controller.js"}
 
 ```js
-import ScrollTo from "stimulus-scroll-to"
+import ScrollTo from "@stimulus-components/scroll-to"
 
 export default class extends ScrollTo {
   connect() {

@@ -86,7 +86,7 @@ You can use it with all [remote elements available in Rails UJS](https://guides.
 ::code-block{tabName="app/javascript/controllers/remote_rails_controller.js"}
 
 ```js
-import Remote from "stimulus-remote-rails"
+import Remote from "@stimulus-components/remote-rails"
 
 export default class extends Remote {
   connect() {
