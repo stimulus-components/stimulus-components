@@ -40,7 +40,7 @@
     "prepack": "pnpm run build"
   },
   "peerDependencies": {
-    "@hotwired/stimulus": "^3.0.0"
+    "@hotwired/stimulus": "^3"
   },
   "devDependencies": {
     "@rails/ujs": "7.1.3-4"
