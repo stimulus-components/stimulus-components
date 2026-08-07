@@ -55,7 +55,7 @@ Prettier: no semicolons, print width 120 (`.prettierrc`). ESLint uses flat confi
 
 Note: `pnpm run lint` and `pnpm run build:components` do not type-check identically — the root compile resolves Node's `setTimeout` (returns `NodeJS.Timeout`) while per-component declaration emit resolves the DOM one (returns `number`), so a `@ts-expect-error` that passes lint can still fail the build. **Always run the component build before assuming type changes are clean.**
 
-TypeScript is pinned to the 6.0 line: typescript-eslint does not support TS 7 yet (`@typescript-eslint/parser` caps at `<6.1.0`), so bumping TypeScript to `latest` breaks `pnpm run lint` outright. Declaration emit also needs an explicit `--rootDir` under TS 6; each component's `types` script passes `--rootDir src`, except `auto-submit` and `scroll-progress`, which import the shared `utils/` and therefore use `--rootDir ../..` and emit to `dist/types/components/<name>/src/index.d.ts`.
+TypeScript is pinned to the 6.0 line: typescript-eslint does not support TS 7 yet (`@typescript-eslint/parser` caps at `<6.1.0`), so bumping TypeScript to `latest` breaks `pnpm run lint` outright. Declaration emit also needs an explicit `--rootDir` under TS 6; each component's `types` script passes `--rootDir src`, except `auto-submit`, `scroll-progress`, and `textarea-autogrow`, which import the shared `utils/` and therefore use `--rootDir ../..` and emit to `dist/types/components/<name>/src/index.d.ts`.
 
 ## Publishing
 
