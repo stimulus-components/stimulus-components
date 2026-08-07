@@ -6,5 +6,5 @@
     "esModuleInterop": true,
     "skipLibCheck": true
   },
-  "exclude": ["**/tailwind.config.ts", "**/vite.config.mts", "**/*.test.ts"]
+  "exclude": [".claude/worktrees", "**/tailwind.config.ts", "**/vite.config.mts", "**/*.test.ts"]
 }

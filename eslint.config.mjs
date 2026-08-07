@@ -19,5 +19,12 @@ export default createConfigForNuxt({
   })
   .append(eslintPluginPrettierRecommended)
   .append({
-    ignores: ["**/dist/**", "**/.nuxt/**", "**/.output/**", "**/node_modules/**", "pnpm-lock.yaml"],
+    ignores: [
+      "**/dist/**",
+      "**/.nuxt/**",
+      "**/.output/**",
+      "**/node_modules/**",
+      ".claude/worktrees/**",
+      "pnpm-lock.yaml",
+    ],
   })
