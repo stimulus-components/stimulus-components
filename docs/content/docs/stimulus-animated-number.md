@@ -15,6 +15,8 @@ packagePath: "@stimulus-components/animated-number"
 
 ## Usage
 
+### Basic Usage
+
 ::code-block{tabName="app/views/index.html"}
 
 ```html
@@ -29,6 +31,46 @@ packagePath: "@stimulus-components/animated-number"
 ```
 
 ::
+
+### With Decimal Places
+
+::code-block{tabName="app/views/index.html"}
+
+```html
+<div
+  data-controller="animated-number"
+  data-animated-number-start-value="0"
+  data-animated-number-end-value="200.75"
+  data-animated-number-duration-value="3000"
+  data-animated-number-decimal-places-value="2"
+>
+  0
+</div>
+```
+
+::
+
+### With Different Number Format
+
+::code-block{tabName="app/views/index.html"}
+
+```html
+<div
+  data-controller="animated-number"
+  data-animated-number-start-value="0"
+  data-animated-number-end-value="1234.56"
+  data-animated-number-duration-value="3000"
+  data-animated-number-decimal-places-value="2"
+  data-animated-number-decimal-separator-value=","
+  data-animated-number-thousands-separator-value="."
+>
+  0
+</div>
+```
+
+::
+
+### With Lazy Loading
 
 ::code-block{tabName="app/views/index.html"}
 
@@ -64,16 +106,20 @@ packagePath: "@stimulus-components/animated-number"
 
 ::
 
+
 ## Configuration
 
-| Attribute                                     | Default     | Description                                  | Optional |
-| --------------------------------------------- | ----------- | -------------------------------------------- | -------- |
-| `data-animated-number-start-value`            | `undefined` | Number, at which animation starts.           | ❌       |
-| `data-animated-number-end-value`              | `undefined` | Number, at which animation ends.             | ❌       |
-| `data-animated-number-duration-value`         | `undefined` | Total animation duration in milliseconds.    | ❌       |
-| `data-animated-number-lazy-value`             | `undefined` | Fetch content when element is visible.       | ✅       |
-| `data-animated-number-lazy-root-margin-value` | `0px`       | rootMargin option for Intersection Observer. | ✅       |
-| `data-animated-number-lazy-threshold-value`   | `0`         | threshold option for Intersection Observer.  | ✅       |
+| Attribute                                        | Default     | Description                                  | Optional |
+| ------------------------------------------------ | ----------- | -------------------------------------------- | --------|
+| `data-animated-number-start-value`               | `undefined` | Number, at which animation starts.           | ❌       |
+| `data-animated-number-end-value`                 | `undefined` | Number, at which animation ends.             | ❌       |
+| `data-animated-number-duration-value`            | `undefined` | Total animation duration in milliseconds.    | ❌       |
+| `data-animated-number-lazy-value`                | `undefined` | Fetch content when element is visible.       | ✅       |
+| `data-animated-number-lazy-root-margin-value`    | `0px`       | rootMargin option for Intersection Observer. | ✅       |
+| `data-animated-number-lazy-threshold-value`      | `0`         | threshold option for Intersection Observer.  | ✅       |
+| `data-animated-number-decimal-places-value`      | `0`         | Number of decimal places to display.         | ✅       |
+| `data-animated-number-decimal-separator-value`   | `.`         | Character to use as decimal separator.       | ✅       |
+| `data-animated-number-thousands-separator-value` | `,`         | Character to use as thousands separator.     | ✅       |
 
 ## Extending Controller
 
