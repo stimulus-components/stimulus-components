@@ -2,14 +2,20 @@
  * @jest-environment jsdom
  */
 
-import { beforeEach, describe, it, expect } from "vitest"
+import { beforeEach, afterEach, describe, it, expect } from "vitest"
 import { Application } from "@hotwired/stimulus"
 import CheckboxSelectAll from "../src/index"
 
+let application: Application
+
 const startStimulus = (): void => {
-  const application = Application.start()
+  application = Application.start()
   application.register("checkbox-select-all", CheckboxSelectAll)
 }
+
+afterEach((): void => {
+  application.stop()
+})
 
 beforeEach((): void => {
   startStimulus()
@@ -54,8 +60,6 @@ describe("#refresh", () => {
 
 describe("when disabled indeterminate state", () => {
   beforeEach((): void => {
-    startStimulus()
-
     document.body.innerHTML = `
     <form data-controller="checkbox-select-all" data-checkbox-select-all-disable-indeterminate-value="true">
       <input id="checkbox-select-all" type="checkbox" data-checkbox-select-all-target="checkboxAll" />

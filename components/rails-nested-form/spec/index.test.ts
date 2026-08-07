@@ -2,14 +2,20 @@
  * @jest-environment jsdom
  */
 
-import { beforeEach, describe, it, expect, vi } from "vitest"
+import { beforeEach, afterEach, describe, it, expect, vi } from "vitest"
 import { Application } from "@hotwired/stimulus"
 import RailsNestedForm from "../src/index"
 
+let application: Application
+
 const startStimulus = (): void => {
-  const application = Application.start()
+  application = Application.start()
   application.register("nested-form", RailsNestedForm)
 }
+
+afterEach((): void => {
+  application.stop()
+})
 
 describe("#nestedForm", (): void => {
   beforeEach((): void => {

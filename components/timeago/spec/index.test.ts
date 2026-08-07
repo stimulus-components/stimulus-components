@@ -2,16 +2,24 @@
  * @jest-environment jsdom
  */
 
-import { beforeEach, describe, it, expect, vi } from "vitest"
+import { beforeEach, afterEach, describe, it, expect, vi } from "vitest"
 import { Application } from "@hotwired/stimulus"
 import Timeago from "../src/index"
 
+let application: Application
+
 const startStimulus = () => {
-  const application = Application.start()
+  application = Application.start()
   application.register("timeago", Timeago)
 }
 
-const spyError = vi.spyOn(console, "error")
+afterEach(() => {
+  application.stop()
+})
+
+// Stubbed out, not just observed: the invalid-date test asserts on the spy, so letting it
+// call through would print the controller's warning to stderr on every run.
+const spyError = vi.spyOn(console, "error").mockImplementation(() => {})
 
 const lastMonth: Date = new Date()
 lastMonth.setDate(lastMonth.getDate() - 35)
@@ -21,7 +29,7 @@ fewSecondsAgo.setSeconds(fewSecondsAgo.getSeconds() - 5)
 
 describe("#load", () => {
   beforeEach(() => {
-    spyError.mockReset()
+    spyError.mockClear()
 
     startStimulus()
 

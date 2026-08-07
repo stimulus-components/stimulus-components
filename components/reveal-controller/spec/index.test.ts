@@ -2,14 +2,20 @@
  * @jest-environment jsdom
  */
 
-import { beforeEach, describe, it, expect } from "vitest"
+import { beforeEach, afterEach, describe, it, expect } from "vitest"
 import { Application } from "@hotwired/stimulus"
 import Reveal from "../src/index"
 
+let application: Application
+
 const startStimulus = (): void => {
-  const application = Application.start()
+  application = Application.start()
   application.register("reveal", Reveal)
 }
+
+afterEach((): void => {
+  application.stop()
+})
 
 beforeEach((): void => {
   startStimulus()

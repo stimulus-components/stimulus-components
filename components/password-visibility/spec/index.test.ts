@@ -2,14 +2,20 @@
  * @jest-environment jsdom
  */
 
-import { beforeEach, describe, it, expect } from "vitest"
+import { beforeEach, afterEach, describe, it, expect } from "vitest"
 import { Application } from "@hotwired/stimulus"
 import PasswordVisibility from "../src/index"
 
+let application: Application
+
 const startStimulus = () => {
-  const application = Application.start()
+  application = Application.start()
   application.register("password-visibility", PasswordVisibility)
 }
+
+afterEach(() => {
+  application.stop()
+})
 
 describe("#load", () => {
   beforeEach(() => {
