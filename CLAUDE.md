@@ -38,7 +38,7 @@ stimulus-components/
 | `pnpm run test`    | Run all Vitest specs (`vitest --run`)               |
 | `pnpm run docs`    | Start the Nuxt docs dev server (`pnpm -C docs dev`) |
 
-Run a single test file: `pnpm exec vitest --run components/<name>/spec/index.test.ts`. Build one component: `pnpm -C components/<name> run build` (Vite lib build, then `pnpm run types` emits `dist/types/`). Build every component: `pnpm run build:components`. CI runs lint, test, and build on every PR (`.github/workflows/`).
+Run a single test file: `pnpm exec vitest --run components/<name>/spec/index.test.ts`. Build one component: `pnpm -C components/<name> run build` (Vite lib build, then `pnpm run types` emits `dist/types/`). Build every component: `pnpm run build:components`. CI runs lint, test, the component builds, and `docs generate` on every PR (`.github/workflows/ci.yml`); `release.yml` is separate.
 
 ## Architecture notes
 
