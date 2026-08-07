@@ -1,0 +1,37 @@
+{
+  "name": "@stimulus-components/pluralize",
+  "version": "5.1.0",
+  "description": "A Stimulus controller that handles choosing singular/plural strings based on a number.",
+  "keywords": [
+    "stimulus",
+    "stimulusjs",
+    "stimulus controller",
+    "input",
+    "singular",
+    "plural",
+    "pluralize"
+  ],
+  "repository": "git@github.com:stimulus-components/stimulus-components.git",
+  "bugs": {
+    "url": "https://github.com/stimulus-components/stimulus-components/issues"
+  },
+  "author": "Yossef Mendelssohn <ymendel@pobox.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/stimulus-components/stimulus-components",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "dist/stimulus-pluralize.umd.js",
+  "module": "dist/stimulus-pluralize.mjs",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "types": "tsc --noEmit false --declaration true --emitDeclarationOnly true --outDir dist/types",
+    "dev": "vite",
+    "build": "vite build && pnpm run types",
+    "version": "pnpm build"
+  },
+  "peerDependencies": {
+    "@hotwired/stimulus": "^3"
+  }
+}
