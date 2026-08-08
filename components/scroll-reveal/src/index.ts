@@ -39,7 +39,9 @@ export default class ScrollReveal extends Controller {
   }
 
   disconnect(): void {
-    this.itemTargets.forEach((item) => this.observer.unobserve(item))
+    // Not `itemTargets.forEach(unobserve)`: any item already removed from the
+    // DOM has dropped out of that list and would stay observed.
+    this.observer.disconnect()
   }
 
   intersectionObserverCallback(entries: IntersectionObserverEntry[], observer: IntersectionObserver): void {
