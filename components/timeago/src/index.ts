@@ -4,7 +4,7 @@ import { formatDistanceToNow } from "date-fns"
 
 export default class Timeago extends Controller<HTMLTimeElement> {
   declare isValid: boolean
-  declare refreshTimer: number
+  declare refreshTimer: ReturnType<typeof setInterval>
   declare locale: Pick<Locale, "formatDistance">
 
   declare hasRefreshIntervalValue: boolean
@@ -58,7 +58,6 @@ export default class Timeago extends Controller<HTMLTimeElement> {
   }
 
   startRefreshing(): void {
-    // @ts-ignore
     this.refreshTimer = setInterval(() => {
       this.load()
     }, this.refreshIntervalValue)
