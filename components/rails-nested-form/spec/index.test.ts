@@ -71,3 +71,55 @@ describe("#nestedForm", (): void => {
     })
   })
 })
+
+describe("#remove", (): void => {
+  let errors: string[]
+
+  beforeEach((): void => {
+    startStimulus()
+
+    errors = []
+    application.handleError = (error: Error): void => {
+      errors.push(error.message)
+    }
+
+    document.body.innerHTML = `
+      <form data-controller="nested-form">
+        <div id="new" class="nested-form-wrapper" data-new-record="true">
+          <button type="button" data-action="nested-form#remove">Remove new</button>
+        </div>
+
+        <div id="persisted" class="nested-form-wrapper" data-new-record="false">
+          <input type="hidden" name="todos[0][_destroy]" value="0" />
+          <button type="button" data-action="nested-form#remove">Remove persisted</button>
+        </div>
+
+        <button id="stray" type="button" data-action="nested-form#remove">Remove nothing</button>
+      </form>
+    `
+  })
+
+  it("removes a new record outright", (): void => {
+    document.querySelector<HTMLButtonElement>("#new button").click()
+
+    expect(document.querySelector("#new")).toBeNull()
+  })
+
+  it("hides a persisted record and flags it for destruction", (): void => {
+    document.querySelector<HTMLButtonElement>("#persisted button").click()
+
+    const wrapper: HTMLElement = document.querySelector("#persisted")
+
+    expect(wrapper).not.toBeNull()
+    expect(wrapper.style.display).toBe("none")
+    expect(wrapper.querySelector<HTMLInputElement>("input").value).toBe("1")
+  })
+
+  it("does nothing when the button sits outside any wrapper", (): void => {
+    document.querySelector<HTMLButtonElement>("#stray").click()
+
+    expect(document.querySelector("#new")).not.toBeNull()
+    expect(document.querySelector("#persisted")).not.toBeNull()
+    expect(errors).toEqual([])
+  })
+})

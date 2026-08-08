@@ -16,7 +16,7 @@ export default class Popover extends Controller {
 
   async show(event: Event): Promise<void> {
     // Temporally variable to prevent `event.currentTarget` to being null.
-    const element = event.currentTarget
+    const element = event.currentTarget as HTMLElement | null
 
     let content: string | undefined
 
@@ -26,10 +26,9 @@ export default class Popover extends Controller {
       content = await this.fetch()
     }
 
-    if (!content) return
+    if (!content || !element) return
 
     const fragment: DocumentFragment = document.createRange().createContextualFragment(content)
-    // @ts-ignore
     element.appendChild(fragment)
   }
 
