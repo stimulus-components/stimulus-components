@@ -32,6 +32,10 @@ export default class Notification extends Controller {
     }
   }
 
+  disconnect() {
+    clearTimeout(this.timeout)
+  }
+
   show() {
     this.enter()
 
