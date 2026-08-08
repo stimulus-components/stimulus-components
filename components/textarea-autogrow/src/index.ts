@@ -29,6 +29,7 @@ export default class extends Controller<HTMLInputElement> {
   }
 
   disconnect(): void {
+    this.element.removeEventListener("input", this.autogrow)
     window.removeEventListener("resize", this.onResize)
   }
 
