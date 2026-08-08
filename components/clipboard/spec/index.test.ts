@@ -88,6 +88,30 @@ describe("#copy", () => {
   })
 })
 
+describe("when removed while showing the success content", () => {
+  it("does not fire the pending timeout", async (): Promise<void> => {
+    vi.useFakeTimers()
+
+    button().click()
+
+    await vi.advanceTimersByTimeAsync(0)
+
+    expect(button().innerHTML).toBe("Copied!")
+    expect(vi.getTimerCount()).toBe(1)
+
+    // A Turbo navigation drops the button before the revert is due.
+    const detached: HTMLButtonElement = button()
+    document.body.innerHTML = ""
+    await vi.advanceTimersByTimeAsync(0)
+
+    expect(vi.getTimerCount()).toBe(0)
+
+    await vi.advanceTimersByTimeAsync(5000)
+
+    expect(detached.innerHTML).toBe("Copied!")
+  })
+})
+
 describe("with a custom success duration", () => {
   beforeEach((): void => {
     document.body.innerHTML = `

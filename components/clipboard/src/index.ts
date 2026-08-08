@@ -24,6 +24,10 @@ export default class Clipboard extends Controller {
     this.originalContent = this.buttonTarget.innerHTML
   }
 
+  disconnect(): void {
+    clearTimeout(this.timeout)
+  }
+
   copy(event: Event): void {
     event.preventDefault()
 

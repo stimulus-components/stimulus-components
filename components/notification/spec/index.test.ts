@@ -60,6 +60,34 @@ describe("when visible by default", () => {
   )
 })
 
+describe("when removed before the delay elapses", () => {
+  it("does not fire the pending timeout", async (): Promise<void> => {
+    const hide = vi.spyOn(Notification.prototype, "hide")
+
+    // The spy has to be in place before initialize() binds hide().
+    document.body.innerHTML = `
+      <div id="notification" data-controller="notification" data-notification-delay-value="${DELAY}" class="hidden">
+        <p>This alert will magically disappear!</p>
+      </div>
+    `
+
+    // Stimulus connects off a MutationObserver, so the timeout only exists
+    // after a turn of the event loop.
+    await new Promise((resolve) => setTimeout(resolve, 0))
+
+    expect(notification().classList.contains("hidden")).toBe(false)
+
+    // A Turbo navigation drops the notification before its delay is up.
+    document.body.innerHTML = ""
+
+    await new Promise((resolve) => setTimeout(resolve, DELAY * 5))
+
+    expect(hide).not.toHaveBeenCalled()
+
+    hide.mockRestore()
+  })
+})
+
 describe("when hidden by default", () => {
   beforeEach((): void => {
     document.body.innerHTML = `
