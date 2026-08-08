@@ -68,4 +68,44 @@ describe("#submit", () => {
       expect(requestSubmitSpy).toHaveBeenCalledOnce()
     })
   })
+
+  describe("when the same element reconnects", () => {
+    beforeEach(() => {
+      vi.useFakeTimers()
+
+      startStimulus()
+
+      document.body.innerHTML = `
+        <form data-controller="auto-submit">
+          <input type="checkbox" data-action="change->auto-submit#submit" />
+        </form>
+      `
+    })
+
+    afterEach(() => {
+      vi.useRealTimers()
+    })
+
+    it("should keep the configured delay", async () => {
+      // Stimulus reuses the controller instance when the very same element
+      // leaves and re-enters the DOM, e.g. a Turbo cache restore, so anything
+      // wrapping `submit` in connect() would wrap the already-wrapped one.
+      const form: HTMLFormElement = document.querySelector("form")
+
+      form.remove()
+      await vi.advanceTimersByTimeAsync(0)
+
+      document.body.appendChild(form)
+      await vi.advanceTimersByTimeAsync(0)
+
+      const requestSubmitSpy = vi.spyOn(form, "requestSubmit")
+      const checkbox: HTMLInputElement = document.querySelector("input")
+
+      checkbox.click()
+
+      await vi.advanceTimersByTimeAsync(150)
+
+      expect(requestSubmitSpy).toHaveBeenCalledOnce()
+    })
+  })
 })

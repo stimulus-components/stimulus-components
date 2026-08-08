@@ -11,14 +11,13 @@ export default class AutoSubmit extends Controller<HTMLFormElement> {
     },
   }
 
+  // Wrapping happens here rather than in connect(): Stimulus reuses the
+  // controller instance when the same element re-enters the DOM, so connect()
+  // would debounce the already-debounced submit and compound the delay.
   initialize(): void {
-    this.submit = this.submit.bind(this)
-  }
+    const submit = this.submit.bind(this)
 
-  connect(): void {
-    if (this.delayValue > 0) {
-      this.submit = debounce(this.submit, this.delayValue)
-    }
+    this.submit = this.delayValue > 0 ? debounce(submit, this.delayValue) : submit
   }
 
   submit(): void {
