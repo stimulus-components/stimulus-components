@@ -40,7 +40,7 @@ export default class ScrollTo extends Controller<HTMLAnchorElement> {
       return
     }
 
-    const elementPosition: number = target.getBoundingClientRect().top + window.pageYOffset
+    const elementPosition: number = target.getBoundingClientRect().top + window.scrollY
     const offsetPosition: number = elementPosition - this.offset
 
     window.scrollTo({
