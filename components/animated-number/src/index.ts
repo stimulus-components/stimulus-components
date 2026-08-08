@@ -6,7 +6,8 @@ export default class AnimatedNumber extends Controller<HTMLElement> {
   declare startValue: number
   declare endValue: number
   declare durationValue: number
-  declare lazyValue: number
+  declare lazyValue: boolean
+  declare observer?: IntersectionObserver
 
   static values = {
     start: Number,
@@ -26,6 +27,10 @@ export default class AnimatedNumber extends Controller<HTMLElement> {
     } else {
       this.animate()
     }
+  }
+
+  disconnect(): void {
+    this.stopObserving()
   }
 
   animate(): void {
@@ -48,17 +53,22 @@ export default class AnimatedNumber extends Controller<HTMLElement> {
   }
 
   lazyAnimate(): void {
-    const observer = new IntersectionObserver((entries, observer) => {
+    this.observer = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry: IntersectionObserverEntry) => {
         if (entry.isIntersecting) {
           this.animate()
 
-          observer.unobserve(entry.target)
+          this.stopObserving()
         }
       })
     }, this.lazyAnimateOptions)
 
-    observer.observe(this.element)
+    this.observer.observe(this.element)
+  }
+
+  stopObserving(): void {
+    this.observer?.disconnect()
+    this.observer = undefined
   }
 
   get lazyAnimateOptions(): IntersectionObserverInit {
