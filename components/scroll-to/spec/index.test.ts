@@ -15,7 +15,7 @@ const startStimulus = (): void => {
 }
 
 // jsdom does not implement window.scrollTo, so stub it to observe the call.
-// getBoundingClientRect() and pageYOffset are both 0 here, which makes the
+// getBoundingClientRect() and scrollY are both 0 here, which makes the
 // expected top exactly the negated offset.
 const stubScrollTo = (): void => {
   scrollTo = vi.fn()
@@ -56,6 +56,18 @@ describe("#scroll", () => {
     link().dispatchEvent(event)
 
     expect(event.defaultPrevented).toBe(true)
+  })
+
+  it("adds the current scroll position to the element's viewport-relative top", (): void => {
+    const target: HTMLElement = document.querySelector("#target")
+
+    vi.spyOn(target, "getBoundingClientRect").mockReturnValue({ top: 100 } as DOMRect)
+    vi.stubGlobal("scrollY", 300)
+
+    link().click()
+
+    // 100 below the fold, 300 already scrolled, less the default 10 offset.
+    expect(scrollTo).toHaveBeenCalledWith(expect.objectContaining({ top: 390 }))
   })
 })
 
