@@ -11,15 +11,17 @@ export default class ScrollProgress extends Controller<HTMLElement> {
     },
   }
 
+  // Throttling happens here rather than in connect(): Stimulus reuses the
+  // controller instance when the same element re-enters the DOM, so connect()
+  // would throttle the already-throttled scroll and stack a new layer — and a
+  // new timer per scroll event — on every reconnect.
   initialize(): void {
-    this.scroll = this.scroll.bind(this)
+    const scroll = this.scroll.bind(this)
+
+    this.scroll = this.throttleDelayValue > 0 ? throttle(scroll, this.throttleDelayValue) : scroll
   }
 
   connect(): void {
-    if (this.throttleDelayValue > 0) {
-      this.scroll = throttle(this.scroll, this.throttleDelayValue)
-    }
-
     window.addEventListener("scroll", this.scroll, { passive: true })
     this.scroll()
   }
