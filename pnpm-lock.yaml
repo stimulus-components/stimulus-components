@@ -78,8 +78,8 @@ importers:
         specifier: ^3
         version: 3.2.2
       swiper:
-        specifier: ^11.0.6
-        version: 11.2.10
+        specifier: ^14.0.0
+        version: 14.1.0
 
   components/character-counter:
     dependencies:
@@ -6272,8 +6272,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  swiper@11.2.10:
-    resolution: {integrity: sha512-RMeVUUjTQH+6N3ckimK93oxz6Sn5la4aDlgPzB+rBrG/smPdCTicXyhxa+woIpopz+jewEloiEE3lKo1h9w2YQ==}
+  swiper@14.1.0:
+    resolution: {integrity: sha512-ppit/AqmGvThKlXy4I1/9N/gEyb9s/BDHWciWNeIxbfteFKUhPQXrYuOMKszomXKd9WiLd+/0vKdPHW+0N0mhA==}
     engines: {node: '>= 4.7.0'}
 
   symbol-tree@3.2.4:
@@ -13869,7 +13869,7 @@ snapshots:
       picocolors: 1.1.1
       sax: 1.4.4
 
-  swiper@11.2.10: {}
+  swiper@14.1.0: {}
 
   symbol-tree@3.2.4: {}
 
