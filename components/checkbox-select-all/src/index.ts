@@ -47,9 +47,10 @@ export default class CheckboxSelectAll extends Controller {
   toggle(e: Event): void {
     e.preventDefault()
 
+    const { checked } = e.target as HTMLInputElement
+
     this.checkboxTargets.forEach((checkbox) => {
-      // @ts-expect-error
-      checkbox.checked = e.target.checked
+      checkbox.checked = checked
       this.triggerInputEvent(checkbox)
     })
   }

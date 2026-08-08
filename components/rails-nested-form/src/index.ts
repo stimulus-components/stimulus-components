@@ -26,8 +26,9 @@ export default class RailsNestedForm extends Controller {
   remove(e: Event): void {
     e.preventDefault()
 
-    // @ts-expect-error
-    const wrapper: HTMLElement = e.target.closest(this.wrapperSelectorValue)
+    const wrapper = (e.target as HTMLElement).closest<HTMLElement>(this.wrapperSelectorValue)
+
+    if (!wrapper) return
 
     if (wrapper.dataset.newRecord === "true") {
       wrapper.remove()

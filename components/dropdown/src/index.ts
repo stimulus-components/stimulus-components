@@ -20,8 +20,7 @@ export default class Dropdown extends Controller {
   }
 
   hide(event: Event): void {
-    // @ts-expect-error
-    if (!this.element.contains(event.target) && !this.menuTarget.classList.contains("hidden")) {
+    if (!this.element.contains(event.target as Node) && !this.menuTarget.classList.contains("hidden")) {
       this.leave()
     }
   }
