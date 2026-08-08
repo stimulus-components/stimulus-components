@@ -21,9 +21,18 @@ This controller uses [stimulus-use/use-transition](https://stimulus-use.github.i
 
 ```html
 <div data-controller="dropdown" class="relative">
-  <button type="button" data-action="dropdown#toggle click@window->dropdown#hide">Options</button>
+  <button
+    type="button"
+    data-dropdown-target="button"
+    data-action="dropdown#toggle click@window->dropdown#hide"
+    aria-expanded="false"
+    aria-controls="dropdown-menu"
+  >
+    Options
+  </button>
 
   <div
+    id="dropdown-menu"
     data-dropdown-target="menu"
     class="hidden transition transform origin-top-right absolute right-0"
     data-transition-enter-from="opacity-0 scale-95"
