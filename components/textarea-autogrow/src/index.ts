@@ -4,11 +4,16 @@ import { debounce } from "../../../utils"
 export default class extends Controller<HTMLInputElement> {
   declare onResize: EventListenerOrEventListenerObject
   declare resizeDebounceDelayValue: number
+  declare maxHeightValue: number
 
   static values = {
     resizeDebounceDelay: {
       type: Number,
       default: 100,
+    },
+    maxHeight: {
+      type: Number,
+      default: 0,
     },
   }
 
@@ -35,6 +40,11 @@ export default class extends Controller<HTMLInputElement> {
 
   autogrow(): void {
     this.element.style.height = "auto" // Force re-print before calculating the scrollHeight value.
-    this.element.style.height = `${this.element.scrollHeight}px`
+    const [heightVal, overflowVal] =
+      this.maxHeightValue > 0 && this.element.scrollHeight >= this.maxHeightValue
+        ? [this.maxHeightValue, "scroll"] // Stop autogrow and enable scrolling
+        : [this.element.scrollHeight, "hidden"]
+    this.element.style.height = `${heightVal}px`
+    this.element.style.overflow = overflowVal
   }
 }
