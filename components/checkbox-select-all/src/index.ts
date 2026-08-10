@@ -5,11 +5,16 @@ export default class CheckboxSelectAll extends Controller {
   declare readonly checkboxTargets: HTMLInputElement[]
   declare readonly checkboxAllTarget: HTMLInputElement
   declare readonly disableIndeterminateValue: boolean
+  declare readonly ignoreDisabledValue: boolean
 
   static targets = ["checkboxAll", "checkbox"]
 
   static values = {
     disableIndeterminate: {
+      type: Boolean,
+      default: false,
+    },
+    ignoreDisabled: {
       type: Boolean,
       default: false,
     },
@@ -49,10 +54,17 @@ export default class CheckboxSelectAll extends Controller {
 
     const { checked } = e.target as HTMLInputElement
 
-    this.checkboxTargets.forEach((checkbox) => {
+    // A disabled checkbox cannot be changed by the user and is not submitted with
+    // the form, so the checkboxAll target must never change it either.
+    this.enabled.forEach((checkbox) => {
       checkbox.checked = checked
       this.triggerInputEvent(checkbox)
     })
+
+    // The checkbox targets do not emit a change event here, so the state of the
+    // checkboxAll target must be computed again. It can stay indeterminate when a
+    // disabled checkbox keeps a different state.
+    this.refresh()
   }
 
   refresh(): void {
@@ -60,13 +72,20 @@ export default class CheckboxSelectAll extends Controller {
     // in the DOM, e.g. when it lives in a conditionally rendered header row.
     if (!this.hasCheckboxAllTarget) return
 
-    const checkboxesCount = this.checkboxTargets.length
-    const checkboxesCheckedCount = this.checked.length
+    // The indeterminate state counts the disabled checkboxes, unless the controller
+    // is told to ignore them. The checked state always counts only the checkboxes
+    // the checkboxAll target can change, so a click always toggles the enabled ones.
+    const checkboxes = this.ignoreDisabledValue ? this.enabled : this.checkboxTargets
+    const checkboxesCount = checkboxes.length
+    const checkboxesCheckedCount = checkboxes.filter((checkbox) => checkbox.checked).length
+
+    const enabledCount = this.enabled.length
+    const enabledCheckedCount = this.enabled.filter((checkbox) => checkbox.checked).length
 
     if (this.disableIndeterminateValue) {
-      this.checkboxAllTarget.checked = checkboxesCheckedCount === checkboxesCount
+      this.checkboxAllTarget.checked = enabledCount > 0 && enabledCheckedCount === enabledCount
     } else {
-      this.checkboxAllTarget.checked = checkboxesCheckedCount > 0
+      this.checkboxAllTarget.checked = enabledCheckedCount > 0
       this.checkboxAllTarget.indeterminate = checkboxesCheckedCount > 0 && checkboxesCheckedCount < checkboxesCount
     }
   }
@@ -83,5 +102,13 @@ export default class CheckboxSelectAll extends Controller {
 
   get unchecked(): HTMLInputElement[] {
     return this.checkboxTargets.filter((checkbox) => !checkbox.checked)
+  }
+
+  get enabled(): HTMLInputElement[] {
+    return this.checkboxTargets.filter((checkbox) => !checkbox.disabled)
+  }
+
+  get disabled(): HTMLInputElement[] {
+    return this.checkboxTargets.filter((checkbox) => checkbox.disabled)
   }
 }
