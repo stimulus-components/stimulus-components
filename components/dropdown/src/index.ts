@@ -31,9 +31,11 @@ export default class Dropdown extends Controller {
     }
   }
 
+  // `useTransition` flips `transitioned` synchronously, before the enter and leave
+  // animations resolve, so the attribute never lags behind the state of the menu.
   private syncExpanded(): void {
     if (!this.hasButtonTarget) return
 
-    this.buttonTarget.setAttribute("aria-expanded", this.transitioned.toString())
+    this.buttonTarget.setAttribute("aria-expanded", String(this.transitioned))
   }
 }

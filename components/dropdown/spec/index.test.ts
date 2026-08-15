@@ -28,7 +28,14 @@ beforeEach((): void => {
 
   document.body.innerHTML = `
     <div id="dropdown" data-controller="dropdown">
-      <button id="toggle" type="button" data-action="dropdown#toggle click@window->dropdown#hide">Options</button>
+      <button
+        id="toggle"
+        type="button"
+        data-dropdown-target="button"
+        data-action="dropdown#toggle click@window->dropdown#hide"
+        aria-expanded="false"
+        aria-controls="menu"
+      >Options</button>
       <div id="menu" data-dropdown-target="menu" class="hidden">
         <a id="item" href="#" data-action="dropdown#toggle">Account settings</a>
       </div>
@@ -39,6 +46,7 @@ beforeEach((): void => {
 
 const menu = (): HTMLElement => document.querySelector("#menu")
 const isOpen = (): boolean => !menu().classList.contains("hidden")
+const expanded = (): string => document.querySelector("#toggle").getAttribute("aria-expanded")
 
 describe("#toggle", () => {
   it("starts closed", (): void => {
@@ -105,5 +113,88 @@ describe("#hide", () => {
     document.querySelector<HTMLButtonElement>("#outside").click()
 
     expect(isOpen()).toBe(false)
+  })
+})
+
+describe("aria-expanded", () => {
+  it("starts collapsed", (): void => {
+    expect(expanded()).toEqual("false")
+  })
+
+  it("follows the menu when the button is clicked", (): void => {
+    const button = document.querySelector<HTMLButtonElement>("#toggle")
+
+    button.click()
+
+    expect(expanded()).toEqual("true")
+
+    // The leave animation resolves asynchronously, the attribute must not wait for it.
+    button.click()
+
+    expect(expanded()).toEqual("false")
+  })
+
+  it("collapses when an item inside the menu is clicked", (): void => {
+    document.querySelector<HTMLButtonElement>("#toggle").click()
+
+    expect(expanded()).toEqual("true")
+
+    document.querySelector<HTMLAnchorElement>("#item").click()
+
+    expect(expanded()).toEqual("false")
+  })
+
+  it("collapses on a click outside the controller element", (): void => {
+    document.querySelector<HTMLButtonElement>("#toggle").click()
+
+    expect(expanded()).toEqual("true")
+
+    document.querySelector<HTMLButtonElement>("#outside").click()
+
+    expect(expanded()).toEqual("false")
+  })
+
+  describe("with a stale attribute in the markup", () => {
+    beforeEach((): void => {
+      application.stop()
+
+      document.body.innerHTML = `
+        <div data-controller="dropdown">
+          <button id="toggle" type="button" data-dropdown-target="button" aria-expanded="true">Options</button>
+          <div id="menu" data-dropdown-target="menu" class="hidden"></div>
+        </div>
+      `
+
+      startStimulus()
+    })
+
+    it("corrects it on connect", (): void => {
+      expect(expanded()).toEqual("false")
+    })
+  })
+
+  describe("without a button target", () => {
+    beforeEach((): void => {
+      application.stop()
+
+      document.body.innerHTML = `
+        <div data-controller="dropdown">
+          <button id="toggle" type="button" data-action="dropdown#toggle click@window->dropdown#hide">Options</button>
+          <div id="menu" data-dropdown-target="menu" class="hidden"></div>
+        </div>
+        <button id="outside" type="button">Elsewhere</button>
+      `
+
+      startStimulus()
+    })
+
+    it("leaves the button alone and still opens the menu", (): void => {
+      const button = document.querySelector<HTMLButtonElement>("#toggle")
+
+      button.click()
+
+      expect(isOpen()).toBe(true)
+      expect(button.hasAttribute("aria-expanded")).toBe(false)
+    })
   })
 })

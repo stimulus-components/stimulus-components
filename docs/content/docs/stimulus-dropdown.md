@@ -53,6 +53,14 @@ This controller uses [stimulus-use/use-transition](https://stimulus-use.github.i
 [TailwindCSS](https://tailwindcss.com/){target="\_blank" .underline .hover:no-underline} is used in this example, but it's up to you to style the dropdown as you want.
 ::
 
+## Accessibility
+
+The markup follows the [ARIA disclosure pattern](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/){target="\_blank" .underline .hover:no-underline}: the button that opens the menu points to it with `aria-controls`, and tells whether it is open with `aria-expanded`.
+
+Add a `button` target to that button and the controller keeps `aria-expanded` in sync: it writes `true` when the menu opens and `false` when it closes, whether the menu is closed from the button, from an item, or by a click outside. The attribute is also corrected when the controller connects, so the initial value in your markup never drifts.
+
+The target is optional. Without it the controller touches no attribute, and markup written before this behavior existed keeps working.
+
 ## Extending Controller
 
 ::extending-controller
