@@ -139,9 +139,33 @@ end
 
 ## Configuration
 
-| Attribute                                              | Default | Description                      | Optional |
-| ------------------------------------------------------ | ------- | -------------------------------- | -------- |
-| `data-checkbox-select-all-disable-indeterminate-value` | `false` | Disable the indeterminate state. | ✅       |
+| Attribute                                              | Default | Description                                                | Optional |
+| ------------------------------------------------------ | ------- | ---------------------------------------------------------- | -------- |
+| `data-checkbox-select-all-disable-indeterminate-value` | `false` | Disable the indeterminate state.                           | ✅       |
+| `data-checkbox-select-all-ignore-disabled-value`       | `false` | Ignore the disabled checkboxes in the indeterminate state. | ✅       |
+
+### Disabled checkboxes
+
+The `checkboxAll` target never changes a disabled checkbox, because the user cannot change it and the browser does not
+submit it.
+
+By default, the disabled checkboxes are still counted in the indeterminate state. If one disabled checkbox stays
+unchecked, the `checkboxAll` target stays indeterminate after a "Select All" click:
+
+```html
+<form data-controller="checkbox-select-all">
+  <input type="checkbox" data-checkbox-select-all-target="checkboxAll" />
+
+  <input type="checkbox" data-checkbox-select-all-target="checkbox" />
+  <input type="checkbox" data-checkbox-select-all-target="checkbox" disabled />
+</form>
+```
+
+Set `data-checkbox-select-all-ignore-disabled-value="true"` to count only the checkboxes that the `checkboxAll` target
+can change. The indeterminate state then disappears when all the enabled checkboxes are checked.
+
+This value has no effect when `data-checkbox-select-all-disable-indeterminate-value` is `true`, because there is no
+indeterminate state to compute.
 
 ## Extending Controller
 
@@ -161,6 +185,12 @@ export default class extends CheckboxSelectAll {
 
     // Get all unchecked checkboxes
     this.unchecked
+
+    // Get all enabled checkboxes
+    this.enabled
+
+    // Get all disabled checkboxes
+    this.disabled
   }
 }
 ```

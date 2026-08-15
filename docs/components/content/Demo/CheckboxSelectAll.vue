@@ -17,6 +17,13 @@
                 <span class="ml-2">Team {{ index + 1 }}</span>
               </label>
             </td>
+
+            <td class="block">
+              <label>
+                <input type="checkbox" data-checkbox-select-all-target="checkbox" disabled />
+                <span class="ml-2 opacity-50">Team 4 (disabled)</span>
+              </label>
+            </td>
           </tr>
         </tbody>
       </table>

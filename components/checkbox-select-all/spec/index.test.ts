@@ -89,6 +89,115 @@ describe("without a checkboxAll target", () => {
   })
 })
 
+describe("with disabled checkboxes", () => {
+  beforeEach((): void => {
+    document.body.innerHTML = `
+    <form data-controller="checkbox-select-all">
+      <input id="checkbox-select-all" type="checkbox" data-checkbox-select-all-target="checkboxAll" />
+      <input type="checkbox" data-checkbox-select-all-target="checkbox" />
+      <input type="checkbox" data-checkbox-select-all-target="checkbox" checked="checked" />
+      <input id="disabled-unchecked" type="checkbox" data-checkbox-select-all-target="checkbox" disabled="disabled" />
+      <input
+        id="disabled-checked"
+        type="checkbox"
+        data-checkbox-select-all-target="checkbox"
+        checked="checked"
+        disabled="disabled"
+      />
+    </form>
+  `
+  })
+
+  it("does not check the disabled checkboxes", (): void => {
+    const toggleCheckbox: HTMLInputElement = document.querySelector("#checkbox-select-all")
+    const disabledUnchecked: HTMLInputElement = document.querySelector("#disabled-unchecked")
+
+    // Uncheck all
+    toggleCheckbox.click()
+
+    // Check all
+    toggleCheckbox.click()
+
+    expect(disabledUnchecked.checked).toBe(false)
+    expect(document.querySelectorAll("[data-checkbox-select-all-target='checkbox']:checked").length).toBe(3)
+  })
+
+  it("does not uncheck the disabled checkboxes", (): void => {
+    const toggleCheckbox: HTMLInputElement = document.querySelector("#checkbox-select-all")
+    const disabledChecked: HTMLInputElement = document.querySelector("#disabled-checked")
+
+    // Uncheck all
+    toggleCheckbox.click()
+
+    expect(disabledChecked.checked).toBe(true)
+    expect(document.querySelectorAll("[data-checkbox-select-all-target='checkbox']:checked").length).toBe(1)
+  })
+
+  it("stays unchecked when only a disabled checkbox is checked", (): void => {
+    const toggleCheckbox: HTMLInputElement = document.querySelector("#checkbox-select-all")
+
+    // Uncheck all
+    toggleCheckbox.click()
+
+    // The next click must check the enabled checkboxes again, and not uncheck them.
+    expect(toggleCheckbox.checked).toBe(false)
+    expect(toggleCheckbox.indeterminate).toBe(true)
+  })
+
+  it("keeps the indeterminate state when a disabled checkbox stays unchecked", (): void => {
+    const toggleCheckbox: HTMLInputElement = document.querySelector("#checkbox-select-all")
+
+    // Uncheck all
+    toggleCheckbox.click()
+
+    // Check all
+    toggleCheckbox.click()
+
+    expect(toggleCheckbox.checked).toBe(true)
+    expect(toggleCheckbox.indeterminate).toBe(true)
+  })
+})
+
+describe("when ignoring the disabled checkboxes", () => {
+  beforeEach((): void => {
+    document.body.innerHTML = `
+    <form data-controller="checkbox-select-all" data-checkbox-select-all-ignore-disabled-value="true">
+      <input id="checkbox-select-all" type="checkbox" data-checkbox-select-all-target="checkboxAll" />
+      <input type="checkbox" data-checkbox-select-all-target="checkbox" />
+      <input type="checkbox" data-checkbox-select-all-target="checkbox" checked="checked" />
+      <input type="checkbox" data-checkbox-select-all-target="checkbox" disabled="disabled" />
+    </form>
+  `
+  })
+
+  it("removes the indeterminate state when all the enabled checkboxes are checked", (): void => {
+    const toggleCheckbox: HTMLInputElement = document.querySelector("#checkbox-select-all")
+
+    // Uncheck all
+    toggleCheckbox.click()
+
+    // Check all
+    toggleCheckbox.click()
+
+    expect(toggleCheckbox.checked).toBe(true)
+    expect(toggleCheckbox.indeterminate).toBe(false)
+  })
+
+  it("stays unchecked when all the checkboxes are disabled", (): void => {
+    document.body.innerHTML = `
+    <form data-controller="checkbox-select-all" data-checkbox-select-all-ignore-disabled-value="true">
+      <input id="all-disabled" type="checkbox" data-checkbox-select-all-target="checkboxAll" />
+      <input type="checkbox" data-checkbox-select-all-target="checkbox" checked="checked" disabled="disabled" />
+    </form>
+  `
+
+    const toggleCheckbox: HTMLInputElement = document.querySelector("#all-disabled")
+
+    expect(toggleCheckbox.checked).toBe(false)
+    expect(toggleCheckbox.indeterminate).toBe(false)
+  })
+})
+
 describe("when disabled indeterminate state", () => {
   beforeEach((): void => {
     document.body.innerHTML = `
