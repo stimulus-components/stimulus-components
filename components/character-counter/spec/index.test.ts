@@ -62,4 +62,48 @@ describe("#update", () => {
       expect(content.innerHTML).toBe("100")
     })
   })
+
+  describe("with multibyte characters", () => {
+    // A ZWJ sequence: 11 code units, 7 code points, 1 grapheme.
+    const family = "👨‍👩‍👧‍👦"
+
+    const render = async (countUnit?: string): Promise<HTMLElement> => {
+      startStimulus()
+
+      const countUnitAttribute = countUnit ? `data-character-counter-count-unit-value="${countUnit}"` : ""
+
+      document.body.innerHTML = `
+      <div data-controller="character-counter" ${countUnitAttribute}>
+        <textarea
+          data-character-counter-target="input"
+        >${family}</textarea>
+
+        <strong data-character-counter-target="counter"></strong>
+      </div>
+    `
+
+      // Stimulus connects controllers from a MutationObserver callback.
+      await new Promise((resolve): void => {
+        setTimeout(resolve, 0)
+      })
+
+      return document.querySelector<HTMLElement>('[data-character-counter-target="counter"]')
+    }
+
+    it("should count code units by default", async (): Promise<void> => {
+      expect((await render()).innerHTML).toBe("11")
+    })
+
+    it("should count code points", async (): Promise<void> => {
+      expect((await render("code-points")).innerHTML).toBe("7")
+    })
+
+    it("should count graphemes", async (): Promise<void> => {
+      expect((await render("graphemes")).innerHTML).toBe("1")
+    })
+
+    it("should fall back to code units on an unknown count unit", async (): Promise<void> => {
+      expect((await render("bytes")).innerHTML).toBe("11")
+    })
+  })
 })
