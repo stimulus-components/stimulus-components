@@ -1,6 +1,8 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class Prefetch extends Controller<HTMLAnchorElement> {
+  declare observer?: IntersectionObserver
+
   initialize(): void {
     this.prefetch = this.prefetch.bind(this)
     this.load = this.load.bind(this)
@@ -12,20 +14,27 @@ export default class Prefetch extends Controller<HTMLAnchorElement> {
     this.load()
   }
 
+  disconnect(): void {
+    this.stopObserving()
+  }
+
   load(): void {
-    const observer: IntersectionObserver = new IntersectionObserver(
-      (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
-        entries.forEach((entry: IntersectionObserverEntry) => {
-          if (entry.isIntersecting) {
-            this.prefetch()
+    this.observer = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry: IntersectionObserverEntry) => {
+        if (entry.isIntersecting) {
+          this.prefetch()
 
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-    )
+          this.stopObserving()
+        }
+      })
+    })
 
-    observer.observe(this.element)
+    this.observer.observe(this.element)
+  }
+
+  stopObserving(): void {
+    this.observer?.disconnect()
+    this.observer = undefined
   }
 
   prefetch(): void {
