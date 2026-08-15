@@ -1,5 +1,29 @@
 # Changelog
 
+## 7.0.0
+
+### Major Changes
+
+- [#220](https://github.com/stimulus-components/stimulus-components/pull/220) [`f0f5f16`](https://github.com/stimulus-components/stimulus-components/commit/f0f5f16ac23e096bc6556cd046467207417f9098) Thanks [@guillaumebriday](https://github.com/guillaumebriday)! - Update the `swiper` dependency from `^11.0.6` to `^14.0.0`.
+
+  Swiper 11 is affected by [GHSA-hmx5-qpq5-p643](https://github.com/advisories/GHSA-hmx5-qpq5-p643), fixed in Swiper 12.1. The old `^11.0.6` range held consumers on a vulnerable version and blocked them from upgrading Swiper in their own apps.
+
+  The controller itself is unchanged. Swiper 14 is a TypeScript rewrite with no runtime behaviour changes — every option, event, and method signature still behaves as it did in 11, and both `swiper/bundle` and `swiper/types` remain in its `exports` map. The CSS class names (`swiper`, `swiper-wrapper`, `swiper-slide`, …) are the same, so no markup needs to change.
+
+  This is a **major** bump because `swiper` is a runtime dependency and Swiper 14 raises the browser baseline to Chrome/Edge 110+, Safari 16.4+ (iOS 16.4+), and Firefox 110+. Code paths for older browsers were removed upstream. If you need to support browsers below that baseline, stay on `@stimulus-components/carousel@6`, which keeps Swiper 11.
+
+  Note that Swiper has no version 13; upstream skipped it, so 11 → 14 spans two majors.
+
+### Patch Changes
+
+- [#191](https://github.com/stimulus-components/stimulus-components/pull/191) [`ee55aef`](https://github.com/stimulus-components/stimulus-components/commit/ee55aef8d654d93a5e839733bb079e709759f8f1) Thanks [@guillaumebriday](https://github.com/guillaumebriday)! - Fix broken package entrypoints and a wrong exported type.
+
+  - `auto-submit` and `scroll-progress` pointed `types` at a file that was never emitted (their declarations land under `dist/types/components/<name>/src/` because they import the shared `utils/` helpers), so consumers got no types at all.
+  - `places-autocomplete` pointed `module` at `dist/stimulus-places-autocomplete.es.js`, a filename Vite no longer emits; it is now `.mjs`.
+  - `carousel` typed its `options` value as the Swiper **class** (`import type SwiperOptions from "swiper"` resolves to the default export, not the options interface). It now uses the real `SwiperOptions` from `swiper/types`.
+
+- [#191](https://github.com/stimulus-components/stimulus-components/pull/191) [`ee55aef`](https://github.com/stimulus-components/stimulus-components/commit/ee55aef8d654d93a5e839733bb079e709759f8f1) Thanks [@guillaumebriday](https://github.com/guillaumebriday)! - Packaging: publish only the built `dist/` (via a new `files` allowlist), build automatically before publish with a `prepack` hook, and flag packages as `sideEffects: false` so bundlers can tree-shake them. Also hardens controllers under TypeScript `strict` mode.
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),

@@ -1,6 +1,6 @@
 {
   "name": "@stimulus-components/scroll-reveal",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "A Stimulus controller that animates an element when it becomes visible.",
   "keywords": [
     "stimulus",
