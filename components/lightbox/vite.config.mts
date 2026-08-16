@@ -12,10 +12,11 @@ export default defineConfig({
       fileName: "stimulus-lightbox",
     },
     rollupOptions: {
-      external: ["lightgallery", "@hotwired/stimulus"],
+      external: ["photoswipe", "photoswipe/lightbox", "@hotwired/stimulus"],
       output: {
         globals: {
-          lightgallery: "lightgallery",
+          photoswipe: "PhotoSwipe",
+          "photoswipe/lightbox": "PhotoSwipeLightbox",
           "@hotwired/stimulus": "Stimulus",
         },
       },
