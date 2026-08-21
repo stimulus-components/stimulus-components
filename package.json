@@ -18,6 +18,7 @@
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo": "^8.0.13",
     "@nuxt/eslint-config": "^1.17.0",
+    "@tailwindcss/postcss": "^4.3.3",
     "@types/dom-speech-recognition": "^0.0.12",
     "@types/google.maps": "^3.65.4",
     "@types/rails__request.js": "^0.0.1",
@@ -26,6 +27,7 @@
     "eslint-plugin-prettier": "^5.5.6",
     "jsdom": "^30.0.1",
     "prettier": "3.9.6",
+    "tailwindcss": "^4.3.3",
     "typescript": "6.0.3",
     "vite": "7.3.6",
     "vitest": "^4.1.10"
