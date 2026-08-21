@@ -45,7 +45,9 @@
     "@hotwired/stimulus": "^3"
   },
   "devDependencies": {
-    "@types/dom-speech-recognition": "^0.0.12"
+    "@types/dom-speech-recognition": "^0.0.12",
+    "vite": "7.3.6",
+    "typescript": "6.0.3"
   },
   "files": [
     "dist"

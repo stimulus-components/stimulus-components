@@ -45,5 +45,9 @@
   "files": [
     "dist"
   ],
-  "sideEffects": false
+  "sideEffects": false,
+  "devDependencies": {
+    "vite": "7.3.6",
+    "typescript": "6.0.3"
+  }
 }
