@@ -5,6 +5,7 @@
       href="#scroll-to-demo-bottom"
       data-controller="scroll-to"
       data-scroll-to-offset-value="100"
+      data-scroll-to-history-value="true"
       class="text-yellow-600"
     >
       Scroll down to the target &darr;
@@ -15,7 +16,13 @@
 
     <p id="scroll-to-demo-bottom" class="font-semibold">Here it is 🎉</p>
 
-    <a href="#scroll-to-demo-top" data-controller="scroll-to" data-scroll-to-offset-value="100" class="text-yellow-600">
+    <a
+      href="#scroll-to-demo-top"
+      data-controller="scroll-to"
+      data-scroll-to-offset-value="100"
+      data-scroll-to-history-value="true"
+      class="text-yellow-600"
+    >
       Scroll back up &uarr;
     </a>
   </Block>
