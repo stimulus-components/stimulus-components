@@ -2,7 +2,7 @@
   <Block title="Confirmation">
     <form data-controller="confirmation" class="space-y-3">
       <div>
-        <label for="confirmation-checkbox" class="block text-sm/6 font-medium text-gray-900"
+        <label for="confirmation-checkbox" class="block text-sm/6 font-medium text-gray-900 dark:text-gray-200"
           >Type "DELETE" to confirm</label
         >
         <div class="mt-2">
@@ -11,14 +11,14 @@
             data-confirmation-target="input"
             data-confirmation-content="DELETE"
             data-action="confirmation#check"
-            class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6"
+            class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6 dark:bg-slate-800 dark:text-slate-200 dark:outline-slate-600 dark:placeholder:text-slate-400"
             placeholder="Are you sure?"
           />
         </div>
       </div>
 
       <div>
-        <label>
+        <label class="dark:text-gray-300">
           <input data-confirmation-target="input" data-action="confirmation#check" type="checkbox" />
 
           I have read the terms and conditions
@@ -26,7 +26,7 @@
       </div>
 
       <div>
-        <label>
+        <label class="dark:text-gray-300">
           <input data-confirmation-target="input" data-action="confirmation#check" type="checkbox" />
 
           I confirm that I want to permanently delete this project
@@ -43,12 +43,14 @@
       </button>
 
       <div>
-        <label for="explanation" class="block text-sm/6 font-medium text-gray-900">Explanation</label>
+        <label for="explanation" class="block text-sm/6 font-medium text-gray-900 dark:text-gray-200"
+          >Explanation</label
+        >
 
         <input
           id="explanation"
           data-confirmation-target="item"
-          class="disabled:cursor-not-allowed block w-full rounded-md disabled:bg-gray-100 bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6"
+          class="disabled:cursor-not-allowed block w-full rounded-md disabled:bg-gray-100 bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6 dark:bg-slate-800 dark:text-slate-200 dark:outline-slate-600 dark:placeholder:text-slate-400 dark:disabled:bg-slate-700"
           disabled
           placeholder="Explain here why you want to permanently delete this project"
         />

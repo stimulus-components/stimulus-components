@@ -1,13 +1,13 @@
 <template>
   <Block title="Password Visibility">
     <div data-controller="password-visibility">
-      <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+      <label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-200">Password</label>
       <div class="mt-1 relative rounded-md shadow-sm">
         <input
           id="password"
           type="password"
           name="password"
-          class="focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2 pr-10 sm:text-sm border border-gray-300 rounded-md"
+          class="focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2 pr-10 sm:text-sm border border-gray-300 rounded-md dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:placeholder:text-slate-400"
           placeholder="Your password"
           value="my-super-secret-password"
           data-password-visibility-target="input"
@@ -16,7 +16,7 @@
         <button
           data-action="password-visibility#toggle"
           type="button"
-          class="text-gray-500 absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
+          class="text-gray-500 dark:text-slate-400 absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
         >
           <!-- Heroicon name: outline/eye -->
           <svg

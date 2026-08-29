@@ -3,17 +3,19 @@
     <form data-controller="nested-form">
       <div v-pre class="hidden" type="text/x-template" data-nested-form-target="template">
         <div class="mt-4 nested-form-wrapper" data-new-record="true">
-          <label for="NEW_RECORD" class="block text-sm font-medium leading-5 text-gray-700">New todo</label>
+          <label for="NEW_RECORD" class="block text-sm font-medium leading-5 text-gray-700 dark:text-gray-200"
+            >New todo</label
+          >
           <div class="mt-1 flex relative rounded-md shadow-sm">
             <input
               id="NEW_RECORD"
               name="user[todos_attributes][NEW_RECORD][description]"
-              class="appearance-none border w-full py-2 px-3 rounded-l-md text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              class="appearance-none border w-full py-2 px-3 rounded-l-md text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:placeholder:text-slate-400"
               placeholder="Your todo"
             />
 
             <button
-              class="cursor-pointer inline-flex items-center px-3 rounded-r-md border border-l-0 border-gray-300 bg-gray-100 text-gray-500 sm:text-sm"
+              class="cursor-pointer inline-flex items-center px-3 rounded-r-md border border-l-0 border-gray-300 bg-gray-100 text-gray-500 sm:text-sm dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200"
               type="button"
               data-action="nested-form#remove"
               title="Remove todo"
@@ -27,17 +29,19 @@
       </div>
 
       <div class="mt-4 nested-form-wrapper" data-new-record="false">
-        <label for="todo-1" class="block text-sm font-medium leading-5 text-gray-700">Your todo</label>
+        <label for="todo-1" class="block text-sm font-medium leading-5 text-gray-700 dark:text-gray-200"
+          >Your todo</label
+        >
         <div class="mt-1 flex relative rounded-md shadow-sm">
           <input
             id="todo-1"
             name="user[todos_attributes][0][description]"
-            class="appearance-none border w-full py-2 px-3 rounded-l-md text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            class="appearance-none border w-full py-2 px-3 rounded-l-md text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200"
             value="Pet the cat"
           />
 
           <button
-            class="cursor-pointer inline-flex items-center px-3 rounded-r-md border border-l-0 border-gray-300 bg-gray-100 text-gray-500 sm:text-sm"
+            class="cursor-pointer inline-flex items-center px-3 rounded-r-md border border-l-0 border-gray-300 bg-gray-100 text-gray-500 sm:text-sm dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200"
             type="button"
             data-action="nested-form#remove"
             title="Remove todo"
@@ -56,7 +60,7 @@
           id="nested-form-button"
           type="button"
           data-action="nested-form#add"
-          class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border rounded shadow"
+          class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border rounded shadow dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
         >
           Add todo
         </button>

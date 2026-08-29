@@ -3,7 +3,7 @@
     <div data-controller="character-counter">
       <textarea
         data-character-counter-target="input"
-        class="shadow-sm appearance-none border w-full py-2 px-3 rounded-l-md text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        class="shadow-sm appearance-none border w-full py-2 px-3 rounded-l-md text-gray-700 dark:text-gray-300 leading-tight focus:outline-none focus:shadow-outline bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-600"
         placeholder="What's happening?"
       ></textarea>
 
