@@ -1,15 +1,27 @@
 <template>
   <Block title="Sound">
     <div data-controller="sound" data-sound-url-value="/sound.mp3" class="flex flex-col md:flex-row flex-wrap gap-3">
-      <button type="button" data-action="sound#play" class="px-2 py-1 border rounded-md hover:bg-gray-100">
+      <button
+        type="button"
+        data-action="sound#play"
+        class="px-2 py-1 border rounded-md hover:bg-gray-100 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-700"
+      >
         ▶️ Play
       </button>
 
-      <button type="button" data-action="sound#pause" class="px-2 py-1 border rounded-md hover:bg-gray-100">
+      <button
+        type="button"
+        data-action="sound#pause"
+        class="px-2 py-1 border rounded-md hover:bg-gray-100 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-700"
+      >
         ⏸️ Pause
       </button>
 
-      <button type="button" data-action="sound#reset" class="px-2 py-1 border rounded-md hover:bg-gray-100">
+      <button
+        type="button"
+        data-action="sound#reset"
+        class="px-2 py-1 border rounded-md hover:bg-gray-100 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-700"
+      >
         ⏹️ Reset
       </button>
 
@@ -17,7 +29,7 @@
         type="button"
         data-action="sound#muted"
         data-sound-muted-param="true"
-        class="px-2 py-1 border rounded-md hover:bg-gray-100"
+        class="px-2 py-1 border rounded-md hover:bg-gray-100 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-700"
       >
         🔇 Mute
       </button>
@@ -26,7 +38,7 @@
         type="button"
         data-action="sound#muted"
         data-sound-muted-param="false"
-        class="px-2 py-1 border rounded-md hover:bg-gray-100"
+        class="px-2 py-1 border rounded-md hover:bg-gray-100 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-700"
       >
         🔈 Unmute
       </button>
@@ -35,7 +47,7 @@
         type="button"
         data-action="sound#loop"
         data-sound-loop-param="true"
-        class="px-2 py-1 border rounded-md hover:bg-gray-100"
+        class="px-2 py-1 border rounded-md hover:bg-gray-100 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-700"
       >
         🔁 Loop
       </button>
@@ -44,7 +56,7 @@
         type="button"
         data-action="sound#volume"
         data-sound-volume-param="1"
-        class="px-2 py-1 border rounded-md hover:bg-gray-100"
+        class="px-2 py-1 border rounded-md hover:bg-gray-100 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-700"
       >
         🔊 100%
       </button>
@@ -53,7 +65,7 @@
         type="button"
         data-action="sound#volume"
         data-sound-volume-param="0.25"
-        class="px-2 py-1 border rounded-md hover:bg-gray-100"
+        class="px-2 py-1 border rounded-md hover:bg-gray-100 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-700"
       >
         🔉 25%
       </button>

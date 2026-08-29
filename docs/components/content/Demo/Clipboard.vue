@@ -10,13 +10,13 @@
         value="Click the button to copy me!"
         data-clipboard-target="source"
         readonly
-        class="w-full bg-gray-100 py-3 px-2 outline-none flex-1 block rounded-none rounded-l-md sm:text-sm border border-gray-300"
+        class="w-full bg-gray-100 py-3 px-2 outline-none flex-1 block rounded-none rounded-l-md sm:text-sm border border-gray-300 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200"
       />
       <button
         type="button"
         data-action="clipboard#copy"
         data-clipboard-target="button"
-        class="inline-flex items-center gap-1 px-3 focus:outline-none rounded-r-md border border-l-0 border-gray-300 bg-gray-50 text-gray-500 text-sm"
+        class="inline-flex items-center gap-1 px-3 focus:outline-none rounded-r-md border border-l-0 border-gray-300 bg-gray-50 text-gray-500 text-sm dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200"
       >
         <ClipboardDocumentCheckIcon class="size-5" />
 

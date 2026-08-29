@@ -2,14 +2,16 @@
   <Block title="Confirmation">
     <form data-controller="confirmation" class="space-y-3">
       <div>
-        <label for="confirmation" class="block text-sm/6 font-medium text-gray-900">Type "DELETE" to confirm</label>
+        <label for="confirmation" class="block text-sm/6 font-medium text-gray-900 dark:text-gray-200"
+          >Type "DELETE" to confirm</label
+        >
         <div class="mt-2">
           <input
             id="confirmation"
             data-confirmation-target="input"
             data-confirmation-content="DELETE"
             data-action="confirmation#check"
-            class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6"
+            class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-orange-600 sm:text-sm/6 dark:bg-slate-800 dark:text-slate-200 dark:outline-slate-600 dark:placeholder:text-slate-400"
             placeholder="Are you sure?"
           />
         </div>
