@@ -1,4 +1,24 @@
-@import "tailwindcss";
+@import "tailwindcss" source(none);
+
+/* Previously `content` in each component's tailwind.config.ts. This stylesheet is
+   shared by every playground page, so the globs cover all of them at once. */
+@source "./*/index.html";
+@source "./*/src/**/*.ts";
+
+/* Replaces the v3 plugin in glow/tailwind.config.ts: addVariant("glow", ".glow-capture .glow-overlay &") */
+@custom-variant glow (.glow-capture .glow-overlay &);
+
+@theme {
+  /* The glow colour is per-element, set inline as --glow-color on .glow-overlay.
+     A theme value referencing it directly would be resolved once at :root and
+     inherit as invalid, so the real value is bound on .glow-overlay below.
+     Every glow utility is behind the `glow:` variant, so this default is inert. */
+  --color-glow: transparent;
+}
+
+.glow-overlay {
+  --color-glow: var(--glow-color, transparent);
+}
 
 .line-clamp {
   overflow: hidden;
