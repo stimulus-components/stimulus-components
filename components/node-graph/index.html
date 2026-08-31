@@ -27,6 +27,13 @@
         height: 100%;
         pointer-events: none;
       }
+
+      /* The connectors into the jobs that have not run yet. */
+      .ci-pipeline [data-node-graph-to="e2e"],
+      .ci-pipeline [data-node-graph-to="preview"],
+      .ci-pipeline [data-node-graph-to="release"] {
+        stroke-dasharray: 4 4;
+      }
     </style>
   </head>
 
@@ -119,6 +126,112 @@
               data-node-graph-depends-on="form-submitted"
             >
               Archive
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-16 mb-16">
+        <h2 class="mb-4 text-xl">A CI pipeline</h2>
+
+        <div class="overflow-x-auto">
+          <div
+            class="node-graph ci-pipeline inline-flex items-center gap-8 text-gray-400"
+            data-controller="node-graph"
+            data-node-graph-max-reach-value="24"
+          >
+            <svg class="node-graph-canvas" data-node-graph-target="canvas"></svg>
+
+            <div class="flex flex-col gap-3">
+              <div
+                class="rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-700 whitespace-nowrap"
+                data-node-graph-target="node"
+                data-node-graph-key="checkout"
+              >
+                Checkout
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-3">
+              <div
+                class="rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-700 whitespace-nowrap"
+                data-node-graph-target="node"
+                data-node-graph-key="install"
+                data-node-graph-depends-on="checkout"
+              >
+                Install deps
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-3">
+              <div
+                class="rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-700 whitespace-nowrap"
+                data-node-graph-target="node"
+                data-node-graph-key="lint"
+                data-node-graph-depends-on="install"
+              >
+                Lint
+              </div>
+
+              <div
+                class="rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-700 whitespace-nowrap"
+                data-node-graph-target="node"
+                data-node-graph-key="types"
+                data-node-graph-depends-on="install"
+              >
+                Type check
+              </div>
+
+              <div
+                class="rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-700 whitespace-nowrap"
+                data-node-graph-target="node"
+                data-node-graph-key="unit"
+                data-node-graph-depends-on="install"
+              >
+                Unit tests
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-3">
+              <div
+                class="rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-700 whitespace-nowrap"
+                data-node-graph-target="node"
+                data-node-graph-key="build"
+                data-node-graph-depends-on="lint types unit"
+              >
+                Build
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-3">
+              <div
+                class="rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-700 whitespace-nowrap"
+                data-node-graph-target="node"
+                data-node-graph-key="e2e"
+                data-node-graph-depends-on="build"
+              >
+                E2E tests
+              </div>
+
+              <div
+                class="rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-700 whitespace-nowrap"
+                data-node-graph-target="node"
+                data-node-graph-key="preview"
+                data-node-graph-depends-on="build"
+              >
+                Preview
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-3">
+              <div
+                class="rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-700 whitespace-nowrap"
+                data-node-graph-target="node"
+                data-node-graph-key="release"
+                data-node-graph-depends-on="e2e, preview"
+              >
+                Release
+              </div>
             </div>
           </div>
         </div>

@@ -51,6 +51,60 @@ nodes once the browser has laid them out and draws one curved path per dependenc
 A node that waits for several others separates their keys with a space, or with a comma. A key that no node on the page
 carries draws nothing, so a partial graph never breaks.
 
+### A larger graph
+
+Each stage is one column, and the controller reads only the keys, so nothing stops a node from waiting for a node two
+columns back, or for three nodes at once. The CI pipeline in the example above fans out to three jobs, fans back in on
+`build`, then fans out again:
+
+::code-block{tabName="app/views/index.html"}
+
+```html
+<div class="graph" data-controller="node-graph" data-node-graph-max-reach-value="24">
+  <svg class="graph-canvas" data-node-graph-target="canvas"></svg>
+
+  <div class="graph-stage">
+    <div data-node-graph-target="node" data-node-graph-key="lint" data-node-graph-depends-on="install">Lint</div>
+    <div data-node-graph-target="node" data-node-graph-key="types" data-node-graph-depends-on="install">Type check</div>
+    <div data-node-graph-target="node" data-node-graph-key="unit" data-node-graph-depends-on="install">Unit tests</div>
+  </div>
+
+  <div class="graph-stage">
+    <div data-node-graph-target="node" data-node-graph-key="build" data-node-graph-depends-on="lint types unit">
+      Build
+    </div>
+  </div>
+
+  <div class="graph-stage">
+    <div data-node-graph-target="node" data-node-graph-key="e2e" data-node-graph-depends-on="build">E2E tests</div>
+    <div data-node-graph-target="node" data-node-graph-key="preview" data-node-graph-depends-on="build">
+      Deploy preview
+    </div>
+  </div>
+
+  <div class="graph-stage">
+    <div data-node-graph-target="node" data-node-graph-key="release" data-node-graph-depends-on="e2e, preview">
+      Release
+    </div>
+  </div>
+</div>
+```
+
+::
+
+A dense graph wants a smaller `maxReach`, so the curves stay inside the gap between two columns.
+
+The example dashes the connectors into the jobs that have not run yet. Nothing in the controller knows about a job
+state: the rule matches the `data-node-graph-to` attribute the controller writes on each path.
+
+```css
+.graph [data-node-graph-to="e2e"],
+.graph [data-node-graph-to="preview"],
+.graph [data-node-graph-to="release"] {
+  stroke-dasharray: 4 4;
+}
+```
+
 ### Required CSS
 
 The connectors are drawn in the `canvas` target, which must cover the whole graph without taking part in the layout:
