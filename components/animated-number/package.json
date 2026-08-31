@@ -1,6 +1,6 @@
 {
   "name": "@stimulus-components/animated-number",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "A Stimulus controller that animates a numerical value by counting to it.",
   "keywords": [
     "stimulus",
