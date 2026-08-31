@@ -1,5 +1,21 @@
 # Changelog
 
+## 5.1.0
+
+### Minor Changes
+
+- [#223](https://github.com/stimulus-components/stimulus-components/pull/223) [`0abb8ad`](https://github.com/stimulus-components/stimulus-components/commit/0abb8ad77f2aac00d3802ac786ba970ad73834ee) Thanks [@guillaumebriday](https://github.com/guillaumebriday)! - Keep the `aria-expanded` attribute of the trigger in sync with the state of the items.
+
+  `toggle`, `show` and `hide` now read the event and write `aria-expanded` on the element the action is attached to: `toggle` flips it, `show` sets it to `true`, `hide` sets it to `false`. A screen reader could not tell whether the items were shown or hidden before. Closes [#105](https://github.com/stimulus-components/stimulus-components/issues/105), and ports stimulus-components/stimulus-reveal-controller#11.
+
+  The attribute is opt-in, which is the difference with that pull request: the controller only writes it when the trigger already declares it, so it never adds `aria-expanded` to an element that is not a control for the items. Existing markup is unchanged until an `aria-expanded` attribute is added to the trigger.
+
+  The three methods take an optional event parameter, so calling them without one, from a subclass or from another controller, still works.
+
+### Patch Changes
+
+- [#191](https://github.com/stimulus-components/stimulus-components/pull/191) [`ee55aef`](https://github.com/stimulus-components/stimulus-components/commit/ee55aef8d654d93a5e839733bb079e709759f8f1) Thanks [@guillaumebriday](https://github.com/guillaumebriday)! - Packaging: publish only the built `dist/` (via a new `files` allowlist), build automatically before publish with a `prepack` hook, and flag packages as `sideEffects: false` so bundlers can tree-shake them. Also hardens controllers under TypeScript `strict` mode.
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
