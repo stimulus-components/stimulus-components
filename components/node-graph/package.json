@@ -1,0 +1,52 @@
+{
+  "name": "@stimulus-components/node-graph",
+  "version": "1.0.0",
+  "description": "A Stimulus controller that joins the nodes of a graph with curved SVG connectors.",
+  "keywords": [
+    "stimulus",
+    "stimulusjs",
+    "stimulus controller",
+    "node graph",
+    "graph",
+    "pipeline",
+    "flowchart",
+    "svg"
+  ],
+  "repository": "git@github.com:stimulus-components/stimulus-components.git",
+  "bugs": {
+    "url": "https://github.com/stimulus-components/stimulus-components/issues"
+  },
+  "author": "Guillaume Briday <guillaumebriday@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/stimulus-components/stimulus-components",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "dist/stimulus-node-graph.umd.js",
+  "module": "dist/stimulus-node-graph.mjs",
+  "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/stimulus-node-graph.mjs",
+      "require": "./dist/stimulus-node-graph.umd.js"
+    },
+    "./src": "./src/index.ts",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "types": "tsc --noEmit false --declaration true --emitDeclarationOnly true --rootDir src --outDir dist/types",
+    "dev": "vite",
+    "build": "vite build && pnpm run types",
+    "version": "pnpm build",
+    "prepack": "pnpm run build"
+  },
+  "peerDependencies": {
+    "@hotwired/stimulus": "^3"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false
+}

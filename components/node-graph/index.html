@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Stimulus Node Graph</title>
+
+    <script type="module">
+      import "../app.css"
+      import { Application } from "@hotwired/stimulus"
+      import NodeGraph from "./src/index"
+
+      const application = Application.start()
+      application.register("node-graph", NodeGraph)
+    </script>
+
+    <style type="text/css">
+      .node-graph {
+        position: relative;
+      }
+
+      .node-graph-canvas {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="relative h-full max-w-5xl mx-auto px-4">
+      <section class="mt-16">
+        <h2 class="mb-4 text-xl">Horizontal pipeline</h2>
+
+        <div class="overflow-x-auto">
+          <div class="node-graph inline-flex items-center gap-12 text-gray-400" data-controller="node-graph">
+            <svg class="node-graph-canvas" data-node-graph-target="canvas"></svg>
+
+            <div class="flex flex-col gap-3">
+              <div
+                class="rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-700"
+                data-node-graph-target="node"
+                data-node-graph-key="suppliers"
+              >
+                Suppliers
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-3">
+              <div
+                class="rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-700"
+                data-node-graph-target="node"
+                data-node-graph-key="spend-q1"
+                data-node-graph-depends-on="suppliers"
+              >
+                Spend Q1
+              </div>
+
+              <div
+                class="rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-700"
+                data-node-graph-target="node"
+                data-node-graph-key="spend-q2"
+                data-node-graph-depends-on="suppliers"
+              >
+                Spend Q2
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-3">
+              <div
+                class="rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-700"
+                data-node-graph-target="node"
+                data-node-graph-key="savings"
+                data-node-graph-depends-on="spend-q1 spend-q2"
+              >
+                Savings report
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-16">
+        <h2 class="mb-4 text-xl">Vertical flow</h2>
+
+        <div
+          class="node-graph inline-flex flex-col items-center gap-12 text-indigo-300"
+          data-controller="node-graph"
+          data-node-graph-orientation-value="vertical"
+          data-node-graph-stroke-width-value="2"
+        >
+          <svg class="node-graph-canvas" data-node-graph-target="canvas"></svg>
+
+          <div
+            class="rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-700"
+            data-node-graph-target="node"
+            data-node-graph-key="form-submitted"
+          >
+            Form submitted
+          </div>
+
+          <div class="flex gap-12">
+            <div
+              class="rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-700"
+              data-node-graph-target="node"
+              data-node-graph-key="notify"
+              data-node-graph-depends-on="form-submitted"
+            >
+              Notify the team
+            </div>
+
+            <div
+              class="rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-700"
+              data-node-graph-target="node"
+              data-node-graph-key="archive"
+              data-node-graph-depends-on="form-submitted"
+            >
+              Archive
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
