@@ -2,12 +2,17 @@ import { Controller } from "@hotwired/stimulus"
 
 const SVG_NAMESPACE = "http://www.w3.org/2000/svg"
 
-// A node lists the keys it waits for the way HTML lists tokens: separated by a space, or a comma.
-const KEY_SEPARATOR = /[\s,]+/
+// A node lists the keys it waits for, and a dash pattern lists its lengths, the way HTML lists
+// tokens: separated by a space, or a comma.
+const LIST_SEPARATOR = /[\s,]+/
 
 // How far a connector leaves a node before it bends. Capped against the gap, so a tight layout
 // does not produce a loop that doubles back over the node it leaves.
 const DEFAULT_MAX_REACH = 40
+
+// The dashes of a pending connector, and how many pixels of them travel past a point every second.
+const DEFAULT_DASH_ARRAY = "4 4"
+const DEFAULT_FLOW_SPEED = 8
 
 export interface ConnectorBox {
   left: number
@@ -40,8 +45,10 @@ interface MeasuredNode {
  *
  * Each node carries `data-node-graph-key`, and `data-node-graph-depends-on` names the keys of the
  * nodes it waits for — several of them when the graph fans in. A key that no node on the page
- * carries draws nothing. The geometry is only known once the browser has laid the nodes out, so
- * the paths are drawn here rather than server-side.
+ * carries draws nothing. A node whose work has not happened yet adds
+ * `data-node-graph-pending="true"`, and the connectors into it are dashed and flow towards it. The
+ * geometry is only known once the browser has laid the nodes out, so the paths are drawn here
+ * rather than server-side.
  */
 export default class NodeGraph extends Controller<HTMLElement> {
   declare readonly canvasTarget: SVGSVGElement
@@ -51,6 +58,9 @@ export default class NodeGraph extends Controller<HTMLElement> {
   declare readonly strokeWidthValue: number
   declare readonly maxReachValue: number
   declare readonly pathClassValue: string
+  declare readonly dashArrayValue: string
+  declare readonly flowValue: boolean
+  declare readonly flowSpeedValue: number
 
   observer: ResizeObserver | null = null
 
@@ -61,6 +71,9 @@ export default class NodeGraph extends Controller<HTMLElement> {
     strokeWidth: { type: Number, default: 1.5 },
     maxReach: { type: Number, default: DEFAULT_MAX_REACH },
     pathClass: { type: String, default: "" },
+    dashArray: { type: String, default: DEFAULT_DASH_ARRAY },
+    flow: { type: Boolean, default: true },
+    flowSpeed: { type: Number, default: DEFAULT_FLOW_SPEED },
   }
 
   connect(): void {
@@ -154,7 +167,35 @@ export default class NodeGraph extends Controller<HTMLElement> {
 
     if (this.pathClassValue) path.setAttribute("class", this.pathClassValue)
 
+    if (this.isPending(target.element)) {
+      path.setAttribute(`data-${this.identifier}-pending`, "true")
+      path.setAttribute("stroke-dasharray", this.dashArrayValue)
+
+      this.flowDashes(path)
+    }
+
     return path
+  }
+
+  /**
+   * Travels the dashes of a pending connector from the source towards the node that waits for it.
+   * A Web Animations API call rather than a stylesheet, so the package draws a moving connector
+   * without a `@keyframes` rule of its own.
+   */
+  flowDashes(path: SVGPathElement): void {
+    if (!this.flowValue || this.flowSpeedValue <= 0) return
+
+    const period = dashPeriod(this.dashArrayValue)
+
+    // A pattern this cannot measure — a length in `px`, in `%` — stays dashed without moving,
+    // and so does a connector in a DOM without the Web Animations API, jsdom's among them.
+    if (!Number.isFinite(period) || period <= 0 || typeof path.animate !== "function") return
+
+    path.animate(
+      // Negative: the dashes travel from the source to the node that waits for it.
+      [{ strokeDashoffset: 0 }, { strokeDashoffset: -period }],
+      { duration: (period / this.flowSpeedValue) * 1000, iterations: Infinity },
+    )
   }
 
   /**
@@ -187,17 +228,36 @@ export default class NodeGraph extends Controller<HTMLElement> {
     return node.getAttribute(`data-${this.identifier}-key`) ?? ""
   }
 
+  isPending(node: HTMLElement): boolean {
+    return node.getAttribute(`data-${this.identifier}-pending`) === "true"
+  }
+
   dependencyKeysOf(node: HTMLElement): string[] {
     const keys = node.getAttribute(`data-${this.identifier}-depends-on`)
 
     if (!keys) return []
 
-    return keys.split(KEY_SEPARATOR).filter((key) => key.length > 0)
+    return keys.split(LIST_SEPARATOR).filter((key) => key.length > 0)
   }
 
   get orientation(): ConnectorOrientation {
     return isOrientation(this.orientationValue) ? this.orientationValue : "horizontal"
   }
+}
+
+/**
+ * How far the dashes travel before the pattern comes back round. A pattern of an odd number of
+ * lengths alternates on and off, so it only repeats after two passes.
+ */
+function dashPeriod(dashArray: string): number {
+  const lengths = dashArray
+    .split(LIST_SEPARATOR)
+    .filter((length) => length.length > 0)
+    .map(Number)
+
+  const period = lengths.reduce((total, length) => total + length, 0)
+
+  return lengths.length % 2 === 0 ? period : period * 2
 }
 
 function isOrientation(value: string): value is ConnectorOrientation {

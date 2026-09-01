@@ -93,13 +93,13 @@
 
     <p class="mb-4 text-sm text-slate-500 dark:text-slate-400">
       Six stages, a fan-out, a fan-in from three jobs, and one job that waits for two. The connectors into the jobs that
-      have not run yet are dashed, from a
-      <code class="text-xs">[data-node-graph-to]</code> rule.
+      have not run yet are dashed and flow towards them, from
+      <code class="text-xs">data-node-graph-pending</code> on the job.
     </p>
 
     <div class="overflow-x-auto">
       <div
-        class="ci-pipeline relative inline-flex items-center gap-8 text-slate-300 dark:text-slate-600"
+        class="relative inline-flex items-center gap-8 text-slate-300 dark:text-slate-600"
         data-controller="node-graph"
         data-node-graph-max-reach-value="24"
       >
@@ -113,6 +113,7 @@
             data-node-graph-target="node"
             :data-node-graph-key="job.key"
             :data-node-graph-depends-on="job.dependsOn"
+            :data-node-graph-pending="job.status === 'pending' ? 'true' : null"
           >
             <span class="size-2 shrink-0 rounded-full" :class="statusClasses[job.status]"></span>
             {{ job.label }}
@@ -149,12 +150,3 @@ const stages = [
   [{ key: "release", label: "Release", status: "pending", dependsOn: "e2e, preview" }],
 ]
 </script>
-
-<style>
-/* The paths are drawn by the controller, outside Vue, so this rule cannot be scoped. */
-.ci-pipeline [data-node-graph-to="e2e"],
-.ci-pipeline [data-node-graph-to="preview"],
-.ci-pipeline [data-node-graph-to="release"] {
-  stroke-dasharray: 4 4;
-}
-</style>

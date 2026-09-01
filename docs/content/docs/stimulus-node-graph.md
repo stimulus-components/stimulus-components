@@ -76,14 +76,32 @@ columns back, or for three nodes at once. The CI pipeline in the example above f
   </div>
 
   <div class="graph-stage">
-    <div data-node-graph-target="node" data-node-graph-key="e2e" data-node-graph-depends-on="build">E2E tests</div>
-    <div data-node-graph-target="node" data-node-graph-key="preview" data-node-graph-depends-on="build">
+    <div
+      data-node-graph-target="node"
+      data-node-graph-key="e2e"
+      data-node-graph-depends-on="build"
+      data-node-graph-pending="true"
+    >
+      E2E tests
+    </div>
+
+    <div
+      data-node-graph-target="node"
+      data-node-graph-key="preview"
+      data-node-graph-depends-on="build"
+      data-node-graph-pending="true"
+    >
       Deploy preview
     </div>
   </div>
 
   <div class="graph-stage">
-    <div data-node-graph-target="node" data-node-graph-key="release" data-node-graph-depends-on="e2e, preview">
+    <div
+      data-node-graph-target="node"
+      data-node-graph-key="release"
+      data-node-graph-depends-on="e2e, preview"
+      data-node-graph-pending="true"
+    >
       Release
     </div>
   </div>
@@ -94,16 +112,46 @@ columns back, or for three nodes at once. The CI pipeline in the example above f
 
 A dense graph wants a smaller `maxReach`, so the curves stay inside the gap between two columns.
 
-The example dashes the connectors into the jobs that have not run yet. Nothing in the controller knows about a job
-state: the rule matches the `data-node-graph-to` attribute the controller writes on each path.
+### Work that has not happened yet
 
-```css
-.graph [data-node-graph-to="e2e"],
-.graph [data-node-graph-to="preview"],
-.graph [data-node-graph-to="release"] {
-  stroke-dasharray: 4 4;
-}
+A node marked `data-node-graph-pending="true"` gets dashed connectors, and the dashes travel from the source towards
+it — a pipeline mid-run then reads as waiting rather than as broken. Nothing in the controller knows what a node
+stands for: mark the jobs that have not run yet, the imports that still wait for another one, the steps a user has not
+reached.
+
+```html
+<div
+  data-node-graph-target="node"
+  data-node-graph-key="e2e"
+  data-node-graph-depends-on="build"
+  data-node-graph-pending="true"
+>
+  E2E tests
+</div>
 ```
+
+The dashes and their speed come from the values, and `flow` holds them still without making the connector solid:
+
+```html
+<div
+  data-controller="node-graph"
+  data-node-graph-dash-array-value="2 6"
+  data-node-graph-flow-speed-value="16"
+  data-node-graph-flow-value="false"
+></div>
+```
+
+The motion is a [Web Animations API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API) call, so the
+package needs no stylesheet of its own. A DOM without that API — jsdom, in your own test suite — draws the dashes
+without moving them. To stop the motion for the readers who ask for it, set `flow` from the media query:
+
+```js
+const stillness = window.matchMedia("(prefers-reduced-motion: reduce)")
+
+element.dataset.nodeGraphFlowValue = String(!stillness.matches)
+```
+
+Each pending path also carries `data-node-graph-pending="true"`, so your own CSS can reach the same connectors.
 
 ### Required CSS
 
@@ -151,20 +199,24 @@ The connectors stroke with `currentColor`, so the `color` of the graph element s
 | `data-node-graph-stroke-width-value` | `1.5`          | Width of the connectors, in pixels.                                                     | ✅       |
 | `data-node-graph-max-reach-value`    | `40`           | How far a connector leaves a node before it bends. Capped at half the gap.              | ✅       |
 | `data-node-graph-path-class-value`   | `""`           | Classes set on every path, to style the connectors with your own CSS.                   | ✅       |
+| `data-node-graph-dash-array-value`   | `"4 4"`        | `stroke-dasharray` of the connectors into a pending node, in pixels.                    | ✅       |
+| `data-node-graph-flow-value`         | `true`         | Whether the dashes of a pending connector travel towards the node that waits.           | ✅       |
+| `data-node-graph-flow-speed-value`   | `8`            | How many pixels of dashes travel past a point every second.                             | ✅       |
 | `data-node-graph-key`                |                | On a node: the key the other nodes refer to.                                            | ✅       |
 | `data-node-graph-depends-on`         |                | On a node: the keys of the nodes it waits for, separated by a space or a comma.         | ✅       |
+| `data-node-graph-pending`            |                | On a node: `true` dashes the connectors into it and makes them flow.                    | ✅       |
 
 Each path carries `data-node-graph-from` and `data-node-graph-to`, so a single connector can be styled or found again:
 
 ```css
 [data-node-graph-to="savings"] {
   stroke: #6366f1;
-  stroke-dasharray: 4 4;
 }
 ```
 
 These attribute names follow the identifier the controller is registered under. Register it as `pipeline` and the
-attributes become `data-pipeline-key`, `data-pipeline-depends-on`, `data-pipeline-from` and `data-pipeline-to`.
+attributes become `data-pipeline-key`, `data-pipeline-depends-on`, `data-pipeline-pending`, `data-pipeline-from` and
+`data-pipeline-to`.
 
 ## Redrawing
 
@@ -176,6 +228,9 @@ the graph. Call `draw()` yourself after any other change that moves a node:
   <button data-action="node-graph#draw">Redraw</button>
 </div>
 ```
+
+A value read while a path is drawn — the dash pattern, the flow, the stroke width — only reaches the connectors on the
+next draw, so call `draw()` after you change one.
 
 ## Extending Controller
 
@@ -200,6 +255,11 @@ export default class extends NodeGraph {
   // Read the keys of a node from somewhere else than the data attributes.
   dependencyKeysOf(node) {
     return JSON.parse(node.dataset.dependencies)
+  }
+
+  // Dash the connectors into a node from your own state instead of `data-node-graph-pending`.
+  isPending(node) {
+    return node.dataset.status !== "done"
   }
 
   // Draw elbow connectors instead of curves. Both boxes are measured relative to the graph.

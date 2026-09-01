@@ -27,13 +27,6 @@
         height: 100%;
         pointer-events: none;
       }
-
-      /* The connectors into the jobs that have not run yet. */
-      .ci-pipeline [data-node-graph-to="e2e"],
-      .ci-pipeline [data-node-graph-to="preview"],
-      .ci-pipeline [data-node-graph-to="release"] {
-        stroke-dasharray: 4 4;
-      }
     </style>
   </head>
 
@@ -136,7 +129,7 @@
 
         <div class="overflow-x-auto">
           <div
-            class="node-graph ci-pipeline inline-flex items-center gap-8 text-gray-400"
+            class="node-graph inline-flex items-center gap-8 text-gray-400"
             data-controller="node-graph"
             data-node-graph-max-reach-value="24"
           >
@@ -209,6 +202,7 @@
                 data-node-graph-target="node"
                 data-node-graph-key="e2e"
                 data-node-graph-depends-on="build"
+                data-node-graph-pending="true"
               >
                 E2E tests
               </div>
@@ -218,6 +212,7 @@
                 data-node-graph-target="node"
                 data-node-graph-key="preview"
                 data-node-graph-depends-on="build"
+                data-node-graph-pending="true"
               >
                 Preview
               </div>
@@ -229,6 +224,7 @@
                 data-node-graph-target="node"
                 data-node-graph-key="release"
                 data-node-graph-depends-on="e2e, preview"
+                data-node-graph-pending="true"
               >
                 Release
               </div>

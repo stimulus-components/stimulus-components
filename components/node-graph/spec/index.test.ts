@@ -8,10 +8,11 @@ import NodeGraph from "../src/index"
 
 let application: Application
 
-const node = (identifier: string, key: string, dependsOn = ""): string => `
+const node = (identifier: string, key: string, dependsOn = "", attributes = ""): string => `
   <div data-${identifier}-target="node"
        data-${identifier}-key="${key}"
-       data-${identifier}-depends-on="${dependsOn}"></div>
+       data-${identifier}-depends-on="${dependsOn}"
+       ${attributes}></div>
 `
 
 // Stimulus connects controllers from a MutationObserver callback.
@@ -44,6 +45,17 @@ const mountGraph = (attributes = "", identifier = "node-graph"): Promise<void> =
     `,
     attributes,
     identifier,
+  )
+
+// A chain of three nodes, the last of which has not run yet.
+const mountPipeline = (attributes = ""): Promise<void> =>
+  mount(
+    `
+      ${node("node-graph", "build")}
+      ${node("node-graph", "e2e", "build")}
+      ${node("node-graph", "release", "e2e", 'data-node-graph-pending="true"')}
+    `,
+    attributes,
   )
 
 const canvas = (): SVGSVGElement => document.querySelector<SVGSVGElement>("svg")
@@ -139,6 +151,82 @@ describe("#draw", () => {
     `)
 
     expect(paths()).toHaveLength(2)
+  })
+
+  it("should draw a solid connector into a node that is not pending", async (): Promise<void> => {
+    await mountGraph()
+
+    expect(paths()[0].getAttribute("stroke-dasharray")).toBeNull()
+    expect(paths()[0].getAttribute("data-node-graph-pending")).toBeNull()
+  })
+
+  // No Web Animations API is stubbed here, so this also covers a DOM without one.
+  it("should dash the connectors into a pending node", async (): Promise<void> => {
+    await mountPipeline()
+
+    expect(paths()[0].getAttribute("stroke-dasharray")).toBeNull()
+    expect(paths()[1].getAttribute("stroke-dasharray")).toBe("4 4")
+    expect(paths()[1].getAttribute("data-node-graph-pending")).toBe("true")
+  })
+
+  it("should dash with the pattern from the values", async (): Promise<void> => {
+    await mountPipeline('data-node-graph-dash-array-value="2 6"')
+
+    expect(paths()[1].getAttribute("stroke-dasharray")).toBe("2 6")
+  })
+
+  describe("the flowing dashes", () => {
+    let animate: ReturnType<typeof vi.fn>
+
+    beforeEach((): void => {
+      // jsdom ships no Web Animations API. The real `animate` returns an Animation, which the
+      // controller does not read.
+      animate = vi.fn()
+      Object.defineProperty(SVGElement.prototype, "animate", { value: animate, configurable: true })
+    })
+
+    afterEach((): void => {
+      Reflect.deleteProperty(SVGElement.prototype, "animate")
+    })
+
+    it("should travel the dashes towards the node that waits", async (): Promise<void> => {
+      await mountPipeline()
+
+      expect(animate).toHaveBeenCalledWith([{ strokeDashoffset: 0 }, { strokeDashoffset: -8 }], {
+        duration: 1000,
+        iterations: Infinity,
+      })
+    })
+
+    // The pattern alternates on and off, so an odd number of lengths only repeats after two passes.
+    it("should travel twice the length of a pattern that lists an odd number of lengths", async (): Promise<void> => {
+      await mountPipeline('data-node-graph-dash-array-value="3"')
+
+      expect(animate).toHaveBeenCalledWith([{ strokeDashoffset: 0 }, { strokeDashoffset: -6 }], {
+        duration: 750,
+        iterations: Infinity,
+      })
+    })
+
+    it("should travel at the speed from the values", async (): Promise<void> => {
+      await mountPipeline('data-node-graph-flow-speed-value="16"')
+
+      expect(animate).toHaveBeenCalledWith(expect.anything(), { duration: 500, iterations: Infinity })
+    })
+
+    it("should hold the dashes still when the flow is off", async (): Promise<void> => {
+      await mountPipeline('data-node-graph-flow-value="false"')
+
+      expect(paths()[1].getAttribute("stroke-dasharray")).toBe("4 4")
+      expect(animate).not.toHaveBeenCalled()
+    })
+
+    it("should hold the dashes still when the pattern carries no measurable length", async (): Promise<void> => {
+      await mountPipeline('data-node-graph-dash-array-value="4px 4px"')
+
+      expect(paths()[1].getAttribute("stroke-dasharray")).toBe("4px 4px")
+      expect(animate).not.toHaveBeenCalled()
+    })
   })
 
   it("should follow the identifier the controller is registered under", async (): Promise<void> => {
