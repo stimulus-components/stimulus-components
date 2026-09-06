@@ -82,6 +82,20 @@ In your views:
 
 ::
 
+### With draggable selector
+
+::code-block{tabName="app/views/index.html"}
+
+```html
+<ul data-controller="sortable" data-sortable-draggable-value=".item">
+  <li class="item">Pet the cat</li>
+  <li class="item">Get the groceries</li>
+  <li class="not-sortable">This item cannot be sorted</li>
+</ul>
+```
+
+::
+
 ### With AJAX call
 
 If you're using [@rails/request.js](https://github.com/rails/request.js) in your application, you can add an url as data-attribute on every items to perform an AJAX call to update the new position automatically on drop.
@@ -113,6 +127,7 @@ If you use `data-sortable-resource-name-value`, the name will be used. For insta
 | `data-sortable-method-value`        | `patch`     | The HTTP method you want for `@rails/request.js`.                          | ✅       |
 | `data-sortable-animation-value`     | `150`       | Animation speed moving items when sorting in milliseconds. `0` to disable. | ✅       |
 | `data-sortable-handle-value`        | `undefined` | Drag handle selector within list items.                                    | ✅       |
+| `data-sortable-draggable-value`     | `>li` or `>*` | CSS selector of draggable items within the container. Defaults to `>li` for `<ul>`/`<ol>`, `>*` otherwise. | ✅       |
 
 ## Extending Controller
 
