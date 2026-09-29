@@ -31,7 +31,7 @@ export default class Clipboard extends Controller {
   copy(event: Event): void {
     event.preventDefault()
 
-    const text = this.sourceTarget.innerHTML || this.sourceTarget.value
+    const text = this.sourceTarget.value || this.sourceTarget.innerHTML
 
     navigator.clipboard.writeText(text).then(() => this.copied())
   }
