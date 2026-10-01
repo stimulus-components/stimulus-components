@@ -7,7 +7,7 @@
     "stimulusjs",
     "stimulus controller",
     "lightbox",
-    "lightgallery"
+    "photoswipe"
   ],
   "repository": "git@github.com:stimulus-components/stimulus-components.git",
   "bugs": {
@@ -40,7 +40,7 @@
     "prepack": "pnpm run build"
   },
   "dependencies": {
-    "lightgallery": "^2.7.2"
+    "photoswipe": "^5.4.4"
   },
   "peerDependencies": {
     "@hotwired/stimulus": "^3"

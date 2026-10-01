@@ -1,28 +1,33 @@
 import { Controller } from "@hotwired/stimulus"
-import lightGallery from "lightgallery"
-import type { LightGallerySettings } from "lightgallery/lg-settings"
-import type { LightGallery } from "lightgallery/lightgallery"
+import PhotoSwipe from "photoswipe"
+import type { PhotoSwipeOptions } from "photoswipe"
+import PhotoSwipeLightbox from "photoswipe/lightbox"
 
 export default class Lightbox extends Controller<HTMLElement> {
-  declare optionsValue: LightGallerySettings
-  declare lightGallery: LightGallery
+  declare optionsValue: PhotoSwipeOptions
+  declare photoSwipe: PhotoSwipeLightbox
 
   static values = {
     options: Object,
   }
 
   connect(): void {
-    this.lightGallery = lightGallery(this.element, {
+    this.photoSwipe = new PhotoSwipeLightbox({
+      children: "a",
+      pswpModule: PhotoSwipe,
       ...this.defaultOptions,
       ...this.optionsValue,
+      gallery: this.element,
     })
+
+    this.photoSwipe.init()
   }
 
   disconnect(): void {
-    this.lightGallery.destroy()
+    this.photoSwipe.destroy()
   }
 
-  get defaultOptions(): LightGallerySettings {
+  get defaultOptions(): PhotoSwipeOptions {
     return {}
   }
 }
