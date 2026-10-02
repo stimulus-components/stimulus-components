@@ -4,6 +4,7 @@ export default class CheckboxSelectAll extends Controller {
   declare readonly hasCheckboxAllTarget: boolean
   declare readonly checkboxTargets: HTMLInputElement[]
   declare readonly checkboxAllTarget: HTMLInputElement
+  declare readonly checkboxAllTargets: HTMLInputElement[]
   declare readonly disableIndeterminateValue: boolean
   declare readonly ignoreDisabledValue: boolean
 
@@ -82,12 +83,14 @@ export default class CheckboxSelectAll extends Controller {
     const enabledCount = this.enabled.length
     const enabledCheckedCount = this.enabled.filter((checkbox) => checkbox.checked).length
 
-    if (this.disableIndeterminateValue) {
-      this.checkboxAllTarget.checked = enabledCount > 0 && enabledCheckedCount === enabledCount
-    } else {
-      this.checkboxAllTarget.checked = enabledCheckedCount > 0
-      this.checkboxAllTarget.indeterminate = checkboxesCheckedCount > 0 && checkboxesCheckedCount < checkboxesCount
-    }
+    this.checkboxAllTargets.forEach((checkboxAll) => {
+      if (this.disableIndeterminateValue) {
+        checkboxAll.checked = enabledCount > 0 && enabledCheckedCount === enabledCount
+      } else {
+        checkboxAll.checked = enabledCheckedCount > 0
+        checkboxAll.indeterminate = checkboxesCheckedCount > 0 && checkboxesCheckedCount < checkboxesCount
+      }
+    })
   }
 
   triggerInputEvent(checkbox: HTMLInputElement): void {

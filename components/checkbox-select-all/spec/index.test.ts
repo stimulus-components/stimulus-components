@@ -198,6 +198,46 @@ describe("when ignoring the disabled checkboxes", () => {
   })
 })
 
+describe("with several checkboxAll targets", () => {
+  beforeEach((): void => {
+    document.body.innerHTML = `
+    <form data-controller="checkbox-select-all">
+      <input id="header" type="checkbox" data-checkbox-select-all-target="checkboxAll" />
+      <input type="checkbox" data-checkbox-select-all-target="checkbox" />
+      <input type="checkbox" data-checkbox-select-all-target="checkbox" checked="checked" />
+      <input type="checkbox" data-checkbox-select-all-target="checkbox" />
+      <input id="footer" type="checkbox" data-checkbox-select-all-target="checkboxAll" />
+    </form>
+  `
+  })
+
+  it("gives every checkboxAll target the initial state", (): void => {
+    const header: HTMLInputElement = document.querySelector("#header")
+    const footer: HTMLInputElement = document.querySelector("#footer")
+
+    expect(header.checked).toBe(true)
+    expect(header.indeterminate).toBe(true)
+    expect(footer.checked).toBe(true)
+    expect(footer.indeterminate).toBe(true)
+  })
+
+  it("refreshes every checkboxAll target when a checkbox changes", (): void => {
+    const header: HTMLInputElement = document.querySelector("#header")
+    const footer: HTMLInputElement = document.querySelector("#footer")
+    const checkboxes: NodeListOf<HTMLInputElement> = document.querySelectorAll(
+      "[data-checkbox-select-all-target='checkbox']",
+    )
+
+    checkboxes.forEach((checkbox: HTMLInputElement): void => {
+      if (!checkbox.checked) checkbox.click()
+    })
+
+    expect(header.indeterminate).toBe(false)
+    expect(footer.checked).toBe(true)
+    expect(footer.indeterminate).toBe(false)
+  })
+})
+
 describe("when disabled indeterminate state", () => {
   beforeEach((): void => {
     document.body.innerHTML = `
