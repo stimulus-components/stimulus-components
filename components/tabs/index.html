@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Stimulus Tabs</title>
+
+    <script type="module">
+      import "../app.css"
+      import { Application } from "@hotwired/stimulus"
+      import Tabs from "./src/index"
+
+      const application = Application.start()
+      application.register("tabs", Tabs)
+    </script>
+  </head>
+
+  <body>
+    <main class="mx-auto mt-16 max-w-3xl px-4">
+      <div data-controller="tabs">
+        <div data-tabs-target="tablist" aria-label="Account settings" class="flex border-b border-gray-200">
+          <button
+            data-tabs-target="tab"
+            data-action="click->tabs#select keydown->tabs#navigate"
+            class="px-4 py-2 font-medium aria-selected:border-b-2 aria-selected:border-blue-600"
+          >
+            Account
+          </button>
+          <button
+            data-tabs-target="tab"
+            data-action="click->tabs#select keydown->tabs#navigate"
+            class="px-4 py-2 font-medium aria-selected:border-b-2 aria-selected:border-blue-600"
+          >
+            Password
+          </button>
+          <button
+            data-tabs-target="tab"
+            data-action="click->tabs#select keydown->tabs#navigate"
+            class="px-4 py-2 font-medium aria-selected:border-b-2 aria-selected:border-blue-600"
+          >
+            Billing
+          </button>
+        </div>
+
+        <section data-tabs-target="panel" class="py-6">Update your account details.</section>
+        <section data-tabs-target="panel" class="py-6">Change your password.</section>
+        <section data-tabs-target="panel" class="py-6">Manage your billing information.</section>
+      </div>
+    </main>
+  </body>
+</html>
