@@ -1,6 +1,6 @@
 {
   "name": "stimulus-glow",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A Stimulus controller that add a mouse-tracing glow effect.",
   "keywords": [
     "stimulus",

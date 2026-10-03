@@ -1,6 +1,6 @@
 {
   "name": "@stimulus-components/carousel",
-  "version": "6.0.0",
+  "version": "7.0.0",
   "description": "A Stimulus controller to deal with carousel.",
   "keywords": [
     "stimulus",
