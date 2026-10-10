@@ -29,13 +29,13 @@
     "prettier": "3.9.9",
     "tailwindcss": "^4.3.3",
     "typescript": "6.0.3",
-    "vite": "7.3.6",
+    "vite": "7.3.7",
     "vitest": "^4.1.10"
   },
   "packageManager": "pnpm@10.30.3",
   "pnpm": {
     "overrides": {
-      "vite": "7.3.6"
+      "vite": "7.3.7"
     }
   }
 }
