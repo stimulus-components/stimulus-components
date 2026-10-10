@@ -1,5 +1,17 @@
 # Changelog
 
+## 4.0.1
+
+### Patch Changes
+
+- [#191](https://github.com/stimulus-components/stimulus-components/pull/191) [`ee55aef`](https://github.com/stimulus-components/stimulus-components/commit/ee55aef8d654d93a5e839733bb079e709759f8f1) Thanks [@guillaumebriday](https://github.com/guillaumebriday)! - Packaging: publish only the built `dist/` (via a new `files` allowlist), build automatically before publish with a `prepack` hook, and flag packages as `sideEffects: false` so bundlers can tree-shake them. Also hardens controllers under TypeScript `strict` mode.
+
+- [#215](https://github.com/stimulus-components/stimulus-components/pull/215) [`220fc5b`](https://github.com/stimulus-components/stimulus-components/commit/220fc5b2712de2a7d5a7f9c3c69f8296b4ca8ea8) Thanks [@guillaumebriday](https://github.com/guillaumebriday)! - Disconnect the IntersectionObserver instead of unobserving each item.
+
+  `disconnect()` iterated `itemTargets` and unobserved them one by one, so any item already removed from the DOM — it had dropped out of that list — stayed observed and kept the observer alive. `observer.disconnect()` releases everything in one call.
+
+  This adds the package's first spec.
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
