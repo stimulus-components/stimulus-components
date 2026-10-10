@@ -1,6 +1,6 @@
 {
   "name": "@stimulus-components/prefetch",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "A Stimulus controller that prefetch in-viewport links.",
   "keywords": [
     "stimulus",

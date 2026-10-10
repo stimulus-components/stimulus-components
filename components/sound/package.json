@@ -1,6 +1,6 @@
 {
   "name": "@stimulus-components/sound",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A Stimulus Controller to play and control sound.",
   "keywords": [
     "stimulus",
