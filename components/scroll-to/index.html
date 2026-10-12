@@ -19,20 +19,45 @@
   <body>
     <div class="relative h-full max-w-5xl mx-auto px-4">
       <section class="mt-16 text-center">
-        <a href="#awesome-stuff-here" class="text-blue-500" data-controller="scroll-to" data-scroll-to-offset-value="50"
-          >Scroll to #awesome-stuff-here</a
+        <a
+          href="#first-target"
+          class="text-blue-500"
+          data-controller="scroll-to"
+          data-scroll-to-offset-value="50"
+          data-scroll-to-history-value="true"
         >
+          Scroll to #first-target
+        </a>
 
         <div class="h-screen"></div>
 
-        <h2 id="awesome-stuff-here" class="text-2xl">Awesome stuff here</h2>
-        <p>Keep scrolling 👇</p>
+        <h2 id="first-target" class="text-2xl">First target</h2>
+        <p class="mb-8">Keep scrolling 👇</p>
+
+        <a
+          href="#second-target"
+          class="text-blue-500"
+          data-controller="scroll-to"
+          data-scroll-to-offset-value="50"
+          data-scroll-to-history-value="true"
+        >
+          Scroll to #second-target
+        </a>
 
         <div class="h-screen"></div>
 
-        <a href="#awesome-stuff-here" class="text-blue-500" data-controller="scroll-to" data-scroll-to-offset-value="50"
-          >Scroll to #awesome-stuff-here</a
+        <h2 id="second-target" class="text-2xl">Second target</h2>
+        <p class="mb-8">Go back up 👆</p>
+
+        <a
+          href="#first-target"
+          class="text-blue-500"
+          data-controller="scroll-to"
+          data-scroll-to-offset-value="50"
+          data-scroll-to-history-value="true"
         >
+          Scroll back to #first-target
+        </a>
       </section>
     </div>
   </body>
