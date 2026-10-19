@@ -15,6 +15,7 @@ const startStimulus = (): void => {
 
 afterEach((): void => {
   application.stop()
+  vi.restoreAllMocks()
 })
 
 describe("#nestedForm", (): void => {
@@ -121,5 +122,45 @@ describe("#remove", (): void => {
     expect(document.querySelector("#new")).not.toBeNull()
     expect(document.querySelector("#persisted")).not.toBeNull()
     expect(errors).toEqual([])
+  })
+})
+
+describe("#remove with a nested form inside the wrapper", (): void => {
+  beforeEach((): void => {
+    startStimulus()
+
+    document.body.innerHTML = `
+      <form data-controller="nested-form">
+        <div id="question" class="nested-form-wrapper" data-new-record="false">
+          <div data-controller="nested-form">
+            <div id="choice" class="nested-form-wrapper" data-new-record="false">
+              <input type="hidden" name="questions[0][choices_attributes][0][_destroy]" value="0" />
+              <button type="button" data-action="nested-form#remove">Remove choice</button>
+            </div>
+          </div>
+
+          <button id="remove-question" type="button" data-action="nested-form#remove">Remove question</button>
+          <input type="hidden" name="questions[0][_destroy]" value="0" />
+        </div>
+      </form>
+    `
+  })
+
+  const destroyInput = (name: string): HTMLInputElement =>
+    document.querySelector<HTMLInputElement>(`input[name='${name}']`)
+
+  it("flags the removed entry for destruction, not its first nested entry", (): void => {
+    document.querySelector<HTMLButtonElement>("#remove-question").click()
+
+    expect(destroyInput("questions[0][_destroy]").value).toBe("1")
+    expect(destroyInput("questions[0][choices_attributes][0][_destroy]").value).toBe("0")
+  })
+
+  it("still flags a nested entry when removing it", (): void => {
+    document.querySelector<HTMLButtonElement>("#choice button").click()
+
+    expect(destroyInput("questions[0][choices_attributes][0][_destroy]").value).toBe("1")
+    expect(destroyInput("questions[0][_destroy]").value).toBe("0")
+    expect(document.querySelector<HTMLElement>("#question").style.display).toBe("")
   })
 })
