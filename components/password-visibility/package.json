@@ -1,6 +1,6 @@
 {
   "name": "@stimulus-components/password-visibility",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "A Stimulus controller to change a password input visibility.",
   "keywords": [
     "stimulus",
