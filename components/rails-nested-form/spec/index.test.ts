@@ -15,6 +15,7 @@ const startStimulus = (): void => {
 
 afterEach((): void => {
   application.stop()
+  vi.restoreAllMocks()
 })
 
 describe("#nestedForm", (): void => {
