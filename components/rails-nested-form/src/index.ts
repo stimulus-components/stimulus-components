@@ -35,11 +35,17 @@ export default class RailsNestedForm extends Controller {
     } else {
       wrapper.style.display = "none"
 
-      const input = wrapper.querySelector<HTMLInputElement>("input[name*='_destroy']")
+      const input = this.findOwnDestroyInput(wrapper)
       if (input) input.value = "1"
     }
 
     const event = new CustomEvent("rails-nested-form:remove", { bubbles: true })
     this.element.dispatchEvent(event)
+  }
+
+  private findOwnDestroyInput(wrapper: HTMLElement): HTMLInputElement | undefined {
+    return Array.from(wrapper.querySelectorAll<HTMLInputElement>("input[name*='_destroy']")).find(
+      (input) => input.closest(this.wrapperSelectorValue) === wrapper,
+    )
   }
 }
