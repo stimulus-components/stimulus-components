@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Push the target hash into the URL and react to browser back/forward when the `history` option is enabled.
+
 ## [5.0.1] - 2024-03-23
 
 ### Chore

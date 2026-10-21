@@ -44,12 +44,31 @@ With options:
 
 ::
 
+With history:
+
+::code-block{tabName="app/views/index.html"}
+
+```html
+<a
+  href="#awesome-stuff-here"
+  data-controller="scroll-to"
+  data-scroll-to-history-value="true"
+>
+  Scroll to #awesome-stuff-here
+</a>
+
+<h2 id="awesome-stuff-here">Awesome stuff here</h2>
+```
+
+::
+
 ## Configuration
 
-| Attribute                       | Default  | Description                               | Optional |
-| ------------------------------- | -------- | ----------------------------------------- | -------- |
-| `data-scroll-to-offset-value`   | `10`     | Offset in pixels from top of the element. | ✅       |
-| `data-scroll-to-behavior-value` | `smooth` | The scroll behavior. `auto` or `smooth`.  | ✅       |
+| Attribute                         | Default  | Description                                                          | Optional |
+| --------------------------------- | -------- | -------------------------------------------------------------------- | -------- |
+| `data-scroll-to-offset-value`     | `10`     | Offset in pixels from top of the element.                            | ✅       |
+| `data-scroll-to-behavior-value`   | `smooth` | The scroll behavior. `auto` or `smooth`.                             | ✅       |
+| `data-scroll-to-history-value`    | `false`  | Push the target hash into the URL and scroll to it with the browser back/forward buttons. | ✅       |
 
 ## Extending Controller
 
