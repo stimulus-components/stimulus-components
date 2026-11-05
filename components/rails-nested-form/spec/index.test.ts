@@ -15,6 +15,7 @@ const startStimulus = (): void => {
 
 afterEach((): void => {
   application.stop()
+  vi.restoreAllMocks()
 })
 
 describe("#nestedForm", (): void => {
@@ -69,6 +70,56 @@ describe("#nestedForm", (): void => {
         bubbles: true,
       },
     })
+  })
+})
+
+describe("#add with a nested form inside the template", (): void => {
+  beforeEach((): void => {
+    startStimulus()
+
+    document.body.innerHTML = `
+      <form data-controller="nested-form">
+        <template data-nested-form-target="template">
+          <div class="nested-form-wrapper" data-new-record="true">
+            <input name="questions[NEW_RECORD][text]" />
+
+            <div data-controller="nested-form">
+              <template data-nested-form-target="template">
+                <div class="nested-form-wrapper" data-new-record="true">
+                  <input name="questions[NEW_RECORD][choices_attributes][NEW_RECORD][text]" />
+                </div>
+              </template>
+
+              <div data-nested-form-target="target"></div>
+
+              <button class="add-choice" type="button" data-action="nested-form#add">Add choice</button>
+            </div>
+          </div>
+        </template>
+
+        <div data-nested-form-target="target"></div>
+
+        <button id="add-question" type="button" data-action="nested-form#add">Add question</button>
+      </form>
+    `
+  })
+
+  const nextTick = (): Promise<void> => new Promise((resolve) => queueMicrotask(resolve))
+
+  it("keeps the nested template's own token available after the parent is added", async (): Promise<void> => {
+    document.querySelector<HTMLButtonElement>("#add-question").click()
+    await nextTick()
+
+    const addChoice = document.querySelector<HTMLButtonElement>(".add-choice")
+    addChoice.click()
+    addChoice.click()
+
+    const names = Array.from(document.querySelectorAll<HTMLInputElement>("input[name*='choices_attributes']")).map(
+      (input) => input.name,
+    )
+
+    expect(names).toHaveLength(2)
+    expect(new Set(names).size).toBe(2)
   })
 })
 
