@@ -1,6 +1,6 @@
 {
   "name": "@stimulus-components/notification",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "A Stimulus controller for showing notifications.",
   "keywords": [
     "stimulus",
