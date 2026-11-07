@@ -1,6 +1,6 @@
 {
   "name": "@stimulus-components/read-more",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "A Stimulus controller to show more or less text.",
   "keywords": [
     "stimulus",

@@ -1,6 +1,6 @@
 {
   "name": "@stimulus-components/rails-nested-form",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "A Stimulus controller to create new fields on the fly to populate your Rails relationship.",
   "keywords": [
     "stimulus",
