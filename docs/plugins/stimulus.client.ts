@@ -27,6 +27,7 @@ import ScrollReveal from "@stimulus-components/scroll-reveal/src"
 import ScrollTo from "@stimulus-components/scroll-to/src"
 import Sortable from "@stimulus-components/sortable/src"
 import SpeechRecognition from "@stimulus-components/speech-recognition/src"
+import Tabs from "@stimulus-components/tabs/src"
 import Sound from "@stimulus-components/sound/src"
 import Timeago from "@stimulus-components/timeago/src"
 
@@ -61,6 +62,7 @@ export default defineNuxtPlugin(() => {
   application.register("sortable", Sortable)
   application.register("sound", Sound)
   application.register("speech-recognition", SpeechRecognition)
+  application.register("tabs", Tabs)
   application.register("timeago", Timeago)
 
   if (!window._rails_loaded) {

@@ -1,0 +1,48 @@
+{
+  "name": "@stimulus-components/tabs",
+  "version": "1.0.0",
+  "description": "An accessible Stimulus tabs controller with automatic and manual keyboard activation.",
+  "keywords": [
+    "stimulus",
+    "stimulusjs",
+    "stimulus controller",
+    "tabs"
+  ],
+  "repository": "git@github.com:stimulus-components/stimulus-components.git",
+  "bugs": {
+    "url": "https://github.com/stimulus-components/stimulus-components/issues"
+  },
+  "author": "Guillaume Briday <guillaumebriday@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/stimulus-components/stimulus-components",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "dist/stimulus-tabs.umd.js",
+  "module": "dist/stimulus-tabs.mjs",
+  "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/stimulus-tabs.mjs",
+      "require": "./dist/stimulus-tabs.umd.js"
+    },
+    "./src": "./src/index.ts",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "types": "tsc --noEmit false --declaration true --emitDeclarationOnly true --rootDir src --outDir dist/types",
+    "dev": "vite",
+    "build": "vite build && pnpm run types",
+    "version": "pnpm run build",
+    "prepack": "pnpm run build"
+  },
+  "peerDependencies": {
+    "@hotwired/stimulus": "^3"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false
+}

@@ -44,6 +44,7 @@
     "@stimulus-components/sortable": "workspace:*",
     "@stimulus-components/sound": "workspace:*",
     "@stimulus-components/speech-recognition": "workspace:*",
+    "@stimulus-components/tabs": "workspace:*",
     "@stimulus-components/timeago": "workspace:*",
     "@tailwindcss/typography": "^0.5.18",
     "@tailwindcss/vite": "^4.3.3",
