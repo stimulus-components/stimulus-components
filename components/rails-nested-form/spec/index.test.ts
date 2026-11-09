@@ -15,6 +15,7 @@ const startStimulus = (): void => {
 
 afterEach((): void => {
   application.stop()
+  vi.restoreAllMocks()
 })
 
 describe("#nestedForm", (): void => {
@@ -69,6 +70,70 @@ describe("#nestedForm", (): void => {
         bubbles: true,
       },
     })
+  })
+})
+
+describe("#add with a nested form inside the template", (): void => {
+  beforeEach((): void => {
+    startStimulus()
+
+    document.body.innerHTML = `
+      <form data-controller="nested-form">
+        <template data-nested-form-target="template">
+          <div class="nested-form-wrapper" data-new-record="true">
+            <input name="questions[NEW_RECORD][text]" />
+
+            <div data-controller="nested-form" data-nested-form-new-record-token-value="NEW_CHOICE_RECORD">
+              <template data-nested-form-target="template">
+                <div class="nested-form-wrapper" data-new-record="true">
+                  <input name="questions[NEW_RECORD][choices_attributes][NEW_CHOICE_RECORD][text]" />
+                </div>
+              </template>
+
+              <div data-nested-form-target="target"></div>
+
+              <button class="add-choice" type="button" data-action="nested-form#add">Add choice</button>
+            </div>
+          </div>
+        </template>
+
+        <div data-nested-form-target="target"></div>
+
+        <button id="add-question" type="button" data-action="nested-form#add">Add question</button>
+      </form>
+    `
+  })
+
+  const nextTick = (): Promise<void> => new Promise((resolve) => queueMicrotask(resolve))
+
+  it("gives each choice a distinct index nested under the question's own", async (): Promise<void> => {
+    document.querySelector<HTMLButtonElement>("#add-question").click()
+    await nextTick()
+
+    const addChoice = document.querySelector<HTMLButtonElement>(".add-choice")
+    addChoice.click()
+    // Ids are derived from Date.now(), so give the clock a tick to move
+    // between clicks -- otherwise both choices can land in the same
+    // millisecond, which is a pre-existing id-generation quirk unrelated
+    // to what this spec is checking.
+    await new Promise((resolve) => setTimeout(resolve, 2))
+    addChoice.click()
+
+    const questionName = document.querySelector<HTMLInputElement>("input[name^='questions']").name
+    const questionIndex = questionName.match(/questions\[(\d+)\]/)[1]
+
+    const choiceNames = Array.from(
+      document.querySelectorAll<HTMLInputElement>("input[name*='choices_attributes']"),
+    ).map((input) => input.name)
+
+    expect(choiceNames).toHaveLength(2)
+
+    const choiceIndices = choiceNames.map((name) => name.match(/choices_attributes\]\[(\d+)\]/)[1])
+
+    // Both choices nest under the question that was actually created...
+    choiceNames.forEach((name) => expect(name).toContain(`questions[${questionIndex}]`))
+    // ...and each gets its own index, distinct from one another.
+    expect(new Set(choiceIndices).size).toBe(2)
   })
 })
 

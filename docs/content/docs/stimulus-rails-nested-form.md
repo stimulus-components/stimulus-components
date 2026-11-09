@@ -114,11 +114,49 @@ As explained in the [documentation](https://apidock.com/rails/ActionView/Helpers
 
 ## Configuration
 
-| Attribute                                 | Default                | Description                   | Optional |
-| ----------------------------------------- | ---------------------- | ----------------------------- | -------- |
-| `data-nested-form-wrapper-selector-value` | `.nested-form-wrapper` | Selector to find the wrapper. | ✅       |
+| Attribute                                 | Default                | Description                                             | Optional |
+| ----------------------------------------- | ---------------------- | ------------------------------------------------------- | -------- |
+| `data-nested-form-wrapper-selector-value` | `.nested-form-wrapper` | Selector to find the wrapper.                           | ✅       |
+| `data-nested-form-new-record-token-value` | `NEW_RECORD`           | The `child_index` placeholder this controller replaces. | ✅       |
 
 The remove feature is completely optional.
+
+## Nesting multiple levels
+
+If a record's own form also lets you add records of its own — todos with sub-tasks, for example — each level needs its own `nested-form` controller **and its own distinct `newRecordToken`**, not just the default `NEW_RECORD` on both. A sub-task's `name` attribute spells out which todo it belongs to as well as its own index, so if both levels use the same token, there's no way to tell which occurrence belongs to which level once a new todo is added.
+
+::code-block{tabName="app/views/users/\_todo_form.html.erb"}
+
+```erb
+<div class="nested-form-wrapper" data-new-record="<%= f.object.new_record? %>">
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <div data-controller="nested-form" data-nested-form-new-record-token-value="NEW_SUBTASK_RECORD">
+    <template data-nested-form-target="template">
+      <%= f.fields_for :sub_tasks, SubTask.new, child_index: 'NEW_SUBTASK_RECORD' do |sub_task_fields| %>
+        <%= render "sub_task_form", f: sub_task_fields %>
+      <% end %>
+    </template>
+
+    <%= f.fields_for :sub_tasks do |sub_task_fields| %>
+      <%= render "sub_task_form", f: sub_task_fields %>
+    <% end %>
+
+    <div data-nested-form-target="target"></div>
+
+    <button type="button" data-action="nested-form#add">Add sub-task</button>
+  </div>
+
+  <button type="button" data-action="nested-form#remove">Remove todo</button>
+
+  <%= f.hidden_field :_destroy %>
+</div>
+```
+
+::
+
+The outer todo keeps the default `NEW_RECORD` token; only the inner, nested controller needs a token of its own. If you recurse into the same association (a todo's sub-tasks that can themselves have sub-tasks), suffix the token with the current depth, e.g. `"NEW_SUBTASK_RECORD_#{depth}"`, so each recursion level stays distinct from the others.
 
 ## Extending Controller
 
