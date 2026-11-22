@@ -1,6 +1,6 @@
 {
   "name": "@stimulus-components/speech-recognition",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Stimulus controller that uses the Web Speech API to capture speech and fill an input or element.",
   "keywords": [
     "stimulus",
