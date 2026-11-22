@@ -1,5 +1,17 @@
 # Changelog
 
+## 4.0.1
+
+### Patch Changes
+
+- [#191](https://github.com/stimulus-components/stimulus-components/pull/191) [`ee55aef`](https://github.com/stimulus-components/stimulus-components/commit/ee55aef8d654d93a5e839733bb079e709759f8f1) Thanks [@guillaumebriday](https://github.com/guillaumebriday)! - Packaging: publish only the built `dist/` (via a new `files` allowlist), build automatically before publish with a `prepack` hook, and flag packages as `sideEffects: false` so bundlers can tree-shake them. Also hardens controllers under TypeScript `strict` mode.
+
+- [#212](https://github.com/stimulus-components/stimulus-components/pull/212) [`e75391e`](https://github.com/stimulus-components/stimulus-components/commit/e75391e7569bc42fcda2d2eb82f3533ebfea7678) Thanks [@guillaumebriday](https://github.com/guillaumebriday)! - Disconnect the IntersectionObserver when the controller disconnects.
+
+  `load()` kept its observer in a local `const` and only unobserved from inside the callback, so a link removed before it ever scrolled into view left the observer — and through it the controller and the detached link — alive. This mirrors the `content-loader` fix in [#207](https://github.com/stimulus-components/stimulus-components/issues/207).
+
+  This adds the package's first spec.
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),

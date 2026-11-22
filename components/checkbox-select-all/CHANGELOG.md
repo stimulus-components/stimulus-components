@@ -1,5 +1,33 @@
 # Changelog
 
+## 6.2.0
+
+### Minor Changes
+
+- [#221](https://github.com/stimulus-components/stimulus-components/pull/221) [`b93d4df`](https://github.com/stimulus-components/stimulus-components/commit/b93d4df6021e3f433bc03fdcc85ada8601659b2a) Thanks [@guillaumebriday](https://github.com/guillaumebriday)! - Never toggle disabled checkboxes, and add a `ignoreDisabled` value to control how they count in the indeterminate state.
+
+  `toggle()` wrote `checked` on every checkbox target, including the disabled ones. A user cannot change a disabled checkbox and the browser does not submit it, so the `checkboxAll` target must not change it either. It now toggles only the enabled checkbox targets. Closes [#110](https://github.com/stimulus-components/stimulus-components/issues/110), and ports stimulus-components/stimulus-checkbox-select-all#10.
+
+  That leaves the question raised in the review of that PR: what the `checkboxAll` target must show when a disabled checkbox keeps a different state. It is now an option, like `disableIndeterminate`:
+
+  - by default, the disabled checkboxes still count, so the `checkboxAll` target stays indeterminate after a "Select All" click when one disabled checkbox is unchecked;
+  - with `data-checkbox-select-all-ignore-disabled-value="true"`, only the checkboxes that the `checkboxAll` target can change are counted, and the indeterminate state disappears when all the enabled checkboxes are checked.
+
+  Two related changes make this work:
+
+  - `toggle()` now calls `refresh()`. The checkbox targets do not emit a `change` event when the controller writes their `checked` property, so the state of the `checkboxAll` target was never computed again after a click. Without disabled checkboxes this changes nothing, because the recomputed state matches the state the browser already applied.
+  - The `checked` property of the `checkboxAll` target now counts only the enabled checkbox targets, so a click always toggles them. Counting the disabled ones there made the control show a selection it could not clear: with all the enabled checkboxes unchecked and one disabled checkbox checked, every click was read as "deselect all" and the enabled checkboxes could never be checked again. The `indeterminate` property still counts the disabled checkboxes, unless `ignoreDisabled` is set.
+
+  Adds `enabled` and `disabled` getters, next to `checked` and `unchecked`.
+
+### Patch Changes
+
+- [#191](https://github.com/stimulus-components/stimulus-components/pull/191) [`ee55aef`](https://github.com/stimulus-components/stimulus-components/commit/ee55aef8d654d93a5e839733bb079e709759f8f1) Thanks [@guillaumebriday](https://github.com/guillaumebriday)! - Packaging: publish only the built `dist/` (via a new `files` allowlist), build automatically before publish with a `prepack` hook, and flag packages as `sideEffects: false` so bundlers can tree-shake them. Also hardens controllers under TypeScript `strict` mode.
+
+- [#217](https://github.com/stimulus-components/stimulus-components/pull/217) [`e5cddaf`](https://github.com/stimulus-components/stimulus-components/commit/e5cddaf13c1031d3a9a244ff519e319bb69876ab) Thanks [@guillaumebriday](https://github.com/guillaumebriday)! - Replace the remaining `@ts-expect-error`/`@ts-ignore` comments with real types.
+
+  `EventTarget` casts stand in for the suppressions in `checkbox-select-all`, `dropdown` and `popover`. In `rails-nested-form` and `popover` the honest types surfaced a real `null` case — a remove button outside any wrapper, and a `currentTarget` that has already been cleared — which now returns early instead of raising a `TypeError`.
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),

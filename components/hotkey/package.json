@@ -1,6 +1,6 @@
 {
   "name": "@stimulus-components/hotkey",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Stimulus controller that triggers click or focus on the element when a keyboard shortcut is pressed.",
   "keywords": [
     "stimulus",

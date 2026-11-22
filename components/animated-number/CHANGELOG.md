@@ -1,5 +1,19 @@
 # Changelog
 
+## 5.0.1
+
+### Patch Changes
+
+- [#211](https://github.com/stimulus-components/stimulus-components/pull/211) [`a9e90e8`](https://github.com/stimulus-components/stimulus-components/commit/a9e90e8f36ad9d0ba408c1059f4115ef219623ef) Thanks [@guillaumebriday](https://github.com/guillaumebriday)! - Disconnect the lazy-animation IntersectionObserver when the controller disconnects.
+
+  `lazyAnimate()` kept its observer in a local `const` and only unobserved from inside the callback, so an element removed before it ever scrolled into view left the observer — and through it the controller and the detached element — alive. This mirrors the `content-loader` fix in [#207](https://github.com/stimulus-components/stimulus-components/issues/207).
+
+  `lazyValue` was also declared as `number` while the value is registered as a `Boolean`; it is now typed correctly.
+
+  This adds the package's first spec.
+
+- [#191](https://github.com/stimulus-components/stimulus-components/pull/191) [`ee55aef`](https://github.com/stimulus-components/stimulus-components/commit/ee55aef8d654d93a5e839733bb079e709759f8f1) Thanks [@guillaumebriday](https://github.com/guillaumebriday)! - Packaging: publish only the built `dist/` (via a new `files` allowlist), build automatically before publish with a `prepack` hook, and flag packages as `sideEffects: false` so bundlers can tree-shake them. Also hardens controllers under TypeScript `strict` mode.
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),

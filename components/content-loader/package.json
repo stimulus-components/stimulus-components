@@ -1,6 +1,6 @@
 {
   "name": "@stimulus-components/content-loader",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "A Stimulus controller to asynchronously load HTML from an url.",
   "keywords": [
     "stimulus",
