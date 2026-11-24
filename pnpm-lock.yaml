@@ -282,6 +282,12 @@ importers:
         specifier: ^0.0.12
         version: 0.0.12
 
+  components/tabs:
+    dependencies:
+      '@hotwired/stimulus':
+        specifier: ^3
+        version: 3.2.2
+
   components/textarea-autogrow:
     dependencies:
       '@hotwired/stimulus':
@@ -404,6 +410,9 @@ importers:
       '@stimulus-components/speech-recognition':
         specifier: workspace:*
         version: link:../components/speech-recognition
+      '@stimulus-components/tabs':
+        specifier: workspace:*
+        version: link:../components/tabs
       '@stimulus-components/timeago':
         specifier: workspace:*
         version: link:../components/timeago
