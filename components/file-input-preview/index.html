@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Stimulus File Input Preview</title>
+
+    <script type="module">
+      import "../app.css"
+      import "@hotwired/turbo"
+      import { Application } from "@hotwired/stimulus"
+      import FileInputPreview from "./src/index"
+
+      const application = Application.start()
+      application.register("file-input-preview", FileInputPreview)
+    </script>
+  </head>
+
+  <body>
+    <div class="relative h-full max-w-5xl mx-auto px-4">
+      <section class="mt-16">
+        <form action="/" method="GET">
+          <fieldset class="group relative w-full p-2" data-controller="file-input-preview">
+            <p>Photo</p>
+            <label
+              for="photo"
+              class="relative flex flex-col items-center justify-center w-full min-h-40 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-gray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 overflow-hidden transition-all"
+            >
+              <div class="icon-instructions flex flex-col items-center justify-center pt-5 pb-6 w-full transition-all">
+                <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                  <span class="font-semibold">Click to choose</span> or drag and drop an image
+                </p>
+
+                <p class="text-xs text-gray-500 dark:text-gray-400">PNG or JPG</p>
+              </div>
+
+              <input
+                type="file"
+                id="photo"
+                name="photo"
+                accept="image/*"
+                required
+                data-file-input-preview-target="input"
+                class="absolute top-0 left-0 w-full h-full px-2 group-invalid:opacity-0 cursor-pointer file:hidden z-20"
+              />
+
+              <div
+                data-file-input-preview-target="destination"
+                class="flex items-center justify-center w-full h-36 py-2 relative"
+              ></div>
+
+              <template data-file-input-preview-target="previewTemplate">
+                <img
+                  alt="Preview"
+                  class="w-28 h-28 object-cover rounded-lg bg-white shadow absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rotate-[calc(10deg*clamp(0,var(--image-index),2)-(clamp(1,var(--images-count),3)-1)*5deg)] z-[--image-index]"
+                />
+              </template>
+            </label>
+          </fieldset>
+
+          <fieldset class="group relative w-full p-2" data-controller="file-input-preview">
+            <p>Photos</p>
+            <label
+              for="photos"
+              class="relative flex flex-col items-center justify-center w-full min-h-40 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-gray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 overflow-hidden transition-all"
+            >
+              <div class="icon-instructions flex flex-col items-center justify-center pt-5 pb-6 w-full transition-all">
+                <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                  <span class="font-semibold">Click to choose</span> or drag and drop an image
+                </p>
+
+                <p class="text-xs text-gray-500 dark:text-gray-400">PNG or JPG</p>
+              </div>
+
+              <input
+                type="file"
+                id="photos"
+                name="photos"
+                accept="image/*"
+                multiple
+                required
+                data-file-input-preview-target="input"
+                class="absolute top-0 left-0 w-full h-full px-2 group-invalid:opacity-0 cursor-pointer file:hidden z-20"
+              />
+
+              <div
+                data-file-input-preview-target="destination"
+                class="flex items-center justify-center w-full h-36 py-2 relative"
+              ></div>
+
+              <template data-file-input-preview-target="previewTemplate">
+                <img
+                  alt="Preview"
+                  class="w-28 h-28 object-cover rounded-lg bg-white shadow absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rotate-[calc(10deg*clamp(0,var(--image-index),2)-(clamp(1,var(--images-count),3)-1)*5deg)] z-[--image-index]"
+                />
+              </template>
+            </label>
+          </fieldset>
+        </form>
+      </section>
+    </div>
+  </body>
+</html>
