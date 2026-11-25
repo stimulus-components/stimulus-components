@@ -33,6 +33,7 @@
     "@stimulus-components/lightbox": "workspace:*",
     "@stimulus-components/notification": "workspace:*",
     "@stimulus-components/password-visibility": "workspace:*",
+    "@stimulus-components/pluralize": "workspace:*",
     "@stimulus-components/popover": "workspace:*",
     "@stimulus-components/rails-nested-form": "workspace:*",
     "@stimulus-components/read-more": "workspace:*",
